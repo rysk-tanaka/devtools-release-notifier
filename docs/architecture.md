@@ -92,6 +92,7 @@ graph TB
 ### Application Core
 
 #### UnifiedReleaseNotifier
+
 - システムの中核となるオーケストレーター
 - 各ツールの処理を統括
 - 優先度ベースのソース選択
@@ -99,20 +100,24 @@ graph TB
 - エラーハンドリング
 
 #### Source Module
+
 - **ReleaseSource**: 情報源の抽象基底クラス
 - **GitHubReleaseSource**: GitHub Releasesから情報取得
 - **GitHubCommitsSource**: GitHub Commitsから情報取得
 - **HomebrewCaskSource**: Homebrew APIから情報取得
 
 #### Translation Module
+
 - **Translator**: Claude APIを使用した翻訳・要約
 - フォールバック機能（翻訳なしでも動作）
 
 #### Notification Module
+
 - **DiscordNotifier**: Discord Webhookへの通知送信
 - リッチ埋め込みメッセージ形式
 
 #### Cache Module
+
 - **Version Cache**: JSONファイル形式でバージョン情報を永続化
 - 重複通知の防止
 
@@ -263,26 +268,31 @@ graph TB
 ## 技術選択の理由
 
 ### httpx
+
 - 非同期対応（将来の拡張性）
 - HTTP/2サポート
 - より良いタイムアウト管理
 - requestsの後継として設計
 
 ### uv
+
 - 高速なパッケージ解決
 - 一貫した依存関係管理
 - 仮想環境の自動管理
 
 ### pydantic
+
 - 型安全なデータ検証
 - 設定管理の簡素化
 - 将来的なAPI統合の容易性
 
 ### feedparser
+
 - 実績のあるRSS/Atom解析ライブラリ
 - GitHub Atomフィードとの互換性
 
 ### Claude API
+
 - 高品質な日本語翻訳
 - 技術文書の適切な要約
 - コンテキスト理解能力

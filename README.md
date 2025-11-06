@@ -42,7 +42,7 @@
 
 ## プロジェクト構造
 
-```
+```hoge
 devtools-release-notifier/
 ├── devtools_release_notifier/    # メインパッケージ
 │   ├── __init__.py              # パッケージ初期化
