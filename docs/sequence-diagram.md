@@ -388,8 +388,7 @@ sequenceDiagram
     GHA->>GHA: uv sync
 
     GHA->>Env: Load GitHub Secrets
-    Env->>Env: DISCORD_WEBHOOK_ZED
-    Env->>Env: DISCORD_WEBHOOK_DIA
+    Env->>Env: DISCORD_WEBHOOK
     Env->>Env: CLAUDE_CODE_OAUTH_TOKEN
 
     GHA->>Script: uv run devtools-notifier

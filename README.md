@@ -1,10 +1,12 @@
 # devtools-release-notifier
 
-開発ツール（Zed Editor、Dia Browser）のリリース情報を自動取得し、Claude APIで日本語に翻訳してDiscordに通知するシステムです。
+開発ツールのリリース情報を自動取得し、Claude APIで日本語に翻訳してDiscordに通知する汎用システムです。
 
 ## 概要
 
 このプロジェクトは、開発者が使用するツールの最新リリース情報を自動的に監視し、Discordチャンネルに日本語で通知します。複数の情報源から情報を取得し、優先度に基づいて最適なソースを選択する仕組みを持っています。
+
+設定ファイル（`config.yml`）でツールを追加するだけで、任意の開発ツール（Zed Editor、Dia Browser、その他のツール）を監視できます。
 
 ## 主な機能
 
@@ -91,9 +93,8 @@ pip install -e .
 以下の環境変数を設定してください：
 
 ```bash
-# Discord Webhook URLs（必須）
-export DISCORD_WEBHOOK_ZED="https://discord.com/api/webhooks/your-zed-webhook"
-export DISCORD_WEBHOOK_DIA="https://discord.com/api/webhooks/your-dia-webhook"
+# Discord Webhook URL（必須）
+export DISCORD_WEBHOOK="https://discord.com/api/webhooks/your-webhook-url"
 
 # Claude API OAuth Token（オプション、翻訳機能を使う場合）
 export CLAUDE_CODE_OAUTH_TOKEN="your-claude-oauth-token"
@@ -128,9 +129,8 @@ devtools-notifier
 
 リポジトリの Settings → Secrets and variables → Actions で以下のSecretを設定してください：
 
-- `DISCORD_WEBHOOK_ZED`: Zed Editor用のDiscord Webhook URL
-- `DISCORD_WEBHOOK_DIA`: Dia Browser用のDiscord Webhook URL
-- `CLAUDE_CODE_OAUTH_TOKEN`: Claude API OAuthトークン（オプション）
+- `DISCORD_WEBHOOK`: 通知先のDiscord Webhook URL（必須）
+- `CLAUDE_CODE_OAUTH_TOKEN`: Claude API OAuthトークン（オプション、翻訳機能を使用する場合）
 
 ## 設定
 
@@ -155,7 +155,7 @@ tools:
     translation:
       target_lang: ja
     notification:
-      webhook_env: DISCORD_WEBHOOK_ZED
+      webhook_env: DISCORD_WEBHOOK
       color: 5814783  # Blue
 
 common:
@@ -173,7 +173,10 @@ common:
     - **type**: 情報源の種類（github_releases, homebrew_cask, github_commits）
     - **priority**: 優先度（1が最優先）
   - **translation**: 翻訳設定
+    - **target_lang**: 翻訳先の言語（現在は"ja"のみ）
   - **notification**: Discord通知設定
+    - **webhook_env**: Webhook URLを格納する環境変数名（通常は"DISCORD_WEBHOOK"）
+    - **color**: 埋め込みメッセージの色（10進数）
 
 - **common**: 共通設定
   - **check_interval_hours**: チェック間隔（時間）
