@@ -1,6 +1,6 @@
 # devtools-release-notifier
 
-開発ツールのリリース情報を自動取得し、Claude APIで日本語に翻訳してDiscordに通知する汎用システムです。
+開発ツールのリリース情報を自動取得し、GitHub Actionsで日本語に翻訳してDiscordに通知する汎用システムです。
 
 ## 概要
 
@@ -17,7 +17,7 @@
   - 優先度ベースの自動フォールバック
 
 - **AI翻訳による高品質な日本語化**
-  - Claude APIを使用した自然な日本語翻訳
+  - GitHub Actionsでanthropics/claude-code-action@betaを使用
   - リリース内容の要約（3-5個の主な変更点）
   - 技術用語の適切な翻訳
 
@@ -39,22 +39,25 @@
 - **PyYAML**: 柔軟な設定ファイル管理
 - **feedparser**: RSS/Atomフィード解析
 - **pydantic**: 型安全なデータ検証
-- **Claude API**: AI翻訳サービス
+- **GitHub Actions**: CI/CDとanthropics/claude-code-action@betaによる翻訳
 - **Discord Webhook**: 通知配信
 
 ## プロジェクト構造
 
-```hoge
+```
 devtools-release-notifier/
 ├── devtools_release_notifier/    # メインパッケージ
 │   ├── __init__.py              # パッケージ初期化
 │   ├── notifier.py              # メインスクリプト
 │   ├── sources.py               # 情報源クラス
-│   ├── translator.py            # 翻訳クラス
 │   └── discord_notifier.py      # Discord通知クラス
 ├── cache/                       # バージョンキャッシュ
 ├── docs/                        # 設計ドキュメント
-├── .github/workflows/           # GitHub Actions
+├── .github/
+│   ├── workflows/
+│   │   └── notifier.yml         # GitHub Actions設定
+│   └── scripts/
+│       └── send_to_discord.py   # 翻訳結果をDiscordに送信
 ├── config.yml                   # 設定ファイル
 ├── pyproject.toml              # プロジェクト定義
 └── README.md                   # このファイル
@@ -67,7 +70,7 @@ devtools-release-notifier/
 - Python 3.14以上
 - uvパッケージマネージャー（推奨）
 - Discord Webhook URL
-- Claude API OAuthトークン（オプション、翻訳機能を使う場合）
+- Claude Code OAuthトークン（GitHub Actionsで翻訳機能を使う場合のみ必要）
 
 ### インストール手順
 
@@ -111,19 +114,27 @@ export CLAUDE_CODE_OAUTH_TOKEN="your-claude-oauth-token"
 ### ローカルでの実行
 
 ```bash
-# uvを使用
+# 基本的な実行（Discord通知あり）
 uv run devtools-notifier
 
-# または、インストール済みコマンドを使用
-devtools-notifier
+# 新しいリリース情報をJSONファイルに出力（翻訳なし、通知なし）
+uv run devtools-notifier --output releases.json --no-notify
+
+# 通知なしで実行
+uv run devtools-notifier --no-notify
 ```
+
+**オプション:**
+- `--output FILE`: 新しいリリース情報をJSONファイルに出力
+- `--no-notify`: Discord通知をスキップ
 
 ### GitHub Actionsでの自動実行
 
 このプロジェクトは、GitHub Actionsを使用して自動的に実行されます：
 
-- **スケジュール実行**: 毎週月曜日 10:00 UTC
+- **スケジュール実行**: 毎日 10:00 UTC
 - **手動実行**: GitHub ActionsのUIから実行可能
+- **翻訳**: anthropics/claude-code-action@betaで自動翻訳
 
 #### GitHub Secretsの設定
 
@@ -181,7 +192,6 @@ common:
 - **common**: 共通設定
   - **check_interval_hours**: チェック間隔（時間）
   - **cache_directory**: キャッシュディレクトリ
-  - **translation_service**: 翻訳サービス（現在は"claude"のみ）
 
 ## アーキテクチャ
 
@@ -190,7 +200,7 @@ common:
 主要なコンポーネント：
 
 1. **Sources（情報源）**: 複数のAPIから情報を取得
-2. **Translator（翻訳）**: Claude APIで日本語に翻訳・要約
+2. **GitHub Actions**: anthropics/claude-code-action@betaで日本語に翻訳・要約
 3. **DiscordNotifier（通知）**: Discord Webhookで通知配信
 4. **Cache（キャッシュ）**: バージョン情報を永続化
 

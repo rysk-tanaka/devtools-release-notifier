@@ -52,7 +52,6 @@ sequenceDiagram
     participant URN as UnifiedReleaseNotifier
     participant Source as ReleaseSource
     participant Cache as Cache Files
-    participant Trans as Translator
     participant Discord as DiscordNotifier
     participant User
 
@@ -93,25 +92,29 @@ sequenceDiagram
 
     URN->>User: Log: New version detected
 
-    URN->>Trans: translate_and_summarize(tool_name, version, content)
-    Trans-->>URN: translated_content
-
-    URN->>URN: Get webhook URL from env
-
-    alt Webhook URL not found
-        URN->>User: Error: Webhook URL not found
-        URN->>URN: Return
+    alt --output specified
+        URN->>URN: Collect release info
     end
 
-    URN->>Discord: send(webhook_url, tool_name, content, url, color)
-    Discord-->>URN: success/failure
+    alt --no-notify not specified
+        URN->>URN: Get webhook URL from env
 
-    alt Notification sent
-        URN->>User: Log: Notification sent
-        URN->>Cache: save_cached_version(tool_name, version_info)
-    else Notification failed
-        URN->>User: Error: Notification failed
+        alt Webhook URL not found
+            URN->>User: Error: Webhook URL not found
+            URN->>URN: Return
+        end
+
+        URN->>Discord: send(webhook_url, tool_name, content, url, color)
+        Discord-->>URN: success/failure
+
+        alt Notification sent
+            URN->>User: Log: Notification sent
+        else Notification failed
+            URN->>User: Error: Notification failed
+        end
     end
+
+    URN->>Cache: save_cached_version(tool_name, version_info)
 ```
 
 ## GitHub Releases ソース取得シーケンス
@@ -184,51 +187,6 @@ sequenceDiagram
     HB->>HB: Extract homepage URL
     HB->>HB: Build version_info dict
     HB-->>URN: Return version_info
-```
-
-## 翻訳処理シーケンス
-
-```mermaid
-sequenceDiagram
-    participant URN as UnifiedReleaseNotifier
-    participant Trans as Translator
-    participant httpx
-    participant Claude as Claude API
-
-    URN->>Trans: translate_and_summarize(tool_name, version, content)
-
-    alt Service not "claude"
-        Trans-->>URN: Return original content
-    end
-
-    alt OAuth token not available
-        Trans->>Trans: Log warning
-        Trans-->>URN: Return original content
-    end
-
-    Trans->>Trans: Build translation prompt
-
-    Trans->>httpx: post(api_url, headers, json, timeout=30.0)
-    httpx->>Claude: HTTP POST /v1/messages
-
-    Claude->>Claude: Process with claude-sonnet-4-20250514
-
-    alt HTTP Error or Timeout
-        Claude-->>httpx: Error
-        httpx-->>Trans: raise httpx.HTTPError
-        Trans->>Trans: Log error
-        Trans-->>URN: Return original content
-    end
-
-    Claude-->>httpx: JSON Response
-    httpx-->>Trans: Response (200 OK)
-
-    Trans->>httpx: raise_for_status()
-    Trans->>httpx: response.json()
-    httpx-->>Trans: Parsed JSON
-
-    Trans->>Trans: Extract content[0].text
-    Trans-->>URN: Return translated content
 ```
 
 ## Discord通知シーケンス
@@ -511,13 +469,14 @@ sequenceDiagram
     participant Main as main()
     participant URN as UnifiedReleaseNotifier
     participant Sources
-    participant Translator
-    participant Discord
     participant Cache
+    participant Claude as claude-code-action
+    participant Script as send_to_discord.py
+    participant Discord
 
     User->>GHA: Trigger workflow
 
-    GHA->>Main: Execute script
+    GHA->>Main: Execute: devtools-notifier --output releases.json --no-notify
     Main->>URN: Initialize
 
     URN->>Cache: Load config.yml
@@ -533,18 +492,22 @@ sequenceDiagram
         Cache-->>URN: cached_version
 
         alt New version
-            URN->>Translator: translate_and_summarize()
-            Translator-->>URN: translated_content
-
-            URN->>Discord: send()
-            Discord-->>URN: success
-
+            URN->>URN: Collect release info
             URN->>Cache: save_cached_version()
         end
     end
 
+    URN->>URN: Write releases.json
     URN-->>Main: Complete
     Main-->>GHA: Exit 0
+
+    GHA->>GHA: Check releases.json exists
+    GHA->>Claude: Translate releases.json
+    Claude-->>GHA: Translated JSON
+
+    GHA->>Script: Execute with translated content
+    Script->>Discord: Send notifications
+    Discord-->>Script: Success
 
     GHA->>Cache: Commit changes
     GHA->>GHA: Push to repository

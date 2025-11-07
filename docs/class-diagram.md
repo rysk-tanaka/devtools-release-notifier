@@ -9,8 +9,8 @@ classDiagram
     class UnifiedReleaseNotifier {
         -dict config
         -Path cache_dir
-        -Translator translator
         -DiscordNotifier discord_notifier
+        -list new_releases
         +__init__(config_path: str)
         +run() None
         +process_tool(tool: dict) None
@@ -18,6 +18,7 @@ classDiagram
         +get_cache_path(tool_name: str) Path
         +load_cached_version(tool_name: str) Optional~dict~
         +save_cached_version(tool_name: str, version_info: dict) None
+        +output_releases_json(filepath: str) None
     }
 
     class ReleaseSource {
@@ -49,15 +50,6 @@ classDiagram
         -generate_install_info(data: dict) str
     }
 
-    class Translator {
-        -str service
-        -Optional~str~ oauth_token
-        +__init__(service: str, oauth_token: Optional~str~)
-        +translate_and_summarize(tool_name: str, version: str, content: str) str
-        -call_claude_api(prompt: str) Optional~str~
-        -build_translation_prompt(tool_name: str, version: str, content: str) str
-    }
-
     class DiscordNotifier {
         +send(webhook_url: str, tool_name: str, content: str, url: str, color: int) bool
         -build_embed(tool_name: str, content: str, url: str, color: int) dict
@@ -68,7 +60,6 @@ classDiagram
     ReleaseSource <|-- HomebrewCaskSource : implements
 
     UnifiedReleaseNotifier --> ReleaseSource : uses
-    UnifiedReleaseNotifier --> Translator : uses
     UnifiedReleaseNotifier --> DiscordNotifier : uses
 
     UnifiedReleaseNotifier ..> GitHubReleaseSource : creates
@@ -166,10 +157,6 @@ graph TB
             HB[HomebrewCaskSource]
         end
 
-        subgraph "translator.py"
-            TRANS[Translator]
-        end
-
         subgraph "discord_notifier.py"
             NOTIF[DiscordNotifier]
         end
@@ -179,7 +166,6 @@ graph TB
     MAIN_CLASS --> GHR
     MAIN_CLASS --> GHC
     MAIN_CLASS --> HB
-    MAIN_CLASS --> TRANS
     MAIN_CLASS --> NOTIF
 
     MAIN_FUNC --> MAIN_CLASS
@@ -191,7 +177,6 @@ graph TB
     style INIT fill:#50c878,color:#fff
     style MAIN_CLASS fill:#4a90e2,color:#fff
     style BASE fill:#f39c12,color:#fff
-    style TRANS fill:#8e44ad,color:#fff
     style NOTIF fill:#7289da,color:#fff
 ```
 
@@ -217,7 +202,6 @@ graph LR
     subgraph "Application Modules"
         NOTIFIER[notifier.py]
         SOURCES[sources.py]
-        TRANSLATOR[translator.py]
         DISCORD[discord_notifier.py]
     end
 
@@ -228,7 +212,6 @@ graph LR
     NOTIFIER --> TRACE
 
     NOTIFIER --> SOURCES
-    NOTIFIER --> TRANSLATOR
     NOTIFIER --> DISCORD
 
     SOURCES --> ABC
@@ -236,15 +219,11 @@ graph LR
     SOURCES --> HTTPX
     SOURCES --> FP
 
-    TRANSLATOR --> OS
-    TRANSLATOR --> HTTPX
-
     DISCORD --> DT
     DISCORD --> HTTPX
 
     style NOTIFIER fill:#4a90e2,color:#fff
     style SOURCES fill:#f39c12,color:#fff
-    style TRANSLATOR fill:#8e44ad,color:#fff
     style DISCORD fill:#7289da,color:#fff
 ```
 
@@ -260,17 +239,6 @@ classDiagram
     }
 
     note for ReleaseSource "Returns:\n{\n  'version': str,\n  'content': str,\n  'url': str,\n  'published': datetime,\n  'source': str\n}\nor None if fetch fails"
-```
-
-### Translator Interface
-
-```mermaid
-classDiagram
-    class Translator {
-        +translate_and_summarize(tool_name: str, version: str, content: str) str
-    }
-
-    note for Translator "Input: Original English content\nOutput: Japanese translated and summarized content\nFallback: Returns original if translation fails"
 ```
 
 ### DiscordNotifier Interface
@@ -293,16 +261,14 @@ sequenceDiagram
     participant Client
     participant URN as UnifiedReleaseNotifier
     participant Source
-    participant Trans as Translator
     participant Discord
 
     Client->>URN: __init__(config_path)
     URN->>URN: Load config.yml
     URN->>URN: Create cache directory
-    URN->>Trans: Create Translator
     URN->>Discord: Create DiscordNotifier
 
-    Client->>URN: run()
+    Client->>URN: run(args)
     loop For each tool
         URN->>URN: process_tool(tool)
         URN->>Source: fetch_latest_version()
@@ -312,12 +278,18 @@ sequenceDiagram
         URN->>URN: Compare versions
 
         alt New version detected
-            URN->>Trans: translate_and_summarize(...)
-            Trans-->>URN: translated_content
-            URN->>Discord: send(webhook_url, ...)
-            Discord-->>URN: success
+            alt --output specified
+                URN->>URN: Collect release info
+            end
+            alt --no-notify not specified
+                URN->>Discord: send(webhook_url, ...)
+                Discord-->>URN: success
+            end
             URN->>URN: save_cached_version(tool_name, version_info)
         end
+    end
+    alt --output specified
+        URN->>URN: Write releases.json
     end
 ```
 
@@ -414,7 +386,7 @@ classDiagram
     Exception <|-- KeyError
     Exception <|-- FileNotFoundError
 
-    note for httpxHTTPError "Handled in:\n- sources.py\n- translator.py\n- discord_notifier.py"
+    note for httpxHTTPError "Handled in:\n- sources.py\n- discord_notifier.py"
 
     note for YAMLError "Handled in:\n- notifier.py (config loading)"
 

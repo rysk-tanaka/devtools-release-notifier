@@ -7,7 +7,7 @@ devtools-release-notifierのデータフロー図です。
 ```mermaid
 flowchart TD
     START([Start]) --> LOAD_CONFIG[Load config.yml]
-    LOAD_CONFIG --> INIT[Initialize Components<br/>Translator, DiscordNotifier]
+    LOAD_CONFIG --> INIT[Initialize Components<br/>DiscordNotifier]
 
     INIT --> LOOP_START{For Each Tool<br/>in Config}
 
@@ -34,14 +34,15 @@ flowchart TD
     COMPARE -->|No| INFO[Log: No Update]
     INFO --> LOOP_END
 
-    COMPARE -->|Yes| TRANSLATE[Translate & Summarize<br/>with Claude API]
+    COMPARE -->|Yes| CHECK_OUTPUT{--output<br/>option?}
 
-    TRANSLATE --> TRANSLATE_SUCCESS{Translation<br/>Success?}
-    TRANSLATE_SUCCESS -->|No| FALLBACK[Use Original<br/>Content]
-    TRANSLATE_SUCCESS -->|Yes| TRANSLATED[Use Translated<br/>Content]
+    CHECK_OUTPUT -->|Yes| COLLECT[Collect Release<br/>Info for JSON]
+    CHECK_OUTPUT -->|No| CHECK_NOTIFY{--no-notify<br/>option?}
 
-    FALLBACK --> NOTIFY
-    TRANSLATED --> NOTIFY[Send Discord<br/>Notification]
+    COLLECT --> CHECK_NOTIFY
+
+    CHECK_NOTIFY -->|Yes| SKIP_NOTIFY[Skip Notification]
+    CHECK_NOTIFY -->|No| NOTIFY[Send Discord<br/>Notification]
 
     NOTIFY --> NOTIFY_SUCCESS{Notification<br/>Success?}
     NOTIFY_SUCCESS -->|No| ERR_LOG[Log Error]
@@ -49,19 +50,23 @@ flowchart TD
 
     ERR_LOG --> UPDATE_CACHE
     SUCCESS_LOG --> UPDATE_CACHE[Update Cache<br/>Save New Version]
+    SKIP_NOTIFY --> UPDATE_CACHE
 
     UPDATE_CACHE --> LOOP_END
 
     LOOP_END --> LOOP_START
 
-    LOOP_START -->|No More Tools| END([End])
+    LOOP_START -->|No More Tools| OUTPUT_CHECK{--output<br/>specified?}
+    OUTPUT_CHECK -->|Yes| OUTPUT_JSON[Write releases.json]
+    OUTPUT_CHECK -->|No| END
+    OUTPUT_JSON --> END([End])
 
     style START fill:#28a745,color:#fff
     style END fill:#dc3545,color:#fff
     style FETCH fill:#4a90e2,color:#fff
-    style TRANSLATE fill:#8e44ad,color:#fff
     style NOTIFY fill:#7289da,color:#fff
     style UPDATE_CACHE fill:#f39c12,color:#fff
+    style OUTPUT_JSON fill:#f39c12,color:#fff
 ```
 
 ## 情報源からのデータ取得フロー
@@ -96,40 +101,37 @@ sequenceDiagram
     end
 ```
 
-## 翻訳フロー
+## GitHub Actions翻訳フロー
 
 ```mermaid
 flowchart TD
-    START([Translate Request]) --> CHECK_SERVICE{Translation<br/>Service<br/>Enabled?}
+    START([GitHub Actions Start]) --> RUN_NOTIFIER[Run devtools-notifier<br/>--output releases.json --no-notify]
 
-    CHECK_SERVICE -->|No| RETURN_ORIGINAL[Return Original<br/>Content]
-    RETURN_ORIGINAL --> END
+    RUN_NOTIFIER --> CHECK_FILE{releases.json<br/>exists?}
 
-    CHECK_SERVICE -->|Yes| CHECK_TOKEN{OAuth Token<br/>Available?}
+    CHECK_FILE -->|No| NO_RELEASES[No new releases]
+    NO_RELEASES --> END
 
-    CHECK_TOKEN -->|No| RETURN_ORIGINAL
+    CHECK_FILE -->|Yes| READ_JSON[Read releases.json]
 
-    CHECK_TOKEN -->|Yes| BUILD_PROMPT[Build Translation<br/>Prompt]
+    READ_JSON --> CLAUDE_ACTION[anthropics/claude-code-action@beta<br/>Translate to Japanese]
 
-    BUILD_PROMPT --> REQUEST[HTTP POST to<br/>Claude API]
+    CLAUDE_ACTION --> PARSE_RESPONSE[Parse Translated<br/>JSON Response]
 
-    REQUEST --> TIMEOUT{Request<br/>Success?}
+    PARSE_RESPONSE --> SEND_SCRIPT[Run send_to_discord.py<br/>with translated content]
 
-    TIMEOUT -->|No| LOG_ERROR[Log HTTP Error]
-    LOG_ERROR --> RETURN_ORIGINAL
+    SEND_SCRIPT --> SEND_SUCCESS{Send<br/>Success?}
 
-    TIMEOUT -->|Yes| PARSE[Parse JSON<br/>Response]
+    SEND_SUCCESS -->|Yes| COMMIT[Commit cache updates]
+    SEND_SUCCESS -->|No| LOG_ERROR[Log Error]
 
-    PARSE --> EXTRACT[Extract Translated<br/>Content]
-
-    EXTRACT --> RETURN_TRANSLATED[Return Translated<br/>Content]
-
-    RETURN_TRANSLATED --> END([End])
+    LOG_ERROR --> COMMIT
+    COMMIT --> END([End])
 
     style START fill:#28a745,color:#fff
     style END fill:#dc3545,color:#fff
-    style REQUEST fill:#8e44ad,color:#fff
-    style RETURN_TRANSLATED fill:#50c878,color:#fff
+    style CLAUDE_ACTION fill:#8e44ad,color:#fff
+    style SEND_SCRIPT fill:#7289da,color:#fff
 ```
 
 ## Discord通知フロー
@@ -285,14 +287,29 @@ flowchart LR
     GHR_DICT --> UNIFIED
     HB_DICT --> UNIFIED
 
-    subgraph "Translation"
-        TRANS_IN[Original Content<br/>English]
-        TRANS_OUT[Translated Content<br/>Japanese]
-
-        TRANS_IN --> |Claude API| TRANS_OUT
+    subgraph "JSON Output (--output)"
+        JSON_OUTPUT[{
+            tool_name: str,
+            version: str,
+            content: str,
+            url: str,
+            color: int,
+            webhook_env: str
+        }]
     end
 
-    UNIFIED --> TRANS_IN
+    UNIFIED --> JSON_OUTPUT
+
+    subgraph "GitHub Actions Translation"
+        TRANS_IN[releases.json]
+        CLAUDE_TRANS[claude-code-action<br/>Translation]
+        TRANS_OUT[Translated JSON]
+
+        TRANS_IN --> CLAUDE_TRANS
+        CLAUDE_TRANS --> TRANS_OUT
+    end
+
+    JSON_OUTPUT --> TRANS_IN
 
     subgraph "Discord Message"
         DISCORD_EMBED[{
@@ -305,10 +322,11 @@ flowchart LR
         }]
     end
 
-    TRANS_OUT --> DISCORD_EMBED
+    TRANS_OUT --> |send_to_discord.py| DISCORD_EMBED
 
     style UNIFIED fill:#4a90e2,color:#fff
-    style TRANS_OUT fill:#8e44ad,color:#fff
+    style JSON_OUTPUT fill:#f39c12,color:#fff
+    style CLAUDE_TRANS fill:#8e44ad,color:#fff
     style DISCORD_EMBED fill:#7289da,color:#fff
 ```
 

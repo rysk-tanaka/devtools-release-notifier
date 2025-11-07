@@ -10,14 +10,16 @@ graph TB
         GHR[GitHub Releases<br/>Atom Feed]
         GHC[GitHub Commits<br/>Atom Feed]
         HB[Homebrew API<br/>JSON API]
-        CLAUDE[Claude API<br/>Translation Service]
+        CLAUDE[Claude Code Action<br/>anthropics/claude-code-action@beta]
         DISCORD[Discord<br/>Webhook]
     end
 
     subgraph "GitHub Actions"
-        SCHEDULE[Scheduled Trigger<br/>Every Monday 10:00 UTC]
+        SCHEDULE[Scheduled Trigger<br/>Every Day 10:00 UTC]
         MANUAL[Manual Trigger<br/>workflow_dispatch]
         RUNNER[GitHub Actions Runner]
+        TRANSLATE[Translation Step<br/>claude-code-action]
+        SEND_SCRIPT[send_to_discord.py<br/>Send Translated Content]
     end
 
     subgraph "Application Core"
@@ -29,10 +31,6 @@ graph TB
             SRC_GHR[GitHubReleaseSource]
             SRC_GHC[GitHubCommitsSource]
             SRC_HB[HomebrewCaskSource]
-        end
-
-        subgraph "Translation Module"
-            TRANS[Translator<br/>AI Translation]
         end
 
         subgraph "Notification Module"
@@ -58,8 +56,11 @@ graph TB
     SRC_GHC --> GHC
     SRC_HB --> HB
 
-    MAIN --> TRANS
-    TRANS --> CLAUDE
+    MAIN -->|releases.json| RUNNER
+    RUNNER --> TRANSLATE
+    TRANSLATE --> CLAUDE
+    CLAUDE -->|translated content| SEND_SCRIPT
+    SEND_SCRIPT --> DISCORD
 
     MAIN --> NOTIF
     NOTIF --> DISCORD
@@ -72,6 +73,8 @@ graph TB
     style CACHE fill:#f39c12,color:#fff
     style CLAUDE fill:#8e44ad,color:#fff
     style DISCORD fill:#7289da,color:#fff
+    style TRANSLATE fill:#8e44ad,color:#fff
+    style SEND_SCRIPT fill:#7289da,color:#fff
 ```
 
 ## コンポーネント説明
@@ -80,14 +83,16 @@ graph TB
 
 - **GitHub Releases/Commits**: Atomフィード形式でリリース情報を提供
 - **Homebrew API**: JSON形式でパッケージ情報を提供
-- **Claude API**: 翻訳・要約サービス
+- **Claude Code Action**: anthropics/claude-code-action@betaによる翻訳・要約サービス
 - **Discord Webhook**: 通知配信サービス
 
 ### GitHub Actions
 
-- **Scheduled Trigger**: 毎週月曜日10:00 UTCに自動実行
+- **Scheduled Trigger**: 毎日10:00 UTCに自動実行
 - **Manual Trigger**: 手動実行用のトリガー
 - **Runner**: ワークフロー実行環境
+- **Translation Step**: claude-code-actionを使用した翻訳処理
+- **send_to_discord.py**: 翻訳されたコンテンツをDiscordに送信するスクリプト
 
 ### Application Core
 
@@ -105,11 +110,6 @@ graph TB
 - **GitHubReleaseSource**: GitHub Releasesから情報取得
 - **GitHubCommitsSource**: GitHub Commitsから情報取得
 - **HomebrewCaskSource**: Homebrew APIから情報取得
-
-#### Translation Module
-
-- **Translator**: Claude APIを使用した翻訳・要約
-- フォールバック機能（翻訳なしでも動作）
 
 #### Notification Module
 
