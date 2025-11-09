@@ -26,7 +26,6 @@ sequenceDiagram
     Config-->>URN: Return config dict
 
     URN->>URN: Create cache directory
-    URN->>URN: Initialize Translator
     URN->>URN: Initialize DiscordNotifier
 
     Main->>URN: run()

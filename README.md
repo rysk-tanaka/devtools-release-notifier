@@ -164,8 +164,6 @@ tools:
         priority: 2
         cask_name: zed
         api_url: "https://formulae.brew.sh/api/cask/zed.json"
-    translation:
-      target_lang: ja
     notification:
       webhook_env: DISCORD_WEBHOOK
       color: 5814783  # Blue
@@ -173,7 +171,6 @@ tools:
 common:
   check_interval_hours: 6
   cache_directory: "./cache"
-  translation_service: "claude"
 ```
 
 ### 設定項目の説明
@@ -184,8 +181,6 @@ common:
   - **sources**: 情報源のリスト（優先度順）
     - **type**: 情報源の種類（github_releases, homebrew_cask, github_commits）
     - **priority**: 優先度（1が最優先）
-  - **translation**: 翻訳設定
-    - **target_lang**: 翻訳先の言語（現在は"ja"のみ）
   - **notification**: Discord通知設定
     - **webhook_env**: Webhook URLを格納する環境変数名（通常は"DISCORD_WEBHOOK"）
     - **color**: 埋め込みメッセージの色（10進数）

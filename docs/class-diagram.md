@@ -94,10 +94,6 @@ classDiagram
         +Optional~str~ cask_name
     }
 
-    class Translation {
-        +str target_lang
-    }
-
     class Notification {
         +str webhook_env
         +int color
@@ -106,7 +102,6 @@ classDiagram
     class Common {
         +int check_interval_hours
         +str cache_directory
-        +str translation_service
     }
 
     class VersionInfo {
@@ -133,7 +128,6 @@ classDiagram
     Config "1" *-- "many" Tool
     Config "1" *-- "1" Common
     Tool "1" *-- "many" Source
-    Tool "1" *-- "1" Translation
     Tool "1" *-- "1" Notification
     DiscordEmbed "1" *-- "1" Footer
 ```
