@@ -168,10 +168,10 @@ graph LR
 
 ## 📖 関連ドキュメント
 
-- **[リポジトリREADME](https://github.com/rysk/devtools-release-notifier/blob/main/README.md)**: プロジェクト概要とセットアップ手順
-- **[CLAUDE.md](https://github.com/rysk/devtools-release-notifier/blob/main/CLAUDE.md)**: 実装仕様とClaude Code向け指示書
-- **[pyproject.toml](https://github.com/rysk/devtools-release-notifier/blob/main/pyproject.toml)**: プロジェクト定義と依存関係
-- **[config.yml](https://github.com/rysk/devtools-release-notifier/blob/main/config.yml)**: アプリケーション設定
+- **[リポジトリREADME](https://github.com/rysk-tanaka/devtools-release-notifier/blob/main/README.md)**: プロジェクト概要とセットアップ手順
+- **[CLAUDE.md](https://github.com/rysk-tanaka/devtools-release-notifier/blob/main/CLAUDE.md)**: 実装仕様とClaude Code向け指示書
+- **[pyproject.toml](https://github.com/rysk-tanaka/devtools-release-notifier/blob/main/pyproject.toml)**: プロジェクト定義と依存関係
+- **[config.yml](https://github.com/rysk-tanaka/devtools-release-notifier/blob/main/config.yml)**: アプリケーション設定
 
 ## 🔍 図の凡例
 
