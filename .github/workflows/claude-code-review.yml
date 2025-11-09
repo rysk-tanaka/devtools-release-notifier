@@ -63,8 +63,8 @@ jobs:
             承認 / 要修正 / コメント
 
             ---
-            🤖 モデル: [使用したモデル名]
-            💰 コスト: 入力XXXトークン, 出力XXXトークン, $X.XX
+            使用したモデル名と実際のトークン数、推定コストを計算して出力してください。
+            形式: 🤖 モデル: [実際のモデル名] / 💰 コスト: 入力[N]トークン, 出力[M]トークン, $[金額]
 
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
           # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options

@@ -43,14 +43,12 @@ jobs:
           # Add cost output to responses
           prompt: |
             ユーザーのリクエストに日本語で対応してください。
-            回答の最後に以下の形式でモデル名とコスト情報を出力してください：
+            回答の最後に、使用したモデル名と実際のトークン数、推定コストを計算して出力してください。
 
             ---
-            🤖 モデル: [使用したモデル名]
-            💰 コスト: 入力XXXトークン, 出力XXXトークン, $X.XX
+            形式: 🤖 モデル: [実際のモデル名] / 💰 コスト: 入力[N]トークン, 出力[M]トークン, $[金額]
 
-          # Optional: Give a custom prompt to Claude. If this is not specified, Claude will perform the instructions specified in the comment that tagged it.
-          # prompt: 'Update the pull request description to include a summary of changes.'
+          # Note: Custom prompt is defined above to add Japanese support and cost tracking
 
           # Optional: Add claude_args to customize behavior and configuration
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
