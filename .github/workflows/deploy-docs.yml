@@ -37,10 +37,13 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          # Fixed to specific version for reproducible builds
+          version: 9.15.0
 
       - name: Sync documentation
         working-directory: rspress
+        env:
+          GITHUB_REPO_URL: https://github.com/${{ github.repository }}/blob/main
         run: bash scripts/sync-docs.sh
 
       - name: Install dependencies

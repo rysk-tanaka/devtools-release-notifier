@@ -8,15 +8,22 @@ set -e
 SOURCE_DIR="../docs"
 TARGET_DIR="docs"
 
-# GitHubリポジトリURLを動的に取得
+# GitHubリポジトリURLを取得
 get_github_repo_url() {
+  # 1. 環境変数を優先
+  if [ -n "$GITHUB_REPO_URL" ]; then
+    echo "$GITHUB_REPO_URL"
+    return
+  fi
+
+  # 2. git設定から動的取得
   local remote_url
   remote_url=$(git config --get remote.origin.url 2>/dev/null || echo "")
 
   if [ -z "$remote_url" ]; then
-    # フォールバック: git設定から取得できない場合
-    echo "https://github.com/rysk/devtools-release-notifier/blob/main"
-    return
+    echo "❌ Error: Cannot determine GitHub repository URL" >&2
+    echo "   Set GITHUB_REPO_URL environment variable or ensure git remote is configured" >&2
+    exit 1
   fi
 
   # SSH形式 (git@github.com:user/repo.git or git@github.com-*:user/repo.git) をHTTPS形式に変換
@@ -28,6 +35,9 @@ get_github_repo_url() {
   # HTTPS形式 (.git を削除)
   elif [[ "$remote_url" == https://github.com/* ]]; then
     remote_url=$(echo "$remote_url" | sed 's/\.git$//')
+  else
+    echo "❌ Error: Unsupported remote URL format: ${remote_url}" >&2
+    exit 1
   fi
 
   echo "${remote_url}/blob/main"
@@ -75,18 +85,21 @@ echo "🔗 Fixing links..."
 for file in ${TARGET_DIR}/*.md; do
   if [ -f "$file" ]; then
     # macOSとLinux両方で動作するsedコマンド
+    # 対応拡張子ごとに置換（.md, .toml, .yml, .yaml, .json）
     if [[ "$OSTYPE" == "darwin"* ]]; then
       # macOS
-      sed -i '' "s|\.\./README\.md|${GITHUB_REPO}/README.md|g" "$file"
-      sed -i '' "s|\.\./CLAUDE\.md|${GITHUB_REPO}/CLAUDE.md|g" "$file"
-      sed -i '' "s|\.\./pyproject\.toml|${GITHUB_REPO}/pyproject.toml|g" "$file"
-      sed -i '' "s|\.\./config\.yml|${GITHUB_REPO}/config.yml|g" "$file"
+      sed -i '' "s|\.\./\([A-Za-z0-9_.-]*\.md\)|${GITHUB_REPO}/\1|g" "$file"
+      sed -i '' "s|\.\./\([A-Za-z0-9_.-]*\.toml\)|${GITHUB_REPO}/\1|g" "$file"
+      sed -i '' "s|\.\./\([A-Za-z0-9_.-]*\.yml\)|${GITHUB_REPO}/\1|g" "$file"
+      sed -i '' "s|\.\./\([A-Za-z0-9_.-]*\.yaml\)|${GITHUB_REPO}/\1|g" "$file"
+      sed -i '' "s|\.\./\([A-Za-z0-9_.-]*\.json\)|${GITHUB_REPO}/\1|g" "$file"
     else
       # Linux
-      sed -i "s|\.\./README\.md|${GITHUB_REPO}/README.md|g" "$file"
-      sed -i "s|\.\./CLAUDE\.md|${GITHUB_REPO}/CLAUDE.md|g" "$file"
-      sed -i "s|\.\./pyproject\.toml|${GITHUB_REPO}/pyproject.toml|g" "$file"
-      sed -i "s|\.\./config\.yml|${GITHUB_REPO}/config.yml|g" "$file"
+      sed -i "s|\.\./\([A-Za-z0-9_.-]*\.md\)|${GITHUB_REPO}/\1|g" "$file"
+      sed -i "s|\.\./\([A-Za-z0-9_.-]*\.toml\)|${GITHUB_REPO}/\1|g" "$file"
+      sed -i "s|\.\./\([A-Za-z0-9_.-]*\.yml\)|${GITHUB_REPO}/\1|g" "$file"
+      sed -i "s|\.\./\([A-Za-z0-9_.-]*\.yaml\)|${GITHUB_REPO}/\1|g" "$file"
+      sed -i "s|\.\./\([A-Za-z0-9_.-]*\.json\)|${GITHUB_REPO}/\1|g" "$file"
     fi
   fi
 done
