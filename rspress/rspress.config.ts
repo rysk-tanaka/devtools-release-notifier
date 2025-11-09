@@ -12,7 +12,7 @@ export default defineConfig({
         icon: "github",
         mode: "link",
         // Note: Update this URL manually if repository name changes
-        content: "https://github.com/rysk/devtools-release-notifier",
+        content: "https://github.com/rysk-tanaka/devtools-release-notifier",
       },
     ],
   },
