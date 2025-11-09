@@ -92,27 +92,27 @@ flowchart LR
     end
 
     subgraph "Unified Format"
-        UNIFIED[{
+        UNIFIED["(
             version: str,
             content: str,
             url: str,
             published: datetime,
             source: str
-        }]
+        )"]
     end
 
     GHR_DICT --> UNIFIED
     HB_DICT --> UNIFIED
 
     subgraph "JSON Output (--output)"
-        JSON_OUTPUT[{
+        JSON_OUTPUT["(
             tool_name: str,
             version: str,
             content: str,
             url: str,
             color: int,
             webhook_env: str
-        }]
+        )"]
     end
 
     UNIFIED --> JSON_OUTPUT

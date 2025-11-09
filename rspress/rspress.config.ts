@@ -1,4 +1,5 @@
 import { defineConfig } from "rspress/config";
+import mermaid from "rspress-plugin-mermaid";
 
 export default defineConfig({
   root: "docs",
@@ -25,4 +26,5 @@ export default defineConfig({
     // which cannot be checked during build time without causing errors
     checkDeadLinks: false,
   },
+  plugins: [mermaid()],
 });

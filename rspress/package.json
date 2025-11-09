@@ -10,6 +10,7 @@
     "sync": "bash scripts/sync-docs.sh"
   },
   "devDependencies": {
-    "rspress": "^1.0.0"
+    "rspress": "^1.0.0",
+    "rspress-plugin-mermaid": "^0.3.0"
   }
 }
