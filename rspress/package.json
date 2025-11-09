@@ -1,0 +1,14 @@
+{
+  "name": "devtools-release-notifier-docs",
+  "version": "1.0.0",
+  "description": "Documentation site for devtools-release-notifier",
+  "private": true,
+  "scripts": {
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview"
+  },
+  "devDependencies": {
+    "rspress": "^1.0.0"
+  }
+}
