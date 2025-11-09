@@ -1,0 +1,22 @@
+# Ensure Markdown files are treated as text, not binary
+*.md text diff=markdown
+
+# Python files
+*.py text diff=python
+
+# YAML files
+*.yml text
+*.yaml text
+
+# Configuration files
+*.toml text
+*.json text
+*.ini text
+*.cfg text
+
+# Documentation
+*.txt text
+*.rst text
+
+# Line ending normalization
+* text=auto
