@@ -41,7 +41,7 @@ jobs:
             actions: read
 
           # Add cost output to responses
-          direct_prompt: |
+          prompt: |
             ユーザーのリクエストに日本語で対応してください。
             回答の最後に以下の形式でモデル名とコスト情報を出力してください：
 

@@ -44,7 +44,7 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
           # Direct prompt for automated review (no @claude mention needed)
-          direct_prompt: |
+          prompt: |
             このプルリクエストを日本語でレビューしてください。以下の観点からフィードバックを提供してください：
             - コード品質とベストプラクティス
             - 潜在的なバグや問題
