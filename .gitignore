@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Node.js (rspress)
+rspress/node_modules/
+rspress/doc_build/
+rspress/.rspress_cache/
+rspress/.pnpm-store/
