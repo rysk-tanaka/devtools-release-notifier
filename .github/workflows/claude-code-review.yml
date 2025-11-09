@@ -1,22 +1,28 @@
 name: Claude Code Review
 
 on:
+  # 1. PRタイトルに[review]が含まれる場合
   pull_request:
     types: [opened, synchronize]
-    # Optional: Only run on specific file changes
-    # paths:
-    #   - "src/**/*.ts"
-    #   - "src/**/*.tsx"
-    #   - "src/**/*.js"
-    #   - "src/**/*.jsx"
+
+  # 2. PRコメントで@claude-reviewをメンション
+  issue_comment:
+    types: [created]
+
+  # 3. 手動実行
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "PR番号を指定してレビューを実行"
+        required: true
+        type: string
 
 jobs:
   claude-review:
-    # Optional: Filter by PR author
-    # if: |
-    #   github.event.pull_request.user.login == 'external-contributor' ||
-    #   github.event.pull_request.user.login == 'new-developer' ||
-    #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
+    if: |
+      (github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[review]')) ||
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request && contains(github.event.comment.body, '@claude-review')) ||
+      (github.event_name == 'workflow_dispatch')
 
     runs-on: ubuntu-latest
     permissions:
@@ -36,22 +42,30 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          prompt: |
-            REPO: ${{ github.repository }}
-            PR NUMBER: ${{ github.event.pull_request.number }}
 
-            Please review this pull request and provide feedback on:
-            - Code quality and best practices
-            - Potential bugs or issues
-            - Performance considerations
-            - Security concerns
-            - Test coverage
+          # Direct prompt for automated review (no @claude mention needed)
+          direct_prompt: |
+            このプルリクエストを日本語でレビューしてください。以下の観点からフィードバックを提供してください：
+            - コード品質とベストプラクティス
+            - 潜在的なバグや問題
+            - パフォーマンスの考慮事項
+            - セキュリティ上の懸念
 
-            Use the repository's CLAUDE.md for guidance on style and conventions. Be constructive and helpful in your feedback.
+            回答は簡潔にまとめ、以下の形式で出力してください：
 
-            Use `gh pr comment` with your Bash tool to leave your review as a comment on the PR.
+            ## ✅ 良い点
+            - （主要な良い点を2-3個）
+
+            ## ⚠️ 改善点
+            - （重要な問題のみ1-3個）
+
+            ## 総合評価
+            承認 / 要修正 / コメント
+
+            ---
+            🤖 モデル: [使用したモデル名]
+            💰 コスト: 入力XXXトークン, 出力XXXトークン, $X.XX
 
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
           # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options
           claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"'
-

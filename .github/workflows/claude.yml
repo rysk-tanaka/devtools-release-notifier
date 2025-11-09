@@ -13,10 +13,10 @@ on:
 jobs:
   claude:
     if: |
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
-      (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+      (github.event_name == 'issue_comment' && (contains(github.event.comment.body, '@claude ') || github.event.comment.body == '@claude')) ||
+      (github.event_name == 'pull_request_review_comment' && (contains(github.event.comment.body, '@claude ') || github.event.comment.body == '@claude')) ||
+      (github.event_name == 'pull_request_review' && (contains(github.event.review.body, '@claude ') || github.event.review.body == '@claude')) ||
+      (github.event_name == 'issues' && ((contains(github.event.issue.body, '@claude ') || github.event.issue.body == '@claude') || (contains(github.event.issue.title, '@claude ') || github.event.issue.title == '@claude')))
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -40,6 +40,15 @@ jobs:
           additional_permissions: |
             actions: read
 
+          # Add cost output to responses
+          direct_prompt: |
+            ユーザーのリクエストに日本語で対応してください。
+            回答の最後に以下の形式でモデル名とコスト情報を出力してください：
+
+            ---
+            🤖 モデル: [使用したモデル名]
+            💰 コスト: 入力XXXトークン, 出力XXXトークン, $X.XX
+
           # Optional: Give a custom prompt to Claude. If this is not specified, Claude will perform the instructions specified in the comment that tagged it.
           # prompt: 'Update the pull request description to include a summary of changes.'
 
@@ -47,4 +56,3 @@ jobs:
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
           # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options
           # claude_args: '--allowed-tools Bash(gh pr:*)'
-
