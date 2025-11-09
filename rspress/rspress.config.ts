@@ -11,6 +11,7 @@ export default defineConfig({
       {
         icon: "github",
         mode: "link",
+        // Note: Update this URL manually if repository name changes
         content: "https://github.com/rysk/devtools-release-notifier",
       },
     ],
@@ -20,6 +21,8 @@ export default defineConfig({
     codeBlocks: true,
   },
   markdown: {
+    // Disabled because documentation contains external links to GitHub files
+    // which cannot be checked during build time without causing errors
     checkDeadLinks: false,
   },
 });
