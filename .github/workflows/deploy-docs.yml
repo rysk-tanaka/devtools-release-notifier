@@ -5,8 +5,9 @@ on:
     branches:
       - main
     paths:
-      - 'rspress/**'
-      - '.github/workflows/deploy-docs.yml'
+      - "docs/**"
+      - "rspress/**"
+      - ".github/workflows/deploy-docs.yml"
   workflow_dispatch:
 
 permissions:
@@ -37,6 +38,10 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9
+
+      - name: Sync documentation
+        working-directory: rspress
+        run: bash scripts/sync-docs.sh
 
       - name: Install dependencies
         working-directory: rspress
