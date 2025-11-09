@@ -44,7 +44,7 @@
 
 ## プロジェクト構造
 
-```
+```text
 devtools-release-notifier/
 ├── devtools_release_notifier/    # メインパッケージ
 │   ├── __init__.py              # パッケージ初期化
@@ -125,6 +125,7 @@ uv run devtools-notifier --no-notify
 ```
 
 **オプション:**
+
 - `--output FILE`: 新しいリリース情報をJSONファイルに出力
 - `--no-notify`: Discord通知をスキップ
 
@@ -270,14 +271,6 @@ uv run pytest --cov=devtools_release_notifier
 # キャッシュファイルを削除
 rm cache/*.json
 ```
-
-## ライセンス
-
-MIT License
-
-## 貢献
-
-プルリクエストやイシューの報告を歓迎します！
 
 ## 関連リンク
 
