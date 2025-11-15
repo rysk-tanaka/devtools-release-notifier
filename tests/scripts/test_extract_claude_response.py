@@ -65,12 +65,12 @@ def test_extract_multiple_json_returns_last():
     """Test that when multiple JSON blocks exist, the last one is returned."""
     text = """First block:
 ```json
-[{"tool_name": "First"}]
+[{"tool_name": "First", "translated_content": "First content"}]
 ```
 
 Second block:
 ```json
-[{"tool_name": "Second"}]
+[{"tool_name": "Second", "translated_content": "Second content"}]
 ```
 """
     result = extract_json_from_text(text)
@@ -95,7 +95,7 @@ def test_invalid_json_skipped():
 
 Valid JSON:
 ```json
-[{"tool_name": "Valid"}]
+[{"tool_name": "Valid", "translated_content": "Valid content"}]
 ```
 """
     result = extract_json_from_text(text)
@@ -235,3 +235,42 @@ def test_no_json_found_in_file(tmp_path: Path):
 
     with pytest.raises(ValueError, match="Could not find translated JSON"):
         extract_claude_response(str(execution_file))
+
+
+def test_invalid_translated_release_missing_fields(tmp_path: Path):
+    """Test that JSON with missing required fields is rejected."""
+    execution_file = tmp_path / "invalid_fields.json"
+    # Missing 'translated_content' field
+    data = [{"type": "result", "result": '[{"tool_name": "Test Tool"}]'}]
+    execution_file.write_text(json.dumps(data))
+
+    with pytest.raises(ValueError, match="Could not find translated JSON"):
+        extract_claude_response(str(execution_file))
+
+
+def test_invalid_translated_release_wrong_type(tmp_path: Path):
+    """Test that JSON with wrong field types is rejected."""
+    execution_file = tmp_path / "wrong_type.json"
+    # tool_name should be string, not number
+    data = [{"type": "result", "result": '[{"tool_name": 123, "translated_content": "Test"}]'}]
+    execution_file.write_text(json.dumps(data))
+
+    with pytest.raises(ValueError, match="Could not find translated JSON"):
+        extract_claude_response(str(execution_file))
+
+
+def test_valid_translated_release_with_extra_fields(tmp_path: Path):
+    """Test that JSON with extra fields is accepted (Pydantic allows extra fields by default)."""
+    execution_file = tmp_path / "extra_fields.json"
+    data = [
+        {
+            "type": "result",
+            "result": '[{"tool_name": "Test", "translated_content": "Content", "extra": "ignored"}]',
+        }
+    ]
+    execution_file.write_text(json.dumps(data))
+
+    # This should succeed - Pydantic ignores extra fields by default
+    result = extract_claude_response(str(execution_file))
+    parsed = json.loads(result)
+    assert parsed[0]["tool_name"] == "Test"
