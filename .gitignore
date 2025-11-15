@@ -17,3 +17,14 @@ rspress/node_modules/
 rspress/doc_build/
 rspress/.rspress_cache/
 rspress/.pnpm-store/
+
+# Cache files
+cache/*.json
+!cache/.gitkeep
+
+# Environment variables
+.env
+.env.local
+
+# Release output
+releases.json

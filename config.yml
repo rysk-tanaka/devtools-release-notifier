@@ -1,0 +1,34 @@
+tools:
+  - name: "Zed Editor"
+    enabled: true
+    sources:
+      - type: "github_releases"
+        priority: 1
+        atom_url: "https://github.com/zed-industries/zed/releases.atom"
+        owner: "zed-industries"
+        repo: "zed"
+      - type: "homebrew_cask"
+        priority: 2
+        api_url: "https://formulae.brew.sh/api/cask/zed.json"
+    notification:
+      webhook_env: "DISCORD_WEBHOOK"
+      color: 5814783
+
+  - name: "Dia Browser"
+    enabled: true
+    sources:
+      - type: "homebrew_cask"
+        priority: 1
+        api_url: "https://formulae.brew.sh/api/cask/dia.json"
+      - type: "github_commits"
+        priority: 2
+        atom_url: "https://github.com/diadatp/dia/commits/main.atom"
+        owner: "diadatp"
+        repo: "dia"
+    notification:
+      webhook_env: "DISCORD_WEBHOOK"
+      color: 3447003
+
+common:
+  check_interval_hours: 6
+  cache_directory: "./cache"
