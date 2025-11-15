@@ -3,7 +3,7 @@
 import httpx
 import respx
 
-from devtools_release_notifier.notifiers import DiscordNotifier
+from devtools_release_notifier.notifiers.discord import DiscordNotifier
 
 # Constants
 VALID_COLOR = 5814783

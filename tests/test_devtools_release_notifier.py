@@ -5,9 +5,9 @@
 def test_import():
     """Test basic module imports."""
     from devtools_release_notifier import notifier
-    from devtools_release_notifier import sources
-    from devtools_release_notifier import notifiers
+    from devtools_release_notifier.sources import base
+    from devtools_release_notifier.notifiers import discord
 
     assert notifier is not None
-    assert sources is not None
-    assert notifiers is not None
+    assert base is not None
+    assert discord is not None

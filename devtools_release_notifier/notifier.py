@@ -13,13 +13,11 @@ from pydantic import ValidationError
 from devtools_release_notifier.models.config import AppConfig
 from devtools_release_notifier.models.output import ReleaseOutput
 from devtools_release_notifier.models.release import CachedRelease, ReleaseInfo
-from devtools_release_notifier.notifiers import DiscordNotifier
-from devtools_release_notifier.sources import (
-    GitHubCommitsSource,
-    GitHubReleaseSource,
-    HomebrewCaskSource,
-    ReleaseSource,
-)
+from devtools_release_notifier.notifiers.discord import DiscordNotifier
+from devtools_release_notifier.sources.base import ReleaseSource
+from devtools_release_notifier.sources.github_commits import GitHubCommitsSource
+from devtools_release_notifier.sources.github_releases import GitHubReleaseSource
+from devtools_release_notifier.sources.homebrew_cask import HomebrewCaskSource
 
 
 class UnifiedReleaseNotifier:

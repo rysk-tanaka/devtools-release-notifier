@@ -6,11 +6,9 @@ from unittest.mock import MagicMock, patch
 import httpx
 import respx
 
-from devtools_release_notifier.sources import (
-    GitHubCommitsSource,
-    GitHubReleaseSource,
-    HomebrewCaskSource,
-)
+from devtools_release_notifier.sources.github_commits import GitHubCommitsSource
+from devtools_release_notifier.sources.github_releases import GitHubReleaseSource
+from devtools_release_notifier.sources.homebrew_cask import HomebrewCaskSource
 
 # Sample Atom feed with published_parsed
 ATOM_FEED_WITH_PUBLISHED = """<?xml version="1.0" encoding="UTF-8"?>
