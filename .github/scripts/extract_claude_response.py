@@ -74,7 +74,7 @@ def extract_claude_response(execution_file_path: str) -> str:
         raise ValueError(f"Failed to parse execution file as JSON: {e}") from e
 
     # Try to extract response from various possible structures
-    # Attempt 1: If data is a list (array), look for type="result" or type="assistant"
+    # Array format handling: If data is a list (array), look for type="result" or type="assistant"
     if isinstance(data, list):
         # Try from last to first
         for item in reversed(data):
@@ -109,7 +109,7 @@ def extract_claude_response(execution_file_path: str) -> str:
                         if json_response:
                             return json_response
 
-    # Attempt 2: Look for 'response' or 'output' field (dict format)
+    # Dict format - direct fields: Look for 'response' or 'output' field
     if isinstance(data, dict):
         for key in ["response", "output", "result", "content"]:
             if key in data:
@@ -119,7 +119,7 @@ def extract_claude_response(execution_file_path: str) -> str:
                     if json_response:
                         return json_response
 
-        # Attempt 3: Look for messages array
+        # Dict format - messages array: Look for messages array
         if "messages" in data and isinstance(data["messages"], list):
             # Get the last assistant message
             for msg in reversed(data["messages"]):
@@ -130,7 +130,7 @@ def extract_claude_response(execution_file_path: str) -> str:
                         if json_response:
                             return json_response
 
-        # Attempt 4: Look for conversation or history
+        # Dict format - conversation/history: Look for conversation or history
         for key in ["conversation", "history", "transcript"]:
             if key in data and isinstance(data[key], list):
                 # Get the last item
