@@ -1,10 +1,9 @@
 """Tests for release information sources."""
 
-from datetime import UTC, datetime
+from datetime import datetime
 from unittest.mock import MagicMock, patch
 
 import httpx
-import pytest
 import respx
 
 from devtools_release_notifier.sources import (
@@ -191,7 +190,9 @@ class TestHomebrewCaskSource:
 
         # Mock response without version
         respx.get("https://formulae.brew.sh/api/cask/invalid.json").mock(
-            return_value=httpx.Response(200, json={"token": "invalid", "homepage": "https://example.com"})
+            return_value=httpx.Response(
+                200, json={"token": "invalid", "homepage": "https://example.com"}
+            )
         )
 
         source = HomebrewCaskSource(config)

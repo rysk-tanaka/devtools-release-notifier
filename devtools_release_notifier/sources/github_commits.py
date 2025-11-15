@@ -1,5 +1,6 @@
 """GitHub Commits source for release information."""
 
+import time
 from datetime import UTC, datetime
 
 import feedparser
@@ -32,9 +33,11 @@ class GitHubCommitsSource(ReleaseSource):
             # Try to get published time, fallback to updated time or current time
             published_time = None
             if hasattr(latest, "published_parsed") and latest.published_parsed:
-                published_time = datetime(*latest.published_parsed[:6], tzinfo=UTC)
+                time_tuple: time.struct_time = latest.published_parsed  # type: ignore[assignment]
+                published_time = datetime(*time_tuple[:6], tzinfo=UTC)
             elif hasattr(latest, "updated_parsed") and latest.updated_parsed:
-                published_time = datetime(*latest.updated_parsed[:6], tzinfo=UTC)
+                time_tuple: time.struct_time = latest.updated_parsed  # type: ignore[assignment]
+                published_time = datetime(*time_tuple[:6], tzinfo=UTC)
             else:
                 published_time = datetime.now(UTC)
 

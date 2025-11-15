@@ -1,7 +1,6 @@
 """Tests for Discord notifier."""
 
 import httpx
-import pytest
 import respx
 
 from devtools_release_notifier.notifiers import DiscordNotifier
