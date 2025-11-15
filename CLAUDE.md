@@ -526,6 +526,14 @@ releases.json
 - エラーハンドリング: `httpx.HTTPError`をキャッチ
 - JSON解析: `response.json()`でJSONデータ取得
 
+### Discord API準拠
+
+- タイムスタンプ形式: RFC 3339形式（末尾を'Z'にする）
+  - Discord APIはISO 8601のサブセットであるRFC 3339を要求
+  - 例: `datetime.now(UTC).isoformat().replace("+00:00", "Z")`
+  - 誤り: `datetime.now(UTC).isoformat()` → "2025-01-15T12:00:00+00:00"
+  - 正しい: `datetime.now(UTC).isoformat().replace("+00:00", "Z")` → "2025-01-15T12:00:00Z"
+
 ### エラーハンドリング
 
 - 各ソースでの取得失敗は警告を表示して次のソースへ
