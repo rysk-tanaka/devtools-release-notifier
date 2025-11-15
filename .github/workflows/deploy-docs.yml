@@ -20,7 +20,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validate-mermaid:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate Mermaid syntax in docs
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/workspace \
+            ghcr.io/suwa-sh/md-mermaid-lint:latest "docs/**/*.md"
+
   build:
+    needs: validate-mermaid
     runs-on: ubuntu-latest
 
     steps:
