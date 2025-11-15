@@ -1,7 +1,7 @@
 """Release information models."""
 
 from datetime import datetime
-from typing import Literal, Optional
+from typing import Literal
 
 from pydantic import BaseModel, Field
 
@@ -25,16 +25,12 @@ class ReleaseInfo(BaseModel):
     source: Literal["github_releases", "homebrew_cask", "github_commits"] = Field(
         ..., description="Source type identifier"
     )
-    download_url: Optional[str] = Field(
-        None, description="Direct download URL (mainly for Homebrew)"
-    )
+    download_url: str | None = Field(None, description="Direct download URL (mainly for Homebrew)")
 
     class Config:
         """Pydantic model configuration."""
 
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
+        json_encoders = {datetime: lambda v: v.isoformat()}
 
 
 class CachedRelease(BaseModel):
@@ -46,13 +42,9 @@ class CachedRelease(BaseModel):
     """
 
     version: str = Field(..., description="Cached version string")
-    timestamp: datetime = Field(
-        default_factory=datetime.utcnow, description="Cache timestamp"
-    )
+    timestamp: datetime = Field(default_factory=datetime.utcnow, description="Cache timestamp")
 
     class Config:
         """Pydantic model configuration."""
 
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
+        json_encoders = {datetime: lambda v: v.isoformat()}

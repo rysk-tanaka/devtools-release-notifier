@@ -1,7 +1,6 @@
 """Discord webhook models."""
 
 from datetime import datetime
-from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -31,11 +30,9 @@ class DiscordEmbed(BaseModel):
     title: str = Field(..., description="Embed title")
     description: str = Field(..., description="Embed description")
     url: str = Field(..., description="Embed URL")
-    color: int = Field(
-        ..., ge=0, le=16777215, description="Embed color (0-16777215)"
-    )
+    color: int = Field(..., ge=0, le=16777215, description="Embed color (0-16777215)")
     timestamp: str = Field(..., description="ISO 8601 timestamp")
-    footer: Optional[DiscordEmbedFooter] = Field(None, description="Embed footer")
+    footer: DiscordEmbedFooter | None = Field(None, description="Embed footer")
 
 
 class DiscordWebhookPayload(BaseModel):

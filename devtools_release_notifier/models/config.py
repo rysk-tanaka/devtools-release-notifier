@@ -1,6 +1,6 @@
 """Configuration models."""
 
-from typing import Literal, Optional, Union
+from typing import Literal
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -36,7 +36,7 @@ class HomebrewCaskSourceConfig(BaseModel):
     type: Literal["homebrew_cask"] = Field(..., description="Source type")
     priority: int = Field(..., ge=1, description="Priority (lower is higher)")
     api_url: str = Field(..., description="Homebrew API URL")
-    atom_url: Optional[str] = Field(None, description="Atom feed URL (optional)")
+    atom_url: str | None = Field(None, description="Atom feed URL (optional)")
 
 
 class GitHubCommitsSourceConfig(BaseModel):
@@ -57,11 +57,7 @@ class GitHubCommitsSourceConfig(BaseModel):
     atom_url: str = Field(..., description="Atom feed URL")
 
 
-SourceConfig = Union[
-    GitHubReleasesSourceConfig,
-    HomebrewCaskSourceConfig,
-    GitHubCommitsSourceConfig,
-]
+SourceConfig = GitHubReleasesSourceConfig | HomebrewCaskSourceConfig | GitHubCommitsSourceConfig
 
 
 class NotificationConfig(BaseModel):
@@ -76,9 +72,7 @@ class NotificationConfig(BaseModel):
         default="DISCORD_WEBHOOK",
         description="Environment variable name for webhook URL",
     )
-    color: int = Field(
-        ..., ge=0, le=16777215, description="Discord embed color (0-16777215)"
-    )
+    color: int = Field(..., ge=0, le=16777215, description="Discord embed color (0-16777215)")
 
 
 class ToolConfig(BaseModel):
@@ -94,9 +88,7 @@ class ToolConfig(BaseModel):
     name: str = Field(..., description="Tool name")
     enabled: bool = Field(default=True, description="Whether this tool is enabled")
     sources: list[SourceConfig] = Field(..., description="Source configurations")
-    notification: NotificationConfig = Field(
-        ..., description="Notification configuration"
-    )
+    notification: NotificationConfig = Field(..., description="Notification configuration")
 
     @field_validator("sources")
     @classmethod
@@ -115,12 +107,8 @@ class CommonConfig(BaseModel):
         cache_directory: Cache directory path
     """
 
-    check_interval_hours: int = Field(
-        default=6, ge=1, description="Check interval in hours"
-    )
-    cache_directory: str = Field(
-        default="./cache", description="Cache directory path"
-    )
+    check_interval_hours: int = Field(default=6, ge=1, description="Check interval in hours")
+    cache_directory: str = Field(default="./cache", description="Cache directory path")
 
 
 class AppConfig(BaseModel):
@@ -132,9 +120,7 @@ class AppConfig(BaseModel):
     """
 
     tools: list[ToolConfig] = Field(..., description="Tool configurations")
-    common: CommonConfig = Field(
-        default_factory=CommonConfig, description="Common configuration"
-    )
+    common: CommonConfig = Field(default_factory=CommonConfig, description="Common configuration")
 
     @field_validator("tools")
     @classmethod

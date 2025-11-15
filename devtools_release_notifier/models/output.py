@@ -22,9 +22,7 @@ class ReleaseOutput(BaseModel):
     version: str = Field(..., description="Version string")
     content: str = Field(..., description="Release content")
     url: str = Field(..., description="Release URL")
-    color: int = Field(
-        ..., ge=0, le=16777215, description="Discord embed color (0-16777215)"
-    )
+    color: int = Field(..., ge=0, le=16777215, description="Discord embed color (0-16777215)")
     webhook_env: str = Field(
         default="DISCORD_WEBHOOK",
         description="Environment variable name for webhook URL",
