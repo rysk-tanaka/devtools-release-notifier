@@ -15,6 +15,42 @@ dev = [
     "mypy>=1.18.2",
     "pre-commit>=4.3.0",
     "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
     "respx>=0.22.0",
     "ruff>=0.14.3",
 ]
+
+[project.scripts]
+
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["devtools_release_notifier", "devtools_release_notifier.*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+"*" = ["*"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=devtools_release_notifier"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.ruff]
+line-length = 100
+exclude = ["**/node_modules", "**/__pycache__", "venv*", "package*"]
+
+[tool.mypy]
+exclude = ["build/"]
+plugins = ["pydantic.mypy"]
+follow_imports = "skip"
+
+[[tool.mypy.overrides]]
+module = "*"
+ignore_missing_imports = true
