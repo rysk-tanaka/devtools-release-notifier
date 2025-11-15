@@ -1,0 +1,99 @@
+name: Check Development Tools Releases
+
+on:
+  schedule:
+    # Run daily at 10:00 UTC (19:00 JST)
+    - cron: '0 10 * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  check-releases:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Install Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Check for new releases
+        id: check
+        run: |
+          uv run devtools-notifier --output releases.json --no-notify
+          if [ -f releases.json ]; then
+            echo "has_releases=true" >> $GITHUB_OUTPUT
+            echo "📦 Found new releases:"
+            cat releases.json
+          else
+            echo "has_releases=false" >> $GITHUB_OUTPUT
+            echo "ℹ️  No new releases found"
+          fi
+
+      - name: Translate with Claude
+        if: steps.check.outputs.has_releases == 'true'
+        id: translate
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            以下は開発ツールのリリース情報です。各ツールについて日本語で要約してください。
+
+            $(cat releases.json)
+
+            各ツールについて、以下の形式でJSON配列として出力してください：
+            [
+              {
+                "tool_name": "Zed Editor",
+                "translated_content": "## 📌 主な変更点\n- 変更1\n- 変更2\n- 変更3"
+              }
+            ]
+
+            重要:
+            - 要約は3-5個の主な変更点を簡潔に記載してください
+            - JSONのみを出力し、追加の説明は不要です
+            - tool_nameは元のツール名と完全に一致させてください
+          claude_args: '--allowed-tools "read,grep,glob" --max-turns 5'
+
+      - name: Extract Claude response
+        if: steps.check.outputs.has_releases == 'true'
+        id: extract
+        run: |
+          echo "🔍 Extracting translation from execution file..."
+          TRANSLATED=$(uv run python .github/scripts/extract_claude_response.py ${{ steps.translate.outputs.execution_file }})
+          echo "translated<<EOF" >> $GITHUB_OUTPUT
+          echo "$TRANSLATED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "✓ Extracted translation:"
+          echo "$TRANSLATED"
+
+      - name: Send to Discord
+        if: steps.check.outputs.has_releases == 'true'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "📤 Sending notifications to Discord..."
+          uv run python .github/scripts/send_to_discord.py \
+            releases.json \
+            '${{ steps.extract.outputs.translated }}'
+
+      - name: Commit cache updates
+        if: steps.check.outputs.has_releases == 'true'
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add cache/*.json
+          if git diff --staged --quiet; then
+            echo "ℹ️  No cache changes to commit"
+          else
+            git commit -m "chore: update release cache [skip ci]"
+            git push
+            echo "✓ Cache updated"
+          fi
