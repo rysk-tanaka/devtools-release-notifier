@@ -85,7 +85,7 @@ jobs:
         id: extract
         run: |
           echo "🔍 Extracting translation from execution file..."
-          TRANSLATED=$(uv run python .github/scripts/extract_claude_response.py ${{ steps.translate.outputs.execution_file }})
+          TRANSLATED=$(uv run python -m devtools_release_notifier.scripts.extract_claude_response ${{ steps.translate.outputs.execution_file }})
           echo "translated<<EOF" >> $GITHUB_OUTPUT
           echo "$TRANSLATED" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -101,7 +101,7 @@ jobs:
         run: |
           echo "📤 Sending notifications to Discord..."
           EXIT_CODE=0
-          uv run python .github/scripts/send_to_discord.py \
+          uv run python -m devtools_release_notifier.scripts.send_to_discord \
             releases.json \
             '${{ steps.extract.outputs.translated }}' || EXIT_CODE=$?
 

@@ -49,14 +49,20 @@ devtools-release-notifier/
 ├── devtools_release_notifier/         # 新規作成（Pythonパッケージ）
 │   ├── __init__.py
 │   ├── notifier.py                    # メインスクリプト（翻訳機能なし）
-│   ├── sources.py                     # 情報源クラス
-│   └── discord_notifier.py            # Discord通知クラス
-├── .github/
-│   ├── workflows/
-│   │   └── notifier.yml               # GitHub Actions設定
-│   └── scripts/
+│   ├── sources/                       # 情報源クラス
+│   ├── notifiers/                     # Discord通知クラス
+│   ├── models/                        # Pydanticモデル
+│   └── scripts/                       # GitHub Actions統合スクリプト
+│       ├── __init__.py
 │       ├── extract_claude_response.py # Claude実行ファイルからレスポンスを抽出
 │       └── send_to_discord.py         # 翻訳結果をDiscordに送信
+├── tests/                             # テストコード
+│   ├── scripts/                       # スクリプトの単体テスト
+│   ├── models/                        # モデルの単体テスト
+│   └── ...                            # その他のテスト
+├── .github/
+│   └── workflows/
+│       └── notifier.yml               # GitHub Actions設定
 └── .gitignore                         # 更新
 ```
 
@@ -402,7 +408,7 @@ jobs:
         id: extract
         run: |
           echo "🔍 Extracting translation from execution file..."
-          TRANSLATED=$(uv run python .github/scripts/extract_claude_response.py ${{ steps.translate.outputs.execution_file }})
+          TRANSLATED=$(uv run python -m devtools_release_notifier.scripts.extract_claude_response ${{ steps.translate.outputs.execution_file }})
           echo "translated<<EOF" >> $GITHUB_OUTPUT
           echo "$TRANSLATED" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -415,7 +421,7 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           echo "📤 Sending notifications to Discord..."
-          uv run python .github/scripts/send_to_discord.py \
+          uv run python -m devtools_release_notifier.scripts.send_to_discord \
             releases.json \
             '${{ steps.extract.outputs.translated }}'
 
