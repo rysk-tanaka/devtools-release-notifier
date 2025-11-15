@@ -8,6 +8,7 @@ import traceback
 from pathlib import Path
 
 import yaml
+from pydantic import ValidationError
 
 from devtools_release_notifier.models.config import AppConfig
 from devtools_release_notifier.models.output import ReleaseOutput
@@ -101,8 +102,14 @@ class UnifiedReleaseNotifier:
             with open(cache_path) as f:
                 data = json.load(f)
             return CachedRelease(**data)
-        except Exception as e:
-            print(f"⚠️  Failed to load cache for {tool_name}: {e}")
+        except json.JSONDecodeError as e:
+            print(f"⚠️  Failed to parse cache for {tool_name}: Invalid JSON - {e}")
+            return None
+        except ValidationError as e:
+            print(f"⚠️  Failed to validate cache for {tool_name}: {e}")
+            return None
+        except OSError as e:
+            print(f"⚠️  Failed to read cache for {tool_name}: {e}")
             return None
 
     def save_cached_version(self, tool_name: str, version: str):
@@ -118,8 +125,8 @@ class UnifiedReleaseNotifier:
         try:
             with open(cache_path, "w") as f:
                 json.dump(cached.model_dump(), f, indent=2)
-        except Exception as e:
-            print(f"⚠️  Failed to save cache for {tool_name}: {e}")
+        except OSError as e:
+            print(f"⚠️  Failed to write cache for {tool_name}: {e}")
 
     def process_tool(self, tool_config, output_file: str | None, no_notify: bool):
         """Process a single tool.
