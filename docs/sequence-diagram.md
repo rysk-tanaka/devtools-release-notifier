@@ -297,10 +297,19 @@ sequenceDiagram
     Env->>Env: DISCORD_WEBHOOK
     Env->>Env: CLAUDE_CODE_OAUTH_TOKEN
 
-    GHA->>Script: uv run devtools-notifier
+    GHA->>Script: uv run devtools-notifier --output releases.json --no-notify
     Script->>Script: Process all tools
     Script->>Cache: Update cache files
-    Script-->>GHA: Exit 0
+    Script-->>GHA: releases.json (if new releases)
+
+    alt New releases found
+        GHA->>GHA: claude-code-action (translate)
+        Note over GHA: Translate release notes to Japanese
+        GHA->>GHA: extract_claude_response.py
+        Note over GHA: Extract translation from execution_file
+        GHA->>GHA: send_to_discord.py
+        Note over GHA: Send translated content to Discord
+    end
 
     GHA->>Git: git config user
     GHA->>Git: git add cache/*.json

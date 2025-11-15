@@ -116,10 +116,12 @@ webhook_env: str"]
     subgraph "GitHub Actions Translation"
         TRANS_IN[releases.json]
         CLAUDE_TRANS[claude-code-action<br/>Translation]
+        EXTRACT[extract_claude_response.py<br/>Extract JSON]
         TRANS_OUT[Translated JSON]
 
         TRANS_IN --> CLAUDE_TRANS
-        CLAUDE_TRANS --> TRANS_OUT
+        CLAUDE_TRANS --> |execution_file| EXTRACT
+        EXTRACT --> TRANS_OUT
     end
 
     JSON_OUTPUT --> TRANS_IN
@@ -129,7 +131,7 @@ webhook_env: str"]
 description: str
 url: str
 color: int
-timestamp: str
+timestamp: str  # RFC 3339 (ending with Z)
 footer: obj"]
     end
 

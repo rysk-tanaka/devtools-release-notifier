@@ -4,7 +4,7 @@
 
 ## 📋 プロジェクト概要
 
-開発ツール（Zed Editor、Dia Browser等）のリリース情報を自動取得し、GitHub Actionsでanthropics/claude-code-action@betaを使って日本語に翻訳してDiscordに通知するシステム。
+開発ツール（Zed Editor、Dia Browser等）のリリース情報を自動取得し、GitHub Actionsでanthropics/claude-code-action@v1を使って日本語に翻訳してDiscordに通知するシステム。
 
 ## 📝 Markdown書式ガイドライン
 
@@ -22,7 +22,7 @@
 - Homebrew APIをベースに複数ツールを統一的に監視
 - GitHub Releases/Commits をフォールバックとして使用
 - 優先度ベースのソース選択機構
-- 重要: GitHub Actionsのanthropics/claude-code-action@betaで翻訳（Pythonコードに翻訳機能なし）
+- 重要: GitHub Actionsのanthropics/claude-code-action@v1で翻訳（Pythonコードに翻訳機能なし）
 - Discord Webhookによる通知配信
 - ファイルベースのバージョンキャッシュ
 
@@ -34,7 +34,7 @@
 - httpx (HTTP通信 - 非同期対応可能)
 - feedparser (RSS/Atom解析)
 - pydantic (型検証)
-- GitHub Actions (anthropics/claude-code-action@beta)
+- GitHub Actions (anthropics/claude-code-action@v1)
 
 ## 📁 ファイル構造
 
@@ -55,6 +55,7 @@ devtools-release-notifier/
 │   ├── workflows/
 │   │   └── notifier.yml               # GitHub Actions設定
 │   └── scripts/
+│       ├── extract_claude_response.py # Claude実行ファイルからレスポンスを抽出
 │       └── send_to_discord.py         # 翻訳結果をDiscordに送信
 └── .gitignore                         # 更新
 ```
@@ -207,7 +208,7 @@ DiscordNotifier クラス
           "description": content[:4000],  # Discord制限
           "url": url,
           "color": color,
-          "timestamp": datetime.utcnow().isoformat(),
+          "timestamp": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
           "footer": {"text": "devtools-release-notifier"}
       }]
   }
@@ -316,13 +317,15 @@ args = parser.parse_args()
 4. 依存関係のインストール（uv sync）
 5. 新しいリリースを取得（uv run devtools-notifier --output releases.json --no-notify）
 6. 新しいリリースがあるかチェック（test -f releases.json）
-7. anthropics/claude-code-action@betaで翻訳
-8. 翻訳結果をDiscordに送信（.github/scripts/send_to_discord.py）
-9. キャッシュファイルのコミット・プッシュ
-   - git config設定
-   - cache/*.json をadd
-   - コミット（変更がある場合のみ）
-   - continue-on-error: true
+7. anthropics/claude-code-action@v1で翻訳
+8. 実行ファイルから翻訳結果を抽出（extract_claude_response.py）
+9. 翻訳結果をDiscordに送信（send_to_discord.py）
+10. キャッシュファイルのコミット・プッシュ
+
+- git config設定
+- cache/*.json をadd
+- コミット（変更がある場合のみ）
+- continue-on-error: true
 
 ワークフロー例
 
@@ -356,18 +359,25 @@ jobs:
           uv run devtools-notifier --output releases.json --no-notify
           if [ -f releases.json ]; then
             echo "has_releases=true" >> $GITHUB_OUTPUT
-            echo "releases_data<<EOF" >> $GITHUB_OUTPUT
-            cat releases.json >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
+            echo "📦 Found new releases:"
+            cat releases.json
+            # Save releases data to output for Claude translation
+            {
+              echo "releases_data<<EOF"
+              cat releases.json
+              echo "EOF"
+            } >> $GITHUB_OUTPUT
           else
             echo "has_releases=false" >> $GITHUB_OUTPUT
+            echo "ℹ️  No new releases found"
           fi
 
       - name: Translate with Claude
         if: steps.check.outputs.has_releases == 'true'
         id: translate
-        uses: anthropics/claude-code-action@beta
+        uses: anthropics/claude-code-action@v1
         with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
             以下は開発ツールのリリース情報です。各ツールについて日本語で要約してください。
 
@@ -381,17 +391,33 @@ jobs:
               }
             ]
 
-            要約は3-5個の主な変更点を簡潔に記載してください。
-          auth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+            重要:
+            - 要約は3-5個の主な変更点を簡潔に記載してください
+            - JSONのみを出力し、追加の説明は不要です
+            - tool_nameは元のツール名と完全に一致させてください
+          claude_args: '--allowed-tools "read,grep,glob" --max-turns 5'
+
+      - name: Extract Claude response
+        if: steps.check.outputs.has_releases == 'true'
+        id: extract
+        run: |
+          echo "🔍 Extracting translation from execution file..."
+          TRANSLATED=$(uv run python .github/scripts/extract_claude_response.py ${{ steps.translate.outputs.execution_file }})
+          echo "translated<<EOF" >> $GITHUB_OUTPUT
+          echo "$TRANSLATED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "✓ Extracted translation:"
+          echo "$TRANSLATED"
 
       - name: Send to Discord
         if: steps.check.outputs.has_releases == 'true'
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
+          echo "📤 Sending notifications to Discord..."
           uv run python .github/scripts/send_to_discord.py \
             releases.json \
-            '${{ steps.translate.outputs.response }}'
+            '${{ steps.extract.outputs.translated }}'
 
       - name: Commit cache updates
         if: steps.check.outputs.has_releases == 'true'
@@ -400,11 +426,109 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add cache/*.json
-          git diff --staged --quiet || git commit -m "chore: update release cache [skip ci]"
-          git push
+          if git diff --staged --quiet; then
+            echo "ℹ️  No cache changes to commit"
+          else
+            git commit -m "chore: update release cache [skip ci]"
+            git push
+            echo "✓ Cache updated"
+          fi
 ```
 
-### ステップ5: .github/scripts/send_to_discord.py の作成
+### ステップ5: .github/scripts/extract_claude_response.py の作成
+
+Claude Code Actionの実行ファイルから翻訳結果を抽出するスクリプトを作成してください。
+
+仕様
+
+- 第1引数: execution_fileのパス（claude-code-action@v1が outputs.execution_file で出力）
+- 実行ファイル（JSON形式）を解析してClaude応答を抽出
+- 正規表現でJSON配列パターンを検索
+- 複数のJSON構造パターンに対応（messages/conversation/response等）
+- 標準出力に抽出したJSON文字列を出力
+- エラー時は標準エラー出力にメッセージを表示して終了
+
+実装
+
+```python
+#!/usr/bin/env python3
+"""Extract Claude's response from claude-code-action execution file."""
+
+import json
+import re
+import sys
+from pathlib import Path
+
+
+def extract_json_from_text(text: str) -> str | None:
+    """Extract JSON array from text."""
+    json_pattern = r'\[\s*\{.*?\}\s*\]'
+    matches = re.findall(json_pattern, text, re.DOTALL)
+    if matches:
+        return matches[-1]  # Return the last match
+    return None
+
+
+def extract_claude_response(execution_file_path: str) -> str:
+    """Extract Claude's final response from execution file."""
+    file_path = Path(execution_file_path)
+
+    if not file_path.exists():
+        raise ValueError(f"Execution file not found: {execution_file_path}")
+
+    try:
+        with open(file_path) as f:
+            data = json.load(f)
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Failed to parse execution file as JSON: {e}") from e
+
+    # Try to extract from various structures
+    if isinstance(data, dict):
+        # Attempt 1: Look for response/output fields
+        for key in ['response', 'output', 'result', 'content']:
+            if key in data and isinstance(data[key], str):
+                json_response = extract_json_from_text(data[key])
+                if json_response:
+                    return json_response
+
+        # Attempt 2: Look for messages array
+        if 'messages' in data and isinstance(data['messages'], list):
+            for msg in reversed(data['messages']):
+                if isinstance(msg, dict) and msg.get('role') == 'assistant':
+                    content = msg.get('content', '')
+                    if isinstance(content, str):
+                        json_response = extract_json_from_text(content)
+                        if json_response:
+                            return json_response
+
+    # Fallback: Search entire file content
+    file_content = file_path.read_text()
+    json_response = extract_json_from_text(file_content)
+    if json_response:
+        return json_response
+
+    raise ValueError("Could not find translated JSON in execution file")
+
+
+def main():
+    """Main entry point."""
+    if len(sys.argv) != 2:
+        print("Usage: extract_claude_response.py <execution_file>", file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        response = extract_claude_response(sys.argv[1])
+        print(response)
+    except ValueError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### ステップ6: .github/scripts/send_to_discord.py の作成
 
 Discord Webhookに翻訳結果を送信するスクリプトを作成してください。
 
@@ -422,7 +546,8 @@ Discord Webhookに翻訳結果を送信するスクリプトを作成してく�
 import json
 import os
 import sys
-from datetime import datetime
+from datetime import UTC, datetime
+
 import httpx
 
 
@@ -435,7 +560,7 @@ def send_to_discord(webhook_url: str, tool_name: str, version: str,
             "description": translated_content[:4000],
             "url": url,
             "color": color,
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
             "footer": {"text": "devtools-release-notifier"}
         }]
     }
@@ -533,6 +658,7 @@ releases.json
   - 例: `datetime.now(UTC).isoformat().replace("+00:00", "Z")`
   - 誤り: `datetime.now(UTC).isoformat()` → "2025-01-15T12:00:00+00:00"
   - 正しい: `datetime.now(UTC).isoformat().replace("+00:00", "Z")` → "2025-01-15T12:00:00Z"
+  - 注意: `datetime.utcnow()`はPython 3.12+で非推奨、`datetime.now(UTC)`を使用
 
 ### エラーハンドリング
 
@@ -622,7 +748,8 @@ releases.json
 - [ ] devtools_release_notifier/sources.pyを作成（3つのSourceクラス、httpx使用）
 - [ ] devtools_release_notifier/discord_notifier.pyを作成（httpx使用）
 - [ ] devtools_release_notifier/notifier.pyを作成（翻訳機能なし、--output/--no-notifyオプション追加）
-- [ ] .github/workflows/notifier.ymlを作成（anthropics/claude-code-action@beta使用）
+- [ ] .github/workflows/notifier.ymlを作成（anthropics/claude-code-action@v1使用）
+- [ ] .github/scripts/extract_claude_response.pyを作成
 - [ ] .github/scripts/send_to_discord.pyを作成
 - [ ] .gitignoreを更新
 
@@ -652,7 +779,11 @@ uv run devtools-notifier
 - Homebrew JSON API: `https://formulae.brew.sh/api/cask/{cask_name}.json`
 - GitHub Releases Atom: `https://github.com/{owner}/{repo}/releases.atom`
 - Discord Webhook: POST with embed object
-- anthropics/claude-code-action@beta: GitHub Actions用のClaude Code統合
+- anthropics/claude-code-action@v1: GitHub Actions用のClaude Code統合（GA版）
+  - パラメータ: `claude_code_oauth_token`（@betaでは`auth_token`）
+  - 出力: `execution_file`（実行ファイルのパス）
+  - 翻訳結果の取得: execution_fileを解析して抽出（extract_claude_response.py使用）
+  - オプション: `claude_args`でCLI引数を指定可能
 
 ### 色コード
 
