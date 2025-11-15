@@ -73,7 +73,7 @@ class DiscordWebhookPayload(BaseModel):
             description=truncated_content,
             url=url,
             color=color,
-            timestamp=datetime.now(UTC).isoformat(),
+            timestamp=datetime.now(UTC).isoformat().replace("+00:00", "Z"),
             footer=DiscordEmbedFooter(text="devtools-release-notifier"),
         )
 

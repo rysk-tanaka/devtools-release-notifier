@@ -8,6 +8,9 @@ from pydantic import ValidationError
 
 from devtools_release_notifier.models.release import CachedRelease, ReleaseInfo
 
+# Test constants
+MAX_TIME_DIFF_SECONDS = 60
+
 
 def test_release_info_github_releases():
     """Test ReleaseInfo with github_releases source."""
@@ -113,7 +116,7 @@ def test_cached_release_default_timestamp():
     # Verify timestamp is recent (within last minute)
     now = datetime.now(UTC)
     time_diff = (now - cached.timestamp).total_seconds()
-    assert 0 <= time_diff < 60
+    assert 0 <= time_diff < MAX_TIME_DIFF_SECONDS
 
 
 def test_cached_release_json_serialization():
