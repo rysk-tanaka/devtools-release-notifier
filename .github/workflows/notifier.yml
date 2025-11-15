@@ -81,6 +81,7 @@ jobs:
 
       - name: Send to Discord
         if: steps.check.outputs.has_releases == 'true'
+        continue-on-error: true
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |

@@ -103,14 +103,19 @@ def main():
 
     # Send notifications
     success_count = 0
+    failed_count = 0
+    skipped_count = 0
+
     for release in releases:
         if not isinstance(release, dict):
             print(f"Warning: Skipping non-dict release: {release}")
+            skipped_count += 1
             continue
 
         tool_name = release.get("tool_name")
         if not tool_name:
             print(f"Warning: Release missing tool_name: {release}")
+            skipped_count += 1
             continue
 
         # Get webhook URL from environment
@@ -119,6 +124,7 @@ def main():
 
         if not webhook_url:
             print(f"⚠️  Webhook URL not found for {tool_name} ({webhook_env})")
+            skipped_count += 1
             continue
 
         # Get translated content or fall back to original
@@ -134,12 +140,30 @@ def main():
             color=release.get("color", 5814783),
         ):
             success_count += 1
+        else:
+            failed_count += 1
 
-    print(f"\n✅ Successfully sent {success_count}/{len(releases)} notifications")
+    # Output detailed summary
+    total_releases = len(releases)
+    print("\n📊 Notification Summary:")
+    print(f"  ✅ Success: {success_count}/{total_releases}")
+    if failed_count > 0:
+        print(f"  ✗ Failed:  {failed_count}/{total_releases}")
+    if skipped_count > 0:
+        print(f"  ⏭️  Skipped: {skipped_count}/{total_releases}")
 
-    # Exit with error if no notifications were sent
-    if success_count == 0 and len(releases) > 0:
+    # Exit with appropriate code
+    if success_count == 0 and total_releases > 0:
+        # All failed
+        print("\n❌ All notifications failed")
         sys.exit(1)
+    elif failed_count > 0:
+        # Partial failure - exit with warning code
+        print(f"\n⚠️  Partial failure: {failed_count} notification(s) failed")
+        sys.exit(2)
+    else:
+        # All successful
+        print("\n✅ All notifications sent successfully")
 
 
 if __name__ == "__main__":

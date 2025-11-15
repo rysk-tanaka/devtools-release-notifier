@@ -24,9 +24,15 @@ def extract_json_from_text(text: str) -> str | None:
     json_pattern = r"\[\s*\{.*?\}\s*\]"
     matches = re.findall(json_pattern, text, re.DOTALL)
 
-    if matches:
-        # Return the last match (most likely the final response)
-        return matches[-1]
+    # Try matches from last to first (most recent response first)
+    for match in reversed(matches):
+        try:
+            # Validate that it's actually valid JSON
+            json.loads(match)
+            return match
+        except json.JSONDecodeError:
+            # Invalid JSON, try next match
+            continue
 
     return None
 
