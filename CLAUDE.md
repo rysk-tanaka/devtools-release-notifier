@@ -6,6 +6,15 @@
 
 開発ツール（Zed Editor、Dia Browser等）のリリース情報を自動取得し、GitHub Actionsでanthropics/claude-code-action@betaを使って日本語に翻訳してDiscordに通知するシステム。
 
+## 📝 Markdown書式ガイドライン
+
+このプロジェクトのすべてのMarkdownファイルは、以下のガイドラインに従ってください。
+
+- 箇条書き前のコロン（:）は使用しない（例: 「以下の項目:」→「以下の項目。」）
+- 太字（**）は使用しない
+- シンプルで読みやすい表記を優先
+- ファイル末尾に必ず改行を追加
+
 ## 🎯 実装要件
 
 ### アーキテクチャ
@@ -13,7 +22,7 @@
 - Homebrew APIをベースに複数ツールを統一的に監視
 - GitHub Releases/Commits をフォールバックとして使用
 - 優先度ベースのソース選択機構
-- **GitHub Actionsのanthropics/claude-code-action@betaで翻訳**（Pythonコードに翻訳機能なし）
+- 重要: GitHub Actionsのanthropics/claude-code-action@betaで翻訳（Pythonコードに翻訳機能なし）
 - Discord Webhookによる通知配信
 - ファイルベースのバージョンキャッシュ
 
@@ -25,13 +34,13 @@
 - httpx (HTTP通信 - 非同期対応可能)
 - feedparser (RSS/Atom解析)
 - pydantic (型検証)
-- **GitHub Actions (anthropics/claude-code-action@beta)**
+- GitHub Actions (anthropics/claude-code-action@beta)
 
 ## 📁 ファイル構造
 
 以下のファイル構造を作成してください：
 
-```
+```text
 devtools-release-notifier/
 ├── pyproject.toml                     # 既存（依存関係を追加）
 ├── config.yml                         # 新規作成
@@ -86,16 +95,16 @@ devtools-notifier = "devtools_release_notifier.notifier:main"
 
 ### ステップ2: config.yml の作成
 
-プロジェクトルートに `config.yml` を作成し、以下の内容を記述してください：
+プロジェクトルートに `config.yml` を作成し、以下の内容を記述してください。
 
-**重要な設定値:**
+重要な設定値
 
 - Zed Editor: GitHub Releases（優先度1）、Homebrew Cask（優先度2）
 - Dia Browser: Homebrew Cask（優先度1）、GitHub Commits（優先度2）
 - キャッシュディレクトリ: ./cache
-- **翻訳設定は削除**（GitHub Actionsで行うため）
+- 重要: 翻訳設定は削除（GitHub Actionsで行うため）
 
-**YAML構造:**
+YAML構造
 
 - `tools`: ツールのリスト
   - `name`: ツール名
@@ -128,21 +137,21 @@ mkdir -p .github/scripts
 
 #### 3-3. devtools_release_notifier/sources.py
 
-以下のクラスを実装してください：
+以下のクラスを実装してください。
 
-**重要: httpxを使用**
+重要: httpxを使用
 
 - `import httpx` を使用
 - HTTPリクエストは `httpx.get()` を使用
 - エラーハンドリングは `httpx.HTTPError` を使用
 - タイムアウトは `timeout=10.0` のように指定
 
-**ReleaseSource (抽象基底クラス)**
+ReleaseSource (抽象基底クラス)
 
 - `__init__(config: Dict)`: 設定を受け取る
 - `fetch_latest_version() -> Optional[Dict]`: 抽象メソッド
 
-**GitHubReleaseSource**
+GitHubReleaseSource
 
 - Atomフィード（`config['atom_url']`）を解析
 - feedparserを使用してエントリーを取得
@@ -158,10 +167,10 @@ mkdir -p .github/scripts
   }
   ```
 
-**HomebrewCaskSource**
+HomebrewCaskSource
 
 - Homebrew JSON API（`config['api_url']`）から情報取得
-- **httpxを使用してGET**: `httpx.get(api_url, timeout=10.0)`
+- httpxを使用してGET: `httpx.get(api_url, timeout=10.0)`
 - レスポンスは `response.raise_for_status()` でステータスチェック
 - 以下の情報を抽出して返す:
 
@@ -178,17 +187,17 @@ mkdir -p .github/scripts
 
 - エラーハンドリング: `except httpx.HTTPError as e`
 
-**GitHubCommitsSource**
+GitHubCommitsSource
 
 - Atomフィード（`config['atom_url']`）を解析
 - GitHubReleaseSourceと同様の構造だが、source名が'github_commits'
 
 #### 3-4. devtools_release_notifier/discord_notifier.py
 
-**DiscordNotifier クラス**
+DiscordNotifier クラス
 
 - `send(webhook_url: str, tool_name: str, content: str, url: str, color: int) -> bool`
-- **httpxを使用**: `httpx.post(webhook_url, json=payload, timeout=10.0)`
+- httpxを使用: `httpx.post(webhook_url, json=payload, timeout=10.0)`
 - Discord Webhook形式でPOST:
 
   ```python
@@ -209,18 +218,18 @@ mkdir -p .github/scripts
 
 #### 3-5. devtools_release_notifier/notifier.py（メインスクリプト）
 
-**重要: 翻訳機能は実装しない**
+重要: 翻訳機能は実装しない
 
-**UnifiedReleaseNotifier クラス**
+UnifiedReleaseNotifier クラス
 
-**初期化 (`__init__`)**
+初期化 (`__init__`)
 
 - config.ymlを読み込み（yamlモジュール使用）
 - キャッシュディレクトリを作成
 - DiscordNotifierを初期化
-- **Translatorは使用しない**
+- 重要: Translatorは使用しない
 
-**ソース取得 (`get_source`)**
+ソース取得 (`get_source`)
 
 - source_typeに応じて適切なSourceクラスを返す
 - マッピング:
@@ -228,7 +237,7 @@ mkdir -p .github/scripts
   - "homebrew_cask" → HomebrewCaskSource
   - "github_commits" → GitHubCommitsSource
 
-**キャッシュ管理**
+キャッシュ管理
 
 - `get_cache_path(tool_name: str) -> Path`: ツール名からキャッシュファイルパスを生成
   - 例: "Zed Editor" → "cache/zed_editor_version.json"
@@ -236,26 +245,26 @@ mkdir -p .github/scripts
 - `save_cached_version(tool_name: str, version_info: Dict)`: JSONファイルに保存
   - datetimeオブジェクトは`.isoformat()`で文字列化
 
-**ツール処理 (`process_tool`)**
+ツール処理 (`process_tool`)
 
 1. 有効性チェック（`enabled: false`ならスキップ）
 2. sourcesを優先度順にソート
 3. 優先度順にソースを試行し、最初に成功したソースから情報取得
 4. キャッシュと比較（`cached['version'] == latest_info['version']`）
 5. 新しいバージョンなら:
-   - **翻訳は行わない**
+   - 重要: 翻訳は行わない
    - `--output`オプションが指定されていれば、リリース情報を収集
    - `--no-notify`が指定されていなければDiscord通知
    - キャッシュ更新
 
-**実行 (`run`)**
+実行 (`run`)
 
 - 全ツールに対してprocess_toolを実行
 - 開始・終了メッセージを表示（絵文字使用）
 - 処理状況のログ出力
 - `--output`オプションが指定されている場合、新しいリリース情報をJSONファイルに出力
 
-**コマンドラインオプション**
+コマンドラインオプション
 
 ```python
 import argparse
@@ -266,7 +275,7 @@ parser.add_argument('--no-notify', action='store_true', help='Skip Discord notif
 args = parser.parse_args()
 ```
 
-**出力JSON形式 (--output)**
+出力JSON形式 (--output)
 
 ```json
 [
@@ -281,7 +290,7 @@ args = parser.parse_args()
 ]
 ```
 
-**エントリーポイント (`main`)**
+エントリーポイント (`main`)
 
 - config.ymlの存在確認
 - コマンドライン引数をパース
@@ -294,28 +303,28 @@ args = parser.parse_args()
 
 `.github/workflows/notifier.yml` を作成してください。
 
-**トリガー:**
+トリガー
 
-- schedule: 1日1回 10:00 UTC (cron: '0 10 * * *')
+- schedule: 1日1回 10:00 UTC (cron: '0 10 ** *')
 - workflow_dispatch: 手動実行
 
-**ジョブフロー:**
+ジョブフロー
 
 1. リポジトリのチェックアウト（actions/checkout@v4）
 2. uvのインストール（astral-sh/setup-uv@v3）
 3. Pythonのインストール（uv python install）
 4. 依存関係のインストール（uv sync）
-5. **新しいリリースを取得**（uv run devtools-notifier --output releases.json --no-notify）
-6. **新しいリリースがあるかチェック**（test -f releases.json）
-7. **anthropics/claude-code-action@betaで翻訳**
-8. **翻訳結果をDiscordに送信**（.github/scripts/send_to_discord.py）
+5. 新しいリリースを取得（uv run devtools-notifier --output releases.json --no-notify）
+6. 新しいリリースがあるかチェック（test -f releases.json）
+7. anthropics/claude-code-action@betaで翻訳
+8. 翻訳結果をDiscordに送信（.github/scripts/send_to_discord.py）
 9. キャッシュファイルのコミット・プッシュ
    - git config設定
    - cache/*.json をadd
    - コミット（変更がある場合のみ）
    - continue-on-error: true
 
-**ワークフロー例:**
+ワークフロー例
 
 ```yaml
 name: Check Development Tools Releases
@@ -399,14 +408,14 @@ jobs:
 
 Discord Webhookに翻訳結果を送信するスクリプトを作成してください。
 
-**仕様:**
+仕様
 
 - 第1引数: releases.json のパス
 - 第2引数: claude-code-actionの翻訳結果（JSON文字列）
 - 翻訳結果とリリース情報をマッチング（tool_nameで）
 - 各ツールについてDiscord Webhookに送信（httpx使用）
 
-**実装:**
+実装
 
 ```python
 #!/usr/bin/env python3
@@ -511,11 +520,11 @@ releases.json
 
 ### HTTPクライアント（httpx）の使用方法
 
-- **同期リクエスト**: `httpx.get()`, `httpx.post()`を直接使用
-- **タイムアウト**: 常に`timeout=10.0`または`timeout=30.0`を指定
-- **ステータスチェック**: `response.raise_for_status()`を呼び出し
-- **エラーハンドリング**: `httpx.HTTPError`をキャッチ
-- **JSON解析**: `response.json()`でJSONデータ取得
+- 同期リクエスト: `httpx.get()`, `httpx.post()`を直接使用
+- タイムアウト: 常に`timeout=10.0`または`timeout=30.0`を指定
+- ステータスチェック: `response.raise_for_status()`を呼び出し
+- エラーハンドリング: `httpx.HTTPError`をキャッチ
+- JSON解析: `response.json()`でJSONデータ取得
 
 ### エラーハンドリング
 
@@ -558,27 +567,27 @@ releases.json
 
 #### コマンド実行
 
-- **uv runの使用**: Pythonコマンド（pytest、ruff、mypyなど）の実行には必ず`uv run`を使用
+- uv runの使用: Pythonコマンド（pytest、ruff、mypyなど）の実行には必ず`uv run`を使用
   - 理由: 仮想環境を自動管理し、実行エラーを防止
   - 例: `uv run pytest`（`source .venv/bin/activate && pytest`ではなく）
 
 #### 型ヒント
 
-- **辞書型**: 型パラメータなしの`dict`を使用（`Dict[str, Any]`ではなく）
+- 辞書型: 型パラメータなしの`dict`を使用（`Dict[str, Any]`ではなく）
   - 理由: 辞書は柔軟な汎用データ構造として使用されることが多い
 - すべての関数に型ヒントを追加
 - `Optional[Dict]`, `List[Dict]`等を適切に使用
 
 #### ファイル構成
 
-- **__init__.py**: デフォルトで空（末尾の改行のみ）
+- __init__.py: デフォルトで空（末尾の改行のみ）
   - 理由: 現代のPythonでは明示的なエクスポートは不要
-- **ファイル末尾**: 必ず改行を追加
+- ファイル末尾: 必ず改行を追加
   - 理由: POSIX標準への準拠、diffの見やすさ向上
 
 #### エラーハンドリング
 
-- **サービス層**: カスタムエラーメッセージで例外を再ラップしない
+- サービス層: カスタムエラーメッセージで例外を再ラップしない
   - 例外はそのまま伝播（`except Exception: raise`）
   - コンテキスト情報はhandler層でログ出力
   - 理由: エラーメッセージの重複を避け、スタックトレースを保持
@@ -586,13 +595,13 @@ releases.json
 
 #### テスト（pytest）
 
-- **テストスタイル**: 関数ベースのテストを推奨
-- **環境変数モック**: `monkeypatch`フィクスチャを使用
+- テストスタイル: 関数ベースのテストを推奨
+- 環境変数モック: `monkeypatch`フィクスチャを使用
   - `monkeypatch.setenv(key, value)`: 設定
   - `monkeypatch.delenv(key, raising=False)`: 削除
-- **マジックナンバー**: 数値は意味のある定数として定義（ruff PLR2004）
-- **副作用の回避**: 実際のAPIリクエストやファイル操作を避け、モックを使用（respx使用）
-- **モジュール再読み込み**: 環境変数やグローバル状態を変更した場合は`importlib.reload()`を使用
+- マジックナンバー: 数値は意味のある定数として定義（ruff PLR2004）
+- 副作用の回避: 実際のAPIリクエストやファイル操作を避け、モックを使用（respx使用）
+- モジュール再読み込み: 環境変数やグローバル状態を変更した場合は`importlib.reload()`を使用
 
 ## ✅ 実装完了の確認項目
 
@@ -632,10 +641,10 @@ uv run devtools-notifier
 
 ### API仕様
 
-- **Homebrew JSON API**: `https://formulae.brew.sh/api/cask/{cask_name}.json`
-- **GitHub Releases Atom**: `https://github.com/{owner}/{repo}/releases.atom`
-- **Discord Webhook**: POST with embed object
-- **anthropics/claude-code-action@beta**: GitHub Actions用のClaude Code統合
+- Homebrew JSON API: `https://formulae.brew.sh/api/cask/{cask_name}.json`
+- GitHub Releases Atom: `https://github.com/{owner}/{repo}/releases.atom`
+- Discord Webhook: POST with embed object
+- anthropics/claude-code-action@beta: GitHub Actions用のClaude Code統合
 
 ### 色コード
 
@@ -657,14 +666,14 @@ uv run devtools-notifier
 
 1. 上記のファイル構造をすべて作成
 2. 各ファイルに仕様通りのコードを実装
-3. **重要**: HTTP通信には必ずhttpxを使用（requestsは使わない）
-4. **重要**: translator.pyは作成しない（翻訳はGitHub Actionsで行う）
-5. **重要**: notifier.pyに--outputと--no-notifyオプションを実装
-6. **重要**: .github/scripts/send_to_discord.pyを作成
+3. 重要: HTTP通信には必ずhttpxを使用（requestsは使わない）
+4. 重要: translator.pyは作成しない（翻訳はGitHub Actionsで行う）
+5. 重要: notifier.pyに--outputと--no-notifyオプションを実装
+6. 重要: .github/scripts/send_to_discord.pyを作成
 7. 型ヒント、docstring、エラーハンドリングを適切に実装
 8. PEP 8に準拠したコードを記述
 
-実装時の注意点：
+実装時の注意点
 
 - 既存のpyproject.tomlは上書きせず、依存関係のみ追加
 - config.ymlには実際に使用可能な設定値を記述（翻訳設定は含めない）

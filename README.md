@@ -10,37 +10,37 @@
 
 ## 主な機能
 
-- **複数情報源の統合監視**
+- 複数情報源の統合監視
   - Homebrew API（優先）
   - GitHub Releases
   - GitHub Commits
   - 優先度ベースの自動フォールバック
 
-- **AI翻訳による高品質な日本語化**
+- AI翻訳による高品質な日本語化
   - GitHub Actionsでanthropics/claude-code-action@betaを使用
   - リリース内容の要約（3-5個の主な変更点）
   - 技術用語の適切な翻訳
 
-- **Discord通知の自動配信**
+- Discord通知の自動配信
   - リッチな埋め込みメッセージ形式
   - ツールごとのカスタムカラー
   - バージョン情報と変更点の明示
 
-- **効率的なキャッシュ管理**
+- 効率的なキャッシュ管理
   - ファイルベースのバージョンキャッシュ
   - 重複通知の防止
   - GitHub Actionsとの統合
 
 ## 技術スタック
 
-- **Python 3.14+**: 最新のPython機能を活用
-- **uv**: 高速なパッケージマネージャー
-- **httpx**: 次世代HTTPクライアント（非同期対応）
-- **PyYAML**: 柔軟な設定ファイル管理
-- **feedparser**: RSS/Atomフィード解析
-- **pydantic**: 型安全なデータ検証
-- **GitHub Actions**: CI/CDとanthropics/claude-code-action@betaによる翻訳
-- **Discord Webhook**: 通知配信
+- Python 3.14+: 最新のPython機能を活用
+- uv: 高速なパッケージマネージャー
+- httpx: 次世代HTTPクライアント（非同期対応）
+- PyYAML: 柔軟な設定ファイル管理
+- feedparser: RSS/Atomフィード解析
+- pydantic: 型安全なデータ検証
+- GitHub Actions: CI/CDとanthropics/claude-code-action@betaによる翻訳
+- Discord Webhook: 通知配信
 
 ## プロジェクト構造
 
@@ -74,14 +74,14 @@ devtools-release-notifier/
 
 ### インストール手順
 
-1. **リポジトリのクローン**
+1. リポジトリのクローン
 
 ```bash
 git clone https://github.com/yourusername/devtools-release-notifier.git
 cd devtools-release-notifier
 ```
 
-2. **依存関係のインストール**
+2. 依存関係のインストール
 
 ```bash
 # uvを使用（推奨）
@@ -91,7 +91,7 @@ uv sync
 pip install -e .
 ```
 
-3. **環境変数の設定**
+3. 環境変数の設定
 
 以下の環境変数を設定してください：
 
@@ -105,7 +105,7 @@ export CLAUDE_CODE_OAUTH_TOKEN="your-claude-oauth-token"
 
 または、`.env`ファイルを作成して設定することもできます。
 
-4. **設定ファイルの確認**
+4. 設定ファイルの確認
 
 `config.yml`を確認し、必要に応じて監視するツールや設定を調整してください。
 
@@ -124,7 +124,7 @@ uv run devtools-notifier --output releases.json --no-notify
 uv run devtools-notifier --no-notify
 ```
 
-**オプション:**
+オプション
 
 - `--output FILE`: 新しいリリース情報をJSONファイルに出力
 - `--no-notify`: Discord通知をスキップ
@@ -133,9 +133,9 @@ uv run devtools-notifier --no-notify
 
 このプロジェクトは、GitHub Actionsを使用して自動的に実行されます：
 
-- **スケジュール実行**: 毎日 10:00 UTC
-- **手動実行**: GitHub ActionsのUIから実行可能
-- **翻訳**: anthropics/claude-code-action@betaで自動翻訳
+- スケジュール実行: 毎日 10:00 UTC
+- 手動実行: GitHub ActionsのUIから実行可能
+- 翻訳: anthropics/claude-code-action@betaで自動翻訳
 
 #### GitHub Secretsの設定
 
@@ -175,19 +175,19 @@ common:
 
 ### 設定項目の説明
 
-- **tools**: 監視するツールのリスト
-  - **name**: ツール名
-  - **enabled**: 監視の有効/無効
-  - **sources**: 情報源のリスト（優先度順）
-    - **type**: 情報源の種類（github_releases, homebrew_cask, github_commits）
-    - **priority**: 優先度（1が最優先）
-  - **notification**: Discord通知設定
-    - **webhook_env**: Webhook URLを格納する環境変数名（通常は"DISCORD_WEBHOOK"）
-    - **color**: 埋め込みメッセージの色（10進数）
+- tools: 監視するツールのリスト
+  - name: ツール名
+  - enabled: 監視の有効/無効
+  - sources: 情報源のリスト（優先度順）
+    - type: 情報源の種類（github_releases, homebrew_cask, github_commits）
+    - priority: 優先度（1が最優先）
+  - notification: Discord通知設定
+    - webhook_env: Webhook URLを格納する環境変数名（通常は"DISCORD_WEBHOOK"）
+    - color: 埋め込みメッセージの色（10進数）
 
-- **common**: 共通設定
-  - **check_interval_hours**: チェック間隔（時間）
-  - **cache_directory**: キャッシュディレクトリ
+- common: 共通設定
+  - check_interval_hours: チェック間隔（時間）
+  - cache_directory: キャッシュディレクトリ
 
 ## アーキテクチャ
 
@@ -195,10 +195,10 @@ common:
 
 主要なコンポーネント：
 
-1. **Sources（情報源）**: 複数のAPIから情報を取得
-2. **GitHub Actions**: anthropics/claude-code-action@betaで日本語に翻訳・要約
-3. **DiscordNotifier（通知）**: Discord Webhookで通知配信
-4. **Cache（キャッシュ）**: バージョン情報を永続化
+1. Sources（情報源）: 複数のAPIから情報を取得
+2. GitHub Actions: anthropics/claude-code-action@betaで日本語に翻訳・要約
+3. DiscordNotifier（通知）: Discord Webhookで通知配信
+4. Cache（キャッシュ）: バージョン情報を永続化
 
 ## 開発
 
@@ -239,10 +239,10 @@ uv run pytest --cov=devtools_release_notifier
 
 このプロジェクトは以下の規約に従います：
 
-- **コマンド実行**: `uv run`を使用
-- **型ヒント**: すべての関数に型ヒントを追加
-- **エラーハンドリング**: 適切な例外処理とログ出力
-- **コードスタイル**: PEP 8準拠、ruffでフォーマット
+- コマンド実行: `uv run`を使用
+- 型ヒント: すべての関数に型ヒントを追加
+- エラーハンドリング: 適切な例外処理とログ出力
+- コードスタイル: PEP 8準拠、ruffでフォーマット
 
 詳細は[CLAUDE.md](CLAUDE.md)を参照してください。
 
