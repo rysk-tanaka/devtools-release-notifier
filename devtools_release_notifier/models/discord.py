@@ -1,6 +1,6 @@
 """Discord webhook models."""
 
-from datetime import datetime
+from datetime import UTC, datetime
 
 from pydantic import BaseModel, Field
 
@@ -73,7 +73,7 @@ class DiscordWebhookPayload(BaseModel):
             description=truncated_content,
             url=url,
             color=color,
-            timestamp=datetime.utcnow().isoformat(),
+            timestamp=datetime.now(UTC).isoformat(),
             footer=DiscordEmbedFooter(text="devtools-release-notifier"),
         )
 

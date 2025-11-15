@@ -1,9 +1,9 @@
 """Release information models."""
 
-from datetime import datetime
+from datetime import UTC, datetime
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_serializer
 
 
 class ReleaseInfo(BaseModel):
@@ -27,10 +27,10 @@ class ReleaseInfo(BaseModel):
     )
     download_url: str | None = Field(None, description="Direct download URL (mainly for Homebrew)")
 
-    class Config:
-        """Pydantic model configuration."""
-
-        json_encoders = {datetime: lambda v: v.isoformat()}
+    @field_serializer("published")
+    def serialize_published(self, value: datetime) -> str:
+        """Serialize published datetime to ISO format string."""
+        return value.isoformat()
 
 
 class CachedRelease(BaseModel):
@@ -42,9 +42,11 @@ class CachedRelease(BaseModel):
     """
 
     version: str = Field(..., description="Cached version string")
-    timestamp: datetime = Field(default_factory=datetime.utcnow, description="Cache timestamp")
+    timestamp: datetime = Field(
+        default_factory=lambda: datetime.now(UTC), description="Cache timestamp"
+    )
 
-    class Config:
-        """Pydantic model configuration."""
-
-        json_encoders = {datetime: lambda v: v.isoformat()}
+    @field_serializer("timestamp")
+    def serialize_timestamp(self, value: datetime) -> str:
+        """Serialize timestamp datetime to ISO format string."""
+        return value.isoformat()
