@@ -31,6 +31,12 @@ jobs:
             echo "has_releases=true" >> $GITHUB_OUTPUT
             echo "📦 Found new releases:"
             cat releases.json
+            # Save releases data to output for Claude translation
+            {
+              echo "releases_data<<EOF"
+              cat releases.json
+              echo "EOF"
+            } >> $GITHUB_OUTPUT
           else
             echo "has_releases=false" >> $GITHUB_OUTPUT
             echo "ℹ️  No new releases found"
@@ -45,7 +51,7 @@ jobs:
           prompt: |
             以下は開発ツールのリリース情報です。各ツールについて日本語で要約してください。
 
-            $(cat releases.json)
+            ${{ steps.check.outputs.releases_data }}
 
             各ツールについて、以下の形式でJSON配列として出力してください：
             [
