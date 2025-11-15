@@ -92,27 +92,23 @@ flowchart LR
     end
 
     subgraph "Unified Format"
-        UNIFIED[{
-            version: str,
-            content: str,
-            url: str,
-            published: datetime,
-            source: str
-        }]
+        UNIFIED["version: str
+content: str
+url: str
+published: datetime
+source: str"]
     end
 
     GHR_DICT --> UNIFIED
     HB_DICT --> UNIFIED
 
     subgraph "JSON Output (--output)"
-        JSON_OUTPUT[{
-            tool_name: str,
-            version: str,
-            content: str,
-            url: str,
-            color: int,
-            webhook_env: str
-        }]
+        JSON_OUTPUT["tool_name: str
+version: str
+content: str
+url: str
+color: int
+webhook_env: str"]
     end
 
     UNIFIED --> JSON_OUTPUT
@@ -129,14 +125,12 @@ flowchart LR
     JSON_OUTPUT --> TRANS_IN
 
     subgraph "Discord Message"
-        DISCORD_EMBED[{
-            title: str,
-            description: str,
-            url: str,
-            color: int,
-            timestamp: str,
-            footer: obj
-        }]
+        DISCORD_EMBED["title: str
+description: str
+url: str
+color: int
+timestamp: str
+footer: obj"]
     end
 
     TRANS_OUT --> |send_to_discord.py| DISCORD_EMBED

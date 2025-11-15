@@ -164,9 +164,9 @@ graph TB
 
     MAIN_FUNC --> MAIN_CLASS
 
-    BASE <|-- GHR
-    BASE <|-- GHC
-    BASE <|-- HB
+    BASE --> GHR
+    BASE --> GHC
+    BASE --> HB
 
     style INIT fill:#50c878,color:#fff
     style MAIN_CLASS fill:#4a90e2,color:#fff
