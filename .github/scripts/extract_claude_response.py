@@ -21,7 +21,7 @@ def extract_json_from_text(text: str) -> str | None:
         Extracted JSON string or None if not found
     """
     # First, try to extract from markdown code blocks
-    markdown_pattern = r"```(?:json)?\s*(\[[\s\S]+?\])\s*```"
+    markdown_pattern = r"```(?:json)?\s*(\[.+?\])\s*```"
     markdown_matches = re.findall(markdown_pattern, text, re.DOTALL)
 
     for match in reversed(markdown_matches):
