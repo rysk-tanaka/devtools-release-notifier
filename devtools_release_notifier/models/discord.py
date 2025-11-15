@@ -52,7 +52,7 @@ class DiscordWebhookPayload(BaseModel):
         content: str,
         url: str,
         color: int,
-    ) -> "DiscordWebhookPayload":
+    ) -> DiscordWebhookPayload:
         """Create a release notification payload.
 
         Args:
