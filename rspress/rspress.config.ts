@@ -6,7 +6,6 @@ export default defineConfig({
   base: "/devtools-release-notifier/",
   title: "devtools-release-notifier",
   description: "Development tools release notifier documentation",
-  logo: false,
   themeConfig: {
     socialLinks: [
       {
