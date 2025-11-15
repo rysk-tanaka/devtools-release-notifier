@@ -58,7 +58,7 @@ class UnifiedReleaseNotifier:
         Raises:
             ValueError: If source type is unknown
         """
-        source_map = {
+        source_map: dict[str, type[ReleaseSource]] = {
             "github_releases": GitHubReleaseSource,
             "homebrew_cask": HomebrewCaskSource,
             "github_commits": GitHubCommitsSource,

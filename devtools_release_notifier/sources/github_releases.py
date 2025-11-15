@@ -33,11 +33,11 @@ class GitHubReleaseSource(ReleaseSource):
             # Try to get published time, fallback to updated time or current time
             published_time = None
             if hasattr(latest, "published_parsed") and latest.published_parsed:
-                time_tuple: time.struct_time = latest.published_parsed  # type: ignore[assignment]
-                published_time = datetime(*time_tuple[:6], tzinfo=UTC)
+                parsed_time: time.struct_time = latest.published_parsed  # type: ignore[assignment]
+                published_time = datetime(*parsed_time[:6], tzinfo=UTC)
             elif hasattr(latest, "updated_parsed") and latest.updated_parsed:
-                time_tuple: time.struct_time = latest.updated_parsed  # type: ignore[assignment]
-                published_time = datetime(*time_tuple[:6], tzinfo=UTC)
+                updated_time: time.struct_time = latest.updated_parsed  # type: ignore[assignment]
+                published_time = datetime(*updated_time[:6], tzinfo=UTC)
             else:
                 published_time = datetime.now(UTC)
 

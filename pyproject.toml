@@ -55,5 +55,5 @@ plugins = ["pydantic.mypy"]
 follow_imports = "skip"
 
 [[tool.mypy.overrides]]
-module = "*"
+module = ["feedparser", "feedparser.*", "yaml", "yaml.*"]
 ignore_missing_imports = true
