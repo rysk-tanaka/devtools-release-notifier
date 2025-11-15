@@ -80,15 +80,28 @@ jobs:
           echo "$TRANSLATED"
 
       - name: Send to Discord
+        id: discord
         if: steps.check.outputs.has_releases == 'true'
         continue-on-error: true
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           echo "📤 Sending notifications to Discord..."
+          EXIT_CODE=0
           uv run python .github/scripts/send_to_discord.py \
             releases.json \
-            '${{ steps.extract.outputs.translated }}'
+            '${{ steps.extract.outputs.translated }}' || EXIT_CODE=$?
+
+          # Output GitHub Actions annotation based on exit code
+          if [ $EXIT_CODE -eq 0 ]; then
+            echo "::notice::All Discord notifications sent successfully"
+          elif [ $EXIT_CODE -eq 2 ]; then
+            echo "::warning::Partial failure: Some Discord notifications failed. Check logs for details."
+          elif [ $EXIT_CODE -eq 1 ]; then
+            echo "::error::All Discord notifications failed. Please check webhook configuration and logs."
+          fi
+
+          exit $EXIT_CODE
 
       - name: Commit cache updates
         if: steps.check.outputs.has_releases == 'true'
