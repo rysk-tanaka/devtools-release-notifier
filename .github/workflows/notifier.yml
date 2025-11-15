@@ -32,11 +32,9 @@ jobs:
             echo "📦 Found new releases:"
             cat releases.json
             # Save releases data to output for Claude translation
-            {
-              echo "releases_data<<EOF"
-              cat releases.json
-              echo "EOF"
-            } >> $GITHUB_OUTPUT
+            echo "releases_data<<EOF" >> $GITHUB_OUTPUT
+            cat releases.json >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
           else
             echo "has_releases=false" >> $GITHUB_OUTPUT
             echo "ℹ️  No new releases found"
