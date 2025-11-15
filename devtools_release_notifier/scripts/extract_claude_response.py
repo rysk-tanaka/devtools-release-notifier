@@ -60,6 +60,183 @@ def extract_json_from_text(text: str) -> str | None:
     return None
 
 
+def _extract_from_result_item(item: dict) -> str | None:
+    """Extract JSON from type='result' item.
+
+    Args:
+        item: Dictionary item from execution file
+
+    Returns:
+        Extracted JSON string or None if not found
+    """
+    if item.get("type") == "result" and "result" in item:
+        response_text = item["result"]
+        if isinstance(response_text, str):
+            return extract_json_from_text(response_text)
+    return None
+
+
+def _extract_from_assistant_item(item: dict) -> str | None:
+    """Extract JSON from type='assistant' item.
+
+    Args:
+        item: Dictionary item from execution file
+
+    Returns:
+        Extracted JSON string or None if not found
+    """
+    if item.get("type") != "assistant" or "message" not in item:
+        return None
+
+    message = item["message"]
+    if not isinstance(message, dict) or "content" not in message:
+        return None
+
+    content = message["content"]
+
+    # Content can be a list of content blocks
+    if isinstance(content, list):
+        for content_block in content:
+            if isinstance(content_block, dict) and "text" in content_block:
+                text = content_block["text"]
+                if isinstance(text, str):
+                    json_response = extract_json_from_text(text)
+                    if json_response:
+                        return json_response
+
+    # Content can be a string
+    elif isinstance(content, str):
+        return extract_json_from_text(content)
+
+    return None
+
+
+def _extract_from_array_format(data: list) -> str | None:
+    """Extract JSON from array format execution file.
+
+    Args:
+        data: List of execution file items
+
+    Returns:
+        Extracted JSON string or None if not found
+    """
+    for item in reversed(data):
+        if not isinstance(item, dict):
+            continue
+
+        # Try result format
+        json_response = _extract_from_result_item(item)
+        if json_response:
+            return json_response
+
+        # Try assistant format
+        json_response = _extract_from_assistant_item(item)
+        if json_response:
+            return json_response
+
+    return None
+
+
+def _extract_from_direct_fields(data: dict) -> str | None:
+    """Extract JSON from direct fields like 'response', 'output', etc.
+
+    Args:
+        data: Dictionary execution file data
+
+    Returns:
+        Extracted JSON string or None if not found
+    """
+    for key in ["response", "output", "result", "content"]:
+        if key in data:
+            response_text = data[key]
+            if isinstance(response_text, str):
+                json_response = extract_json_from_text(response_text)
+                if json_response:
+                    return json_response
+    return None
+
+
+def _extract_from_messages_array(data: dict) -> str | None:
+    """Extract JSON from messages array.
+
+    Args:
+        data: Dictionary execution file data
+
+    Returns:
+        Extracted JSON string or None if not found
+    """
+    if "messages" not in data or not isinstance(data["messages"], list):
+        return None
+
+    for msg in reversed(data["messages"]):
+        if isinstance(msg, dict) and msg.get("role") == "assistant":
+            content = msg.get("content", "")
+            if isinstance(content, str):
+                json_response = extract_json_from_text(content)
+                if json_response:
+                    return json_response
+
+    return None
+
+
+def _extract_from_conversation(data: dict) -> str | None:
+    """Extract JSON from conversation/history/transcript.
+
+    Args:
+        data: Dictionary execution file data
+
+    Returns:
+        Extracted JSON string or None if not found
+    """
+    for key in ["conversation", "history", "transcript"]:
+        if key not in data or not isinstance(data[key], list):
+            continue
+
+        if not data[key]:
+            continue
+
+        last_item = data[key][-1]
+        if not isinstance(last_item, dict):
+            continue
+
+        for field in ["content", "text", "message"]:
+            if field in last_item:
+                text = last_item[field]
+                if isinstance(text, str):
+                    json_response = extract_json_from_text(text)
+                    if json_response:
+                        return json_response
+
+    return None
+
+
+def _extract_from_dict_format(data: dict) -> str | None:
+    """Extract JSON from dict format execution file.
+
+    Args:
+        data: Dictionary execution file data
+
+    Returns:
+        Extracted JSON string or None if not found
+    """
+    # Try direct fields
+    json_response = _extract_from_direct_fields(data)
+    if json_response:
+        return json_response
+
+    # Try messages array
+    json_response = _extract_from_messages_array(data)
+    if json_response:
+        return json_response
+
+    # Try conversation/history
+    json_response = _extract_from_conversation(data)
+    if json_response:
+        return json_response
+
+    return None
+
+
 def extract_claude_response(execution_file_path: str) -> str:
     """Extract Claude's final response from execution file.
 
@@ -83,79 +260,19 @@ def extract_claude_response(execution_file_path: str) -> str:
     except json.JSONDecodeError as e:
         raise ValueError(f"Failed to parse execution file as JSON: {e}") from e
 
-    # Try to extract response from various possible structures
-    # Array format handling: If data is a list (array), look for type="result" or type="assistant"
+    # Try array format
     if isinstance(data, list):
-        # Try from last to first
-        for item in reversed(data):
-            if not isinstance(item, dict):
-                continue
+        json_response = _extract_from_array_format(data)
+        if json_response:
+            return json_response
 
-            # Check for type="result" with "result" field
-            if item.get("type") == "result" and "result" in item:
-                response_text = item["result"]
-                if isinstance(response_text, str):
-                    json_response = extract_json_from_text(response_text)
-                    if json_response:
-                        return json_response
-
-            # Check for type="assistant" with message.content structure
-            if item.get("type") == "assistant" and "message" in item:
-                message = item["message"]
-                if isinstance(message, dict) and "content" in message:
-                    content = message["content"]
-                    # Content can be a list of content blocks
-                    if isinstance(content, list):
-                        for content_block in content:
-                            if isinstance(content_block, dict) and "text" in content_block:
-                                text = content_block["text"]
-                                if isinstance(text, str):
-                                    json_response = extract_json_from_text(text)
-                                    if json_response:
-                                        return json_response
-                    # Content can be a string
-                    elif isinstance(content, str):
-                        json_response = extract_json_from_text(content)
-                        if json_response:
-                            return json_response
-
-    # Dict format - direct fields: Look for 'response' or 'output' field
+    # Try dict format
     if isinstance(data, dict):
-        for key in ["response", "output", "result", "content"]:
-            if key in data:
-                response_text = data[key]
-                if isinstance(response_text, str):
-                    json_response = extract_json_from_text(response_text)
-                    if json_response:
-                        return json_response
+        json_response = _extract_from_dict_format(data)
+        if json_response:
+            return json_response
 
-        # Dict format - messages array: Look for messages array
-        if "messages" in data and isinstance(data["messages"], list):
-            # Get the last assistant message
-            for msg in reversed(data["messages"]):
-                if isinstance(msg, dict) and msg.get("role") == "assistant":
-                    content = msg.get("content", "")
-                    if isinstance(content, str):
-                        json_response = extract_json_from_text(content)
-                        if json_response:
-                            return json_response
-
-        # Dict format - conversation/history: Look for conversation or history
-        for key in ["conversation", "history", "transcript"]:
-            if key in data and isinstance(data[key], list):
-                # Get the last item
-                if data[key]:
-                    last_item = data[key][-1]
-                    if isinstance(last_item, dict):
-                        for field in ["content", "text", "message"]:
-                            if field in last_item:
-                                text = last_item[field]
-                                if isinstance(text, str):
-                                    json_response = extract_json_from_text(text)
-                                    if json_response:
-                                        return json_response
-
-    # If we couldn't find JSON in structured fields, search entire file content
+    # Fallback: search entire file content
     file_content = file_path.read_text()
     json_response = extract_json_from_text(file_content)
     if json_response:
