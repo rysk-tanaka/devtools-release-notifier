@@ -49,16 +49,22 @@ devtools-release-notifier/
 ├── devtools_release_notifier/    # メインパッケージ
 │   ├── __init__.py              # パッケージ初期化
 │   ├── notifier.py              # メインスクリプト
-│   ├── sources.py               # 情報源クラス
-│   └── discord_notifier.py      # Discord通知クラス
+│   ├── sources/                 # 情報源クラス
+│   ├── notifiers/               # 通知クラス
+│   ├── models/                  # Pydanticモデル
+│   └── scripts/                 # GitHub Actions統合スクリプト
+│       ├── __init__.py
+│       ├── extract_claude_response.py  # Claude応答抽出
+│       └── send_to_discord.py         # Discord送信
+├── tests/                       # テストコード
+│   ├── scripts/                 # スクリプトの単体テスト
+│   ├── models/                  # モデルの単体テスト
+│   └── ...                      # その他のテスト
 ├── cache/                       # バージョンキャッシュ
 ├── docs/                        # 設計ドキュメント
 ├── .github/
-│   ├── workflows/
-│   │   └── notifier.yml              # GitHub Actions設定
-│   └── scripts/
-│       ├── extract_claude_response.py # Claude応答から翻訳結果を抽出
-│       └── send_to_discord.py         # 翻訳結果をDiscordに送信
+│   └── workflows/
+│       └── notifier.yml         # GitHub Actions設定
 ├── config.yml                   # 設定ファイル
 ├── pyproject.toml              # プロジェクト定義
 └── README.md                   # このファイル
