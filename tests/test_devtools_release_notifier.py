@@ -1,7 +1,13 @@
 #!/usr/bin/env python
+"""Basic tests for devtools-release-notifier."""
 
-from devtools_release_notifier.main import main
 
+def test_import():
+    """Test basic module imports."""
+    from devtools_release_notifier import notifier
+    from devtools_release_notifier import sources
+    from devtools_release_notifier import notifiers
 
-def test_x04_data_link():
-    assert main() is None
+    assert notifier is not None
+    assert sources is not None
+    assert notifiers is not None

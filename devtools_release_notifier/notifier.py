@@ -9,10 +9,10 @@ from pathlib import Path
 
 import yaml
 
-from devtools_release_notifier.discord_notifier import DiscordNotifier
 from devtools_release_notifier.models.config import AppConfig
 from devtools_release_notifier.models.output import ReleaseOutput
 from devtools_release_notifier.models.release import CachedRelease, ReleaseInfo
+from devtools_release_notifier.notifiers import DiscordNotifier
 from devtools_release_notifier.sources import (
     GitHubCommitsSource,
     GitHubReleaseSource,
