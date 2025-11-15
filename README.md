@@ -17,7 +17,7 @@
   - 優先度ベースの自動フォールバック
 
 - AI翻訳による高品質な日本語化
-  - GitHub Actionsでanthropics/claude-code-action@betaを使用
+  - GitHub ActionsでClaude Code Actionを使用
   - リリース内容の要約（3-5個の主な変更点）
   - 技術用語の適切な翻訳
 
@@ -39,7 +39,7 @@
 - PyYAML: 柔軟な設定ファイル管理
 - feedparser: RSS/Atomフィード解析
 - pydantic: 型安全なデータ検証
-- GitHub Actions: CI/CDとanthropics/claude-code-action@betaによる翻訳
+- GitHub Actions: CI/CDとClaude Code Actionによる翻訳
 - Discord Webhook: 通知配信
 
 ## プロジェクト構造
@@ -55,9 +55,10 @@ devtools-release-notifier/
 ├── docs/                        # 設計ドキュメント
 ├── .github/
 │   ├── workflows/
-│   │   └── notifier.yml         # GitHub Actions設定
+│   │   └── notifier.yml              # GitHub Actions設定
 │   └── scripts/
-│       └── send_to_discord.py   # 翻訳結果をDiscordに送信
+│       ├── extract_claude_response.py # Claude応答から翻訳結果を抽出
+│       └── send_to_discord.py         # 翻訳結果をDiscordに送信
 ├── config.yml                   # 設定ファイル
 ├── pyproject.toml              # プロジェクト定義
 └── README.md                   # このファイル
@@ -135,14 +136,14 @@ uv run devtools-notifier --no-notify
 
 - スケジュール実行: 毎日 10:00 UTC
 - 手動実行: GitHub ActionsのUIから実行可能
-- 翻訳: anthropics/claude-code-action@betaで自動翻訳
+- 翻訳: Claude Code Actionで自動翻訳
 
 #### GitHub Secretsの設定
 
 リポジトリの Settings → Secrets and variables → Actions で以下のSecretを設定してください：
 
 - `DISCORD_WEBHOOK`: 通知先のDiscord Webhook URL（必須）
-- `CLAUDE_CODE_OAUTH_TOKEN`: Claude API OAuthトークン（オプション、翻訳機能を使用する場合）
+- `CLAUDE_CODE_OAUTH_TOKEN`: Claude Code OAuthトークン（GitHub Actionsのワークフローで`claude_code_oauth_token`パラメータとして使用）
 
 ## 設定
 
@@ -196,7 +197,7 @@ common:
 主要なコンポーネント：
 
 1. Sources（情報源）: 複数のAPIから情報を取得
-2. GitHub Actions: anthropics/claude-code-action@betaで日本語に翻訳・要約
+2. GitHub Actions: Claude Code Actionで日本語に翻訳・要約
 3. DiscordNotifier（通知）: Discord Webhookで通知配信
 4. Cache（キャッシュ）: バージョン情報を永続化
 
