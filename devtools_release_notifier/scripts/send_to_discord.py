@@ -11,6 +11,9 @@ import sys
 from datetime import UTC, datetime
 
 import httpx
+from pydantic import ValidationError
+
+from devtools_release_notifier.models.output import ReleaseOutput, TranslatedRelease
 
 
 def send_to_discord(
@@ -70,36 +73,37 @@ def main():
     releases_file = sys.argv[1]
     translated_json = sys.argv[2]
 
-    # Load releases data
+    # Load and validate releases data
     try:
         with open(releases_file) as f:
-            releases = json.load(f)
+            releases_data = json.load(f)
+        if not isinstance(releases_data, list):
+            print("Error: Releases data must be a JSON array", file=sys.stderr)
+            sys.exit(1)
+        releases = [ReleaseOutput(**item) for item in releases_data]
     except (OSError, json.JSONDecodeError) as e:
         print(f"Error loading releases file: {e}", file=sys.stderr)
         sys.exit(1)
+    except ValidationError as e:
+        print(f"Error: Invalid releases data format: {e}", file=sys.stderr)
+        sys.exit(1)
 
-    # Parse translated data
+    # Parse and validate translated data
     try:
-        translated = json.loads(translated_json)
+        translated_data = json.loads(translated_json)
+        if not isinstance(translated_data, list):
+            print("Error: Translated data must be a JSON array", file=sys.stderr)
+            sys.exit(1)
+        translated = [TranslatedRelease(**item) for item in translated_data]
     except json.JSONDecodeError as e:
         print(f"Error parsing translated JSON: {e}", file=sys.stderr)
         sys.exit(1)
-
-    # Validate translated data structure
-    if not isinstance(translated, list):
-        print("Error: Translated data must be a JSON array", file=sys.stderr)
+    except ValidationError as e:
+        print(f"Error: Invalid translated data format: {e}", file=sys.stderr)
         sys.exit(1)
 
     # Create mapping of tool names to translated content
-    translated_map = {}
-    for item in translated:
-        if not isinstance(item, dict):
-            print(f"Warning: Skipping non-dict item in translated data: {item}")
-            continue
-        if "tool_name" not in item or "translated_content" not in item:
-            print(f"Warning: Skipping item missing required fields: {item}")
-            continue
-        translated_map[item["tool_name"]] = item["translated_content"]
+    translated_map = {r.tool_name: r.translated_content for r in translated}
 
     # Send notifications
     success_count = 0
@@ -107,37 +111,25 @@ def main():
     skipped_count = 0
 
     for release in releases:
-        if not isinstance(release, dict):
-            print(f"Warning: Skipping non-dict release: {release}")
-            skipped_count += 1
-            continue
-
-        tool_name = release.get("tool_name")
-        if not tool_name:
-            print(f"Warning: Release missing tool_name: {release}")
-            skipped_count += 1
-            continue
-
         # Get webhook URL from environment
-        webhook_env = release.get("webhook_env", "DISCORD_WEBHOOK")
-        webhook_url = os.getenv(webhook_env)
+        webhook_url = os.getenv(release.webhook_env)
 
         if not webhook_url:
-            print(f"⚠️  Webhook URL not found for {tool_name} ({webhook_env})")
+            print(f"⚠️  Webhook URL not found for {release.tool_name} ({release.webhook_env})")
             skipped_count += 1
             continue
 
         # Get translated content or fall back to original
-        translated_content = translated_map.get(tool_name, release.get("content", ""))
+        translated_content = translated_map.get(release.tool_name, release.content)
 
         # Send to Discord
         if send_to_discord(
             webhook_url=webhook_url,
-            tool_name=tool_name,
-            version=release.get("version", "unknown"),
+            tool_name=release.tool_name,
+            version=release.version,
             translated_content=translated_content,
-            url=release.get("url", ""),
-            color=release.get("color", 5814783),
+            url=release.url,
+            color=release.color,
         ):
             success_count += 1
         else:

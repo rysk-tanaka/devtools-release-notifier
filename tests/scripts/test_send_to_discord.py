@@ -298,3 +298,67 @@ def test_main_fallback_to_original_content(tmp_path: Path, monkeypatch):
     request = respx.calls[0].request
     body = json.loads(request.read().decode())
     assert body["embeds"][0]["description"] == "Original content"
+
+
+def test_main_invalid_release_data(tmp_path: Path, monkeypatch):
+    """Test main function with invalid release data (missing required fields)."""
+    releases_file = tmp_path / "releases.json"
+    # Missing 'version' field
+    releases = [{"tool_name": "Test", "content": "Content", "url": "https://test.com"}]
+    releases_file.write_text(json.dumps(releases))
+
+    translated_json = json.dumps([])
+
+    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    with pytest.raises(SystemExit) as exc_info:
+        main()
+    # Should exit with error code due to validation failure
+    assert exc_info.value.code == 1
+
+
+def test_main_invalid_translated_data(tmp_path: Path, monkeypatch):
+    """Test main function with invalid translated data (missing required fields)."""
+    releases_file = tmp_path / "releases.json"
+    releases = [
+        {
+            "tool_name": "Test",
+            "version": "v1.0.0",
+            "content": "Content",
+            "url": "https://test.com",
+            "color": VALID_COLOR,
+        }
+    ]
+    releases_file.write_text(json.dumps(releases))
+
+    # Missing 'translated_content' field
+    translated_json = json.dumps([{"tool_name": "Test"}])
+
+    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    with pytest.raises(SystemExit) as exc_info:
+        main()
+    # Should exit with error code due to validation failure
+    assert exc_info.value.code == 1
+
+
+def test_main_invalid_color_value(tmp_path: Path, monkeypatch):
+    """Test main function with invalid color value (out of range)."""
+    releases_file = tmp_path / "releases.json"
+    # Color must be 0-16777215
+    releases = [
+        {
+            "tool_name": "Test",
+            "version": "v1.0.0",
+            "content": "Content",
+            "url": "https://test.com",
+            "color": 99999999,  # Invalid: exceeds max value
+        }
+    ]
+    releases_file.write_text(json.dumps(releases))
+
+    translated_json = json.dumps([])
+
+    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    with pytest.raises(SystemExit) as exc_info:
+        main()
+    # Should exit with error code due to validation failure
+    assert exc_info.value.code == 1

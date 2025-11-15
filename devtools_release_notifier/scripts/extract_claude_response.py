@@ -10,6 +10,10 @@ import re
 import sys
 from pathlib import Path
 
+from pydantic import ValidationError
+
+from devtools_release_notifier.models.output import TranslatedRelease
+
 
 def extract_json_from_text(text: str) -> str | None:
     """Extract JSON array from text.
@@ -27,10 +31,13 @@ def extract_json_from_text(text: str) -> str | None:
     for match in reversed(markdown_matches):
         try:
             # Validate that it's actually valid JSON
-            json.loads(match)
+            data = json.loads(match)
+            # Validate structure with Pydantic
+            if isinstance(data, list):
+                [TranslatedRelease(**item) for item in data]
             return match
-        except json.JSONDecodeError:
-            # Invalid JSON, try next match
+        except (json.JSONDecodeError, ValidationError):
+            # Invalid JSON or structure, try next match
             continue
 
     # If no markdown code blocks, try to find raw JSON array
@@ -41,10 +48,13 @@ def extract_json_from_text(text: str) -> str | None:
     for match in reversed(matches):
         try:
             # Validate that it's actually valid JSON
-            json.loads(match)
+            data = json.loads(match)
+            # Validate structure with Pydantic
+            if isinstance(data, list):
+                [TranslatedRelease(**item) for item in data]
             return match
-        except json.JSONDecodeError:
-            # Invalid JSON, try next match
+        except (json.JSONDecodeError, ValidationError):
+            # Invalid JSON or structure, try next match
             continue
 
     return None
