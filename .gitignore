@@ -19,7 +19,6 @@ rspress/.rspress_cache/
 rspress/.pnpm-store/
 
 # Cache files
-cache/*.json
 !cache/.gitkeep
 
 # Environment variables
