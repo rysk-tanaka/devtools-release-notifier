@@ -81,15 +81,15 @@ ignore = [
     "PLR2004", # Magic value comparison - use constants instead (existing rule)
 ]
 
-# Complexity thresholds adjusted for project needs
+# Complexity thresholds
 [tool.ruff.lint.mccabe]
-max-complexity = 40  # Relaxed to accommodate complex parsing logic
+max-complexity = 10  # Standard threshold to catch overly complex functions
 
 [tool.ruff.lint.pylint]
 max-args = 8          # Relaxed from default 5
-max-branches = 40     # Relaxed to accommodate complex parsing logic
-max-statements = 65   # Relaxed to accommodate main functions
-max-returns = 8       # Relaxed from default 6
+max-branches = 15     # Standard threshold for branch complexity
+max-statements = 50   # Standard threshold for statement count
+max-returns = 6       # Default threshold
 
 # Per-file ignores
 [tool.ruff.lint.per-file-ignores]
