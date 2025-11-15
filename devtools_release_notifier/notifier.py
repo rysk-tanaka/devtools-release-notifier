@@ -123,6 +123,7 @@ class UnifiedReleaseNotifier:
         try:
             with open(cache_path, "w") as f:
                 json.dump(cached.model_dump(), f, indent=2)
+                f.write("\n")
         except OSError as e:
             print(f"⚠️  Failed to write cache for {tool_name}: {e}")
 
@@ -222,6 +223,7 @@ class UnifiedReleaseNotifier:
                 # Convert Pydantic models to dicts
                 releases_data = [r.model_dump() for r in self.new_releases]
                 json.dump(releases_data, f, indent=2)
+                f.write("\n")
             print(f"\n✓ Wrote {len(self.new_releases)} new releases to {output_file}")
 
         print("\n✅ Completed")
