@@ -24,6 +24,7 @@
 - 優先度ベースのソース選択機構
 - 重要: GitHub Actionsのanthropics/claude-code-action@v1で翻訳（Pythonコードに翻訳機能なし）
 - Discord Webhookによる通知配信
+- Markdownログの自動保存（rspressで閲覧可能）
 - ファイルベースのバージョンキャッシュ
 
 ### 技術スタック
@@ -35,6 +36,7 @@
 - feedparser (RSS/Atom解析)
 - pydantic (型検証)
 - GitHub Actions (anthropics/claude-code-action@v1)
+- rspress (ドキュメントサイト生成)
 
 ## 📁 ファイル構造
 
@@ -55,11 +57,24 @@ devtools-release-notifier/
 │   └── scripts/                       # GitHub Actions統合スクリプト
 │       ├── __init__.py
 │       ├── extract_claude_response.py # Claude実行ファイルからレスポンスを抽出
-│       └── send_to_discord.py         # 翻訳結果をDiscordに送信
+│       └── send_to_discord.py         # 翻訳結果をDiscordに送信し、Markdownログを保存
 ├── tests/                             # テストコード
 │   ├── scripts/                       # スクリプトの単体テスト
 │   ├── models/                        # モデルの単体テスト
 │   └── ...                            # その他のテスト
+├── rspress/                           # rspress設定（ドキュメントサイト）
+│   ├── docs/                          # ドキュメントファイル
+│   │   ├── index.md                   # トップページ
+│   │   └── releases/                  # リリース情報（自動生成）
+│   │       ├── index.md               # リリース情報トップページ
+│   │       ├── zed-editor/            # Zed Editorリリースログ
+│   │       │   ├── index.md
+│   │       │   └── YYYY-MM-DD.md      # 日付ごとのリリース情報
+│   │       └── dia-browser/           # Dia Browserリリースログ
+│   │           ├── index.md
+│   │           └── YYYY-MM-DD.md      # 日付ごとのリリース情報
+│   ├── rspress.config.ts              # rspress設定ファイル
+│   └── package.json                   # Node.js依存関係
 ├── .github/
 │   └── workflows/
 │       └── notifier.yml               # GitHub Actions設定
@@ -415,29 +430,31 @@ jobs:
           echo "✓ Extracted translation:"
           echo "$TRANSLATED"
 
-      - name: Send to Discord
+      - name: Send to Discord and save Markdown logs
         if: steps.check.outputs.has_releases == 'true'
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          echo "📤 Sending notifications to Discord..."
+          echo "📤 Sending notifications to Discord and saving Markdown logs..."
           uv run python -m devtools_release_notifier.scripts.send_to_discord \
             releases.json \
-            '${{ steps.extract.outputs.translated }}'
+            '${{ steps.extract.outputs.translated }}' \
+            --markdown-dir rspress/docs/releases
 
-      - name: Commit cache updates
+      - name: Commit cache and Markdown logs
         if: steps.check.outputs.has_releases == 'true'
         continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add cache/*.json
+          git add rspress/docs/releases/**/*.md
           if git diff --staged --quiet; then
-            echo "ℹ️  No cache changes to commit"
+            echo "ℹ️  No changes to commit"
           else
-            git commit -m "chore: update release cache [skip ci]"
+            git commit -m "chore: update release cache and logs [skip ci]"
             git push
-            echo "✓ Cache updated"
+            echo "✓ Cache and Markdown logs updated"
           fi
 ```
 
@@ -536,14 +553,20 @@ if __name__ == "__main__":
 
 ### ステップ6: .github/scripts/send_to_discord.py の作成
 
-Discord Webhookに翻訳結果を送信するスクリプトを作成してください。
+Discord Webhookに翻訳結果を送信し、Markdownログを保存するスクリプトを作成してください。
 
 仕様
 
 - 第1引数: releases.json のパス
 - 第2引数: claude-code-actionの翻訳結果（JSON文字列）
+- オプション: --markdown-dir（デフォルト: rspress/docs/releases）
 - 翻訳結果とリリース情報をマッチング（tool_nameで）
 - 各ツールについてDiscord Webhookに送信（httpx使用）
+- 送信成功時にMarkdownログを保存（rspress形式）
+  - ファイル名: YYYY-MM-DD.md
+  - 保存先: {markdown-dir}/{tool-slug}/
+  - フロントマター: title, date, version, url
+  - 本文: 翻訳された内容
 
 実装
 

@@ -3,12 +3,15 @@
 
 This script takes the original release data and translated content,
 then sends formatted notifications to Discord webhooks.
+It also saves the notification content as Markdown files for rspress documentation.
 """
 
+import argparse
 import json
 import os
 import sys
 from datetime import UTC, datetime
+from pathlib import Path
 
 import httpx
 from pydantic import ValidationError
@@ -61,6 +64,84 @@ def send_to_discord(
         return True
     except httpx.HTTPError as e:
         print(f"✗ Failed to send notification for {tool_name}: {e}")
+        return False
+
+
+def _slugify_tool_name(tool_name: str) -> str:
+    """Convert tool name to slug format.
+
+    Args:
+        tool_name: Tool name (e.g., "Zed Editor")
+
+    Returns:
+        Slug format (e.g., "zed-editor")
+    """
+    return tool_name.lower().replace(" ", "-")
+
+
+def save_markdown_log(
+    markdown_dir: str,
+    tool_name: str,
+    version: str,
+    translated_content: str,
+    url: str,
+    timestamp: datetime,
+) -> bool:
+    """Save notification content as Markdown file.
+
+    Args:
+        markdown_dir: Base directory for Markdown files (e.g., "rspress/docs/releases")
+        tool_name: Tool name
+        version: Version string
+        translated_content: Translated release notes
+        url: Release URL
+        timestamp: Notification timestamp
+
+    Returns:
+        True if successful, False otherwise
+    """
+    try:
+        # Create tool-specific directory
+        tool_slug = _slugify_tool_name(tool_name)
+        tool_dir = Path(markdown_dir) / tool_slug
+        tool_dir.mkdir(parents=True, exist_ok=True)
+
+        # Generate filename from timestamp (YYYY-MM-DD.md)
+        filename = timestamp.strftime("%Y-%m-%d.md")
+        file_path = tool_dir / filename
+
+        # Create frontmatter and content
+        frontmatter = f"""---
+title: {tool_name} - {version}
+date: {timestamp.strftime("%Y-%m-%d")}
+version: {version}
+url: {url}
+---
+
+# {tool_name} - {version}
+
+**リリース日**: {timestamp.strftime("%Y年%m月%d日")}
+
+**バージョン**: {version}
+
+**リリースURL**: [{url}]({url})
+
+## リリースノート
+
+{translated_content}
+
+---
+
+*このドキュメントは自動生成されました*
+"""
+
+        # Write to file
+        file_path.write_text(frontmatter, encoding="utf-8")
+        print(f"✓ Saved Markdown log for {tool_name}: {file_path}")
+        return True
+
+    except (OSError, ValueError) as e:
+        print(f"✗ Failed to save Markdown log for {tool_name}: {e}")
         return False
 
 
@@ -118,13 +199,14 @@ def _parse_translations(json_str: str) -> list[TranslatedRelease]:
 
 
 def _send_notifications(
-    releases: list[ReleaseOutput], translated_map: dict[str, str]
+    releases: list[ReleaseOutput], translated_map: dict[str, str], markdown_dir: str | None = None
 ) -> tuple[int, int, int]:
     """Send Discord notifications for all releases.
 
     Args:
         releases: List of releases to notify
         translated_map: Mapping of tool names to translated content
+        markdown_dir: Base directory for Markdown files (optional)
 
     Returns:
         Tuple of (success_count, failed_count, skipped_count)
@@ -132,6 +214,7 @@ def _send_notifications(
     success_count = 0
     failed_count = 0
     skipped_count = 0
+    timestamp = datetime.now(UTC)
 
     for release in releases:
         # Get webhook URL from environment
@@ -155,6 +238,17 @@ def _send_notifications(
             color=release.color,
         ):
             success_count += 1
+
+            # Save Markdown log if directory is specified
+            if markdown_dir:
+                save_markdown_log(
+                    markdown_dir=markdown_dir,
+                    tool_name=release.tool_name,
+                    version=release.version,
+                    translated_content=translated_content,
+                    url=release.url,
+                    timestamp=timestamp,
+                )
         else:
             failed_count += 1
 
@@ -205,22 +299,30 @@ def _exit_with_status(success_count: int, failed_count: int, total: int):
 
 def main():
     """Main entry point."""
-    if len(sys.argv) != 3:
-        print("Usage: send_to_discord.py <releases.json> <translated_json>", file=sys.stderr)
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        description="Send translated release information to Discord and save as Markdown"
+    )
+    parser.add_argument("releases_file", help="Path to releases.json file")
+    parser.add_argument("translated_json", help="JSON string containing translated data")
+    parser.add_argument(
+        "--markdown-dir",
+        default="rspress/docs/releases",
+        help="Base directory for Markdown files (default: rspress/docs/releases)",
+    )
 
-    releases_file = sys.argv[1]
-    translated_json = sys.argv[2]
+    args = parser.parse_args()
 
     # Load and validate data
-    releases = _load_releases(releases_file)
-    translated = _parse_translations(translated_json)
+    releases = _load_releases(args.releases_file)
+    translated = _parse_translations(args.translated_json)
 
     # Create mapping of tool names to translated content
     translated_map = {r.tool_name: r.translated_content for r in translated}
 
-    # Send notifications
-    success_count, failed_count, skipped_count = _send_notifications(releases, translated_map)
+    # Send notifications and save Markdown logs
+    success_count, failed_count, skipped_count = _send_notifications(
+        releases, translated_map, markdown_dir=args.markdown_dir
+    )
 
     # Print summary and exit
     total_releases = len(releases)
