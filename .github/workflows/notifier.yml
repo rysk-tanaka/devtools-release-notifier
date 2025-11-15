@@ -68,6 +68,16 @@ jobs:
             - tool_nameは元のツール名と完全に一致させてください
           claude_args: '--allowed-tools "read,grep,glob" --max-turns 5'
 
+      - name: Debug execution file
+        if: steps.check.outputs.has_releases == 'true'
+        run: |
+          echo "📁 Execution file path: ${{ steps.translate.outputs.execution_file }}"
+          echo "📄 Execution file contents:"
+          cat "${{ steps.translate.outputs.execution_file }}" | head -100
+          echo ""
+          echo "🔍 Searching for JSON arrays:"
+          grep -o '\[.*\]' "${{ steps.translate.outputs.execution_file }}" | head -5 || echo "No JSON arrays found"
+
       - name: Extract Claude response
         if: steps.check.outputs.has_releases == 'true'
         id: extract
