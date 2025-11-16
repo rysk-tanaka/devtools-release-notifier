@@ -1,0 +1,15 @@
+[
+  "index",
+  {
+    "type": "dir",
+    "name": "dia-browser",
+    "label": "Dia Browser",
+    "collapsible": false
+  },
+  {
+    "type": "dir",
+    "name": "zed-editor",
+    "label": "Zed Editor",
+    "collapsible": false
+  }
+]
