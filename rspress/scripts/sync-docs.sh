@@ -67,7 +67,17 @@ fi
 
 # ターゲットディレクトリの architecture をクリーンアップ
 echo "🧹 Cleaning up existing architecture files..."
-rm -rf ${TARGET_DIR}/architecture
+
+# Safety check: Ensure TARGET_DIR is set
+if [ -z "$TARGET_DIR" ]; then
+  echo "❌ Error: TARGET_DIR is not set"
+  exit 1
+fi
+
+# Only remove if directory exists
+if [ -d "${TARGET_DIR}/architecture" ]; then
+  rm -rf "${TARGET_DIR}/architecture"
+fi
 
 # architecture ディレクトリをコピー
 echo "📋 Copying architecture directory..."
