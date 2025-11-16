@@ -59,30 +59,33 @@ if [ ! -d "$TARGET_DIR" ]; then
   exit 1
 fi
 
-# Markdownファイルの存在確認
-md_count=$(find "$SOURCE_DIR" -maxdepth 1 -name "*.md" 2>/dev/null | wc -l)
-if [ "$md_count" -eq 0 ]; then
-  echo "❌ Error: No Markdown files found in ${SOURCE_DIR}"
+# architecture ディレクトリの存在確認
+if [ ! -d "${SOURCE_DIR}/architecture" ]; then
+  echo "❌ Error: Architecture directory '${SOURCE_DIR}/architecture' does not exist"
   exit 1
 fi
 
-# ターゲットディレクトリのMarkdownファイルをクリーンアップ
-echo "🧹 Cleaning up existing files..."
-rm -f ${TARGET_DIR}/*.md
+# ターゲットディレクトリの architecture をクリーンアップ
+echo "🧹 Cleaning up existing architecture files..."
 
-# Markdownファイルをコピー
-echo "📋 Copying Markdown files..."
-cp ${SOURCE_DIR}/*.md ${TARGET_DIR}/
-
-# README.md を index.md にリネーム
-if [ -f "${TARGET_DIR}/README.md" ]; then
-  echo "🔄 Converting README.md to index.md..."
-  mv ${TARGET_DIR}/README.md ${TARGET_DIR}/index.md
+# Safety check: Ensure TARGET_DIR is set
+if [ -z "$TARGET_DIR" ]; then
+  echo "❌ Error: TARGET_DIR is not set"
+  exit 1
 fi
+
+# Only remove if directory exists
+if [ -d "${TARGET_DIR}/architecture" ]; then
+  rm -rf "${TARGET_DIR}/architecture"
+fi
+
+# architecture ディレクトリをコピー
+echo "📋 Copying architecture directory..."
+cp -r ${SOURCE_DIR}/architecture ${TARGET_DIR}/
 
 # リンクを修正（相対パスからGitHub絶対URLへ）
 echo "🔗 Fixing links..."
-for file in ${TARGET_DIR}/*.md; do
+for file in ${TARGET_DIR}/architecture/*.md; do
   if [ -f "$file" ]; then
     # macOSとLinux両方で動作するsedコマンド
     # 対応拡張子ごとに置換（.md, .toml, .yml, .yaml, .json）
@@ -107,4 +110,4 @@ done
 echo "✅ Documentation sync completed successfully!"
 echo ""
 echo "📄 Synced files:"
-ls -1 ${TARGET_DIR}/*.md
+ls -1 ${TARGET_DIR}/architecture/*.md

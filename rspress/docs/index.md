@@ -1,237 +1,27 @@
-# 設計ドキュメント
+# リリース情報
 
-devtools-release-notifierの設計ドキュメントです。システムアーキテクチャ、データフロー、クラス構造、処理シーケンスを図で説明します。
+開発ツールの最新リリース情報を確認できます。
 
-## 📚 ドキュメント一覧
+## 監視中のツール
 
-### [システムアーキテクチャ](architecture.md)
+- [Zed Editor](./releases/zed-editor/index.md) - モダンなコードエディタ
+- [Dia Browser](./releases/dia-browser/index.md) - 高速なWebブラウザ
 
-システム全体のアーキテクチャを示す図です。
+## 通知について
 
-- **全体アーキテクチャ**: 外部サービス、GitHub Actions、アプリケーションコアの関係
-- **コンポーネント説明**: 各モジュールの役割と責任
-- **データストア**: 設定ファイルとキャッシュファイルの構造
-- **技術選択の理由**: 各ライブラリ・ツールの選定理由
+このシステムは、各ツールの新しいリリースを自動的に検出し、日本語に翻訳して通知します。
 
-**含まれる図:**
+- GitHub Releases
+- Homebrew Cask
+- GitHub Commits
 
-- 全体アーキテクチャ図（External Services + Application Core）
-- データストアER図（Config + Cache構造）
+上記のソースから優先度順に情報を取得し、新しいバージョンが見つかった場合に通知します。
 
-### [データフロー](data-flow.md)
+## 設計ドキュメント
 
-アプリケーション内のデータの流れを示す図です。
+システムの設計に関するドキュメントは以下をご覧ください。
 
-- **全体のデータフロー**: メイン処理の流れ
-- **データ変換フロー**: 各情報源からの統一フォーマットへの変換
-- **優先度ベースのソース選択**: フォールバック機構
-
-**含まれる図:**
-
-- 全体データフロー図（Start → End）
-- データ変換フロー（GitHub/Homebrew → Unified Format → Discord）
-- 優先度ベースのソース選択フロー
-
-### [クラス図](class-diagram.md)
-
-Pythonクラスの構造と関係を示す図です。
-
-- **主要クラス図**: UnifiedReleaseNotifierとその関連クラス
-- **データモデル**: 設定ファイルとデータ構造
-- **モジュール構成**: パッケージとモジュールの関係
-- **依存関係図**: 標準ライブラリとサードパーティライブラリ
-
-**含まれる図:**
-
-- 主要クラス図（UML形式）
-- データモデルER図
-- モジュール構成図
-- 依存関係図
-
-### [シーケンス図](sequence-diagram.md)
-
-処理の実行順序を時系列で示す図です。
-
-- **メイン処理シーケンス**: エントリーポイントから完了まで
-- **ツール処理シーケンス**: 各ツールの詳細な処理フロー
-- **GitHub Releases取得**: Atomフィードからの情報取得
-- **Homebrew API取得**: JSON APIからの情報取得
-- **Discord通知**: Webhook送信プロセス
-- **エラーハンドリング**: 各種エラーの捕捉と処理
-- **GitHub Actions統合**: CI/CDでの実行フロー
-- **優先度ベースのフォールバック**: ソース選択ロジック
-
-**含まれる図:**
-
-- メイン処理シーケンス
-- ツール処理詳細シーケンス
-- GitHub Releases/Homebrew API取得シーケンス
-- Discord通知シーケンス
-- エラーハンドリングシーケンス
-- GitHub Actions統合シーケンス
-- 優先度ベースのフォールバックシーケンス
-
-## 🎯 ドキュメントの読み方
-
-### 初めての方
-
-1. **[システムアーキテクチャ](architecture.md)** から読み始めることをおすすめします
-   - システム全体の構造を理解できます
-   - 各コンポーネントの役割を把握できます
-
-2. **[データフロー](data-flow.md)** で処理の流れを確認
-   - データがどのように変換されるかを理解できます
-   - エラー処理の方針を把握できます
-
-3. **[クラス図](class-diagram.md)** で実装の詳細を確認
-   - Pythonコードの構造を理解できます
-   - クラス間の関係を把握できます
-
-4. **[シーケンス図](sequence-diagram.md)** で実行時の振る舞いを確認
-   - 実際の処理順序を理解できます
-   - API通信のタイミングを把握できます
-
-### 開発者の方
-
-#### 新機能追加時
-
-1. **[システムアーキテクチャ](architecture.md)** で拡張ポイントを確認
-2. **[クラス図](class-diagram.md)** で実装するクラスを決定
-3. **[データフロー](data-flow.md)** でデータ変換を設計
-4. **[シーケンス図](sequence-diagram.md)** で処理フローを確認
-
-#### バグ修正時
-
-1. **[シーケンス図](sequence-diagram.md)** で問題箇所を特定
-2. **[データフロー](data-flow.md)** でデータの流れを追跡
-3. **[クラス図](class-diagram.md)** で関連クラスを確認
-4. **[システムアーキテクチャ](architecture.md)** で影響範囲を把握
-
-#### コードレビュー時
-
-1. **[クラス図](class-diagram.md)** で設計方針との整合性を確認
-2. **[データフロー](data-flow.md)** でエラーハンドリングを確認
-3. **[シーケンス図](sequence-diagram.md)** で処理順序の妥当性を確認
-
-## 🔧 図の形式
-
-すべての図は**Mermaid形式**で記述されています。
-
-### 表示方法
-
-#### GitHubで表示
-
-GitHubは自動的にMermaid図をレンダリングします。各ドキュメントをGitHub上で開くだけで図が表示されます。
-
-#### ローカルで表示
-
-以下の方法でローカル環境でも表示できます：
-
-1. **VSCodeの拡張機能**
-   - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)をインストール
-   - Markdownプレビューで自動的に表示されます
-
-2. **Mermaid Live Editor**
-   - [https://mermaid.live/](https://mermaid.live/) にアクセス
-   - Mermaidコードをコピー＆ペーストして表示
-
-3. **CLIツール**
-
-   ```bash
-   # mermaid-cliをインストール
-   npm install -g @mermaid-js/mermaid-cli
-
-   # PNGに変換
-   mmdc -i docs/architecture.md -o architecture.png
-   ```
-
-### Mermaidについて
-
-Mermaidは、テキストベースで図を記述できる強力なツールです。
-
-**利点:**
-
-- バージョン管理が容易（テキストファイル）
-- GitHubでネイティブサポート
-- コードと同じレビュープロセス
-- 変更履歴が明確
-
-**サンプル:**
-
-```mermaid
-graph LR
-    A[Start] --> B[Process]
-    B --> C[End]
-```
-
-詳細は [Mermaid Documentation](https://mermaid.js.org/) を参照してください。
-
-## 📖 関連ドキュメント
-
-- **[リポジトリREADME](https://github.com/rysk-tanaka/devtools-release-notifier/blob/main/README.md)**: プロジェクト概要とセットアップ手順
-- **[CLAUDE.md](https://github.com/rysk-tanaka/devtools-release-notifier/blob/main/CLAUDE.md)**: 実装仕様とClaude Code向け指示書
-- **[pyproject.toml](https://github.com/rysk-tanaka/devtools-release-notifier/blob/main/pyproject.toml)**: プロジェクト定義と依存関係
-- **[config.yml](https://github.com/rysk-tanaka/devtools-release-notifier/blob/main/config.yml)**: アプリケーション設定
-
-## 🔍 図の凡例
-
-### カラーコーディング
-
-各図では、以下のカラーコーディングを使用しています：
-
-- **青系 (#4a90e2)**: メインコンポーネント・主要な処理
-- **緑系 (#50c878, #28a745)**: 成功・開始・完了
-- **オレンジ系 (#f39c12, #ffc107)**: キャッシュ・警告
-- **赤系 (#dc3545, #e74c3c)**: エラー・終了
-- **紫系 (#8e44ad)**: 翻訳・AI関連
-- **Discord系 (#7289da)**: Discord通知
-- **グレー系 (#6c757d)**: スキップ・無効
-
-### 図の種類
-
-- **Flowchart (flowchart TD/LR)**: 処理フローと条件分岐
-- **Sequence Diagram (sequenceDiagram)**: 時系列での相互作用
-- **Class Diagram (classDiagram)**: クラス構造と関係
-- **ER Diagram (erDiagram)**: データ構造と関係
-- **Graph (graph TB/LR)**: 一般的な関係図
-- **Gantt Chart (gantt)**: 時系列タイムライン
-
-## 🚀 今後の拡張
-
-設計ドキュメントは、以下の機能追加時に更新される予定です：
-
-1. **非同期処理**: httpxの非同期機能を活用した並列処理
-2. **データベース統合**: SQLite/PostgreSQLによる永続化
-3. **Web Dashboard**: 監視UIとステータス表示
-4. **Slack統合**: 追加の通知チャンネル
-5. **Email通知**: メール配信機能
-6. **多言語サポート**: 日本語以外の言語対応
-
-これらの拡張を実装する際は、設計ドキュメントを先に更新し、アーキテクチャの整合性を保つようにしてください。
-
-## 📝 ドキュメント更新ガイドライン
-
-### ドキュメントを更新する場合
-
-1. **変更内容の明確化**: 何を追加・変更するか明確にする
-2. **全体の一貫性**: すべてのドキュメントで一貫性を保つ
-3. **図の更新**: コード変更と同時に図も更新する
-4. **レビュー**: プルリクエストでドキュメントもレビュー対象に
-
-### Mermaid図の編集
-
-1. **[Mermaid Live Editor](https://mermaid.live/)** でプレビューしながら編集
-2. **文法チェック**: Mermaidの文法エラーがないか確認
-3. **可読性**: 図が複雑になりすぎないように注意
-4. **カラーコーディング**: 既存の配色規則に従う
-
-## 💡 質問・フィードバック
-
-設計ドキュメントに関する質問やフィードバックは、GitHubのIssueまたはPull Requestで受け付けています。
-
-- より詳細な説明が必要な箇所
-- 図の改善提案
-- 新しい図の追加リクエスト
-- 誤りの指摘
-
-お気軽にご連絡ください！
+- [システムアーキテクチャ](./architecture/index.md) - システム全体の設計とアーキテクチャ
+- [データフロー](./architecture/data-flow.md) - アプリケーション内のデータの流れ
+- [クラス図](./architecture/class-diagram.md) - Pythonクラスの構造と関係
+- [シーケンス図](./architecture/sequence-diagram.md) - 処理の実行順序

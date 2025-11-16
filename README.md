@@ -55,16 +55,32 @@ devtools-release-notifier/
 │   └── scripts/                 # GitHub Actions統合スクリプト
 │       ├── __init__.py
 │       ├── extract_claude_response.py  # Claude応答抽出
-│       └── send_to_discord.py         # Discord送信
+│       └── send_to_discord.py         # Discord送信とMarkdownログ保存
 ├── tests/                       # テストコード
 │   ├── scripts/                 # スクリプトの単体テスト
 │   ├── models/                  # モデルの単体テスト
 │   └── ...                      # その他のテスト
 ├── cache/                       # バージョンキャッシュ
-├── docs/                        # 設計ドキュメント
+├── docs/                        # 設計ドキュメント（ソース）
+│   ├── README.md               # プロジェクト概要
+│   └── architecture/           # アーキテクチャドキュメント
+│       ├── index.md           # システムアーキテクチャ
+│       ├── data-flow.md       # データフロー
+│       ├── class-diagram.md   # クラス図
+│       └── sequence-diagram.md # シーケンス図
+├── rspress/                     # ドキュメントサイト
+│   ├── docs/
+│   │   ├── index.md            # トップページ（リリース情報メイン）
+│   │   ├── architecture/       # 設計ドキュメント（docs/から同期）
+│   │   └── releases/           # リリースログ（自動生成）
+│   ├── scripts/
+│   │   └── sync-docs.sh        # docs/ から rspress/docs/ への同期
+│   ├── rspress.config.ts
+│   └── package.json
 ├── .github/
 │   └── workflows/
-│       └── notifier.yml         # GitHub Actions設定
+│       ├── notifier.yml         # リリース通知ワークフロー
+│       └── deploy-docs.yml      # ドキュメントデプロイ
 ├── config.yml                   # 設定ファイル
 ├── pyproject.toml              # プロジェクト定義
 └── README.md                   # このファイル
@@ -198,14 +214,16 @@ common:
 
 ## アーキテクチャ
 
-システムアーキテクチャの詳細については、[docs/README.md](docs/README.md)を参照してください。
+システムアーキテクチャの詳細については、[設計ドキュメント](docs/architecture/index.md)を参照してください。
 
 主要なコンポーネント：
 
 1. Sources（情報源）: 複数のAPIから情報を取得
 2. GitHub Actions: Claude Code Actionで日本語に翻訳・要約
-3. DiscordNotifier（通知）: Discord Webhookで通知配信
+3. DiscordNotifier（通知）: Discord Webhookで通知配信とMarkdownログ保存
 4. Cache（キャッシュ）: バージョン情報を永続化
+
+ドキュメントサイト: [GitHub Pages](https://rysk-tanaka.github.io/devtools-release-notifier/) で閲覧可能
 
 ## 開発
 
@@ -276,7 +294,8 @@ rm cache/*.json
 
 ## 関連リンク
 
-- [設計ドキュメント](docs/README.md)
+- [設計ドキュメント](docs/architecture/index.md) - システムアーキテクチャの詳細
+- [ドキュメントサイト](https://rysk-tanaka.github.io/devtools-release-notifier/) - リリース情報と設計ドキュメント
 - [Claude API Documentation](https://docs.anthropic.com/en/api/)
 - [Discord Webhook Documentation](https://discord.com/developers/docs/resources/webhook)
 - [Homebrew API Documentation](https://formulae.brew.sh/)

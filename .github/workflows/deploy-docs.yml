@@ -29,7 +29,7 @@ jobs:
       - name: Validate Mermaid syntax in docs
         run: |
           docker run --rm -v ${{ github.workspace }}:/workspace \
-            ghcr.io/suwa-sh/md-mermaid-lint:latest "docs/**/*.md"
+            ghcr.io/suwa-sh/md-mermaid-lint:latest "docs/**/*.md" "rspress/docs/**/*.md"
 
   build:
     needs: validate-mermaid

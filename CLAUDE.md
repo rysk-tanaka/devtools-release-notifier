@@ -62,22 +62,36 @@ devtools-release-notifier/
 │   ├── scripts/                       # スクリプトの単体テスト
 │   ├── models/                        # モデルの単体テスト
 │   └── ...                            # その他のテスト
+├── docs/                              # 設計ドキュメント（ソース）
+│   ├── README.md                      # プロジェクト概要
+│   └── architecture/                  # アーキテクチャドキュメント
+│       ├── index.md                   # システムアーキテクチャ
+│       ├── data-flow.md               # データフロー
+│       ├── class-diagram.md           # クラス図
+│       └── sequence-diagram.md        # シーケンス図
 ├── rspress/                           # rspress設定（ドキュメントサイト）
 │   ├── docs/                          # ドキュメントファイル
-│   │   ├── index.md                   # トップページ
+│   │   ├── index.md                   # トップページ（リリース情報メイン、rspress内で管理）
+│   │   ├── architecture/              # 設計ドキュメント（docs/から同期）
+│   │   │   ├── index.md
+│   │   │   ├── data-flow.md
+│   │   │   ├── class-diagram.md
+│   │   │   └── sequence-diagram.md
 │   │   └── releases/                  # リリース情報（自動生成）
-│   │       ├── index.md               # リリース情報トップページ
 │   │       ├── zed-editor/            # Zed Editorリリースログ
 │   │       │   ├── index.md
 │   │       │   └── YYYY-MM-DD.md      # 日付ごとのリリース情報
 │   │       └── dia-browser/           # Dia Browserリリースログ
 │   │           ├── index.md
 │   │           └── YYYY-MM-DD.md      # 日付ごとのリリース情報
+│   ├── scripts/
+│   │   └── sync-docs.sh               # docs/ から rspress/docs/ への同期スクリプト
 │   ├── rspress.config.ts              # rspress設定ファイル
 │   └── package.json                   # Node.js依存関係
 ├── .github/
 │   └── workflows/
-│       └── notifier.yml               # GitHub Actions設定
+│       ├── notifier.yml               # リリース通知ワークフロー
+│       └── deploy-docs.yml            # ドキュメントデプロイワークフロー
 └── .gitignore                         # 更新
 ```
 
