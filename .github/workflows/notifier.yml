@@ -120,8 +120,6 @@ jobs:
       - name: Commit cache and Markdown logs
         if: steps.check.outputs.has_releases == 'true'
         continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -131,8 +129,6 @@ jobs:
             echo "ℹ️  No changes to commit"
           else
             git commit -m "chore: update release cache and logs [skip ci]"
-            gh auth setup-git
-            gh repo set-default ${{ github.repository }}
-            git push
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
             echo "✓ Cache and Markdown logs updated"
           fi
