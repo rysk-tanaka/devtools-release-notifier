@@ -129,7 +129,17 @@ def test_main_all_success(tmp_path: Path, monkeypatch):
     respx.post(WEBHOOK_URL).mock(return_value=httpx.Response(204))
 
     # Run main
-    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            str(releases_file),
+            translated_json,
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
+    )
     with pytest.raises(SystemExit) as exc_info:
         main()
     assert exc_info.value.code == 0
@@ -158,7 +168,17 @@ def test_main_all_failed(tmp_path: Path, monkeypatch):
     # Mock failed webhook
     respx.post(WEBHOOK_URL).mock(return_value=httpx.Response(404))
 
-    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            str(releases_file),
+            translated_json,
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
+    )
     with pytest.raises(SystemExit) as exc_info:
         main()
     # Exit code 1 for all failed
@@ -206,7 +226,17 @@ def test_main_partial_failure(tmp_path: Path, monkeypatch):
     respx.post(webhook_url_1).mock(return_value=httpx.Response(204))
     respx.post(webhook_url_2).mock(return_value=httpx.Response(500))
 
-    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            str(releases_file),
+            translated_json,
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
+    )
     with pytest.raises(SystemExit) as exc_info:
         main()
     # Exit code 2 for partial failure
@@ -230,19 +260,37 @@ def test_main_webhook_not_set(tmp_path: Path, monkeypatch):
 
     translated_json = json.dumps([{"tool_name": "Zed Editor", "translated_content": "Translated"}])
 
-    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            str(releases_file),
+            translated_json,
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
+    )
     with pytest.raises(SystemExit) as exc_info:
         main()
     # Exit code 1 because all (1) notifications failed (skipped counts as not sent)
     assert exc_info.value.code == 1
 
 
-def test_main_file_not_found(monkeypatch):
+def test_main_file_not_found(tmp_path: Path, monkeypatch):
     """Test main function when releases file is not found."""
     translated_json = json.dumps([])
 
     monkeypatch.setattr(
-        sys, "argv", ["send_to_discord.py", "/nonexistent/releases.json", translated_json]
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            "/nonexistent/releases.json",
+            translated_json,
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
     )
     with pytest.raises(SystemExit) as exc_info:
         main()
@@ -254,7 +302,17 @@ def test_main_invalid_translated_json(tmp_path: Path, monkeypatch):
     releases_file = tmp_path / "releases.json"
     releases_file.write_text("[]")
 
-    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), "invalid json"])
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            str(releases_file),
+            "invalid json",
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
+    )
     with pytest.raises(SystemExit) as exc_info:
         main()
     assert exc_info.value.code == 1
@@ -267,7 +325,17 @@ def test_main_translated_data_not_list(tmp_path: Path, monkeypatch):
 
     translated_json = json.dumps({"not": "a list"})
 
-    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            str(releases_file),
+            translated_json,
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
+    )
     with pytest.raises(SystemExit) as exc_info:
         main()
     assert exc_info.value.code == 1
@@ -295,7 +363,17 @@ def test_main_fallback_to_original_content(tmp_path: Path, monkeypatch):
     monkeypatch.setenv("DISCORD_WEBHOOK", WEBHOOK_URL)
     respx.post(WEBHOOK_URL).mock(return_value=httpx.Response(204))
 
-    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            str(releases_file),
+            translated_json,
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
+    )
     with pytest.raises(SystemExit) as exc_info:
         main()
     assert exc_info.value.code == 0
@@ -316,7 +394,17 @@ def test_main_invalid_release_data(tmp_path: Path, monkeypatch):
 
     translated_json = json.dumps([])
 
-    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            str(releases_file),
+            translated_json,
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
+    )
     with pytest.raises(SystemExit) as exc_info:
         main()
     # Should exit with error code due to validation failure
@@ -340,7 +428,17 @@ def test_main_invalid_translated_data(tmp_path: Path, monkeypatch):
     # Missing 'translated_content' field
     translated_json = json.dumps([{"tool_name": "Test"}])
 
-    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            str(releases_file),
+            translated_json,
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
+    )
     with pytest.raises(SystemExit) as exc_info:
         main()
     # Should exit with error code due to validation failure
@@ -364,7 +462,17 @@ def test_main_invalid_color_value(tmp_path: Path, monkeypatch):
 
     translated_json = json.dumps([])
 
-    monkeypatch.setattr(sys, "argv", ["send_to_discord.py", str(releases_file), translated_json])
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "send_to_discord.py",
+            str(releases_file),
+            translated_json,
+            "--markdown-dir",
+            str(tmp_path / "markdown"),
+        ],
+    )
     with pytest.raises(SystemExit) as exc_info:
         main()
     # Should exit with error code due to validation failure
