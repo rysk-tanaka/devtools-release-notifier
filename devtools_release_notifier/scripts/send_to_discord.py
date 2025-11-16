@@ -120,11 +120,11 @@ url: {url}
 
 # {tool_name} - {version}
 
-**リリース日**: {timestamp.strftime("%Y年%m月%d日")}
+リリース日: {timestamp.strftime("%Y年%m月%d日")}
 
-**バージョン**: {version}
+バージョン: {version}
 
-**リリースURL**: [{url}]({url})
+リリースURL: [{url}]({url})
 
 ## リリースノート
 
