@@ -131,7 +131,7 @@ jobs:
             echo "ℹ️  No changes to commit"
           else
             git commit -m "chore: update release cache and logs [skip ci]"
-            gh repo set-default rysk-tanaka/devtools-release-notifier
+            gh repo set-default ${{ github.repository }}
             gh auth setup-git
             git push
             echo "✓ Cache and Markdown logs updated"
