@@ -10,7 +10,7 @@ graph TB
         GHR[GitHub Releases<br/>Atom Feed]
         GHC[GitHub Commits<br/>Atom Feed]
         HB[Homebrew API<br/>JSON API]
-        CLAUDE[Claude Code Action<br/>anthropics/claude-code-action@beta]
+        CLAUDE[Claude Code Action]
         DISCORD[Discord<br/>Webhook]
     end
 
@@ -19,6 +19,7 @@ graph TB
         MANUAL[Manual Trigger<br/>workflow_dispatch]
         RUNNER[GitHub Actions Runner]
         TRANSLATE[Translation Step<br/>claude-code-action]
+        EXTRACT_SCRIPT[extract_claude_response.py<br/>Extract Translation]
         SEND_SCRIPT[send_to_discord.py<br/>Send Translated Content]
     end
 
@@ -59,7 +60,8 @@ graph TB
     MAIN -->|releases.json| RUNNER
     RUNNER --> TRANSLATE
     TRANSLATE --> CLAUDE
-    CLAUDE -->|translated content| SEND_SCRIPT
+    CLAUDE -->|execution_file| EXTRACT_SCRIPT
+    EXTRACT_SCRIPT -->|translated content| SEND_SCRIPT
     SEND_SCRIPT --> DISCORD
 
     MAIN --> NOTIF
@@ -81,18 +83,18 @@ graph TB
 
 ### External Services
 
-- **GitHub Releases/Commits**: Atomフィード形式でリリース情報を提供
-- **Homebrew API**: JSON形式でパッケージ情報を提供
-- **Claude Code Action**: anthropics/claude-code-action@betaによる翻訳・要約サービス
-- **Discord Webhook**: 通知配信サービス
+- GitHub Releases/Commits: Atomフィード形式でリリース情報を提供
+- Homebrew API: JSON形式でパッケージ情報を提供
+- Claude Code Action: AI による翻訳・要約サービス
+- Discord Webhook: 通知配信サービス
 
 ### GitHub Actions
 
-- **Scheduled Trigger**: 毎日10:00 UTCに自動実行
-- **Manual Trigger**: 手動実行用のトリガー
-- **Runner**: ワークフロー実行環境
-- **Translation Step**: claude-code-actionを使用した翻訳処理
-- **send_to_discord.py**: 翻訳されたコンテンツをDiscordに送信するスクリプト
+- Scheduled Trigger: 毎日10:00 UTCに自動実行
+- Manual Trigger: 手動実行用のトリガー
+- Runner: ワークフロー実行環境
+- Translation Step: claude-code-actionを使用した翻訳処理
+- send_to_discord.py: 翻訳されたコンテンツをDiscordに送信するスクリプト
 
 ### Application Core
 
@@ -106,19 +108,19 @@ graph TB
 
 #### Source Module
 
-- **ReleaseSource**: 情報源の抽象基底クラス
-- **GitHubReleaseSource**: GitHub Releasesから情報取得
-- **GitHubCommitsSource**: GitHub Commitsから情報取得
-- **HomebrewCaskSource**: Homebrew APIから情報取得
+- ReleaseSource: 情報源の抽象基底クラス
+- GitHubReleaseSource: GitHub Releasesから情報取得
+- GitHubCommitsSource: GitHub Commitsから情報取得
+- HomebrewCaskSource: Homebrew APIから情報取得
 
 #### Notification Module
 
-- **DiscordNotifier**: Discord Webhookへの通知送信
+- DiscordNotifier: Discord Webhookへの通知送信
 - リッチ埋め込みメッセージ形式
 
 #### Cache Module
 
-- **Version Cache**: JSONファイル形式でバージョン情報を永続化
+- Version Cache: JSONファイル形式でバージョン情報を永続化
 - 重複通知の防止
 
 ## データストア

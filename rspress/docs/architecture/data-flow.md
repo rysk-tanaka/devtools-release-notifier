@@ -92,27 +92,23 @@ flowchart LR
     end
 
     subgraph "Unified Format"
-        UNIFIED["(
-            version: str,
-            content: str,
-            url: str,
-            published: datetime,
-            source: str
-        )"]
+        UNIFIED["version: str
+content: str
+url: str
+published: datetime
+source: str"]
     end
 
     GHR_DICT --> UNIFIED
     HB_DICT --> UNIFIED
 
     subgraph "JSON Output (--output)"
-        JSON_OUTPUT["(
-            tool_name: str,
-            version: str,
-            content: str,
-            url: str,
-            color: int,
-            webhook_env: str
-        )"]
+        JSON_OUTPUT["tool_name: str
+version: str
+content: str
+url: str
+color: int
+webhook_env: str"]
     end
 
     UNIFIED --> JSON_OUTPUT
@@ -120,23 +116,23 @@ flowchart LR
     subgraph "GitHub Actions Translation"
         TRANS_IN[releases.json]
         CLAUDE_TRANS[claude-code-action<br/>Translation]
+        EXTRACT[extract_claude_response.py<br/>Extract JSON]
         TRANS_OUT[Translated JSON]
 
         TRANS_IN --> CLAUDE_TRANS
-        CLAUDE_TRANS --> TRANS_OUT
+        CLAUDE_TRANS --> |execution_file| EXTRACT
+        EXTRACT --> TRANS_OUT
     end
 
     JSON_OUTPUT --> TRANS_IN
 
     subgraph "Discord Message"
-        DISCORD_EMBED[{
-            title: str,
-            description: str,
-            url: str,
-            color: int,
-            timestamp: str,
-            footer: obj
-        }]
+        DISCORD_EMBED["title: str
+description: str
+url: str
+color: int
+timestamp: str  # RFC 3339 (ending with Z)
+footer: obj"]
     end
 
     TRANS_OUT --> |send_to_discord.py| DISCORD_EMBED
