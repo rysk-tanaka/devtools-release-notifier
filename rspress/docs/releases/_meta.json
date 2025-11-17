@@ -2,6 +2,12 @@
   "index",
   {
     "type": "dir",
+    "name": "claude-code",
+    "label": "Claude Code",
+    "collapsible": false
+  },
+  {
+    "type": "dir",
     "name": "dia-browser",
     "label": "Dia Browser",
     "collapsible": false
