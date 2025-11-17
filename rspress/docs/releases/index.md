@@ -4,8 +4,9 @@
 
 ## 監視中のツール
 
-- [Zed Editor](./zed-editor/index.md) - モダンなコードエディタ
+- [Claude Code](./claude-code/index.md) - AnthropicのAIペアプログラミングツール
 - [Dia Browser](./dia-browser/index.md) - 高速なWebブラウザ
+- [Zed Editor](./zed-editor/index.md) - モダンなコードエディタ
 
 ## 通知について
 

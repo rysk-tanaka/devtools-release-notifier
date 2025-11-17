@@ -6,7 +6,7 @@
 
 このプロジェクトは、開発者が使用するツールの最新リリース情報を自動的に監視し、Discordチャンネルに日本語で通知します。複数の情報源から情報を取得し、優先度に基づいて最適なソースを選択する仕組みを持っています。
 
-設定ファイル（`config.yml`）でツールを追加するだけで、任意の開発ツール（Zed Editor、Dia Browser、その他のツール）を監視できます。
+設定ファイル（`config.yml`）でツールを追加するだけで、任意の開発ツールを監視できます。
 
 ## 主な機能
 
@@ -270,6 +270,19 @@ uv run pytest --cov=devtools_release_notifier
 - コードスタイル: PEP 8準拠、ruffでフォーマット
 
 詳細は[CLAUDE.md](CLAUDE.md)を参照してください。
+
+### 新しいツールの追加
+
+新しい開発ツールの監視を追加する方法については、[貢献ガイド](docs/CONTRIBUTING.md)を参照してください。
+
+簡単な手順。
+
+1. `config.yml`にツール設定を追加
+2. rspressドキュメントを更新（`_meta.json`、`index.md`、ツール専用ページ）
+3. ローカルで動作確認（`uv run devtools-notifier --output releases.json --no-notify`）
+4. プルリクエストを作成
+
+詳細な手順、設定例、トラブルシューティングは[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)を参照してください。
 
 ## トラブルシューティング
 

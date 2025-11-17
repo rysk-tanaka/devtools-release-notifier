@@ -815,6 +815,107 @@ export DISCORD_WEBHOOK="https://discord.com/api/webhooks/..."
 uv run devtools-notifier
 ```
 
+## 🔧 新規ツールの追加手順
+
+Claude Codeが新しいツールを追加する際の手順です。
+
+### 必要な情報
+
+新しいツールを追加する前に、以下の情報を収集してください。
+
+- ツール名（例: "Claude Code"）
+- 情報源の種類と優先度
+  - GitHub Releases: `https://github.com/{owner}/{repo}/releases.atom`
+  - GitHub Commits: `https://github.com/{owner}/{repo}/commits/main.atom`
+  - Homebrew Cask: `https://formulae.brew.sh/api/cask/{cask_name}.json`
+- Discord通知用の色コード（10進数、0-16777215）
+- ツールの簡単な説明
+
+### 変更が必要なファイル
+
+以下のファイルを変更してください。
+
+1. config.yml
+   - `tools`リストに新しいツール設定を追加
+   - 情報源を優先度順に設定
+
+2. rspress/docs/releases/_meta.json
+   - ナビゲーションに追加（アルファベット順）
+   - slug名はケバブケース（例: "claude-code"）
+
+3. rspress/docs/releases/index.md
+   - 監視中ツールリストに追加（アルファベット順）
+
+4. rspress/docs/index.md
+   - トップページの監視中ツールリストに追加（アルファベット順）
+
+5. rspress/docs/releases/{tool-slug}/index.md（新規作成）
+   - ツール専用のインデックスページを作成
+   - 情報源リストと公式リンクを記載
+
+### 設定テンプレート
+
+#### config.yml
+
+```yaml
+- name: "{Tool Name}"
+  enabled: true
+  sources:
+    - type: "{source_type}"
+      priority: 1
+      # source_typeに応じた必須パラメータ
+    - type: "{fallback_source_type}"
+      priority: 2
+      # fallback用のパラメータ
+  notification:
+    webhook_env: "DISCORD_WEBHOOK"
+    color: {color_code}
+```
+
+#### rspress/docs/releases/{tool-slug}/index.md
+
+```markdown
+# {Tool Name} リリース情報
+
+{Tool Name}は、{簡単な説明}です。
+
+## 最新のリリース
+
+最新のリリース情報は、以下のページで確認できます。
+
+## 情報源
+
+- {Primary Source}（優先度1）
+- {Fallback Source}（優先度2）
+
+## 公式リンク
+
+- [GitHub リポジトリ](https://github.com/{owner}/{repo})
+- [公式サイト]({official_website})
+```
+
+### バリデーション
+
+変更後、以下を確認してください。
+
+- [ ] config.ymlのYAML構文が正しい
+- [ ] rspress/docs/releases/_meta.jsonのJSON構文が正しい
+- [ ] ツール名がすべてのファイルで一貫している
+- [ ] slug名がケバブケース（小文字+ハイフン）である
+- [ ] アルファベット順に並んでいる
+- [ ] 情報源のURLが正しい
+- [ ] 色コードが0-16777215の範囲内である
+
+### 動作確認
+
+```bash
+# ローカルでテスト
+uv run devtools-notifier --output releases.json --no-notify
+
+# 新しいツールが検出されることを確認
+cat releases.json
+```
+
 ## 📚 参考情報
 
 ### API仕様

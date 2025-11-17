@@ -29,6 +29,23 @@ tools:
       webhook_env: "DISCORD_WEBHOOK"
       color: 3447003
 
+  - name: "Claude Code"
+    enabled: true
+    sources:
+      - type: "github_releases"
+        priority: 1
+        atom_url: "https://github.com/anthropics/claude-code/releases.atom"
+        owner: "anthropics"
+        repo: "claude-code"
+      - type: "github_commits"
+        priority: 2
+        atom_url: "https://github.com/anthropics/claude-code/commits/main.atom"
+        owner: "anthropics"
+        repo: "claude-code"
+    notification:
+      webhook_env: "DISCORD_WEBHOOK"
+      color: 16744272
+
 common:
   check_interval_hours: 6
   cache_directory: "./cache"
