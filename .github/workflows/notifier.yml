@@ -12,6 +12,7 @@ jobs:
     permissions:
       id-token: write
       contents: write
+      actions: write
 
     steps:
       - name: Checkout repository
@@ -118,6 +119,7 @@ jobs:
           exit $EXIT_CODE
 
       - name: Commit cache and Markdown logs
+        id: commit
         if: steps.check.outputs.has_releases == 'true'
         continue-on-error: true
         run: |
@@ -132,3 +134,13 @@ jobs:
             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
             echo "✓ Cache and Markdown logs updated"
           fi
+
+      - name: Trigger documentation deployment
+        if: steps.check.outputs.has_releases == 'true' && steps.commit.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🚀 Triggering documentation deployment..."
+          gh workflow run deploy-docs.yml
+          echo "✓ Documentation deployment triggered"
