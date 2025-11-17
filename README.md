@@ -271,6 +271,19 @@ uv run pytest --cov=devtools_release_notifier
 
 詳細は[CLAUDE.md](CLAUDE.md)を参照してください。
 
+### 新しいツールの追加
+
+新しい開発ツールの監視を追加する方法については、[貢献ガイド](docs/CONTRIBUTING.md)を参照してください。
+
+簡単な手順。
+
+1. `config.yml`にツール設定を追加
+2. rspressドキュメントを更新（`_meta.json`、`index.md`、ツール専用ページ）
+3. ローカルで動作確認（`uv run devtools-notifier --output releases.json --no-notify`）
+4. プルリクエストを作成
+
+詳細な手順、設定例、トラブルシューティングは[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)を参照してください。
+
 ## トラブルシューティング
 
 ### Discord通知が送信されない
