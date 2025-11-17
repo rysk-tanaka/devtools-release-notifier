@@ -14,4 +14,4 @@ Claude Codeは、Anthropicが開発したAIペアプログラミングツール�
 ## 公式リンク
 
 - [GitHub リポジトリ](https://github.com/anthropics/claude-code)
-- [公式サイト](https://claude.ai/code)
+- [公式サイト](https://code.claude.com)
