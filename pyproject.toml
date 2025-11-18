@@ -99,6 +99,7 @@ max-returns = 6       # Default threshold
 exclude = ["build/"]
 plugins = ["pydantic.mypy"]
 follow_imports = "skip"
+disable_error_code = ["misc"]  # Disable until mypy supports PEP 750 t-strings
 
 [[tool.mypy.overrides]]
 module = ["feedparser", "feedparser.*", "yaml", "yaml.*"]

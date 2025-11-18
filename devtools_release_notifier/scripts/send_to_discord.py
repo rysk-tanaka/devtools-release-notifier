@@ -17,6 +17,7 @@ import httpx
 from pydantic import ValidationError
 
 from devtools_release_notifier.models.output import ReleaseOutput, TranslatedRelease
+from devtools_release_notifier.templates import render_template
 
 
 def send_to_discord(
@@ -47,7 +48,7 @@ def send_to_discord(
     payload = {
         "embeds": [
             {
-                "title": f"🚀 {tool_name} - {version}",
+                "title": render_template(t"🚀 {tool_name} - {version}"),
                 "description": content,
                 "url": url,
                 "color": color,
@@ -111,7 +112,8 @@ def save_markdown_log(
         file_path = tool_dir / filename
 
         # Create frontmatter and content
-        frontmatter = f"""---
+        frontmatter = render_template(
+            t"""---
 title: {tool_name} - {version}
 date: {timestamp.strftime("%Y-%m-%d")}
 version: {version}
@@ -134,6 +136,7 @@ url: {url}
 
 *このドキュメントは自動生成されました*
 """
+        )
 
         # Write to file
         file_path.write_text(frontmatter, encoding="utf-8")
