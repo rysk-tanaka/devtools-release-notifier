@@ -1,6 +1,5 @@
 """Tests for template string utilities."""
 
-
 from devtools_release_notifier.templates import convert, render_template
 
 
