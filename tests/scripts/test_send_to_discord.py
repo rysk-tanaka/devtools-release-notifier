@@ -511,10 +511,10 @@ def test_save_markdown_log_success(tmp_path: Path):
 
     content = expected_file.read_text(encoding="utf-8")
     # Verify frontmatter
-    assert "title: Zed Editor - v0.100.0" in content
-    assert "date: 2025-01-15" in content
-    assert "version: v0.100.0" in content
-    assert "url: https://github.com/zed-industries/zed/releases/tag/v0.100.0" in content
+    assert 'title: "Zed Editor - v0.100.0"' in content
+    assert 'date: "2025-01-15"' in content
+    assert 'version: "v0.100.0"' in content
+    assert 'url: "https://github.com/zed-industries/zed/releases/tag/v0.100.0"' in content
     # Verify Japanese date format
     assert "2025年01月15日" in content
     # Verify content
