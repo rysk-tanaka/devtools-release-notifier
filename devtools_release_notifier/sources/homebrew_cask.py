@@ -5,6 +5,7 @@ from datetime import UTC, datetime
 import httpx
 
 from devtools_release_notifier.sources.base import ReleaseSource
+from devtools_release_notifier.templates import render_template
 
 
 class HomebrewCaskSource(ReleaseSource):
@@ -36,10 +37,11 @@ class HomebrewCaskSource(ReleaseSource):
                 return None
 
             # Generate installation information
-            content = f"Version: {version}\n"
+            token = data.get("token", "unknown")
+            content = render_template(t"Version: {version}\n")
             if download_url:
-                content += f"Download: {download_url}\n"
-            content += f"Install: `brew install --cask {data.get('token', 'unknown')}`"
+                content += render_template(t"Download: {download_url}\n")
+            content += render_template(t"Install: `brew install --cask {token}`")
 
             return {
                 "version": version,

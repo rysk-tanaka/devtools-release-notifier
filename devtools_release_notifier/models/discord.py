@@ -4,6 +4,8 @@ from datetime import UTC, datetime
 
 from pydantic import BaseModel, Field
 
+from devtools_release_notifier.templates import render_template
+
 
 class DiscordEmbedFooter(BaseModel):
     """Discord embed footer.
@@ -69,7 +71,7 @@ class DiscordWebhookPayload(BaseModel):
         truncated_content = content[:4000] if len(content) > 4000 else content
 
         embed = DiscordEmbed(
-            title=f"🚀 {tool_name} - {version}",
+            title=render_template(t"🚀 {tool_name} - {version}"),
             description=truncated_content,
             url=url,
             color=color,
