@@ -114,10 +114,10 @@ def save_markdown_log(
         # Create frontmatter and content
         frontmatter = render_template(
             t"""---
-title: {tool_name} - {version}
-date: {timestamp.strftime("%Y-%m-%d")}
-version: {version}
-url: {url}
+title: "{tool_name} - {version}"
+date: "{timestamp.strftime("%Y-%m-%d")}"
+version: "{version}"
+url: "{url}"
 ---
 
 # {tool_name} - {version}
