@@ -9,7 +9,9 @@ It also saves the notification content as Markdown files for rspress documentati
 import argparse
 import json
 import os
+import re
 import sys
+from collections import defaultdict
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -148,6 +150,133 @@ url: "{url}"
         return False
 
 
+def _extract_title_from_markdown(file_path: Path) -> str | None:
+    """Extract title from Markdown frontmatter.
+
+    Args:
+        file_path: Path to Markdown file
+
+    Returns:
+        Title string or None if not found
+    """
+    try:
+        content = file_path.read_text(encoding="utf-8")
+        match = re.search(r'^title:\s*"(.+)"', content, re.MULTILINE)
+        if match:
+            return match.group(1)
+        return None
+    except (OSError, ValueError):
+        return None
+
+
+def _get_tool_links(base_dir: Path) -> list[str]:
+    """Generate tool filter links dynamically from directory structure.
+
+    Args:
+        base_dir: Base directory containing tool subdirectories
+
+    Returns:
+        List of Markdown links to tool index pages
+    """
+    tool_links = []
+    for tool_dir in sorted(base_dir.iterdir()):
+        if not tool_dir.is_dir() or tool_dir.name.startswith("_") or tool_dir.name == "index.md":
+            continue
+
+        # Convert kebab-case to Title Case (e.g., "claude-code" -> "Claude Code")
+        display_name = " ".join(word.capitalize() for word in tool_dir.name.split("-"))
+        tool_links.append(f"- [{display_name}](./{tool_dir.name}/index.md)")
+
+    return tool_links
+
+
+def update_releases_index(markdown_dir: str, max_entries: int = 15) -> bool:
+    """Update releases/index.md with latest release entries.
+
+    Args:
+        markdown_dir: Base directory for Markdown files (e.g., "rspress/docs/releases")
+        max_entries: Maximum number of entries to keep (default: 15)
+
+    Returns:
+        True if successful, False otherwise
+    """
+    try:
+        base_dir = Path(markdown_dir)
+        index_path = base_dir / "index.md"
+
+        # Collect all release Markdown files (YYYY-MM-DD.md)
+        release_files: list[tuple[str, Path, str]] = []
+        for tool_dir in base_dir.iterdir():
+            if not tool_dir.is_dir() or tool_dir.name.startswith("_"):
+                continue
+
+            for md_file in tool_dir.glob("20*.md"):
+                # Extract date from filename (YYYY-MM-DD.md)
+                date_match = re.match(r"(\d{4}-\d{2}-\d{2})\.md", md_file.name)
+                if date_match:
+                    date_str = date_match.group(1)
+                    # Extract title from frontmatter
+                    title = _extract_title_from_markdown(md_file)
+                    if title:
+                        # Remove "Tool Name - " prefix from title
+                        title_parts = title.split(" - ", 1)
+                        short_title = title_parts[1] if len(title_parts) > 1 else title
+                        release_files.append((date_str, md_file, short_title))
+
+        # Sort by date (descending) and limit to max_entries
+        release_files.sort(key=lambda x: x[0], reverse=True)
+        release_files = release_files[:max_entries]
+
+        # Group by date
+        releases_by_date: dict[str, list[tuple[Path, str]]] = defaultdict(list)
+        for date_str, file_path, title in release_files:
+            releases_by_date[date_str].append((file_path, title))
+
+        # Generate tool filter links dynamically
+        tool_links = _get_tool_links(base_dir)
+
+        # Generate index.md content
+        content_lines = [
+            "# 最新のリリース情報",
+            "",
+            "全ツールの最新リリース情報を時系列で表示しています。",
+            "",
+            "## ツール別フィルタ",
+            "",
+        ]
+        content_lines.extend(tool_links)
+        content_lines.extend(
+            [
+                "",
+                "## リリース一覧",
+                "",
+            ]
+        )
+
+        # Add release entries grouped by date (already sorted descending)
+        for date_str in sorted(releases_by_date.keys(), reverse=True):
+            content_lines.append(f"### {date_str}")
+            content_lines.append("")
+
+            # Sort entries within the same date alphabetically by title
+            entries = sorted(releases_by_date[date_str], key=lambda x: x[1])
+            for file_path, title in entries:
+                # Generate relative path from index.md
+                rel_path = file_path.relative_to(base_dir)
+                content_lines.append(f"- [{title}](./{rel_path})")
+
+            content_lines.append("")
+
+        # Write to index.md
+        index_path.write_text("\n".join(content_lines), encoding="utf-8")
+        print(f"✓ Updated releases index: {index_path}")
+        return True
+
+    except (OSError, ValueError) as e:
+        print(f"✗ Failed to update releases index: {e}")
+        return False
+
+
 def _load_releases(file_path: str) -> list[ReleaseOutput]:
     """Load and validate releases data from JSON file.
 
@@ -218,6 +347,7 @@ def _send_notifications(
     failed_count = 0
     skipped_count = 0
     timestamp = datetime.now(UTC)
+    markdown_saved = False
 
     for release in releases:
         # Get webhook URL from environment
@@ -244,16 +374,21 @@ def _send_notifications(
 
             # Save Markdown log if directory is specified
             if markdown_dir:
-                save_markdown_log(
+                if save_markdown_log(
                     markdown_dir=markdown_dir,
                     tool_name=release.tool_name,
                     version=release.version,
                     translated_content=translated_content,
                     url=release.url,
                     timestamp=timestamp,
-                )
+                ):
+                    markdown_saved = True
         else:
             failed_count += 1
+
+    # Update releases/index.md if any Markdown logs were saved
+    if markdown_saved and markdown_dir:
+        update_releases_index(markdown_dir)
 
     return success_count, failed_count, skipped_count
 
