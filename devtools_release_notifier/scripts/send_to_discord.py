@@ -169,6 +169,27 @@ def _extract_title_from_markdown(file_path: Path) -> str | None:
         return None
 
 
+def _get_tool_links(base_dir: Path) -> list[str]:
+    """Generate tool filter links dynamically from directory structure.
+
+    Args:
+        base_dir: Base directory containing tool subdirectories
+
+    Returns:
+        List of Markdown links to tool index pages
+    """
+    tool_links = []
+    for tool_dir in sorted(base_dir.iterdir()):
+        if not tool_dir.is_dir() or tool_dir.name.startswith("_") or tool_dir.name == "index.md":
+            continue
+
+        # Convert kebab-case to Title Case (e.g., "claude-code" -> "Claude Code")
+        display_name = " ".join(word.capitalize() for word in tool_dir.name.split("-"))
+        tool_links.append(f"- [{display_name}](./{tool_dir.name}/index.md)")
+
+    return tool_links
+
+
 def update_releases_index(markdown_dir: str, max_entries: int = 15) -> bool:
     """Update releases/index.md with latest release entries.
 
@@ -211,6 +232,9 @@ def update_releases_index(markdown_dir: str, max_entries: int = 15) -> bool:
         for date_str, file_path, title in release_files:
             releases_by_date[date_str].append((file_path, title))
 
+        # Generate tool filter links dynamically
+        tool_links = _get_tool_links(base_dir)
+
         # Generate index.md content
         content_lines = [
             "# 最新のリリース情報",
@@ -219,13 +243,15 @@ def update_releases_index(markdown_dir: str, max_entries: int = 15) -> bool:
             "",
             "## ツール別フィルタ",
             "",
-            "- [Claude Code](./claude-code/index.md)",
-            "- [Dia Browser](./dia-browser/index.md)",
-            "- [Zed Editor](./zed-editor/index.md)",
-            "",
-            "## リリース一覧",
-            "",
         ]
+        content_lines.extend(tool_links)
+        content_lines.extend(
+            [
+                "",
+                "## リリース一覧",
+                "",
+            ]
+        )
 
         # Add release entries grouped by date (already sorted descending)
         for date_str in sorted(releases_by_date.keys(), reverse=True):
