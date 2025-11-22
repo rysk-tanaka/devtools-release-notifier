@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2025-11-21T10:11:48.097648+00:00"
+  "version": "nightly: Fix wsl path parsing (#43295)",
+  "timestamp": "2025-11-22T10:10:20.434093+00:00"
 }
