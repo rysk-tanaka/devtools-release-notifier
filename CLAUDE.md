@@ -755,6 +755,20 @@ releases.json
 - すべての関数に型ヒントを追加
 - `Optional[Dict]`, `List[Dict]`等を適切に使用
 
+#### テンプレート文字列（t-string）
+
+- Python 3.14の新機能: t-string（テンプレート文字列）を使用
+  - PEP 750で正式採用された標準機能
+  - 構文: `t"...{variable}..."`
+  - 使用例: `render_template(t"🚀 {tool_name} - {version}")`
+  - 通常のf-stringとの違い: 遅延評価が可能で、テンプレート処理に適している
+- 参考リンク
+  - [PEP 750 – Template Strings](https://peps.python.org/pep-0750/)
+  - [Python 3.14 Documentation: string.templatelib](https://docs.python.org/3.14/library/string.templatelib.html)
+- 注意事項
+  - Python 3.14以降でのみ使用可能
+  - ruff/mypyで自動的にチェックされる
+
 #### ファイル構成
 
 - __init__.py: デフォルトで空（末尾の改行のみ）
