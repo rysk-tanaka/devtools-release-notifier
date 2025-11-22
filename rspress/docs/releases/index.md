@@ -1,19 +1,38 @@
-# リリース情報
+# 最新のリリース情報
 
-開発ツールの最新リリース情報を確認できます。
+全ツールの最新リリース情報を時系列で表示しています。
 
-## 監視中のツール
+## ツール別フィルタ
 
-- [Claude Code](./claude-code/index.md) - AnthropicのAIペアプログラミングツール
-- [Dia Browser](./dia-browser/index.md) - 高速なWebブラウザ
-- [Zed Editor](./zed-editor/index.md) - モダンなコードエディタ
+- [Claude Code](./claude-code/index.md)
+- [Dia Browser](./dia-browser/index.md)
+- [Zed Editor](./zed-editor/index.md)
 
-## 通知について
+## リリース一覧
 
-このシステムは、各ツールの新しいリリースを自動的に検出し、日本語に翻訳して通知します。
+### 2025-11-21
 
-- GitHub Releases
-- Homebrew Cask
-- GitHub Commits
+- [docs: Update README with skills and hooks sections (#11818)](./claude-code/2025-11-21.md)
+- [nightly](./zed-editor/2025-11-21.md)
 
-上記のソースから優先度順に情報を取得し、新しいバージョンが見つかった場合に通知します。
+### 2025-11-20
+
+- [nightly: ui: Remove outdated/unused component stories (#43118)](./zed-editor/2025-11-20.md)
+
+### 2025-11-19
+
+- [chore: Update CHANGELOG.md](./claude-code/2025-11-19.md)
+- [nightly: Update google_ai.rs (#43034)](./zed-editor/2025-11-19.md)
+
+### 2025-11-18
+
+- [Merge pull request #11780 from anthropics/daisy/plugin-dev/public-mar…](./claude-code/2025-11-18.md)
+- [v0.213.2-pre](./zed-editor/2025-11-18.md)
+
+### 2025-11-17
+
+- [nightly: Remove mention of Fireside Hacks (#42853)](./zed-editor/2025-11-17.md)
+
+### 2025-11-16
+
+- [nightly](./zed-editor/2025-11-16.md)

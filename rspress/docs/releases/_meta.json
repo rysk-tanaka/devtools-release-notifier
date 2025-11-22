@@ -4,18 +4,18 @@
     "type": "dir",
     "name": "claude-code",
     "label": "Claude Code",
-    "collapsible": false
+    "collapsible": true
   },
   {
     "type": "dir",
     "name": "dia-browser",
     "label": "Dia Browser",
-    "collapsible": false
+    "collapsible": true
   },
   {
     "type": "dir",
     "name": "zed-editor",
     "label": "Zed Editor",
-    "collapsible": false
+    "collapsible": true
   }
 ]
