@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix wsl path parsing (#43295)",
-  "timestamp": "2025-11-22T10:10:20.434093+00:00"
+  "version": "nightly: agent_ui: Display footer for model selector when in Zed agent (#43294)",
+  "timestamp": "2025-11-23T10:10:21.188372+00:00"
 }
