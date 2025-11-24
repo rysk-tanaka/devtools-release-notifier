@@ -10,6 +10,19 @@
 
 ## リリース一覧
 
+### 2025-11-24
+
+- [nightly: agent_ui: Make thread markdown editable (#43377)](./zed-editor/2025-11-24.md)
+
+### 2025-11-23
+
+- [nightly: agent_ui: Display footer for model selector when in Zed agent (#43294)](./zed-editor/2025-11-23.md)
+
+### 2025-11-22
+
+- [chore: Update CHANGELOG.md](./claude-code/2025-11-22.md)
+- [nightly: Fix wsl path parsing (#43295)](./zed-editor/2025-11-22.md)
+
 ### 2025-11-21
 
 - [docs: Update README with skills and hooks sections (#11818)](./claude-code/2025-11-21.md)
