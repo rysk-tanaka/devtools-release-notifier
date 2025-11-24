@@ -88,38 +88,38 @@ devtools-release-notifier/
 
 1. リポジトリのクローン
 
-```bash
-git clone https://github.com/yourusername/devtools-release-notifier.git
-cd devtools-release-notifier
-```
+    ```bash
+    git clone https://github.com/yourusername/devtools-release-notifier.git
+    cd devtools-release-notifier
+    ```
 
 2. 依存関係のインストール
 
-```bash
-# uvを使用（推奨）
-uv sync
+    ```bash
+    # uvを使用（推奨）
+    uv sync
 
-# または、pipを使用
-pip install -e .
-```
+    # または、pipを使用
+    pip install -e .
+    ```
 
 3. 環境変数の設定
 
-以下の環境変数を設定してください：
+    以下の環境変数を設定してください：
 
-```bash
-# Discord Webhook URL（必須）
-export DISCORD_WEBHOOK="https://discord.com/api/webhooks/your-webhook-url"
+    ```bash
+    # Discord Webhook URL（必須）
+    export DISCORD_WEBHOOK="https://discord.com/api/webhooks/your-webhook-url"
 
-# Claude API OAuth Token（オプション、翻訳機能を使う場合）
-export CLAUDE_CODE_OAUTH_TOKEN="your-claude-oauth-token"
-```
+    # Claude API OAuth Token（オプション、翻訳機能を使う場合）
+    export CLAUDE_CODE_OAUTH_TOKEN="your-claude-oauth-token"
+    ```
 
-または、`.env`ファイルを作成して設定することもできます。
+    または、`.env`ファイルを作成して設定することもできます。
 
 4. 設定ファイルの確認
 
-`config.yml`を確認し、必要に応じて監視するツールや設定を調整してください。
+    `config.yml`を確認し、必要に応じて監視するツールや設定を調整してください。
 
 ## 使い方
 
