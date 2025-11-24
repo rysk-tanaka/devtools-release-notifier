@@ -31,17 +31,6 @@
   - 重複通知の防止
   - GitHub Actionsとの統合
 
-## 技術スタック
-
-- Python 3.14+: 最新のPython機能を活用
-- uv: 高速なパッケージマネージャー
-- httpx: 次世代HTTPクライアント（非同期対応）
-- PyYAML: 柔軟な設定ファイル管理
-- feedparser: RSS/Atomフィード解析
-- pydantic: 型安全なデータ検証
-- GitHub Actions: CI/CDとClaude Code Actionによる翻訳
-- Discord Webhook: 通知配信
-
 ## プロジェクト構造
 
 ```text
@@ -260,17 +249,6 @@ uv run pytest
 uv run pytest --cov=devtools_release_notifier
 ```
 
-### Python開発規約
-
-このプロジェクトは以下の規約に従います：
-
-- コマンド実行: `uv run`を使用
-- 型ヒント: すべての関数に型ヒントを追加
-- エラーハンドリング: 適切な例外処理とログ出力
-- コードスタイル: PEP 8準拠、ruffでフォーマット
-
-詳細は[CLAUDE.md](CLAUDE.md)を参照してください。
-
 ### 新しいツールの追加
 
 新しい開発ツールの監視を追加する方法については、[貢献ガイド](docs/CONTRIBUTING.md)を参照してください。
@@ -282,21 +260,7 @@ uv run pytest --cov=devtools_release_notifier
 3. ローカルで動作確認（`uv run devtools-notifier --output releases.json --no-notify`）
 4. プルリクエストを作成
 
-詳細な手順、設定例、トラブルシューティングは[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)を参照してください。
-
-## トラブルシューティング
-
-### Discord通知が送信されない
-
-- Discord Webhook URLが正しく設定されているか確認
-- Webhook URLが有効か確認（Discord側で削除されていないか）
-- ネットワーク接続を確認
-
-### 翻訳が動作しない
-
-- `CLAUDE_CODE_OAUTH_TOKEN`が設定されているか確認
-- トークンが有効か確認
-- 翻訳なしで通知だけ受け取る場合は、環境変数を設定しない
+詳細な手順、設定例は[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)を参照してください。
 
 ### キャッシュのリセット
 
