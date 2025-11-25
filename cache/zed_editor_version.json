@@ -1,4 +1,4 @@
 {
-  "version": "nightly: agent_ui: Make thread markdown editable (#43377)",
-  "timestamp": "2025-11-24T10:12:53.595991+00:00"
+  "version": "nightly: Only show ssh logs when toggled (#43445)",
+  "timestamp": "2025-11-25T10:13:01.665160+00:00"
 }
