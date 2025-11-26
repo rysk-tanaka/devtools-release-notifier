@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-11-26
+
+- [nightly: zeta: Avoid logging an error for not having SWEEP_AI_TOKEN (#43504)](./zed-editor/2025-11-26.md)
+
 ### 2025-11-25
 
 - [nightly: Only show ssh logs when toggled (#43445)](./zed-editor/2025-11-25.md)
