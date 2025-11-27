@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-11-27
+
+- [v0.215.2-pre](./zed-editor/2025-11-27.md)
+
 ### 2025-11-26
 
 - [nightly: zeta: Avoid logging an error for not having SWEEP_AI_TOKEN (#43504)](./zed-editor/2025-11-26.md)
@@ -53,7 +57,3 @@
 ### 2025-11-17
 
 - [nightly: Remove mention of Fireside Hacks (#42853)](./zed-editor/2025-11-17.md)
-
-### 2025-11-16
-
-- [nightly](./zed-editor/2025-11-16.md)
