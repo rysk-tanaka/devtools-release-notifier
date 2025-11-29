@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-11-29
+
+- [v0.215.3-pre](./zed-editor/2025-11-29.md)
+
 ### 2025-11-27
 
 - [v0.215.2-pre](./zed-editor/2025-11-27.md)
@@ -53,7 +57,3 @@
 
 - [Merge pull request #11780 from anthropics/daisy/plugin-dev/public-mar…](./claude-code/2025-11-18.md)
 - [v0.213.2-pre](./zed-editor/2025-11-18.md)
-
-### 2025-11-17
-
-- [nightly: Remove mention of Fireside Hacks (#42853)](./zed-editor/2025-11-17.md)
