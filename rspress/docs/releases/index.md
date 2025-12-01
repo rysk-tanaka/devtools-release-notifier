@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-12-01
+
+- [nightly: Basic side-by-side diff implementation (#43586)](./zed-editor/2025-12-01.md)
+
 ### 2025-11-30
 
 - [nightly:  Add @yeskunall to `REVIEWERS.conl` (#43823)](./zed-editor/2025-11-30.md)
@@ -56,7 +60,3 @@
 
 - [chore: Update CHANGELOG.md](./claude-code/2025-11-19.md)
 - [nightly: Update google_ai.rs (#43034)](./zed-editor/2025-11-19.md)
-
-### 2025-11-18
-
-- [Merge pull request #11780 from anthropics/daisy/plugin-dev/public-mar…](./claude-code/2025-11-18.md)
