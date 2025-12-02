@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-12-02
+
+- [nightly](./zed-editor/2025-12-02.md)
+
 ### 2025-12-01
 
 - [nightly: Basic side-by-side diff implementation (#43586)](./zed-editor/2025-12-01.md)
@@ -59,4 +63,3 @@
 ### 2025-11-19
 
 - [chore: Update CHANGELOG.md](./claude-code/2025-11-19.md)
-- [nightly: Update google_ai.rs (#43034)](./zed-editor/2025-11-19.md)
