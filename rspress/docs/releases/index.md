@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-12-04
+
+- [v0.216.0-pre](./zed-editor/2025-12-04.md)
+
 ### 2025-12-03
 
 - [nightly: Make highlighting of C preprocessing directive same as C++ (#44043)](./zed-editor/2025-12-03.md)
@@ -59,7 +63,3 @@
 
 - [docs: Update README with skills and hooks sections (#11818)](./claude-code/2025-11-21.md)
 - [nightly](./zed-editor/2025-11-21.md)
-
-### 2025-11-20
-
-- [nightly: ui: Remove outdated/unused component stories (#43118)](./zed-editor/2025-11-20.md)
