@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-12-05
+
+- [nightly: Fix infinite loop in assemble_excerpts (#44195)](./zed-editor/2025-12-05.md)
+
 ### 2025-12-04
 
 - [v0.216.0-pre](./zed-editor/2025-12-04.md)
@@ -62,4 +66,3 @@
 ### 2025-11-21
 
 - [docs: Update README with skills and hooks sections (#11818)](./claude-code/2025-11-21.md)
-- [nightly](./zed-editor/2025-11-21.md)
