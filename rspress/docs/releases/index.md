@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-12-06
+
+- [Merge pull request #13177 from anthropics/fvolcic/code-review-command…](./claude-code/2025-12-06.md)
+
 ### 2025-12-05
 
 - [nightly: Fix infinite loop in assemble_excerpts (#44195)](./zed-editor/2025-12-05.md)
@@ -62,7 +66,3 @@
 
 - [chore: Update CHANGELOG.md](./claude-code/2025-11-22.md)
 - [nightly: Fix wsl path parsing (#43295)](./zed-editor/2025-11-22.md)
-
-### 2025-11-21
-
-- [docs: Update README with skills and hooks sections (#11818)](./claude-code/2025-11-21.md)
