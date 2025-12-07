@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-12-07
+
+- [nightly: docs: Point to the right URL for Regal LSP (#44318)](./zed-editor/2025-12-07.md)
+
 ### 2025-12-06
 
 - [Merge pull request #13177 from anthropics/fvolcic/code-review-command…](./claude-code/2025-12-06.md)
@@ -65,4 +69,3 @@
 ### 2025-11-22
 
 - [chore: Update CHANGELOG.md](./claude-code/2025-11-22.md)
-- [nightly: Fix wsl path parsing (#43295)](./zed-editor/2025-11-22.md)
