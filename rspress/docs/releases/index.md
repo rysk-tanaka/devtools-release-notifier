@@ -10,6 +10,11 @@
 
 ## リリース一覧
 
+### 2025-12-08
+
+- [chore: Update CHANGELOG.md](./claude-code/2025-12-08.md)
+- [nightly](./zed-editor/2025-12-08.md)
+
 ### 2025-12-07
 
 - [nightly: docs: Point to the right URL for Regal LSP (#44318)](./zed-editor/2025-12-07.md)
@@ -61,11 +66,3 @@
 ### 2025-11-24
 
 - [nightly: agent_ui: Make thread markdown editable (#43377)](./zed-editor/2025-11-24.md)
-
-### 2025-11-23
-
-- [nightly: agent_ui: Display footer for model selector when in Zed agent (#43294)](./zed-editor/2025-11-23.md)
-
-### 2025-11-22
-
-- [chore: Update CHANGELOG.md](./claude-code/2025-11-22.md)
