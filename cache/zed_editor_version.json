@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2025-12-08T10:13:18.843249+00:00"
+  "version": "nightly: vim: Fix editor paste not using clipboard in visual mode (#44347)",
+  "timestamp": "2025-12-10T10:13:09.266082+00:00"
 }
