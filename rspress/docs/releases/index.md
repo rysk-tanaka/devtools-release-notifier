@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-12-11
+
+- [nightly: git: Fix git hook hang with `prek` (#44212)](./zed-editor/2025-12-11.md)
+
 ### 2025-12-10
 
 - [nightly: vim: Fix editor paste not using clipboard in visual mode (#44347)](./zed-editor/2025-12-10.md)
@@ -62,7 +66,3 @@
 ### 2025-11-26
 
 - [nightly: zeta: Avoid logging an error for not having SWEEP_AI_TOKEN (#43504)](./zed-editor/2025-11-26.md)
-
-### 2025-11-25
-
-- [nightly: Only show ssh logs when toggled (#43445)](./zed-editor/2025-11-25.md)
