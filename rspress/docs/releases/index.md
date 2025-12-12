@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-12-12
+
+- [nightly: windows: Fix more VSCode keybinds (#44684)](./zed-editor/2025-12-12.md)
+
 ### 2025-12-11
 
 - [nightly: git: Fix git hook hang with `prek` (#44212)](./zed-editor/2025-12-11.md)
@@ -62,7 +66,3 @@
 ### 2025-11-27
 
 - [v0.215.2-pre](./zed-editor/2025-11-27.md)
-
-### 2025-11-26
-
-- [nightly: zeta: Avoid logging an error for not having SWEEP_AI_TOKEN (#43504)](./zed-editor/2025-11-26.md)
