@@ -10,6 +10,10 @@
 
 ## リリース一覧
 
+### 2025-12-13
+
+- [nightly: Add keymap field to bug report issue template (#44564)](./zed-editor/2025-12-13.md)
+
 ### 2025-12-12
 
 - [nightly: windows: Fix more VSCode keybinds (#44684)](./zed-editor/2025-12-12.md)
@@ -62,7 +66,3 @@
 ### 2025-11-29
 
 - [v0.215.3-pre](./zed-editor/2025-11-29.md)
-
-### 2025-11-27
-
-- [v0.215.2-pre](./zed-editor/2025-11-27.md)
