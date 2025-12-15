@@ -1,4 +1,4 @@
 {
-  "version": "collab-staging",
-  "timestamp": "2025-12-14T10:10:41.046664+00:00"
+  "version": "nightly: rope: Optimize rope construction (#44345)",
+  "timestamp": "2025-12-15T10:15:08.386535+00:00"
 }

@@ -11,6 +11,11 @@
 
 ## リリース一覧
 
+### 2025-12-15
+
+- [1.103.10](./raycast/2025-12-15.md)
+- [nightly: rope: Optimize rope construction (#44345)](./zed-editor/2025-12-15.md)
+
 ### 2025-12-14
 
 - [collab-staging](./zed-editor/2025-12-14.md)
@@ -59,11 +64,3 @@
 ### 2025-12-02
 
 - [nightly](./zed-editor/2025-12-02.md)
-
-### 2025-12-01
-
-- [nightly: Basic side-by-side diff implementation (#43586)](./zed-editor/2025-12-01.md)
-
-### 2025-11-30
-
-- [nightly:  Add @yeskunall to `REVIEWERS.conl` (#43823)](./zed-editor/2025-11-30.md)
