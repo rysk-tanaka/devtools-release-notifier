@@ -15,6 +15,7 @@ from devtools_release_notifier.models.output import ReleaseOutput
 from devtools_release_notifier.models.release import CachedRelease, ReleaseInfo
 from devtools_release_notifier.notifiers.discord import DiscordNotifier
 from devtools_release_notifier.sources.base import ReleaseSource
+from devtools_release_notifier.sources.changelog import ChangelogSource
 from devtools_release_notifier.sources.github_commits import GitHubCommitsSource
 from devtools_release_notifier.sources.github_releases import GitHubReleaseSource
 from devtools_release_notifier.sources.homebrew_cask import HomebrewCaskSource
@@ -61,6 +62,7 @@ class UnifiedReleaseNotifier:
             "github_releases": GitHubReleaseSource,
             "homebrew_cask": HomebrewCaskSource,
             "github_commits": GitHubCommitsSource,
+            "changelog": ChangelogSource,
         }
 
         source_class = source_map.get(source_config.type)
