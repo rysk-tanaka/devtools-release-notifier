@@ -11,9 +11,10 @@
 ## 主な機能
 
 - 複数情報源の統合監視
-  - Homebrew API（優先）
+  - Homebrew API
   - GitHub Releases
   - GitHub Commits
+  - CHANGELOG（Markdownファイル）
   - 優先度ベースの自動フォールバック
 
 - AI翻訳による高品質な日本語化
@@ -191,7 +192,7 @@ common:
   - name: ツール名
   - enabled: 監視の有効/無効
   - sources: 情報源のリスト（優先度順）
-    - type: 情報源の種類（github_releases, homebrew_cask, github_commits）
+    - type: 情報源の種類（github_releases, homebrew_cask, github_commits, changelog）
     - priority: 優先度（1が最優先）
   - notification: Discord通知設定
     - webhook_env: Webhook URLを格納する環境変数名（通常は"DISCORD_WEBHOOK"）

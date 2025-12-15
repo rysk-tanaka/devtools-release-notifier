@@ -44,6 +44,7 @@ config.yml → Sources → ReleaseInfo → DiscordNotifier → Discord
    - `GitHubReleaseSource`: GitHub Releases Atomフィード
    - `HomebrewCaskSource`: Homebrew JSON API
    - `GitHubCommitsSource`: GitHub Commits Atomフィード
+   - `ChangelogSource`: CHANGELOGファイル（Markdown）パース
 
 2. Models（`models/`）: Pydanticによる型検証
    - `config.py`: 設定ファイル構造
@@ -104,7 +105,7 @@ GitHub Actionsワークフロー（`.github/workflows/notifier.yml`）:
 - name: "{Tool Name}"
   enabled: true
   sources:
-    - type: "github_releases"  # または homebrew_cask, github_commits
+    - type: "github_releases"  # または homebrew_cask, github_commits, changelog
       priority: 1
       atom_url: "https://github.com/{owner}/{repo}/releases.atom"
       owner: "{owner}"
@@ -113,6 +114,25 @@ GitHub Actionsワークフロー（`.github/workflows/notifier.yml`）:
     webhook_env: "DISCORD_WEBHOOK"
     color: 5814783  # 10進数（0-16777215）
 ```
+
+### changelog ソースタイプ
+
+CHANGELOGファイルからバージョン情報を取得する。
+
+```yaml
+- type: "changelog"
+  priority: 2
+  raw_url: "https://raw.githubusercontent.com/{owner}/{repo}/main/CHANGELOG.md"
+  version_pattern: "simple"  # または "keepachangelog"、カスタム正規表現
+  content_url: "https://github.com/{owner}/{repo}/blob/main/CHANGELOG.md"
+```
+
+プリセットパターン。
+
+- `simple`: `## 2.0.69` 形式（Claude Code等）
+- `keepachangelog`: `## [1.0.0] - 2024-01-15` 形式（Keep a Changelog標準）
+
+カスタム正規表現も指定可能（例: `^Version (\d+\.\d+\.\d+)`）
 
 ## GitHub Secrets
 

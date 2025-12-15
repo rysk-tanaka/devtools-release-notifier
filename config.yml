@@ -37,11 +37,11 @@ tools:
         atom_url: "https://github.com/anthropics/claude-code/releases.atom"
         owner: "anthropics"
         repo: "claude-code"
-      - type: "github_commits"
+      - type: "changelog"
         priority: 2
-        atom_url: "https://github.com/anthropics/claude-code/commits/main.atom"
-        owner: "anthropics"
-        repo: "claude-code"
+        raw_url: "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md"
+        version_pattern: "simple"
+        content_url: "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md"
     notification:
       webhook_env: "DISCORD_WEBHOOK"
       color: 16744272

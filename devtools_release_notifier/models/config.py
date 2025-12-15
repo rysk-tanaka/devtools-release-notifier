@@ -57,7 +57,33 @@ class GitHubCommitsSourceConfig(BaseModel):
     atom_url: str = Field(..., description="Atom feed URL")
 
 
-SourceConfig = GitHubReleasesSourceConfig | HomebrewCaskSourceConfig | GitHubCommitsSourceConfig
+class ChangelogSourceConfig(BaseModel):
+    """Changelog source configuration.
+
+    Attributes:
+        type: Source type identifier
+        priority: Priority (lower number = higher priority)
+        raw_url: Raw URL to CHANGELOG file
+        version_pattern: Pattern name ('simple', 'keepachangelog') or custom regex
+        content_url: URL to release page (optional)
+    """
+
+    type: Literal["changelog"] = Field(..., description="Source type")
+    priority: int = Field(..., ge=1, description="Priority (lower is higher)")
+    raw_url: str = Field(..., description="Raw URL to CHANGELOG file")
+    version_pattern: str = Field(
+        default="keepachangelog",
+        description="Pattern name ('simple', 'keepachangelog') or custom regex",
+    )
+    content_url: str | None = Field(None, description="URL to release page")
+
+
+SourceConfig = (
+    GitHubReleasesSourceConfig
+    | HomebrewCaskSourceConfig
+    | GitHubCommitsSourceConfig
+    | ChangelogSourceConfig
+)
 
 
 class NotificationConfig(BaseModel):
