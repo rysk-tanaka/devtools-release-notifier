@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクト概要
 
-開発ツール（Zed Editor、Dia Browser、Claude Code等）のリリース情報を自動取得し、GitHub Actionsでclaude-code-action@v1を使って日本語に翻訳してDiscordに通知するシステム。
+開発ツール（Zed Editor、Dia Browser、Claude Code、Raycast等）のリリース情報を自動取得し、GitHub Actionsでclaude-code-action@v1を使って日本語に翻訳してDiscordに通知するシステム。
 
 ## 開発コマンド
 

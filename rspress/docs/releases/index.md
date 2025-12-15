@@ -6,6 +6,7 @@
 
 - [Claude Code](./claude-code/index.md)
 - [Dia Browser](./dia-browser/index.md)
+- [Raycast](./raycast/index.md)
 - [Zed Editor](./zed-editor/index.md)
 
 ## リリース一覧
