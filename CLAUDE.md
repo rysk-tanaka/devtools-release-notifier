@@ -1,980 +1,120 @@
-# devtools-release-notifier セットアップ指示書
+# CLAUDE.md
 
-このドキュメントは、Claude Codeがプロジェクトを自動的にセットアップするための指示書です。
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## 📋 プロジェクト概要
+## プロジェクト概要
 
-開発ツール（Zed Editor、Dia Browser等）のリリース情報を自動取得し、GitHub Actionsでanthropics/claude-code-action@v1を使って日本語に翻訳してDiscordに通知するシステム。
+開発ツール（Zed Editor、Dia Browser、Claude Code等）のリリース情報を自動取得し、GitHub Actionsでclaude-code-action@v1を使って日本語に翻訳してDiscordに通知するシステム。
 
-## 📝 Markdown書式ガイドライン
-
-このプロジェクトのすべてのMarkdownファイルは、以下のガイドラインに従ってください。
-
-- 箇条書き前のコロン（:）は使用しない（例: 「以下の項目:」→「以下の項目。」）
-- 太字（**）は使用しない
-- シンプルで読みやすい表記を優先
-- ファイル末尾に必ず改行を追加
-
-## 🎯 実装要件
-
-### アーキテクチャ
-
-- Homebrew APIをベースに複数ツールを統一的に監視
-- GitHub Releases/Commits をフォールバックとして使用
-- 優先度ベースのソース選択機構
-- 重要: GitHub Actionsのanthropics/claude-code-action@v1で翻訳（Pythonコードに翻訳機能なし）
-- Discord Webhookによる通知配信
-- Markdownログの自動保存（rspressで閲覧可能）
-- ファイルベースのバージョンキャッシュ
-
-### 技術スタック
-
-- Python 3.14+
-- uv (パッケージマネージャー)
-- PyYAML (設定ファイル)
-- httpx (HTTP通信 - 非同期対応可能)
-- feedparser (RSS/Atom解析)
-- pydantic (型検証)
-- GitHub Actions (anthropics/claude-code-action@v1)
-- rspress (ドキュメントサイト生成)
-
-## 📁 ファイル構造
-
-以下のファイル構造を作成してください：
-
-```text
-devtools-release-notifier/
-├── pyproject.toml                     # 既存（依存関係を追加）
-├── config.yml                         # 新規作成
-├── cache/                             # 新規作成
-│   └── .gitkeep
-├── devtools_release_notifier/         # 新規作成（Pythonパッケージ）
-│   ├── __init__.py
-│   ├── notifier.py                    # メインスクリプト（翻訳機能なし）
-│   ├── sources/                       # 情報源クラス
-│   ├── notifiers/                     # Discord通知クラス
-│   ├── models/                        # Pydanticモデル
-│   └── scripts/                       # GitHub Actions統合スクリプト
-│       ├── __init__.py
-│       ├── extract_claude_response.py # Claude実行ファイルからレスポンスを抽出
-│       └── send_to_discord.py         # 翻訳結果をDiscordに送信し、Markdownログを保存
-├── tests/                             # テストコード
-│   ├── scripts/                       # スクリプトの単体テスト
-│   ├── models/                        # モデルの単体テスト
-│   └── ...                            # その他のテスト
-├── docs/                              # 設計ドキュメント（ソース）
-│   ├── README.md                      # プロジェクト概要
-│   └── architecture/                  # アーキテクチャドキュメント
-│       ├── index.md                   # システムアーキテクチャ
-│       ├── data-flow.md               # データフロー
-│       ├── class-diagram.md           # クラス図
-│       └── sequence-diagram.md        # シーケンス図
-├── rspress/                           # rspress設定（ドキュメントサイト）
-│   ├── docs/                          # ドキュメントファイル
-│   │   ├── index.md                   # トップページ（リリース情報メイン、rspress内で管理）
-│   │   ├── architecture/              # 設計ドキュメント（docs/から同期）
-│   │   │   ├── index.md
-│   │   │   ├── data-flow.md
-│   │   │   ├── class-diagram.md
-│   │   │   └── sequence-diagram.md
-│   │   └── releases/                  # リリース情報（自動生成）
-│   │       ├── zed-editor/            # Zed Editorリリースログ
-│   │       │   ├── index.md
-│   │       │   └── YYYY-MM-DD.md      # 日付ごとのリリース情報
-│   │       └── dia-browser/           # Dia Browserリリースログ
-│   │           ├── index.md
-│   │           └── YYYY-MM-DD.md      # 日付ごとのリリース情報
-│   ├── scripts/
-│   │   └── sync-docs.sh               # docs/ から rspress/docs/ への同期スクリプト
-│   ├── rspress.config.ts              # rspress設定ファイル
-│   └── package.json                   # Node.js依存関係
-├── .github/
-│   └── workflows/
-│       ├── notifier.yml               # リリース通知ワークフロー
-│       └── deploy-docs.yml            # ドキュメントデプロイワークフロー
-└── .gitignore                         # 更新
-```
-
-## 🔧 実装手順
-
-### ステップ1: pyproject.toml の更新
-
-既存の `pyproject.toml` に以下の依存関係を追加してください：
-
-```toml
-[project]
-name = "devtools-release-notifier"
-version = "0.1.0"
-description = "Automated release notifier for development tools with Japanese translation"
-readme = "README.md"
-requires-python = ">=3.14"
-dependencies = [
-    "httpx>=0.28.1",
-    "pydantic>=2.12.4",
-    "pydantic-settings>=2.11.0",
-    "pyyaml>=6.0.1",
-    "feedparser>=6.0.11",
-]
-
-[dependency-groups]
-dev = [
-    "mypy>=1.18.2",
-    "pre-commit>=4.3.0",
-    "pytest>=8.4.2",
-    "respx>=0.22.0",
-    "ruff>=0.14.3",
-]
-
-[project.scripts]
-devtools-notifier = "devtools_release_notifier.notifier:main"
-```
-
-### ステップ2: config.yml の作成
-
-プロジェクトルートに `config.yml` を作成し、以下の内容を記述してください。
-
-重要な設定値
-
-- Zed Editor: GitHub Releases（優先度1）、Homebrew Cask（優先度2）
-- Dia Browser: Homebrew Cask（優先度1）、GitHub Commits（優先度2）
-- キャッシュディレクトリ: ./cache
-- 重要: 翻訳設定は削除（GitHub Actionsで行うため）
-
-YAML構造
-
-- `tools`: ツールのリスト
-  - `name`: ツール名
-  - `enabled`: 有効/無効
-  - `sources`: 情報源のリスト（priority順）
-    - `type`: "github_releases" | "homebrew_cask" | "github_commits"
-    - `priority`: 優先度（1が最優先）
-    - その他必要なパラメータ（owner, repo, atom_url, api_url等）
-  - `notification`: Discord通知設定（webhook_env, color）
-- `common`: 共通設定
-  - `check_interval_hours`: 6
-  - `cache_directory`: "./cache"
-
-### ステップ3: Pythonパッケージの作成
-
-#### 3-1. ディレクトリ構造
-
-```bash
-mkdir -p devtools_release_notifier
-mkdir -p cache
-touch cache/.gitkeep
-mkdir -p .github/scripts
-```
-
-#### 3-2. devtools_release_notifier/__init__.py
-
-シンプルなパッケージ初期化ファイルを作成してください。
-
-- `__version__ = "0.1.0"` を定義
-
-#### 3-3. devtools_release_notifier/sources.py
-
-以下のクラスを実装してください。
-
-重要: httpxを使用
-
-- `import httpx` を使用
-- HTTPリクエストは `httpx.get()` を使用
-- エラーハンドリングは `httpx.HTTPError` を使用
-- タイムアウトは `timeout=10.0` のように指定
-
-ReleaseSource (抽象基底クラス)
-
-- `__init__(config: Dict)`: 設定を受け取る
-- `fetch_latest_version() -> Optional[Dict]`: 抽象メソッド
-
-GitHubReleaseSource
-
-- Atomフィード（`config['atom_url']`）を解析
-- feedparserを使用してエントリーを取得
-- 最新エントリーから以下を返す:
-
-  ```python
-  {
-      'version': str,      # タイトル
-      'content': str,      # summary
-      'url': str,          # リンク
-      'published': datetime,
-      'source': 'github_releases'
-  }
-  ```
-
-HomebrewCaskSource
-
-- Homebrew JSON API（`config['api_url']`）から情報取得
-- httpxを使用してGET: `httpx.get(api_url, timeout=10.0)`
-- レスポンスは `response.raise_for_status()` でステータスチェック
-- 以下の情報を抽出して返す:
-
-  ```python
-  {
-      'version': str,         # data['version']
-      'content': str,         # 生成したインストール情報
-      'url': str,             # data['homepage']
-      'download_url': str,    # data['url']
-      'published': datetime.now(),
-      'source': 'homebrew_cask'
-  }
-  ```
-
-- エラーハンドリング: `except httpx.HTTPError as e`
-
-GitHubCommitsSource
-
-- Atomフィード（`config['atom_url']`）を解析
-- GitHubReleaseSourceと同様の構造だが、source名が'github_commits'
-
-#### 3-4. devtools_release_notifier/discord_notifier.py
-
-DiscordNotifier クラス
-
-- `send(webhook_url: str, tool_name: str, content: str, url: str, color: int) -> bool`
-- httpxを使用: `httpx.post(webhook_url, json=payload, timeout=10.0)`
-- Discord Webhook形式でPOST:
-
-  ```python
-  {
-      "embeds": [{
-          "title": f"🚀 {tool_name} - 新しいバージョン",
-          "description": content[:4000],  # Discord制限
-          "url": url,
-          "color": color,
-          "timestamp": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
-          "footer": {"text": "devtools-release-notifier"}
-      }]
-  }
-  ```
-
-- レスポンス処理: `response.raise_for_status()` でステータスチェック
-- エラーハンドリング: `except httpx.HTTPError as e`
-
-#### 3-5. devtools_release_notifier/notifier.py（メインスクリプト）
-
-重要: 翻訳機能は実装しない
-
-UnifiedReleaseNotifier クラス
-
-初期化 (`__init__`)
-
-- config.ymlを読み込み（yamlモジュール使用）
-- キャッシュディレクトリを作成
-- DiscordNotifierを初期化
-- 重要: Translatorは使用しない
-
-ソース取得 (`get_source`)
-
-- source_typeに応じて適切なSourceクラスを返す
-- マッピング:
-  - "github_releases" → GitHubReleaseSource
-  - "homebrew_cask" → HomebrewCaskSource
-  - "github_commits" → GitHubCommitsSource
-
-キャッシュ管理
-
-- `get_cache_path(tool_name: str) -> Path`: ツール名からキャッシュファイルパスを生成
-  - 例: "Zed Editor" → "cache/zed_editor_version.json"
-- `load_cached_version(tool_name: str) -> Optional[Dict]`: JSONファイルから読み込み
-- `save_cached_version(tool_name: str, version_info: Dict)`: JSONファイルに保存
-  - datetimeオブジェクトは`.isoformat()`で文字列化
-
-ツール処理 (`process_tool`)
-
-1. 有効性チェック（`enabled: false`ならスキップ）
-2. sourcesを優先度順にソート
-3. 優先度順にソースを試行し、最初に成功したソースから情報取得
-4. キャッシュと比較（`cached['version'] == latest_info['version']`）
-5. 新しいバージョンなら:
-   - 重要: 翻訳は行わない
-   - `--output`オプションが指定されていれば、リリース情報を収集
-   - `--no-notify`が指定されていなければDiscord通知
-   - キャッシュ更新
-
-実行 (`run`)
-
-- 全ツールに対してprocess_toolを実行
-- 開始・終了メッセージを表示（絵文字使用）
-- 処理状況のログ出力
-- `--output`オプションが指定されている場合、新しいリリース情報をJSONファイルに出力
-
-コマンドラインオプション
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser(description='Development tools release notifier')
-parser.add_argument('--output', type=str, help='Output new releases to JSON file')
-parser.add_argument('--no-notify', action='store_true', help='Skip Discord notification')
-args = parser.parse_args()
-```
-
-出力JSON形式 (--output)
-
-```json
-[
-  {
-    "tool_name": "Zed Editor",
-    "version": "v0.100.0",
-    "content": "Release notes...",
-    "url": "https://github.com/zed-industries/zed/releases/tag/v0.100.0",
-    "color": 5814783,
-    "webhook_env": "DISCORD_WEBHOOK"
-  }
-]
-```
-
-エントリーポイント (`main`)
-
-- config.ymlの存在確認
-- コマンドライン引数をパース
-- UnifiedReleaseNotifierを初期化して実行
-- エラーハンドリング:
-  - `KeyboardInterrupt`: ユーザー中断メッセージ
-  - `Exception`: エラーメッセージとトレースバック表示
-
-### ステップ4: GitHub Actions の設定
-
-`.github/workflows/notifier.yml` を作成してください。
-
-トリガー
-
-- schedule: 1日1回 10:00 UTC (cron: '0 10 ** *')
-- workflow_dispatch: 手動実行
-
-ジョブフロー
-
-1. リポジトリのチェックアウト（actions/checkout@v4）
-2. uvのインストール（astral-sh/setup-uv@v3）
-3. Pythonのインストール（uv python install）
-4. 依存関係のインストール（uv sync）
-5. 新しいリリースを取得（uv run devtools-notifier --output releases.json --no-notify）
-6. 新しいリリースがあるかチェック（test -f releases.json）
-7. anthropics/claude-code-action@v1で翻訳
-8. 実行ファイルから翻訳結果を抽出（extract_claude_response.py）
-9. 翻訳結果をDiscordに送信（send_to_discord.py）
-10. キャッシュファイルのコミット・プッシュ
-
-- git config設定
-- cache/*.json をadd
-- コミット（変更がある場合のみ）
-- continue-on-error: true
-
-ワークフロー例
-
-```yaml
-name: Check Development Tools Releases
-
-on:
-  schedule:
-    - cron: '0 10 * * *'  # 毎日10:00 UTC
-  workflow_dispatch:      # 手動実行
-
-jobs:
-  check-releases:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup uv
-        uses: astral-sh/setup-uv@v3
-
-      - name: Install Python
-        run: uv python install
-
-      - name: Install dependencies
-        run: uv sync
-
-      - name: Check for new releases
-        id: check
-        run: |
-          uv run devtools-notifier --output releases.json --no-notify
-          if [ -f releases.json ]; then
-            echo "has_releases=true" >> $GITHUB_OUTPUT
-            echo "📦 Found new releases:"
-            cat releases.json
-            # Save releases data to output for Claude translation
-            {
-              echo "releases_data<<EOF"
-              cat releases.json
-              echo "EOF"
-            } >> $GITHUB_OUTPUT
-          else
-            echo "has_releases=false" >> $GITHUB_OUTPUT
-            echo "ℹ️  No new releases found"
-          fi
-
-      - name: Translate with Claude
-        if: steps.check.outputs.has_releases == 'true'
-        id: translate
-        uses: anthropics/claude-code-action@v1
-        with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          prompt: |
-            以下は開発ツールのリリース情報です。各ツールについて日本語で要約してください。
-
-            ${{ steps.check.outputs.releases_data }}
-
-            各ツールについて、以下の形式でJSON配列として出力してください：
-            [
-              {
-                "tool_name": "Zed Editor",
-                "translated_content": "## 📌 主な変更点\n- 変更1\n- 変更2\n- 変更3"
-              }
-            ]
-
-            重要:
-            - 要約は3-5個の主な変更点を簡潔に記載してください
-            - JSONのみを出力し、追加の説明は不要です
-            - tool_nameは元のツール名と完全に一致させてください
-          claude_args: '--allowed-tools "read,grep,glob" --max-turns 5'
-
-      - name: Extract Claude response
-        if: steps.check.outputs.has_releases == 'true'
-        id: extract
-        run: |
-          echo "🔍 Extracting translation from execution file..."
-          TRANSLATED=$(uv run python -m devtools_release_notifier.scripts.extract_claude_response ${{ steps.translate.outputs.execution_file }})
-          echo "translated<<EOF" >> $GITHUB_OUTPUT
-          echo "$TRANSLATED" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-          echo "✓ Extracted translation:"
-          echo "$TRANSLATED"
-
-      - name: Send to Discord and save Markdown logs
-        if: steps.check.outputs.has_releases == 'true'
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: |
-          echo "📤 Sending notifications to Discord and saving Markdown logs..."
-          uv run python -m devtools_release_notifier.scripts.send_to_discord \
-            releases.json \
-            '${{ steps.extract.outputs.translated }}' \
-            --markdown-dir rspress/docs/releases
-
-      - name: Commit cache and Markdown logs
-        if: steps.check.outputs.has_releases == 'true'
-        continue-on-error: true
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add cache/*.json
-          git add rspress/docs/releases/**/*.md
-          if git diff --staged --quiet; then
-            echo "ℹ️  No changes to commit"
-          else
-            git commit -m "chore: update release cache and logs [skip ci]"
-            git push
-            echo "✓ Cache and Markdown logs updated"
-          fi
-```
-
-### ステップ5: .github/scripts/extract_claude_response.py の作成
-
-Claude Code Actionの実行ファイルから翻訳結果を抽出するスクリプトを作成してください。
-
-仕様
-
-- 第1引数: execution_fileのパス（claude-code-action@v1が outputs.execution_file で出力）
-- 実行ファイル（JSON形式）を解析してClaude応答を抽出
-- 正規表現でJSON配列パターンを検索
-- 複数のJSON構造パターンに対応（messages/conversation/response等）
-- 標準出力に抽出したJSON文字列を出力
-- エラー時は標準エラー出力にメッセージを表示して終了
-
-実装
-
-```python
-#!/usr/bin/env python3
-"""Extract Claude's response from claude-code-action execution file."""
-
-import json
-import re
-import sys
-from pathlib import Path
-
-
-def extract_json_from_text(text: str) -> str | None:
-    """Extract JSON array from text."""
-    json_pattern = r'\[\s*\{.*?\}\s*\]'
-    matches = re.findall(json_pattern, text, re.DOTALL)
-    if matches:
-        return matches[-1]  # Return the last match
-    return None
-
-
-def extract_claude_response(execution_file_path: str) -> str:
-    """Extract Claude's final response from execution file."""
-    file_path = Path(execution_file_path)
-
-    if not file_path.exists():
-        raise ValueError(f"Execution file not found: {execution_file_path}")
-
-    try:
-        with open(file_path) as f:
-            data = json.load(f)
-    except json.JSONDecodeError as e:
-        raise ValueError(f"Failed to parse execution file as JSON: {e}") from e
-
-    # Try to extract from various structures
-    if isinstance(data, dict):
-        # Attempt 1: Look for response/output fields
-        for key in ['response', 'output', 'result', 'content']:
-            if key in data and isinstance(data[key], str):
-                json_response = extract_json_from_text(data[key])
-                if json_response:
-                    return json_response
-
-        # Attempt 2: Look for messages array
-        if 'messages' in data and isinstance(data['messages'], list):
-            for msg in reversed(data['messages']):
-                if isinstance(msg, dict) and msg.get('role') == 'assistant':
-                    content = msg.get('content', '')
-                    if isinstance(content, str):
-                        json_response = extract_json_from_text(content)
-                        if json_response:
-                            return json_response
-
-    # Fallback: Search entire file content
-    file_content = file_path.read_text()
-    json_response = extract_json_from_text(file_content)
-    if json_response:
-        return json_response
-
-    raise ValueError("Could not find translated JSON in execution file")
-
-
-def main():
-    """Main entry point."""
-    if len(sys.argv) != 2:
-        print("Usage: extract_claude_response.py <execution_file>", file=sys.stderr)
-        sys.exit(1)
-
-    try:
-        response = extract_claude_response(sys.argv[1])
-        print(response)
-    except ValueError as e:
-        print(f"Error: {e}", file=sys.stderr)
-        sys.exit(1)
-
-
-if __name__ == "__main__":
-    main()
-```
-
-### ステップ6: .github/scripts/send_to_discord.py の作成
-
-Discord Webhookに翻訳結果を送信し、Markdownログを保存するスクリプトを作成してください。
-
-仕様
-
-- 第1引数: releases.json のパス
-- 第2引数: claude-code-actionの翻訳結果（JSON文字列）
-- オプション: --markdown-dir（デフォルト: rspress/docs/releases）
-- 翻訳結果とリリース情報をマッチング（tool_nameで）
-- 各ツールについてDiscord Webhookに送信（httpx使用）
-- 送信成功時にMarkdownログを保存（rspress形式）
-  - ファイル名: YYYY-MM-DD.md
-  - 保存先: {markdown-dir}/{tool-slug}/
-  - フロントマター: title, date, version, url
-  - 本文: 翻訳された内容
-
-実装
-
-```python
-#!/usr/bin/env python3
-import json
-import os
-import sys
-from datetime import UTC, datetime
-
-import httpx
-
-
-def send_to_discord(webhook_url: str, tool_name: str, version: str,
-                    translated_content: str, url: str, color: int) -> bool:
-    """Discord Webhookに送信"""
-    payload = {
-        "embeds": [{
-            "title": f"🚀 {tool_name} - {version}",
-            "description": translated_content[:4000],
-            "url": url,
-            "color": color,
-            "timestamp": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
-            "footer": {"text": "devtools-release-notifier"}
-        }]
-    }
-
-    try:
-        response = httpx.post(webhook_url, json=payload, timeout=10.0)
-        response.raise_for_status()
-        print(f"✓ Sent notification for {tool_name}")
-        return True
-    except httpx.HTTPError as e:
-        print(f"✗ Failed to send notification for {tool_name}: {e}")
-        return False
-
-
-def main():
-    if len(sys.argv) != 3:
-        print("Usage: send_to_discord.py <releases.json> <translated_json>")
-        sys.exit(1)
-
-    releases_file = sys.argv[1]
-    translated_json = sys.argv[2]
-
-    # Load releases data
-    with open(releases_file, 'r') as f:
-        releases = json.load(f)
-
-    # Parse translated data
-    try:
-        translated = json.loads(translated_json)
-    except json.JSONDecodeError:
-        print("Error: Invalid JSON in translated data")
-        sys.exit(1)
-
-    # Create mapping
-    translated_map = {item['tool_name']: item['translated_content']
-                      for item in translated}
-
-    # Send to Discord
-    for release in releases:
-        tool_name = release['tool_name']
-        webhook_env = release.get('webhook_env', 'DISCORD_WEBHOOK')
-        webhook_url = os.getenv(webhook_env)
-
-        if not webhook_url:
-            print(f"⚠️  Webhook URL not found for {tool_name} ({webhook_env})")
-            continue
-
-        translated_content = translated_map.get(tool_name, release['content'])
-
-        send_to_discord(
-            webhook_url=webhook_url,
-            tool_name=tool_name,
-            version=release['version'],
-            translated_content=translated_content,
-            url=release['url'],
-            color=release['color']
-        )
-
-
-if __name__ == '__main__':
-    main()
-```
-
-### ステップ6: .gitignore の更新
-
-既存の `.gitignore` に以下を追加してください：
-
-```gitignore
-# Cache files
-cache/*.json
-!cache/.gitkeep
-
-# Environment variables
-.env
-.env.local
-
-# Release output
-releases.json
-```
-
-## 🎨 実装の詳細仕様
-
-### HTTPクライアント（httpx）の使用方法
-
-- 同期リクエスト: `httpx.get()`, `httpx.post()`を直接使用
-- タイムアウト: 常に`timeout=10.0`または`timeout=30.0`を指定
-- ステータスチェック: `response.raise_for_status()`を呼び出し
-- エラーハンドリング: `httpx.HTTPError`をキャッチ
-- JSON解析: `response.json()`でJSONデータ取得
-
-### Discord API準拠
-
-- タイムスタンプ形式: RFC 3339形式（末尾を'Z'にする）
-  - Discord APIはISO 8601のサブセットであるRFC 3339を要求
-  - 例: `datetime.now(UTC).isoformat().replace("+00:00", "Z")`
-  - 誤り: `datetime.now(UTC).isoformat()` → "2025-01-15T12:00:00+00:00"
-  - 正しい: `datetime.now(UTC).isoformat().replace("+00:00", "Z")` → "2025-01-15T12:00:00Z"
-  - 注意: `datetime.utcnow()`はPython 3.12+で非推奨、`datetime.now(UTC)`を使用
-
-### エラーハンドリング
-
-- 各ソースでの取得失敗は警告を表示して次のソースへ
-- 全ソースで失敗した場合は警告を表示して次のツールへ
-- Discord通知失敗時は警告を表示
-- HTTPエラーは`httpx.HTTPError`でキャッチ
-
-### ログ出力
-
-- 絵文字を使用した視覚的なログ
-  - 🔍 Processing...
-  - ✓ Success
-  - ✗ Error
-  - ⚠️ Warning
-  - ⏭️ Skipped
-  - ℹ️ Info
-  - 🎉 New version
-  - 🚀 Starting
-  - ✅ Completed
-- ツールごとに処理状況を明示
-- インデントを使用して階層構造を表現
-
-### 型ヒント
-
-- すべての関数に型ヒントを追加
-- `Optional[Dict]`, `List[Dict]`等を適切に使用
-- `from typing import`でインポート
-
-### コーディングスタイル
-
-- docstringを各クラス・メソッドに追加（簡潔に）
-- PEP 8に準拠
-- 適切な例外処理
-- 定数は大文字（例: `API_URL`, `DEFAULT_TIMEOUT`）
-
-### Python開発規約
-
-以下の規約に従って開発を行ってください。
-
-#### コマンド実行
-
-- uv runの使用: Pythonコマンド（pytest、ruff、mypyなど）の実行には必ず`uv run`を使用
-  - 理由: 仮想環境を自動管理し、実行エラーを防止
-  - 例: `uv run pytest`（`source .venv/bin/activate && pytest`ではなく）
-
-#### 型ヒント
-
-- 辞書型: 型パラメータなしの`dict`を使用（`Dict[str, Any]`ではなく）
-  - 理由: 辞書は柔軟な汎用データ構造として使用されることが多い
-- すべての関数に型ヒントを追加
-- `Optional[Dict]`, `List[Dict]`等を適切に使用
-
-#### テンプレート文字列（t-string）
-
-- Python 3.14の新機能: t-string（テンプレート文字列）を使用
-  - PEP 750で正式採用された標準機能
-  - 構文: `t"...{variable}..."`
-  - 使用例: `render_template(t"🚀 {tool_name} - {version}")`
-  - 通常のf-stringとの違い: 遅延評価が可能で、テンプレート処理に適している
-- 参考リンク
-  - [PEP 750 – Template Strings](https://peps.python.org/pep-0750/)
-  - [Python 3.14 Documentation: string.templatelib](https://docs.python.org/3.14/library/string.templatelib.html)
-- 注意事項
-  - Python 3.14以降でのみ使用可能
-  - ruff/mypyで自動的にチェックされる
-
-#### ファイル構成
-
-- __init__.py: デフォルトで空（末尾の改行のみ）
-  - 理由: 現代のPythonでは明示的なエクスポートは不要
-- ファイル末尾: 必ず改行を追加
-  - 理由: POSIX標準への準拠、diffの見やすさ向上
-
-#### エラーハンドリング
-
-- サービス層: カスタムエラーメッセージで例外を再ラップしない
-  - 例外はそのまま伝播（`except Exception: raise`）
-  - コンテキスト情報はhandler層でログ出力
-  - 理由: エラーメッセージの重複を避け、スタックトレースを保持
-- HTTPエラーは`httpx.HTTPError`でキャッチ
-
-#### テスト（pytest）
-
-- テストスタイル: 関数ベースのテストを推奨
-- 環境変数モック: `monkeypatch`フィクスチャを使用
-  - `monkeypatch.setenv(key, value)`: 設定
-  - `monkeypatch.delenv(key, raising=False)`: 削除
-- マジックナンバー: 数値は意味のある定数として定義（ruff PLR2004）
-- 副作用の回避: 実際のAPIリクエストやファイル操作を避け、モックを使用（respx使用）
-- モジュール再読み込み: 環境変数やグローバル状態を変更した場合は`importlib.reload()`を使用
-
-## ✅ 実装完了の確認項目
-
-以下をすべて実装してください：
-
-- [ ] pyproject.tomlに依存関係を追加（httpx含む）
-- [ ] config.ymlを作成（Zed、Diaの2ツール設定、翻訳設定なし）
-- [ ] cache/ディレクトリと.gitkeepを作成
-- [ ] devtools_release_notifier/__init__.pyを作成
-- [ ] devtools_release_notifier/sources.pyを作成（3つのSourceクラス、httpx使用）
-- [ ] devtools_release_notifier/discord_notifier.pyを作成（httpx使用）
-- [ ] devtools_release_notifier/notifier.pyを作成（翻訳機能なし、--output/--no-notifyオプション追加）
-- [ ] .github/workflows/notifier.ymlを作成（anthropics/claude-code-action@v1使用）
-- [ ] .github/scripts/extract_claude_response.pyを作成
-- [ ] .github/scripts/send_to_discord.pyを作成
-- [ ] .gitignoreを更新
-
-## 🚀 実装後の動作確認
-
-実装完了後、以下のコマンドで動作確認してください：
+## 開発コマンド
 
 ```bash
 # 依存関係のインストール
 uv sync
 
-# 実行（翻訳なし、通知なし）
-uv run devtools-notifier --output releases.json --no-notify
+# リンター・フォーマッター
+uv run ruff format .
+uv run ruff check .
 
-# releases.jsonの内容を確認
-cat releases.json
+# 型チェック
+uv run mypy .
 
-# 実行（通知あり）
-export DISCORD_WEBHOOK="https://discord.com/api/webhooks/..."
-uv run devtools-notifier
+# テスト
+uv run pytest                    # 全テスト実行
+uv run pytest -v                 # 詳細出力
+uv run pytest tests/test_foo.py  # 特定ファイル実行
+uv run pytest -k test_name       # 特定テスト実行
+
+# 実行
+uv run devtools-notifier --output releases.json --no-notify  # ローカルテスト（通知なし）
+uv run devtools-notifier                                      # Discord通知あり
 ```
 
-## 🔧 新規ツールの追加手順
+## アーキテクチャ
 
-Claude Codeが新しいツールを追加する際の手順です。
+### コンポーネント構成
 
-### 必要な情報
+```text
+config.yml → Sources → ReleaseInfo → DiscordNotifier → Discord
+                                   → GitHub Actions(claude-code-action) → 翻訳 → Discord
+                                   → Markdown logs(rspress)
+```
 
-新しいツールを追加する前に、以下の情報を収集してください。
+1. Sources（`sources/`）: 複数APIから情報取得（優先度ベースでフォールバック）
+   - `GitHubReleaseSource`: GitHub Releases Atomフィード
+   - `HomebrewCaskSource`: Homebrew JSON API
+   - `GitHubCommitsSource`: GitHub Commits Atomフィード
 
-- ツール名（例: "Claude Code"）
-- 情報源の種類と優先度
-  - GitHub Releases: `https://github.com/{owner}/{repo}/releases.atom`
-  - GitHub Commits: `https://github.com/{owner}/{repo}/commits/main.atom`
-  - Homebrew Cask: `https://formulae.brew.sh/api/cask/{cask_name}.json`
-- Discord通知用の色コード（10進数、0-16777215）
-- ツールの簡単な説明
+2. Models（`models/`）: Pydanticによる型検証
+   - `config.py`: 設定ファイル構造
+   - `release.py`: リリース情報とキャッシュ
+   - `output.py`: JSON出力形式
+   - `discord.py`: Discord Webhook形式
 
-### 変更が必要なファイル
+3. Notifiers（`notifiers/`）: Discord通知
 
-以下のファイルを変更してください。
+4. Scripts（`scripts/`）: GitHub Actions連携
+   - `extract_claude_response.py`: claude-code-actionの実行ファイルからJSON抽出
+   - `send_to_discord.py`: 翻訳結果の送信とMarkdownログ保存
 
-1. config.yml
-   - `tools`リストに新しいツール設定を追加
-   - 情報源を優先度順に設定
+### 処理フロー
 
-2. rspress/docs/releases/_meta.json
-   - ナビゲーションに追加（アルファベット順）
-   - slug名はケバブケース（例: "claude-code"）
+GitHub Actionsワークフロー（`.github/workflows/notifier.yml`）:
 
-3. rspress/docs/releases/index.md
-   - 監視中ツールリストに追加（アルファベット順）
+1. `devtools-notifier --output releases.json --no-notify` で新リリース検出
+2. claude-code-action@v1 で日本語翻訳
+3. `extract_claude_response.py` で翻訳JSON抽出
+4. `send_to_discord.py` でDiscord送信とMarkdown保存
+5. キャッシュとログをコミット
 
-4. rspress/docs/index.md
-   - トップページの監視中ツールリストに追加（アルファベット順）
+## コーディング規約
 
-5. rspress/docs/releases/{tool-slug}/index.md（新規作成）
-   - ツール専用のインデックスページを作成
-   - 情報源リストと公式リンクを記載
+### Python
 
-### 設定テンプレート
+- Python 3.14+
+- 型ヒント必須（`dict`型パラメータなし、Union型は`X | Y`形式）
+- HTTPクライアント: httpx（`timeout=10.0`必須、`httpx.HTTPError`でキャッチ）
+- datetime: `datetime.now(UTC)`使用（`datetime.utcnow()`は非推奨）
+- Discord timestamp: `datetime.now(UTC).isoformat().replace("+00:00", "Z")`
+- `__init__.py`: 空ファイル（末尾改行のみ）
 
-#### config.yml
+### テスト
+
+- 関数ベースのテスト推奨
+- 環境変数モック: `monkeypatch`フィクスチャ使用
+- HTTPモック: `respx`使用
+- マジックナンバー: 定数として定義（ruff PLR2004）
+
+### Markdown
+
+- 箇条書き前のコロン不使用（「以下の項目:」→「以下の項目。」）
+- 太字不使用
+
+## 新規ツール追加手順
+
+1. `config.yml` にツール設定追加
+2. `rspress/docs/releases/_meta.json` にナビゲーション追加（アルファベット順）
+3. `rspress/docs/releases/index.md` にリスト追加
+4. `rspress/docs/releases/{tool-slug}/index.md` 作成
+5. ローカルテスト: `uv run devtools-notifier --output releases.json --no-notify`
+
+### config.yml設定例
 
 ```yaml
 - name: "{Tool Name}"
   enabled: true
   sources:
-    - type: "{source_type}"
+    - type: "github_releases"  # または homebrew_cask, github_commits
       priority: 1
-      # source_typeに応じた必須パラメータ
-    - type: "{fallback_source_type}"
-      priority: 2
-      # fallback用のパラメータ
+      atom_url: "https://github.com/{owner}/{repo}/releases.atom"
+      owner: "{owner}"
+      repo: "{repo}"
   notification:
     webhook_env: "DISCORD_WEBHOOK"
-    color: {color_code}
+    color: 5814783  # 10進数（0-16777215）
 ```
 
-#### rspress/docs/releases/{tool-slug}/index.md
+## GitHub Secrets
 
-```markdown
-# {Tool Name} リリース情報
-
-{Tool Name}は、{簡単な説明}です。
-
-## 最新のリリース
-
-最新のリリース情報は、以下のページで確認できます。
-
-## 情報源
-
-- {Primary Source}（優先度1）
-- {Fallback Source}（優先度2）
-
-## 公式リンク
-
-- [GitHub リポジトリ](https://github.com/{owner}/{repo})
-- [公式サイト]({official_website})
-```
-
-### バリデーション
-
-変更後、以下を確認してください。
-
-- [ ] config.ymlのYAML構文が正しい
-- [ ] rspress/docs/releases/_meta.jsonのJSON構文が正しい
-- [ ] ツール名がすべてのファイルで一貫している
-- [ ] slug名がケバブケース（小文字+ハイフン）である
-- [ ] アルファベット順に並んでいる
-- [ ] 情報源のURLが正しい
-- [ ] 色コードが0-16777215の範囲内である
-
-### 動作確認
-
-```bash
-# ローカルでテスト
-uv run devtools-notifier --output releases.json --no-notify
-
-# 新しいツールが検出されることを確認
-cat releases.json
-```
-
-## 📚 参考情報
-
-### API仕様
-
-- Homebrew JSON API: `https://formulae.brew.sh/api/cask/{cask_name}.json`
-- GitHub Releases Atom: `https://github.com/{owner}/{repo}/releases.atom`
-- Discord Webhook: POST with embed object
-- anthropics/claude-code-action@v1: GitHub Actions用のClaude Code統合（GA版）
-  - パラメータ: `claude_code_oauth_token`（@betaでは`auth_token`）
-  - 出力: `execution_file`（実行ファイルのパス）
-  - 翻訳結果の取得: execution_fileを解析して抽出（extract_claude_response.py使用）
-  - オプション: `claude_args`でCLI引数を指定可能
-
-### 色コード
-
-- Zed Editor: 5814783 (ブルー系)
-- Dia Browser: 3447003 (パープル系)
-
-### HTTPクライアント選択理由
-
-- httpxはrequestsの後継として設計
-- 非同期対応（将来の拡張性）
-- HTTP/2サポート
-- より良いタイムアウト管理
-
----
-
-## 📝 Claude Code への指示
-
-このドキュメントを読んで、以下を実行してください：
-
-1. 上記のファイル構造をすべて作成
-2. 各ファイルに仕様通りのコードを実装
-3. 重要: HTTP通信には必ずhttpxを使用（requestsは使わない）
-4. 重要: translator.pyは作成しない（翻訳はGitHub Actionsで行う）
-5. 重要: notifier.pyに--outputと--no-notifyオプションを実装
-6. 重要: .github/scripts/send_to_discord.pyを作成
-7. 型ヒント、docstring、エラーハンドリングを適切に実装
-8. PEP 8に準拠したコードを記述
-
-実装時の注意点
-
-- 既存のpyproject.tomlは上書きせず、依存関係のみ追加
-- config.ymlには実際に使用可能な設定値を記述（翻訳設定は含めない）
-- すべてのHTTPリクエストにタイムアウトを指定
-- エラー時は警告を表示して処理を継続（致命的エラー以外）
-- httpx.HTTPErrorを使用してHTTPエラーをキャッチ
-- GitHub Actionsでanthropics/claude-code-action@betaを使用して翻訳を行う
+- `DISCORD_WEBHOOK`: Discord Webhook URL
+- `CLAUDE_CODE_OAUTH_TOKEN`: Claude Code OAuthトークン（翻訳用）
