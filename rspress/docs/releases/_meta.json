@@ -14,6 +14,12 @@
   },
   {
     "type": "dir",
+    "name": "raycast",
+    "label": "Raycast",
+    "collapsible": true
+  },
+  {
+    "type": "dir",
     "name": "zed-editor",
     "label": "Zed Editor",
     "collapsible": true

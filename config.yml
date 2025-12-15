@@ -46,6 +46,16 @@ tools:
       webhook_env: "DISCORD_WEBHOOK"
       color: 16744272
 
+  - name: "Raycast"
+    enabled: true
+    sources:
+      - type: "homebrew_cask"
+        priority: 1
+        api_url: "https://formulae.brew.sh/api/cask/raycast.json"
+    notification:
+      webhook_env: "DISCORD_WEBHOOK"
+      color: 16744448
+
 common:
   check_interval_hours: 6
   cache_directory: "./cache"
