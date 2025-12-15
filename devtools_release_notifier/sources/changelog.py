@@ -98,12 +98,16 @@ class ChangelogSource(ReleaseSource):
 
             version = match.group(1)
 
-            date_str = None
-            if match.lastindex and match.lastindex >= 2:
+            # Extract date from group(2) if available (keepachangelog pattern)
+            try:
                 date_str = match.group(2)
+            except IndexError:
+                date_str = None
 
             published = self._parse_date(date_str)
 
+            # Find end of version header line to start content extraction
+            # +1 to skip the newline character itself
             header_end = text.find("\n", match.end())
             if header_end == -1:
                 header_end = match.end()
