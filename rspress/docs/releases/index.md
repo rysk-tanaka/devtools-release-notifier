@@ -11,6 +11,11 @@
 
 ## リリース一覧
 
+### 2025-12-16
+
+- [2.0.70](./claude-code/2025-12-16.md)
+- [nightly: Revert "Add save_file and restore_file_from_disk agent tools" (#44949)](./zed-editor/2025-12-16.md)
+
 ### 2025-12-15
 
 - [1.103.10](./raycast/2025-12-15.md)
@@ -56,11 +61,3 @@
 ### 2025-12-04
 
 - [v0.216.0-pre](./zed-editor/2025-12-04.md)
-
-### 2025-12-03
-
-- [nightly: Make highlighting of C preprocessing directive same as C++ (#44043)](./zed-editor/2025-12-03.md)
-
-### 2025-12-02
-
-- [nightly](./zed-editor/2025-12-02.md)

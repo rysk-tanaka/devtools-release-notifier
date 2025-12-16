@@ -1,4 +1,4 @@
 {
-  "version": "nightly: rope: Optimize rope construction (#44345)",
-  "timestamp": "2025-12-15T10:15:08.386535+00:00"
+  "version": "nightly: Revert \"Add save_file and restore_file_from_disk agent tools\" (#44949)",
+  "timestamp": "2025-12-16T10:13:19.704564+00:00"
 }
