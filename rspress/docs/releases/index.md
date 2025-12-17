@@ -11,6 +11,12 @@
 
 ## リリース一覧
 
+### 2025-12-17
+
+- [1.104.0](./raycast/2025-12-17.md)
+- [2.0.71](./claude-code/2025-12-17.md)
+- [nightly: Fix editor hang when positioned above viewport (#45077)](./zed-editor/2025-12-17.md)
+
 ### 2025-12-16
 
 - [2.0.70](./claude-code/2025-12-16.md)
@@ -49,15 +55,3 @@
 ### 2025-12-07
 
 - [nightly: docs: Point to the right URL for Regal LSP (#44318)](./zed-editor/2025-12-07.md)
-
-### 2025-12-06
-
-- [Merge pull request #13177 from anthropics/fvolcic/code-review-command…](./claude-code/2025-12-06.md)
-
-### 2025-12-05
-
-- [nightly: Fix infinite loop in assemble_excerpts (#44195)](./zed-editor/2025-12-05.md)
-
-### 2025-12-04
-
-- [v0.216.0-pre](./zed-editor/2025-12-04.md)

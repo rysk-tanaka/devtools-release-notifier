@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Revert \"Add save_file and restore_file_from_disk agent tools\" (#44949)",
-  "timestamp": "2025-12-16T10:13:19.704564+00:00"
+  "version": "nightly: Fix editor hang when positioned above viewport (#45077)",
+  "timestamp": "2025-12-17T10:12:53.448046+00:00"
 }
