@@ -11,6 +11,11 @@
 
 ## リリース一覧
 
+### 2025-12-18
+
+- [2.0.72](./claude-code/2025-12-18.md)
+- [nightly: Always invalidate tree-sitter data on buffer reparse end (#45187)](./zed-editor/2025-12-18.md)
+
 ### 2025-12-17
 
 - [1.104.0](./raycast/2025-12-17.md)
@@ -50,8 +55,3 @@
 ### 2025-12-08
 
 - [chore: Update CHANGELOG.md](./claude-code/2025-12-08.md)
-- [nightly](./zed-editor/2025-12-08.md)
-
-### 2025-12-07
-
-- [nightly: docs: Point to the right URL for Regal LSP (#44318)](./zed-editor/2025-12-07.md)
