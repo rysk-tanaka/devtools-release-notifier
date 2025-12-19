@@ -11,6 +11,12 @@
 
 ## リリース一覧
 
+### 2025-12-19
+
+- [1.104.1](./raycast/2025-12-19.md)
+- [nightly: terminal: Prevent scrollbar arithmetic underflow panic (#45282)](./zed-editor/2025-12-19.md)
+- [v2.0.73](./claude-code/2025-12-19.md)
+
 ### 2025-12-18
 
 - [2.0.72](./claude-code/2025-12-18.md)
@@ -43,15 +49,3 @@
 ### 2025-12-12
 
 - [nightly: windows: Fix more VSCode keybinds (#44684)](./zed-editor/2025-12-12.md)
-
-### 2025-12-11
-
-- [nightly: git: Fix git hook hang with `prek` (#44212)](./zed-editor/2025-12-11.md)
-
-### 2025-12-10
-
-- [nightly: vim: Fix editor paste not using clipboard in visual mode (#44347)](./zed-editor/2025-12-10.md)
-
-### 2025-12-08
-
-- [chore: Update CHANGELOG.md](./claude-code/2025-12-08.md)
