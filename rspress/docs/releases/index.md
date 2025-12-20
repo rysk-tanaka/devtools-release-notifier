@@ -11,6 +11,11 @@
 
 ## リリース一覧
 
+### 2025-12-20
+
+- [nightly: proto: Add `extend` keyword (#45413)](./zed-editor/2025-12-20.md)
+- [v2.0.74](./claude-code/2025-12-20.md)
+
 ### 2025-12-19
 
 - [1.104.1](./raycast/2025-12-19.md)
@@ -41,11 +46,3 @@
 ### 2025-12-14
 
 - [collab-staging](./zed-editor/2025-12-14.md)
-
-### 2025-12-13
-
-- [nightly: Add keymap field to bug report issue template (#44564)](./zed-editor/2025-12-13.md)
-
-### 2025-12-12
-
-- [nightly: windows: Fix more VSCode keybinds (#44684)](./zed-editor/2025-12-12.md)
