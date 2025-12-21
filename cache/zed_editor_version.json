@@ -1,4 +1,4 @@
 {
-  "version": "nightly: proto: Add `extend` keyword (#45413)",
-  "timestamp": "2025-12-20T10:10:35.270450+00:00"
+  "version": "nightly: acp_thread: Fix broken main build (#45461)",
+  "timestamp": "2025-12-21T10:10:44.038357+00:00"
 }

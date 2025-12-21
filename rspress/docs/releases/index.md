@@ -11,6 +11,10 @@
 
 ## リリース一覧
 
+### 2025-12-21
+
+- [nightly: acp_thread: Fix broken main build (#45461)](./zed-editor/2025-12-21.md)
+
 ### 2025-12-20
 
 - [nightly: proto: Add `extend` keyword (#45413)](./zed-editor/2025-12-20.md)
@@ -42,7 +46,3 @@
 
 - [1.103.10](./raycast/2025-12-15.md)
 - [nightly: rope: Optimize rope construction (#44345)](./zed-editor/2025-12-15.md)
-
-### 2025-12-14
-
-- [collab-staging](./zed-editor/2025-12-14.md)
