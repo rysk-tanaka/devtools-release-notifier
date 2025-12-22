@@ -70,6 +70,18 @@ def send_to_discord(
         return False
 
 
+def _escape_yaml_string(value: str) -> str:
+    """Escape double quotes in a string for YAML frontmatter.
+
+    Args:
+        value: String value that may contain double quotes
+
+    Returns:
+        String with double quotes replaced by single quotes
+    """
+    return value.replace('"', "'")
+
+
 def _slugify_tool_name(tool_name: str) -> str:
     """Convert tool name to slug format.
 
@@ -113,12 +125,15 @@ def save_markdown_log(
         filename = timestamp.strftime("%Y-%m-%d.md")
         file_path = tool_dir / filename
 
+        # Escape version string for YAML frontmatter (may contain double quotes)
+        escaped_version = _escape_yaml_string(version)
+
         # Create frontmatter and content
         frontmatter = render_template(
             t"""---
-title: "{tool_name} - {version}"
+title: "{tool_name} - {escaped_version}"
 date: "{timestamp.strftime("%Y-%m-%d")}"
-version: "{version}"
+version: "{escaped_version}"
 url: "{url}"
 ---
 

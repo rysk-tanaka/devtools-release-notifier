@@ -10,6 +10,7 @@ import pytest
 import respx
 
 from devtools_release_notifier.scripts.send_to_discord import (
+    _escape_yaml_string,
     _send_notifications,
     _slugify_tool_name,
     main,
@@ -791,3 +792,48 @@ def test_main_with_markdown_dir_option(tmp_path: Path, monkeypatch):
     assert len(md_files) == 1
     content = md_files[0].read_text(encoding="utf-8")
     assert "翻訳" in content
+
+
+def test_escape_yaml_string():
+    """Test escaping double quotes in YAML strings."""
+    # No quotes - unchanged
+    assert _escape_yaml_string("v1.0.0") == "v1.0.0"
+
+    # With double quotes - replaced with single quotes
+    assert _escape_yaml_string('Revert "Add feature"') == "Revert 'Add feature'"
+
+    # Multiple double quotes
+    assert _escape_yaml_string('"foo" and "bar"') == "'foo' and 'bar'"
+
+    # Empty string
+    assert _escape_yaml_string("") == ""
+
+
+def test_save_markdown_log_with_quotes_in_version(tmp_path: Path):
+    """Test that Markdown files with double quotes in version are correctly escaped."""
+    markdown_dir = tmp_path / "releases"
+    timestamp = datetime(2025, 12, 16, 10, 0, 0, tzinfo=UTC)
+
+    # Version containing double quotes (like Zed nightly releases)
+    version_with_quotes = 'nightly: Revert "Add save_file" (#44949)'
+
+    result = save_markdown_log(
+        markdown_dir=str(markdown_dir),
+        tool_name="Zed Editor",
+        version=version_with_quotes,
+        translated_content="テスト内容",
+        url="https://example.com",
+        timestamp=timestamp,
+    )
+
+    assert result is True
+
+    # Verify file was created
+    md_file = markdown_dir / "zed-editor" / "2025-12-16.md"
+    assert md_file.exists()
+
+    # Verify frontmatter has escaped quotes (single quotes instead of double)
+    content = md_file.read_text(encoding="utf-8")
+    assert "nightly: Revert 'Add save_file' (#44949)" in content
+    # Original double quotes should not appear in frontmatter title/version
+    assert 'title: "Zed Editor - nightly: Revert "Add' not in content
