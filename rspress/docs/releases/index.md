@@ -11,6 +11,10 @@
 
 ## リリース一覧
 
+### 2025-12-22
+
+- [nightly: docs: Fix Edit Prediction docs for Codestral (#45509)](./zed-editor/2025-12-22.md)
+
 ### 2025-12-21
 
 - [nightly: acp_thread: Fix broken main build (#45461)](./zed-editor/2025-12-21.md)
@@ -40,9 +44,8 @@
 ### 2025-12-16
 
 - [2.0.70](./claude-code/2025-12-16.md)
-- [nightly: Revert "Add save_file and restore_file_from_disk agent tools" (#44949)](./zed-editor/2025-12-16.md)
+- [nightly: Revert 'Add save_file and restore_file_from_disk agent tools' (#44949)](./zed-editor/2025-12-16.md)
 
 ### 2025-12-15
 
 - [1.103.10](./raycast/2025-12-15.md)
-- [nightly: rope: Optimize rope construction (#44345)](./zed-editor/2025-12-15.md)
