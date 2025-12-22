@@ -95,9 +95,8 @@ GitHub Actionsワークフロー（`.github/workflows/notifier.yml`）:
 
 1. `config.yml` にツール設定追加
 2. `rspress/docs/releases/_meta.json` にナビゲーション追加（アルファベット順）
-3. `rspress/docs/releases/index.md` にリスト追加
-4. `rspress/docs/releases/{tool-slug}/index.md` 作成
-5. ローカルテスト: `uv run devtools-notifier --output releases.json --no-notify`
+3. `rspress/docs/releases/{tool-slug}/index.md` 作成
+4. ローカルテスト: `uv run devtools-notifier --output releases.json --no-notify`
 
 ### config.yml設定例
 
