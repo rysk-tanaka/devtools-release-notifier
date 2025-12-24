@@ -11,6 +11,10 @@
 
 ## リリース一覧
 
+### 2025-12-24
+
+- [nightly: Associate devcontainer.json with JSONC language (#45593)](./zed-editor/2025-12-24.md)
+
 ### 2025-12-23
 
 - [nightly](./zed-editor/2025-12-23.md)
@@ -48,4 +52,3 @@
 ### 2025-12-16
 
 - [2.0.70](./claude-code/2025-12-16.md)
-- [nightly: Revert 'Add save_file and restore_file_from_disk agent tools' (#44949)](./zed-editor/2025-12-16.md)
