@@ -11,6 +11,10 @@
 
 ## リリース一覧
 
+### 2025-12-26
+
+- [nightly: search: Remove intermediate allocation (#45633)](./zed-editor/2025-12-26.md)
+
 ### 2025-12-24
 
 - [nightly: Associate devcontainer.json with JSONC language (#45593)](./zed-editor/2025-12-24.md)
@@ -48,7 +52,3 @@
 - [1.104.0](./raycast/2025-12-17.md)
 - [2.0.71](./claude-code/2025-12-17.md)
 - [nightly: Fix editor hang when positioned above viewport (#45077)](./zed-editor/2025-12-17.md)
-
-### 2025-12-16
-
-- [2.0.70](./claude-code/2025-12-16.md)
