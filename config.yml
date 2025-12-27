@@ -46,6 +46,18 @@ tools:
       webhook_env: "DISCORD_WEBHOOK"
       color: 16744272
 
+  - name: "Ghostty"
+    enabled: true
+    sources:
+      - type: "github_releases"
+        priority: 1
+        atom_url: "https://github.com/ghostty-org/ghostty/releases.atom"
+        owner: "ghostty-org"
+        repo: "ghostty"
+    notification:
+      webhook_env: "DISCORD_WEBHOOK"
+      color: 5763719
+
   - name: "Raycast"
     enabled: true
     sources:
