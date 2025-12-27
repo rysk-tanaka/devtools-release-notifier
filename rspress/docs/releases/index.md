@@ -6,10 +6,16 @@
 
 - [Claude Code](./claude-code/index.md)
 - [Dia Browser](./dia-browser/index.md)
+- [Ghostty](./ghostty/index.md)
 - [Raycast](./raycast/index.md)
 - [Zed Editor](./zed-editor/index.md)
 
 ## リリース一覧
+
+### 2025-12-27
+
+- [Ghostty Tip ('Nightly')](./ghostty/2025-12-27.md)
+- [nightly: Fix Zed OOM-ing when macOS file descriptors become invalid (#45669)](./zed-editor/2025-12-27.md)
 
 ### 2025-12-26
 
@@ -49,6 +55,4 @@
 
 ### 2025-12-17
 
-- [1.104.0](./raycast/2025-12-17.md)
 - [2.0.71](./claude-code/2025-12-17.md)
-- [nightly: Fix editor hang when positioned above viewport (#45077)](./zed-editor/2025-12-17.md)
