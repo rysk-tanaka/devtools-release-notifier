@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2025-12-28
+
+- [nightly](./zed-editor/2025-12-28.md)
+
 ### 2025-12-27
 
 - [Ghostty Tip ('Nightly')](./ghostty/2025-12-27.md)
@@ -52,7 +56,3 @@
 
 - [2.0.72](./claude-code/2025-12-18.md)
 - [nightly: Always invalidate tree-sitter data on buffer reparse end (#45187)](./zed-editor/2025-12-18.md)
-
-### 2025-12-17
-
-- [2.0.71](./claude-code/2025-12-17.md)
