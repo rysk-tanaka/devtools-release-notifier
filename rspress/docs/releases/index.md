@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-01-01
+
+- [nightly](./zed-editor/2026-01-01.md)
+
 ### 2025-12-31
 
 - [nightly: python: Add support for `uv run` as the shebang line (#45881)](./zed-editor/2025-12-31.md)
@@ -55,7 +59,3 @@
 - [1.104.1](./raycast/2025-12-19.md)
 - [nightly: terminal: Prevent scrollbar arithmetic underflow panic (#45282)](./zed-editor/2025-12-19.md)
 - [v2.0.73](./claude-code/2025-12-19.md)
-
-### 2025-12-18
-
-- [2.0.72](./claude-code/2025-12-18.md)
