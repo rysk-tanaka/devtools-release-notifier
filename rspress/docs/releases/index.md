@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-01-03
+
+- [nightly: Clean up image resources for the current window (#45969)](./zed-editor/2026-01-03.md)
+
 ### 2026-01-02
 
 - [nightly: docs: Point to the right docs for Tree-sitter queries (#45795)](./zed-editor/2026-01-02.md)
@@ -60,5 +64,4 @@
 
 ### 2025-12-19
 
-- [1.104.1](./raycast/2025-12-19.md)
 - [v2.0.73](./claude-code/2025-12-19.md)
