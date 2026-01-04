@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-01-04
+
+- [nightly](./zed-editor/2026-01-04.md)
+
 ### 2026-01-03
 
 - [nightly: Clean up image resources for the current window (#45969)](./zed-editor/2026-01-03.md)
@@ -61,7 +65,3 @@
 
 - [nightly: proto: Add `extend` keyword (#45413)](./zed-editor/2025-12-20.md)
 - [v2.0.74](./claude-code/2025-12-20.md)
-
-### 2025-12-19
-
-- [v2.0.73](./claude-code/2025-12-19.md)
