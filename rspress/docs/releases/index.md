@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-01-05
+
+- [nightly: gpui: Cancel foreground tasks when the app is dropped (#45768)](./zed-editor/2026-01-05.md)
+
 ### 2026-01-04
 
 - [nightly](./zed-editor/2026-01-04.md)
@@ -63,5 +67,4 @@
 
 ### 2025-12-20
 
-- [nightly: proto: Add `extend` keyword (#45413)](./zed-editor/2025-12-20.md)
 - [v2.0.74](./claude-code/2025-12-20.md)
