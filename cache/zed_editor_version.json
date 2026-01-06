@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui: Cancel foreground tasks when the app is dropped (#45768)",
-  "timestamp": "2026-01-05T10:14:40.946151+00:00"
+  "version": "nightly: Add support for subpixel text rendering (#45423)",
+  "timestamp": "2026-01-06T10:13:03.626306+00:00"
 }

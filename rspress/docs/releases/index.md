@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-01-06
+
+- [nightly: Add support for subpixel text rendering (#45423)](./zed-editor/2026-01-06.md)
+
 ### 2026-01-05
 
 - [nightly: gpui: Cancel foreground tasks when the app is dropped (#45768)](./zed-editor/2026-01-05.md)
@@ -64,7 +68,3 @@
 ### 2025-12-21
 
 - [nightly: acp_thread: Fix broken main build (#45461)](./zed-editor/2025-12-21.md)
-
-### 2025-12-20
-
-- [v2.0.74](./claude-code/2025-12-20.md)
