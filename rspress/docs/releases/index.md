@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-01-07
+
+- [nightly: Autofix run cargo machete --fix too (#46232)](./zed-editor/2026-01-07.md)
+
 ### 2026-01-06
 
 - [nightly: Add support for subpixel text rendering (#45423)](./zed-editor/2026-01-06.md)
@@ -64,7 +68,3 @@
 ### 2025-12-22
 
 - [nightly: docs: Fix Edit Prediction docs for Codestral (#45509)](./zed-editor/2025-12-22.md)
-
-### 2025-12-21
-
-- [nightly: acp_thread: Fix broken main build (#45461)](./zed-editor/2025-12-21.md)
