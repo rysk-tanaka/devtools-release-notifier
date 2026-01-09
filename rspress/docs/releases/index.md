@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-09
+
+- [v0.219.3-pre](./zed-editor/2026-01-09.md)
+- [v2.1.2](./claude-code/2026-01-09.md)
+
 ### 2026-01-07
 
 - [nightly: Autofix run cargo machete --fix too (#46232)](./zed-editor/2026-01-07.md)
@@ -60,11 +65,3 @@
 ### 2025-12-24
 
 - [nightly: Associate devcontainer.json with JSONC language (#45593)](./zed-editor/2025-12-24.md)
-
-### 2025-12-23
-
-- [nightly](./zed-editor/2025-12-23.md)
-
-### 2025-12-22
-
-- [nightly: docs: Fix Edit Prediction docs for Codestral (#45509)](./zed-editor/2025-12-22.md)
