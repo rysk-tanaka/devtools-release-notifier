@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-10
+
+- [nightly: Simplify networking tests even more (#46489)](./zed-editor/2026-01-10.md)
+- [v2.1.3](./claude-code/2026-01-10.md)
+
 ### 2026-01-09
 
 - [v0.219.3-pre](./zed-editor/2026-01-09.md)
@@ -57,11 +62,3 @@
 
 - [Ghostty Tip ('Nightly')](./ghostty/2025-12-27.md)
 - [nightly: Fix Zed OOM-ing when macOS file descriptors become invalid (#45669)](./zed-editor/2025-12-27.md)
-
-### 2025-12-26
-
-- [nightly: search: Remove intermediate allocation (#45633)](./zed-editor/2025-12-26.md)
-
-### 2025-12-24
-
-- [nightly: Associate devcontainer.json with JSONC language (#45593)](./zed-editor/2025-12-24.md)
