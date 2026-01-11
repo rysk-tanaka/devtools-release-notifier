@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-11
+
+- [nightly](./zed-editor/2026-01-11.md)
+- [v2.1.4](./claude-code/2026-01-11.md)
+
 ### 2026-01-10
 
 - [nightly: Simplify networking tests even more (#46489)](./zed-editor/2026-01-10.md)
@@ -57,8 +62,3 @@
 ### 2025-12-28
 
 - [nightly](./zed-editor/2025-12-28.md)
-
-### 2025-12-27
-
-- [Ghostty Tip ('Nightly')](./ghostty/2025-12-27.md)
-- [nightly: Fix Zed OOM-ing when macOS file descriptors become invalid (#45669)](./zed-editor/2025-12-27.md)
