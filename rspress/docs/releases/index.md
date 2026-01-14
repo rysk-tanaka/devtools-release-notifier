@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-01-14
+
+- [v2.1.7](./claude-code/2026-01-14.md)
+
 ### 2026-01-13
 
 - [v2.1.6](./claude-code/2026-01-13.md)
@@ -58,7 +62,3 @@
 ### 2026-01-01
 
 - [nightly](./zed-editor/2026-01-01.md)
-
-### 2025-12-31
-
-- [nightly: python: Add support for `uv run` as the shebang line (#45881)](./zed-editor/2025-12-31.md)
