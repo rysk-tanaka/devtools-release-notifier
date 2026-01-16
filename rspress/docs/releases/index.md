@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-16
+
+- [nightly: Don't show diff review button on folded buffers (#46968)](./zed-editor/2026-01-16.md)
+- [v2.1.9](./claude-code/2026-01-16.md)
+
 ### 2026-01-14
 
 - [v2.1.7](./claude-code/2026-01-14.md)
@@ -54,11 +59,3 @@
 ### 2026-01-03
 
 - [nightly: Clean up image resources for the current window (#45969)](./zed-editor/2026-01-03.md)
-
-### 2026-01-02
-
-- [nightly: docs: Point to the right docs for Tree-sitter queries (#45795)](./zed-editor/2026-01-02.md)
-
-### 2026-01-01
-
-- [nightly](./zed-editor/2026-01-01.md)
