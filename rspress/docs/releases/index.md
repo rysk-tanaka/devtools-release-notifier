@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-17
+
+- [nightly: Preserve and restore focus across window activation cycles (#47044)](./zed-editor/2026-01-17.md)
+- [v2.1.11](./claude-code/2026-01-17.md)
+
 ### 2026-01-16
 
 - [nightly: Don't show diff review button on folded buffers (#46968)](./zed-editor/2026-01-16.md)
@@ -51,11 +56,3 @@
 ### 2026-01-05
 
 - [nightly: gpui: Cancel foreground tasks when the app is dropped (#45768)](./zed-editor/2026-01-05.md)
-
-### 2026-01-04
-
-- [nightly](./zed-editor/2026-01-04.md)
-
-### 2026-01-03
-
-- [nightly: Clean up image resources for the current window (#45969)](./zed-editor/2026-01-03.md)

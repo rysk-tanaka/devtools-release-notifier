@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Don't show diff review button on folded buffers (#46968)",
-  "timestamp": "2026-01-16T10:12:52.637650+00:00"
+  "version": "nightly: Preserve and restore focus across window activation cycles (#47044)",
+  "timestamp": "2026-01-17T10:11:22.355219+00:00"
 }
