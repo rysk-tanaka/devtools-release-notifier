@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Preserve and restore focus across window activation cycles (#47044)",
-  "timestamp": "2026-01-17T10:11:22.355219+00:00"
+  "version": "nightly: ztracing: Enable memory profiling and callstack sampling (#47052)",
+  "timestamp": "2026-01-18T10:11:30.639018+00:00"
 }

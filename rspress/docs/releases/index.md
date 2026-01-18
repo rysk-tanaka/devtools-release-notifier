@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-18
+
+- [nightly: ztracing: Enable memory profiling and callstack sampling (#47052)](./zed-editor/2026-01-18.md)
+- [v2.1.12](./claude-code/2026-01-18.md)
+
 ### 2026-01-17
 
 - [nightly: Preserve and restore focus across window activation cycles (#47044)](./zed-editor/2026-01-17.md)
@@ -48,11 +53,3 @@
 ### 2026-01-07
 
 - [nightly: Autofix run cargo machete --fix too (#46232)](./zed-editor/2026-01-07.md)
-
-### 2026-01-06
-
-- [nightly: Add support for subpixel text rendering (#45423)](./zed-editor/2026-01-06.md)
-
-### 2026-01-05
-
-- [nightly: gpui: Cancel foreground tasks when the app is dropped (#45768)](./zed-editor/2026-01-05.md)
