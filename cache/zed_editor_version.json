@@ -1,4 +1,4 @@
 {
-  "version": "nightly: ztracing: Enable memory profiling and callstack sampling (#47052)",
-  "timestamp": "2026-01-18T10:11:30.639018+00:00"
+  "version": "nightly: Add a 'rejected patch' field to example specs, for DPO examples (#47043)",
+  "timestamp": "2026-01-19T10:17:57.106450+00:00"
 }
