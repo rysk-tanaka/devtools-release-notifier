@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-21
+
+- [nightly](./zed-editor/2026-01-21.md)
+- [v2.1.14](./claude-code/2026-01-21.md)
+
 ### 2026-01-20
 
 - [v0.220.2-pre](./zed-editor/2026-01-20.md)
@@ -50,9 +55,4 @@
 
 ### 2026-01-10
 
-- [nightly: Simplify networking tests even more (#46489)](./zed-editor/2026-01-10.md)
 - [v2.1.3](./claude-code/2026-01-10.md)
-
-### 2026-01-09
-
-- [v2.1.2](./claude-code/2026-01-09.md)
