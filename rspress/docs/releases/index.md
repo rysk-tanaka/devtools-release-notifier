@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-01-22
+
+- [1.104.2](./raycast/2026-01-22.md)
+- [nightly: User-defined slash commands (#46815)](./zed-editor/2026-01-22.md)
+- [v2.1.15](./claude-code/2026-01-22.md)
+
 ### 2026-01-21
 
 - [nightly](./zed-editor/2026-01-21.md)
@@ -47,12 +53,3 @@
 ### 2026-01-13
 
 - [v2.1.6](./claude-code/2026-01-13.md)
-
-### 2026-01-11
-
-- [nightly](./zed-editor/2026-01-11.md)
-- [v2.1.4](./claude-code/2026-01-11.md)
-
-### 2026-01-10
-
-- [v2.1.3](./claude-code/2026-01-10.md)
