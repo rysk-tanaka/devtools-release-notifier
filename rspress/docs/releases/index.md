@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-01-23
+
+- [1.104.3](./raycast/2026-01-23.md)
+- [nightly: agent: Multiline review comments (#47448)](./zed-editor/2026-01-23.md)
+- [v2.1.17](./claude-code/2026-01-23.md)
+
 ### 2026-01-22
 
 - [1.104.2](./raycast/2026-01-22.md)
@@ -43,13 +49,4 @@
 
 ### 2026-01-16
 
-- [nightly: Don't show diff review button on folded buffers (#46968)](./zed-editor/2026-01-16.md)
 - [v2.1.9](./claude-code/2026-01-16.md)
-
-### 2026-01-14
-
-- [v2.1.7](./claude-code/2026-01-14.md)
-
-### 2026-01-13
-
-- [v2.1.6](./claude-code/2026-01-13.md)
