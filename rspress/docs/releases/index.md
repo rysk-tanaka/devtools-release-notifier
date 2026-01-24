@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-24
+
+- [v0.221.2-pre](./zed-editor/2026-01-24.md)
+- [v2.1.19](./claude-code/2026-01-24.md)
+
 ### 2026-01-23
 
 - [1.104.3](./raycast/2026-01-23.md)
@@ -44,9 +49,4 @@
 
 ### 2026-01-17
 
-- [nightly: Preserve and restore focus across window activation cycles (#47044)](./zed-editor/2026-01-17.md)
 - [v2.1.11](./claude-code/2026-01-17.md)
-
-### 2026-01-16
-
-- [v2.1.9](./claude-code/2026-01-16.md)
