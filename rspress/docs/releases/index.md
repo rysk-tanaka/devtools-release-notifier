@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-01-26
+
+- [nightly](./zed-editor/2026-01-26.md)
+
 ### 2026-01-25
 
 - [nightly: Apply common prefix/suffix stripping to zeta2 and mercury (#47530)](./zed-editor/2026-01-25.md)
@@ -48,5 +52,4 @@
 
 ### 2026-01-18
 
-- [nightly: ztracing: Enable memory profiling and callstack sampling (#47052)](./zed-editor/2026-01-18.md)
 - [v2.1.12](./claude-code/2026-01-18.md)
