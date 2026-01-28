@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-28
+
+- [nightly: Fix typing emoji (#47835)](./zed-editor/2026-01-28.md)
+- [v2.1.22](./claude-code/2026-01-28.md)
+
 ### 2026-01-27
 
 - [nightly: Fix native agent thread history notify refresh (#47733)](./zed-editor/2026-01-27.md)
@@ -44,9 +49,4 @@
 
 ### 2026-01-21
 
-- [nightly](./zed-editor/2026-01-21.md)
 - [v2.1.14](./claude-code/2026-01-21.md)
-
-### 2026-01-20
-
-- [v0.220.2-pre](./zed-editor/2026-01-20.md)
