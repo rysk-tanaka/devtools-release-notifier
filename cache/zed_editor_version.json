@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix typing emoji (#47835)",
-  "timestamp": "2026-01-28T10:17:42.982215+00:00"
+  "version": "nightly: Allow always_allow patterns for Nushell, Elvish, and Rc shells (#47908)",
+  "timestamp": "2026-01-29T10:25:32.850939+00:00"
 }

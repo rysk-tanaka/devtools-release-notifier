@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-29
+
+- [nightly: Allow always_allow patterns for Nushell, Elvish, and Rc shells (#47908)](./zed-editor/2026-01-29.md)
+- [v2.1.23](./claude-code/2026-01-29.md)
+
 ### 2026-01-28
 
 - [nightly: Fix typing emoji (#47835)](./zed-editor/2026-01-28.md)
@@ -44,9 +49,4 @@
 ### 2026-01-22
 
 - [1.104.2](./raycast/2026-01-22.md)
-- [nightly: User-defined slash commands (#46815)](./zed-editor/2026-01-22.md)
 - [v2.1.15](./claude-code/2026-01-22.md)
-
-### 2026-01-21
-
-- [v2.1.14](./claude-code/2026-01-21.md)
