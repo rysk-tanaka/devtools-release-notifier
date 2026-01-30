@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-30
+
+- [nightly](./zed-editor/2026-01-30.md)
+- [v2.1.25](./claude-code/2026-01-30.md)
+
 ### 2026-01-29
 
 - [nightly: Allow always_allow patterns for Nushell, Elvish, and Rc shells (#47908)](./zed-editor/2026-01-29.md)
@@ -45,8 +50,3 @@
 - [1.104.3](./raycast/2026-01-23.md)
 - [nightly: agent: Multiline review comments (#47448)](./zed-editor/2026-01-23.md)
 - [v2.1.17](./claude-code/2026-01-23.md)
-
-### 2026-01-22
-
-- [1.104.2](./raycast/2026-01-22.md)
-- [v2.1.15](./claude-code/2026-01-22.md)
