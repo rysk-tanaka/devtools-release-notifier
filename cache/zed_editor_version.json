@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-01-30T10:22:42.625133+00:00"
+  "version": "nightly: Fix open path prompt not showing hidden files (#46965)",
+  "timestamp": "2026-01-31T10:13:12.777179+00:00"
 }

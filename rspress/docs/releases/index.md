@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-01-31
+
+- [nightly: Fix open path prompt not showing hidden files (#46965)](./zed-editor/2026-01-31.md)
+- [v2.1.27](./claude-code/2026-01-31.md)
+
 ### 2026-01-30
 
 - [nightly](./zed-editor/2026-01-30.md)
@@ -47,6 +52,4 @@
 
 ### 2026-01-23
 
-- [1.104.3](./raycast/2026-01-23.md)
-- [nightly: agent: Multiline review comments (#47448)](./zed-editor/2026-01-23.md)
 - [v2.1.17](./claude-code/2026-01-23.md)
