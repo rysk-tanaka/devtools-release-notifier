@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix open path prompt not showing hidden files (#46965)",
-  "timestamp": "2026-01-31T10:13:12.777179+00:00"
+  "version": "nightly: git: Disable vertical scrollbar for side-by-side diff LHS (#48129)",
+  "timestamp": "2026-02-01T10:14:16.366164+00:00"
 }

@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-01
+
+- [nightly: git: Disable vertical scrollbar for side-by-side diff LHS (#48129)](./zed-editor/2026-02-01.md)
+- [v2.1.29](./claude-code/2026-02-01.md)
+
 ### 2026-01-31
 
 - [nightly: Fix open path prompt not showing hidden files (#46965)](./zed-editor/2026-01-31.md)
@@ -47,9 +52,4 @@
 
 ### 2026-01-24
 
-- [v0.221.2-pre](./zed-editor/2026-01-24.md)
 - [v2.1.19](./claude-code/2026-01-24.md)
-
-### 2026-01-23
-
-- [v2.1.17](./claude-code/2026-01-23.md)
