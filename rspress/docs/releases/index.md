@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-02-02
+
+- [nightly: docs: document right options for `lsp_document_colors` (#48170)](./zed-editor/2026-02-02.md)
+
 ### 2026-02-01
 
 - [nightly: git: Disable vertical scrollbar for side-by-side diff LHS (#48129)](./zed-editor/2026-02-01.md)
@@ -49,7 +53,3 @@
 ### 2026-01-25
 
 - [nightly: Apply common prefix/suffix stripping to zeta2 and mercury (#47530)](./zed-editor/2026-01-25.md)
-
-### 2026-01-24
-
-- [v2.1.19](./claude-code/2026-01-24.md)
