@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-03
+
+- [1.104.4](./raycast/2026-02-03.md)
+- [nightly](./zed-editor/2026-02-03.md)
+
 ### 2026-02-02
 
 - [nightly: docs: document right options for `lsp_document_colors` (#48170)](./zed-editor/2026-02-02.md)
@@ -45,11 +50,3 @@
 
 - [nightly: Fix native agent thread history notify refresh (#47733)](./zed-editor/2026-01-27.md)
 - [v2.1.20](./claude-code/2026-01-27.md)
-
-### 2026-01-26
-
-- [nightly](./zed-editor/2026-01-26.md)
-
-### 2026-01-25
-
-- [nightly: Apply common prefix/suffix stripping to zeta2 and mercury (#47530)](./zed-editor/2026-01-25.md)
