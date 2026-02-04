@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-04
+
+- [nightly: remote: Fix build_remote_server_from_source compression on unix (#48319)](./zed-editor/2026-02-04.md)
+- [v2.1.31](./claude-code/2026-02-04.md)
+
 ### 2026-02-03
 
 - [1.104.4](./raycast/2026-02-03.md)
@@ -45,8 +50,3 @@
 
 - [nightly: Fix typing emoji (#47835)](./zed-editor/2026-01-28.md)
 - [v2.1.22](./claude-code/2026-01-28.md)
-
-### 2026-01-27
-
-- [nightly: Fix native agent thread history notify refresh (#47733)](./zed-editor/2026-01-27.md)
-- [v2.1.20](./claude-code/2026-01-27.md)

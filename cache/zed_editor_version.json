@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-02-03T10:28:54.308619+00:00"
+  "version": "nightly: remote: Fix build_remote_server_from_source compression on unix (#48319)",
+  "timestamp": "2026-02-04T10:28:18.257983+00:00"
 }
