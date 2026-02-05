@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-02-05
+
+- [nightly](./zed-editor/2026-02-05.md)
+
 ### 2026-02-04
 
 - [nightly: remote: Fix build_remote_server_from_source compression on unix (#48319)](./zed-editor/2026-02-04.md)
@@ -48,5 +52,4 @@
 
 ### 2026-01-28
 
-- [nightly: Fix typing emoji (#47835)](./zed-editor/2026-01-28.md)
 - [v2.1.22](./claude-code/2026-01-28.md)
