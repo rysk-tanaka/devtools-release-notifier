@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-02-07
+
+- [1.104.5](./raycast/2026-02-07.md)
+- [nightly: gpui: Fix restarting panicking due to double borrows on windows (#48667)](./zed-editor/2026-02-07.md)
+- [v2.1.34](./claude-code/2026-02-07.md)
+
 ### 2026-02-06
 
 - [v0.223.2-pre](./zed-editor/2026-02-06.md)
@@ -44,12 +50,3 @@
 
 - [nightly: Fix open path prompt not showing hidden files (#46965)](./zed-editor/2026-01-31.md)
 - [v2.1.27](./claude-code/2026-01-31.md)
-
-### 2026-01-30
-
-- [nightly](./zed-editor/2026-01-30.md)
-- [v2.1.25](./claude-code/2026-01-30.md)
-
-### 2026-01-29
-
-- [v2.1.23](./claude-code/2026-01-29.md)

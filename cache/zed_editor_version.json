@@ -1,4 +1,4 @@
 {
-  "version": "v0.223.2-pre",
-  "timestamp": "2026-02-06T10:28:57.811905+00:00"
+  "version": "nightly: gpui: Fix restarting panicking due to double borrows on windows (#48667)",
+  "timestamp": "2026-02-07T10:14:16.605018+00:00"
 }
