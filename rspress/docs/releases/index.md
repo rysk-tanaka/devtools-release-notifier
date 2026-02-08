@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-08
+
+- [nightly: collab: Proxy `GET /extensions` to Cloud (#48717)](./zed-editor/2026-02-08.md)
+- [v2.1.37](./claude-code/2026-02-08.md)
+
 ### 2026-02-07
 
 - [1.104.5](./raycast/2026-02-07.md)
@@ -45,8 +50,3 @@
 
 - [nightly: git: Disable vertical scrollbar for side-by-side diff LHS (#48129)](./zed-editor/2026-02-01.md)
 - [v2.1.29](./claude-code/2026-02-01.md)
-
-### 2026-01-31
-
-- [nightly: Fix open path prompt not showing hidden files (#46965)](./zed-editor/2026-01-31.md)
-- [v2.1.27](./claude-code/2026-01-31.md)

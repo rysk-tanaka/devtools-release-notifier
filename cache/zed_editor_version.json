@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui: Fix restarting panicking due to double borrows on windows (#48667)",
-  "timestamp": "2026-02-07T10:14:16.605018+00:00"
+  "version": "nightly: collab: Proxy `GET /extensions` to Cloud (#48717)",
+  "timestamp": "2026-02-08T10:15:38.961293+00:00"
 }
