@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-02-09
+
+- [nightly: New multi workspace (#47795)](./zed-editor/2026-02-09.md)
+
 ### 2026-02-08
 
 - [nightly: collab: Proxy `GET /extensions` to Cloud (#48717)](./zed-editor/2026-02-08.md)
@@ -48,5 +52,4 @@
 
 ### 2026-02-01
 
-- [nightly: git: Disable vertical scrollbar for side-by-side diff LHS (#48129)](./zed-editor/2026-02-01.md)
 - [v2.1.29](./claude-code/2026-02-01.md)
