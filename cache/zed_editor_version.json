@@ -1,4 +1,4 @@
 {
-  "version": "nightly: New multi workspace (#47795)",
-  "timestamp": "2026-02-09T10:46:04.559525+00:00"
+  "version": "nightly: git: Optimize `patch_for_range` functions (#48852)",
+  "timestamp": "2026-02-10T10:42:44.642498+00:00"
 }

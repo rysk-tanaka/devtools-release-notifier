@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-10
+
+- [nightly: git: Optimize `patch_for_range` functions (#48852)](./zed-editor/2026-02-10.md)
+- [v2.1.38](./claude-code/2026-02-10.md)
+
 ### 2026-02-09
 
 - [nightly: New multi workspace (#47795)](./zed-editor/2026-02-09.md)
@@ -45,11 +50,3 @@
 
 - [1.104.4](./raycast/2026-02-03.md)
 - [nightly](./zed-editor/2026-02-03.md)
-
-### 2026-02-02
-
-- [nightly: docs: document right options for `lsp_document_colors` (#48170)](./zed-editor/2026-02-02.md)
-
-### 2026-02-01
-
-- [v2.1.29](./claude-code/2026-02-01.md)
