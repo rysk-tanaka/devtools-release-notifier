@@ -1,4 +1,4 @@
 {
-  "version": "nightly: git: Optimize `patch_for_range` functions (#48852)",
-  "timestamp": "2026-02-10T10:42:44.642498+00:00"
+  "version": "nightly: git: Enable the split diff for everyone (#48912)",
+  "timestamp": "2026-02-11T10:38:10.570915+00:00"
 }
