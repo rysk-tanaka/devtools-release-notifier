@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-12
+
+- [1.104.6](./raycast/2026-02-12.md)
+- [nightly: Resolve semantic merge conflict (#48999)](./zed-editor/2026-02-12.md)
+
 ### 2026-02-11
 
 - [nightly: git: Enable the split diff for everyone (#48912)](./zed-editor/2026-02-11.md)
@@ -45,8 +50,3 @@
 ### 2026-02-05
 
 - [nightly](./zed-editor/2026-02-05.md)
-
-### 2026-02-04
-
-- [nightly: remote: Fix build_remote_server_from_source compression on unix (#48319)](./zed-editor/2026-02-04.md)
-- [v2.1.31](./claude-code/2026-02-04.md)
