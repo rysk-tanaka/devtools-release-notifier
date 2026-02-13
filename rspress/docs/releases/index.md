@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-13
+
+- [nightly: Update pull_request_template.md (#48805)](./zed-editor/2026-02-13.md)
+- [v2.1.41](./claude-code/2026-02-13.md)
+
 ### 2026-02-12
 
 - [1.104.6](./raycast/2026-02-12.md)
@@ -45,8 +50,3 @@
 ### 2026-02-06
 
 - [v0.223.2-pre](./zed-editor/2026-02-06.md)
-- [v2.1.33](./claude-code/2026-02-06.md)
-
-### 2026-02-05
-
-- [nightly](./zed-editor/2026-02-05.md)
