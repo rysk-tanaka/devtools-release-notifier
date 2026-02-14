@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-14
+
+- [nightly: docs: Add Tailwind LSP configuration sections (#48096)](./zed-editor/2026-02-14.md)
+- [v2.1.42](./claude-code/2026-02-14.md)
+
 ### 2026-02-13
 
 - [nightly: Update pull_request_template.md (#48805)](./zed-editor/2026-02-13.md)
@@ -43,10 +48,5 @@
 
 ### 2026-02-07
 
-- [1.104.5](./raycast/2026-02-07.md)
 - [nightly: gpui: Fix restarting panicking due to double borrows on windows (#48667)](./zed-editor/2026-02-07.md)
 - [v2.1.34](./claude-code/2026-02-07.md)
-
-### 2026-02-06
-
-- [v0.223.2-pre](./zed-editor/2026-02-06.md)
