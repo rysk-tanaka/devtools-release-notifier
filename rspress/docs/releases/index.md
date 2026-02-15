@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-02-15
+
+- [nightly: gpui: Defer thermal/keyboard state updates when app is borrowed (#49189)](./zed-editor/2026-02-15.md)
+
 ### 2026-02-14
 
 - [nightly: docs: Add Tailwind LSP configuration sections (#48096)](./zed-editor/2026-02-14.md)
@@ -49,4 +53,3 @@
 ### 2026-02-07
 
 - [nightly: gpui: Fix restarting panicking due to double borrows on windows (#48667)](./zed-editor/2026-02-07.md)
-- [v2.1.34](./claude-code/2026-02-07.md)
