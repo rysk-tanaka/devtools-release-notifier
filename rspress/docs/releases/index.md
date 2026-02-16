@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-02-16
+
+- [v0.224.2-pre](./zed-editor/2026-02-16.md)
+
 ### 2026-02-15
 
 - [nightly: gpui: Defer thermal/keyboard state updates when app is borrowed (#49189)](./zed-editor/2026-02-15.md)
@@ -49,7 +53,3 @@
 
 - [nightly: collab: Proxy `GET /extensions` to Cloud (#48717)](./zed-editor/2026-02-08.md)
 - [v2.1.37](./claude-code/2026-02-08.md)
-
-### 2026-02-07
-
-- [nightly: gpui: Fix restarting panicking due to double borrows on windows (#48667)](./zed-editor/2026-02-07.md)
