@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-17
+
+- [v0.224.3-pre](./zed-editor/2026-02-17.md)
+- [v2.1.44](./claude-code/2026-02-17.md)
+
 ### 2026-02-16
 
 - [v0.224.2-pre](./zed-editor/2026-02-16.md)
@@ -48,8 +53,3 @@
 ### 2026-02-09
 
 - [nightly: New multi workspace (#47795)](./zed-editor/2026-02-09.md)
-
-### 2026-02-08
-
-- [nightly: collab: Proxy `GET /extensions` to Cloud (#48717)](./zed-editor/2026-02-08.md)
-- [v2.1.37](./claude-code/2026-02-08.md)
