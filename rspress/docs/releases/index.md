@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-18
+
+- [nightly: docs: Apply documentation standards across all docs (#49177)](./zed-editor/2026-02-18.md)
+- [v2.1.45](./claude-code/2026-02-18.md)
+
 ### 2026-02-17
 
 - [v0.224.3-pre](./zed-editor/2026-02-17.md)
@@ -48,8 +53,3 @@
 ### 2026-02-10
 
 - [nightly: git: Optimize `patch_for_range` functions (#48852)](./zed-editor/2026-02-10.md)
-- [v2.1.38](./claude-code/2026-02-10.md)
-
-### 2026-02-09
-
-- [nightly: New multi workspace (#47795)](./zed-editor/2026-02-09.md)
