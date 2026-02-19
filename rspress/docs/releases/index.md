@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-19
+
+- [v0.225.1-pre](./zed-editor/2026-02-19.md)
+- [v2.1.47](./claude-code/2026-02-19.md)
+
 ### 2026-02-18
 
 - [nightly: docs: Apply documentation standards across all docs (#49177)](./zed-editor/2026-02-18.md)
@@ -48,8 +53,3 @@
 ### 2026-02-11
 
 - [nightly: git: Enable the split diff for everyone (#48912)](./zed-editor/2026-02-11.md)
-- [v2.1.39](./claude-code/2026-02-11.md)
-
-### 2026-02-10
-
-- [nightly: git: Optimize `patch_for_range` functions (#48852)](./zed-editor/2026-02-10.md)
