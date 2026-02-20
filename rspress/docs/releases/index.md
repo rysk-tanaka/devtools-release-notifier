@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-20
+
+- [v0.225.4-pre](./zed-editor/2026-02-20.md)
+- [v2.1.49](./claude-code/2026-02-20.md)
+
 ### 2026-02-19
 
 - [v0.225.1-pre](./zed-editor/2026-02-19.md)
@@ -48,8 +53,3 @@
 ### 2026-02-12
 
 - [1.104.6](./raycast/2026-02-12.md)
-- [nightly: Resolve semantic merge conflict (#48999)](./zed-editor/2026-02-12.md)
-
-### 2026-02-11
-
-- [nightly: git: Enable the split diff for everyone (#48912)](./zed-editor/2026-02-11.md)
