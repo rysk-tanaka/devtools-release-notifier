@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-02-22
+
+- [nightly: Revert 'Optimize `workspace/didChangeWatchedFiles` handler' (#49826)](./zed-editor/2026-02-22.md)
+
 ### 2026-02-21
 
 - [v0.225.6-pre](./zed-editor/2026-02-21.md)
@@ -49,7 +53,3 @@
 
 - [nightly: docs: Add Tailwind LSP configuration sections (#48096)](./zed-editor/2026-02-14.md)
 - [v2.1.42](./claude-code/2026-02-14.md)
-
-### 2026-02-13
-
-- [v2.1.41](./claude-code/2026-02-13.md)

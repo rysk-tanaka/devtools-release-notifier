@@ -1,4 +1,4 @@
 {
-  "version": "v0.225.6-pre",
-  "timestamp": "2026-02-21T10:14:24.214802+00:00"
+  "version": "nightly: Revert \"Optimize `workspace/didChangeWatchedFiles` handler\" (#49826)",
+  "timestamp": "2026-02-22T10:14:27.729092+00:00"
 }
