@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Revert \"Optimize `workspace/didChangeWatchedFiles` handler\" (#49826)",
-  "timestamp": "2026-02-22T10:14:27.729092+00:00"
+  "version": "nightly: ep: Fix teacher parser and other fixes (#49863)",
+  "timestamp": "2026-02-23T10:39:02.694967+00:00"
 }
