@@ -1,4 +1,4 @@
 {
-  "version": "nightly: ep: Fix teacher parser and other fixes (#49863)",
-  "timestamp": "2026-02-23T10:39:02.694967+00:00"
+  "version": "nightly: agent_ui: Avoid querying `OnboardingUpsell` in prepaint (#49963)",
+  "timestamp": "2026-02-24T10:36:53.176844+00:00"
 }

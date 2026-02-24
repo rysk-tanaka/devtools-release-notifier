@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-24
+
+- [nightly: agent_ui: Avoid querying `OnboardingUpsell` in prepaint (#49963)](./zed-editor/2026-02-24.md)
+- [v2.1.52](./claude-code/2026-02-24.md)
+
 ### 2026-02-23
 
 - [nightly: ep: Fix teacher parser and other fixes (#49863)](./zed-editor/2026-02-23.md)
@@ -48,11 +53,3 @@
 ### 2026-02-16
 
 - [v0.224.2-pre](./zed-editor/2026-02-16.md)
-
-### 2026-02-15
-
-- [nightly: gpui: Defer thermal/keyboard state updates when app is borrowed (#49189)](./zed-editor/2026-02-15.md)
-
-### 2026-02-14
-
-- [v2.1.42](./claude-code/2026-02-14.md)
