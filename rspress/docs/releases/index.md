@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-25
+
+- [v0.225.9-pre](./zed-editor/2026-02-25.md)
+- [v2.1.56](./claude-code/2026-02-25.md)
+
 ### 2026-02-24
 
 - [nightly: agent_ui: Avoid querying `OnboardingUpsell` in prepaint (#49963)](./zed-editor/2026-02-24.md)
@@ -47,9 +52,4 @@
 
 ### 2026-02-17
 
-- [v0.224.3-pre](./zed-editor/2026-02-17.md)
 - [v2.1.44](./claude-code/2026-02-17.md)
-
-### 2026-02-16
-
-- [v0.224.2-pre](./zed-editor/2026-02-16.md)
