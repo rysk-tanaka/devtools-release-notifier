@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-02-26
+
+- [nightly: Fix panic in diff hunk rendering (#50163)](./zed-editor/2026-02-26.md)
+- [v2.1.59](./claude-code/2026-02-26.md)
+
 ### 2026-02-25
 
 - [v0.225.9-pre](./zed-editor/2026-02-25.md)
@@ -48,8 +53,3 @@
 ### 2026-02-18
 
 - [nightly: docs: Apply documentation standards across all docs (#49177)](./zed-editor/2026-02-18.md)
-- [v2.1.45](./claude-code/2026-02-18.md)
-
-### 2026-02-17
-
-- [v2.1.44](./claude-code/2026-02-17.md)
