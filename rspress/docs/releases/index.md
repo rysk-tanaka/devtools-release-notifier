@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-02-27
+
+- [1.104.7](./raycast/2026-02-27.md)
+- [v0.226.1-pre](./zed-editor/2026-02-27.md)
+- [v2.1.62](./claude-code/2026-02-27.md)
+
 ### 2026-02-26
 
 - [nightly: Fix panic in diff hunk rendering (#50163)](./zed-editor/2026-02-26.md)
@@ -44,12 +50,3 @@
 
 - [v0.225.4-pre](./zed-editor/2026-02-20.md)
 - [v2.1.49](./claude-code/2026-02-20.md)
-
-### 2026-02-19
-
-- [v0.225.1-pre](./zed-editor/2026-02-19.md)
-- [v2.1.47](./claude-code/2026-02-19.md)
-
-### 2026-02-18
-
-- [nightly: docs: Apply documentation standards across all docs (#49177)](./zed-editor/2026-02-18.md)
