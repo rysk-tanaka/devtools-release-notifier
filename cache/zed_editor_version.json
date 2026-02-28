@@ -1,4 +1,4 @@
 {
-  "version": "v0.226.1-pre",
-  "timestamp": "2026-02-27T10:26:51.639244+00:00"
+  "version": "nightly: Use `dispatch2` crate (#50171)",
+  "timestamp": "2026-02-28T10:12:55.812206+00:00"
 }
