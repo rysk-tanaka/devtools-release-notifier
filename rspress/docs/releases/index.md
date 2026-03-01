@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-03-01
+
+- [nightly: Improve documentation for ETW profiling (#50426)](./zed-editor/2026-03-01.md)
+
 ### 2026-02-28
 
 - [nightly: Use `dispatch2` crate (#50171)](./zed-editor/2026-02-28.md)
@@ -49,4 +53,3 @@
 ### 2026-02-21
 
 - [v0.225.6-pre](./zed-editor/2026-02-21.md)
-- [v2.1.50](./claude-code/2026-02-21.md)

@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Use `dispatch2` crate (#50171)",
-  "timestamp": "2026-02-28T10:12:55.812206+00:00"
+  "version": "nightly: Improve documentation for ETW profiling (#50426)",
+  "timestamp": "2026-03-01T10:14:33.069436+00:00"
 }
