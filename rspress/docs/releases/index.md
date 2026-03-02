@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-03-02
+
+- [nightly: project_panel: Set diagnostic badges off by default (#50454)](./zed-editor/2026-03-02.md)
+
 ### 2026-03-01
 
 - [nightly: Improve documentation for ETW profiling (#50426)](./zed-editor/2026-03-01.md)
@@ -49,7 +53,3 @@
 ### 2026-02-22
 
 - [nightly: Revert 'Optimize `workspace/didChangeWatchedFiles` handler' (#49826)](./zed-editor/2026-02-22.md)
-
-### 2026-02-21
-
-- [v0.225.6-pre](./zed-editor/2026-02-21.md)
