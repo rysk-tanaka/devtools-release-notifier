@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-03
+
+- [1.104.8](./raycast/2026-03-03.md)
+- [v0.225.12](./zed-editor/2026-03-03.md)
+
 ### 2026-03-02
 
 - [nightly: project_panel: Set diagnostic badges off by default (#50454)](./zed-editor/2026-03-02.md)
@@ -45,11 +50,3 @@
 
 - [nightly: agent_ui: Avoid querying `OnboardingUpsell` in prepaint (#49963)](./zed-editor/2026-02-24.md)
 - [v2.1.52](./claude-code/2026-02-24.md)
-
-### 2026-02-23
-
-- [nightly: ep: Fix teacher parser and other fixes (#49863)](./zed-editor/2026-02-23.md)
-
-### 2026-02-22
-
-- [nightly: Revert 'Optimize `workspace/didChangeWatchedFiles` handler' (#49826)](./zed-editor/2026-02-22.md)
