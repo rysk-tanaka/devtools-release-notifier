@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-04
+
+- [nightly: Add cmd-y binding for agent::Keep in agent diff review (#50656)](./zed-editor/2026-03-04.md)
+- [v2.1.68](./claude-code/2026-03-04.md)
+
 ### 2026-03-03
 
 - [1.104.8](./raycast/2026-03-03.md)
@@ -45,8 +50,3 @@
 
 - [v0.225.9-pre](./zed-editor/2026-02-25.md)
 - [v2.1.56](./claude-code/2026-02-25.md)
-
-### 2026-02-24
-
-- [nightly: agent_ui: Avoid querying `OnboardingUpsell` in prepaint (#49963)](./zed-editor/2026-02-24.md)
-- [v2.1.52](./claude-code/2026-02-24.md)
