@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-05
+
+- [nightly: ep: Make --repetitions work with Anthropic and OpenAI batches (#50789)](./zed-editor/2026-03-05.md)
+- [v2.1.69](./claude-code/2026-03-05.md)
+
 ### 2026-03-04
 
 - [nightly: Add cmd-y binding for agent::Keep in agent diff review (#50656)](./zed-editor/2026-03-04.md)
@@ -45,8 +50,3 @@
 
 - [nightly: Fix panic in diff hunk rendering (#50163)](./zed-editor/2026-02-26.md)
 - [v2.1.59](./claude-code/2026-02-26.md)
-
-### 2026-02-25
-
-- [v0.225.9-pre](./zed-editor/2026-02-25.md)
-- [v2.1.56](./claude-code/2026-02-25.md)
