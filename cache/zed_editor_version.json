@@ -1,4 +1,4 @@
 {
-  "version": "v0.227.1-pre",
-  "timestamp": "2026-03-06T10:23:25.270891+00:00"
+  "version": "nightly: Fix retain cycle in on_app_quit (#50985)",
+  "timestamp": "2026-03-07T10:13:14.494391+00:00"
 }

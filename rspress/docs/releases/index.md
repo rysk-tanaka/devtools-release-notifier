@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-07
+
+- [nightly: Fix retain cycle in on_app_quit (#50985)](./zed-editor/2026-03-07.md)
+- [v2.1.71](./claude-code/2026-03-07.md)
+
 ### 2026-03-06
 
 - [v0.227.1-pre](./zed-editor/2026-03-06.md)
@@ -47,6 +52,4 @@
 
 ### 2026-02-27
 
-- [1.104.7](./raycast/2026-02-27.md)
 - [v0.226.1-pre](./zed-editor/2026-02-27.md)
-- [v2.1.62](./claude-code/2026-02-27.md)
