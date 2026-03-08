@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-03-08
+
+- [nightly: gpui(linux): Pass display_id to layer shell get_layer_surface (#50520)](./zed-editor/2026-03-08.md)
+
 ### 2026-03-07
 
 - [nightly: Fix retain cycle in on_app_quit (#50985)](./zed-editor/2026-03-07.md)
@@ -49,7 +53,3 @@
 
 - [nightly: Use `dispatch2` crate (#50171)](./zed-editor/2026-02-28.md)
 - [v2.1.63](./claude-code/2026-02-28.md)
-
-### 2026-02-27
-
-- [v0.226.1-pre](./zed-editor/2026-02-27.md)

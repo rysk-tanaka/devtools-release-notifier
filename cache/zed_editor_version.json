@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix retain cycle in on_app_quit (#50985)",
-  "timestamp": "2026-03-07T10:13:14.494391+00:00"
+  "version": "nightly: gpui(linux): Pass display_id to layer shell get_layer_surface (#50520)",
+  "timestamp": "2026-03-08T10:14:24.773758+00:00"
 }
