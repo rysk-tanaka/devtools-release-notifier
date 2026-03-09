@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-03-09
+
+- [nightly: Reuse existing bundled file editors (#51053)](./zed-editor/2026-03-09.md)
+
 ### 2026-03-08
 
 - [nightly: gpui(linux): Pass display_id to layer shell get_layer_surface (#50520)](./zed-editor/2026-03-08.md)
@@ -52,4 +56,3 @@
 ### 2026-02-28
 
 - [nightly: Use `dispatch2` crate (#50171)](./zed-editor/2026-02-28.md)
-- [v2.1.63](./claude-code/2026-02-28.md)

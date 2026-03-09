@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui(linux): Pass display_id to layer shell get_layer_surface (#50520)",
-  "timestamp": "2026-03-08T10:14:24.773758+00:00"
+  "version": "nightly: Reuse existing bundled file editors (#51053)",
+  "timestamp": "2026-03-09T10:34:20.401119+00:00"
 }
