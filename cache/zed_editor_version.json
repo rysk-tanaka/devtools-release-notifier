@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Reuse existing bundled file editors (#51053)",
-  "timestamp": "2026-03-09T10:34:20.401119+00:00"
+  "version": "nightly: Fix parsing of filenames like main (1).log (#50770)",
+  "timestamp": "2026-03-10T10:27:38.459124+00:00"
 }
