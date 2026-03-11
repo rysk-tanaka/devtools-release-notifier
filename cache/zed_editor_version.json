@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix parsing of filenames like main (1).log (#50770)",
-  "timestamp": "2026-03-10T10:27:38.459124+00:00"
+  "version": "nightly: Move threads sidebar into agent panel (#51241)",
+  "timestamp": "2026-03-11T10:28:08.101983+00:00"
 }

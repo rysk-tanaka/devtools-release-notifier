@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-03-11
+
+- [1.104.9](./raycast/2026-03-11.md)
+- [Ghostty Tip ('Nightly')](./ghostty/2026-03-11.md)
+- [nightly: Move threads sidebar into agent panel (#51241)](./zed-editor/2026-03-11.md)
+
 ### 2026-03-10
 
 - [nightly: Fix parsing of filenames like main (1).log (#50770)](./zed-editor/2026-03-10.md)
@@ -44,9 +50,3 @@
 ### 2026-03-04
 
 - [nightly: Add cmd-y binding for agent::Keep in agent diff review (#50656)](./zed-editor/2026-03-04.md)
-- [v2.1.68](./claude-code/2026-03-04.md)
-
-### 2026-03-03
-
-- [1.104.8](./raycast/2026-03-03.md)
-- [v0.225.12](./zed-editor/2026-03-03.md)
