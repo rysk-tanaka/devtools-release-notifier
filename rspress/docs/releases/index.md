@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-12
+
+- [nightly: languages: Prevent `bsn` macro from injecting rust layer (#51353)](./zed-editor/2026-03-12.md)
+- [v2.1.74](./claude-code/2026-03-12.md)
+
 ### 2026-03-11
 
 - [1.104.9](./raycast/2026-03-11.md)
@@ -45,8 +50,3 @@
 ### 2026-03-05
 
 - [nightly: ep: Make --repetitions work with Anthropic and OpenAI batches (#50789)](./zed-editor/2026-03-05.md)
-- [v2.1.69](./claude-code/2026-03-05.md)
-
-### 2026-03-04
-
-- [nightly: Add cmd-y binding for agent::Keep in agent diff review (#50656)](./zed-editor/2026-03-04.md)

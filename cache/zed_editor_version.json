@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Move threads sidebar into agent panel (#51241)",
-  "timestamp": "2026-03-11T10:28:08.101983+00:00"
+  "version": "nightly: languages: Prevent `bsn` macro from injecting rust layer (#51353)",
+  "timestamp": "2026-03-12T10:28:12.708113+00:00"
 }
