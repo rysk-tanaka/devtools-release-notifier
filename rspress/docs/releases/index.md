@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-03-13
+
+- [nightly: editor: Replace `BreadcrumbText` with `HighlightedText` (#51083)](./zed-editor/2026-03-13.md)
+
 ### 2026-03-12
 
 - [nightly: languages: Prevent `bsn` macro from injecting rust layer (#51353)](./zed-editor/2026-03-12.md)
@@ -46,7 +50,3 @@
 
 - [v0.227.1-pre](./zed-editor/2026-03-06.md)
 - [v2.1.70](./claude-code/2026-03-06.md)
-
-### 2026-03-05
-
-- [nightly: ep: Make --repetitions work with Anthropic and OpenAI batches (#50789)](./zed-editor/2026-03-05.md)

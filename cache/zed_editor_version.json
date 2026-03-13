@@ -1,4 +1,4 @@
 {
-  "version": "nightly: languages: Prevent `bsn` macro from injecting rust layer (#51353)",
-  "timestamp": "2026-03-12T10:28:12.708113+00:00"
+  "version": "nightly: editor: Replace `BreadcrumbText` with `HighlightedText` (#51083)",
+  "timestamp": "2026-03-13T10:24:33.837591+00:00"
 }
