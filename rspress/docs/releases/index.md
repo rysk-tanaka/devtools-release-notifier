@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-03-14
+
+- [nightly: agent_ui: Add more UI refinements to sidebar (#51545)](./zed-editor/2026-03-14.md)
+- [v1.3.1](./ghostty/2026-03-14.md)
+- [v2.1.76](./claude-code/2026-03-14.md)
+
 ### 2026-03-13
 
 - [nightly: editor: Replace `BreadcrumbText` with `HighlightedText` (#51083)](./zed-editor/2026-03-13.md)
@@ -44,9 +50,3 @@
 ### 2026-03-07
 
 - [nightly: Fix retain cycle in on_app_quit (#50985)](./zed-editor/2026-03-07.md)
-- [v2.1.71](./claude-code/2026-03-07.md)
-
-### 2026-03-06
-
-- [v0.227.1-pre](./zed-editor/2026-03-06.md)
-- [v2.1.70](./claude-code/2026-03-06.md)
