@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-15
+
+- [Ghostty Tip ('Nightly')](./ghostty/2026-03-15.md)
+- [nightly: Remove std::fs::read_link in fs (#50974)](./zed-editor/2026-03-15.md)
+
 ### 2026-03-14
 
 - [nightly: agent_ui: Add more UI refinements to sidebar (#51545)](./zed-editor/2026-03-14.md)
@@ -42,11 +47,3 @@
 ### 2026-03-09
 
 - [nightly: Reuse existing bundled file editors (#51053)](./zed-editor/2026-03-09.md)
-
-### 2026-03-08
-
-- [nightly: gpui(linux): Pass display_id to layer shell get_layer_surface (#50520)](./zed-editor/2026-03-08.md)
-
-### 2026-03-07
-
-- [nightly: Fix retain cycle in on_app_quit (#50985)](./zed-editor/2026-03-07.md)

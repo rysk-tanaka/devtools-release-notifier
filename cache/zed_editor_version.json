@@ -1,4 +1,4 @@
 {
-  "version": "nightly: agent_ui: Add more UI refinements to sidebar (#51545)",
-  "timestamp": "2026-03-14T10:17:18.358925+00:00"
+  "version": "nightly: Remove std::fs::read_link in fs (#50974)",
+  "timestamp": "2026-03-15T10:18:05.310505+00:00"
 }
