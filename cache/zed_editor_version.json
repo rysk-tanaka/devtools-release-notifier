@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Remove std::fs::read_link in fs (#50974)",
-  "timestamp": "2026-03-15T10:18:05.310505+00:00"
+  "version": "nightly",
+  "timestamp": "2026-03-16T10:43:08.797600+00:00"
 }

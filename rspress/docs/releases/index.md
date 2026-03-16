@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-03-16
+
+- [nightly](./zed-editor/2026-03-16.md)
+
 ### 2026-03-15
 
 - [Ghostty Tip ('Nightly')](./ghostty/2026-03-15.md)
@@ -43,7 +47,3 @@
 - [nightly: Fix parsing of filenames like main (1).log (#50770)](./zed-editor/2026-03-10.md)
 - [v1.3.0](./ghostty/2026-03-10.md)
 - [v2.1.72](./claude-code/2026-03-10.md)
-
-### 2026-03-09
-
-- [nightly: Reuse existing bundled file editors (#51053)](./zed-editor/2026-03-09.md)
