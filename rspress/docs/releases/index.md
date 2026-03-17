@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-03-17
+
+- [1.104.10](./raycast/2026-03-17.md)
+- [nightly: sidebar: Fix subagent threads showing up (#51739)](./zed-editor/2026-03-17.md)
+- [v2.1.77](./claude-code/2026-03-17.md)
+
 ### 2026-03-16
 
 - [nightly](./zed-editor/2026-03-16.md)
@@ -41,9 +47,3 @@
 - [1.104.9](./raycast/2026-03-11.md)
 - [Ghostty Tip ('Nightly')](./ghostty/2026-03-11.md)
 - [nightly: Move threads sidebar into agent panel (#51241)](./zed-editor/2026-03-11.md)
-
-### 2026-03-10
-
-- [nightly: Fix parsing of filenames like main (1).log (#50770)](./zed-editor/2026-03-10.md)
-- [v1.3.0](./ghostty/2026-03-10.md)
-- [v2.1.72](./claude-code/2026-03-10.md)

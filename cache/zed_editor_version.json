@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-03-16T10:43:08.797600+00:00"
+  "version": "nightly: sidebar: Fix subagent threads showing up (#51739)",
+  "timestamp": "2026-03-17T10:39:05.319004+00:00"
 }
