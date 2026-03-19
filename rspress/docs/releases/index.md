@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-19
+
+- [nightly](./zed-editor/2026-03-19.md)
+- [v2.1.79](./claude-code/2026-03-19.md)
+
 ### 2026-03-18
 
 - [nightly: Add workspace::FocusCenterPane (#46059)](./zed-editor/2026-03-18.md)
@@ -45,8 +50,3 @@
 ### 2026-03-12
 
 - [nightly: languages: Prevent `bsn` macro from injecting rust layer (#51353)](./zed-editor/2026-03-12.md)
-- [v2.1.74](./claude-code/2026-03-12.md)
-
-### 2026-03-11
-
-- [nightly: Move threads sidebar into agent panel (#51241)](./zed-editor/2026-03-11.md)
