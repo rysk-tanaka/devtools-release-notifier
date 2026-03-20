@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-03-20
+
+- [v2.1.80](./claude-code/2026-03-20.md)
+
 ### 2026-03-19
 
 - [nightly](./zed-editor/2026-03-19.md)
@@ -46,7 +50,3 @@
 ### 2026-03-13
 
 - [nightly: editor: Replace `BreadcrumbText` with `HighlightedText` (#51083)](./zed-editor/2026-03-13.md)
-
-### 2026-03-12
-
-- [nightly: languages: Prevent `bsn` macro from injecting rust layer (#51353)](./zed-editor/2026-03-12.md)
