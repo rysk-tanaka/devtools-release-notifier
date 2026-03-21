@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-21
+
+- [nightly: ci: Run clippy for x86_64-apple-darwin target (#52036)](./zed-editor/2026-03-21.md)
+- [v2.1.81](./claude-code/2026-03-21.md)
+
 ### 2026-03-20
 
 - [v2.1.80](./claude-code/2026-03-20.md)
@@ -45,8 +50,3 @@
 
 - [nightly: agent_ui: Add more UI refinements to sidebar (#51545)](./zed-editor/2026-03-14.md)
 - [v1.3.1](./ghostty/2026-03-14.md)
-- [v2.1.76](./claude-code/2026-03-14.md)
-
-### 2026-03-13
-
-- [nightly: editor: Replace `BreadcrumbText` with `HighlightedText` (#51083)](./zed-editor/2026-03-13.md)
