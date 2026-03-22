@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-03-22
+
+- [nightly](./zed-editor/2026-03-22.md)
+
 ### 2026-03-21
 
 - [nightly: ci: Run clippy for x86_64-apple-darwin target (#52036)](./zed-editor/2026-03-21.md)
@@ -49,4 +53,3 @@
 ### 2026-03-14
 
 - [nightly: agent_ui: Add more UI refinements to sidebar (#51545)](./zed-editor/2026-03-14.md)
-- [v1.3.1](./ghostty/2026-03-14.md)
