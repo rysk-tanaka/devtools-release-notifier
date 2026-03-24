@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-24
+
+- [1.104.11](./raycast/2026-03-24.md)
+- [nightly: Support unbind in keymap (#52225)](./zed-editor/2026-03-24.md)
+
 ### 2026-03-22
 
 - [nightly](./zed-editor/2026-03-22.md)
@@ -47,9 +52,4 @@
 
 ### 2026-03-15
 
-- [Ghostty Tip ('Nightly')](./ghostty/2026-03-15.md)
 - [nightly: Remove std::fs::read_link in fs (#50974)](./zed-editor/2026-03-15.md)
-
-### 2026-03-14
-
-- [nightly: agent_ui: Add more UI refinements to sidebar (#51545)](./zed-editor/2026-03-14.md)
