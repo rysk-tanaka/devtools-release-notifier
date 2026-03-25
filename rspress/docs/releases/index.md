@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-25
+
+- [nightly: agent: Reduce DB load in ThreadMetadataStore (#52313)](./zed-editor/2026-03-25.md)
+- [v2.1.83](./claude-code/2026-03-25.md)
+
 ### 2026-03-24
 
 - [1.104.11](./raycast/2026-03-24.md)
@@ -45,11 +50,3 @@
 - [1.104.10](./raycast/2026-03-17.md)
 - [nightly: sidebar: Fix subagent threads showing up (#51739)](./zed-editor/2026-03-17.md)
 - [v2.1.77](./claude-code/2026-03-17.md)
-
-### 2026-03-16
-
-- [nightly](./zed-editor/2026-03-16.md)
-
-### 2026-03-15
-
-- [nightly: Remove std::fs::read_link in fs (#50974)](./zed-editor/2026-03-15.md)

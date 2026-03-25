@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Support unbind in keymap (#52225)",
-  "timestamp": "2026-03-24T10:39:45.037100+00:00"
+  "version": "nightly: agent: Reduce DB load in ThreadMetadataStore (#52313)",
+  "timestamp": "2026-03-25T10:37:39.470897+00:00"
 }
