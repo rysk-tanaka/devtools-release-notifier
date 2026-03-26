@@ -1,4 +1,4 @@
 {
-  "version": "nightly: agent: Reduce DB load in ThreadMetadataStore (#52313)",
-  "timestamp": "2026-03-25T10:37:39.470897+00:00"
+  "version": "nightly: markdown_preview: Refactor to use shared markdown crate (#52008)",
+  "timestamp": "2026-03-26T10:41:33.778416+00:00"
 }

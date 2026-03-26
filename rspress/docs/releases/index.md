@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-26
+
+- [nightly: markdown_preview: Refactor to use shared markdown crate (#52008)](./zed-editor/2026-03-26.md)
+- [v2.1.84](./claude-code/2026-03-26.md)
+
 ### 2026-03-25
 
 - [nightly: agent: Reduce DB load in ThreadMetadataStore (#52313)](./zed-editor/2026-03-25.md)
@@ -47,6 +52,4 @@
 
 ### 2026-03-17
 
-- [1.104.10](./raycast/2026-03-17.md)
 - [nightly: sidebar: Fix subagent threads showing up (#51739)](./zed-editor/2026-03-17.md)
-- [v2.1.77](./claude-code/2026-03-17.md)
