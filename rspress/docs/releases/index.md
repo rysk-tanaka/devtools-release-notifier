@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-27
+
+- [nightly: terminal: Fix terminal not closing after non-zero shell exit (#52520)](./zed-editor/2026-03-27.md)
+- [v2.1.85](./claude-code/2026-03-27.md)
+
 ### 2026-03-26
 
 - [nightly: markdown_preview: Refactor to use shared markdown crate (#52008)](./zed-editor/2026-03-26.md)
@@ -48,8 +53,3 @@
 ### 2026-03-18
 
 - [nightly: Add workspace::FocusCenterPane (#46059)](./zed-editor/2026-03-18.md)
-- [v2.1.78](./claude-code/2026-03-18.md)
-
-### 2026-03-17
-
-- [nightly: sidebar: Fix subagent threads showing up (#51739)](./zed-editor/2026-03-17.md)
