@@ -1,4 +1,4 @@
 {
-  "version": "nightly: terminal: Fix terminal not closing after non-zero shell exit (#52520)",
-  "timestamp": "2026-03-27T10:36:56.797413+00:00"
+  "version": "nightly: Add VecMap::entry_ref (#52601)",
+  "timestamp": "2026-03-28T10:21:15.587203+00:00"
 }

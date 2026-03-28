@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-28
+
+- [nightly: Add VecMap::entry_ref (#52601)](./zed-editor/2026-03-28.md)
+- [v2.1.86](./claude-code/2026-03-28.md)
+
 ### 2026-03-27
 
 - [nightly: terminal: Fix terminal not closing after non-zero shell exit (#52520)](./zed-editor/2026-03-27.md)
@@ -48,8 +53,3 @@
 ### 2026-03-19
 
 - [nightly](./zed-editor/2026-03-19.md)
-- [v2.1.79](./claude-code/2026-03-19.md)
-
-### 2026-03-18
-
-- [nightly: Add workspace::FocusCenterPane (#46059)](./zed-editor/2026-03-18.md)
