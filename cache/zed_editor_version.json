@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Add VecMap::entry_ref (#52601)",
-  "timestamp": "2026-03-28T10:21:15.587203+00:00"
+  "version": "nightly: gpui: Implement pinch event support for X11 and Windows (#51354)",
+  "timestamp": "2026-03-29T10:21:27.349788+00:00"
 }

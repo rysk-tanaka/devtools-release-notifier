@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-29
+
+- [nightly: gpui: Implement pinch event support for X11 and Windows (#51354)](./zed-editor/2026-03-29.md)
+- [v2.1.87](./claude-code/2026-03-29.md)
+
 ### 2026-03-28
 
 - [nightly: Add VecMap::entry_ref (#52601)](./zed-editor/2026-03-28.md)
@@ -45,11 +50,3 @@
 
 - [nightly: ci: Run clippy for x86_64-apple-darwin target (#52036)](./zed-editor/2026-03-21.md)
 - [v2.1.81](./claude-code/2026-03-21.md)
-
-### 2026-03-20
-
-- [v2.1.80](./claude-code/2026-03-20.md)
-
-### 2026-03-19
-
-- [nightly](./zed-editor/2026-03-19.md)
