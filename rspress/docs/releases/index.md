@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-03-30
+
+- [nightly: collab_panel: Persist favorited channels in the global KV store (#52600)](./zed-editor/2026-03-30.md)
+
 ### 2026-03-29
 
 - [nightly: gpui: Implement pinch event support for X11 and Windows (#51354)](./zed-editor/2026-03-29.md)
@@ -49,4 +53,3 @@
 ### 2026-03-21
 
 - [nightly: ci: Run clippy for x86_64-apple-darwin target (#52036)](./zed-editor/2026-03-21.md)
-- [v2.1.81](./claude-code/2026-03-21.md)

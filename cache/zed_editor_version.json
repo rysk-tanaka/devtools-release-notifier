@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui: Implement pinch event support for X11 and Windows (#51354)",
-  "timestamp": "2026-03-29T10:21:27.349788+00:00"
+  "version": "nightly: collab_panel: Persist favorited channels in the global KV store (#52600)",
+  "timestamp": "2026-03-30T10:53:10.876740+00:00"
 }
