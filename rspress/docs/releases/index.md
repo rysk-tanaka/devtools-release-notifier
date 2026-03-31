@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-03-31
+
+- [nightly: agent_ui: Improve onboarding to the import threads feature (#52748)](./zed-editor/2026-03-31.md)
+- [v2.1.88](./claude-code/2026-03-31.md)
+
 ### 2026-03-30
 
 - [nightly: collab_panel: Persist favorited channels in the global KV store (#52600)](./zed-editor/2026-03-30.md)
@@ -45,11 +50,3 @@
 
 - [1.104.11](./raycast/2026-03-24.md)
 - [nightly: Support unbind in keymap (#52225)](./zed-editor/2026-03-24.md)
-
-### 2026-03-22
-
-- [nightly](./zed-editor/2026-03-22.md)
-
-### 2026-03-21
-
-- [nightly: ci: Run clippy for x86_64-apple-darwin target (#52036)](./zed-editor/2026-03-21.md)
