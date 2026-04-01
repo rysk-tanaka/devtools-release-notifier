@@ -1,4 +1,4 @@
 {
-  "version": "nightly: agent_ui: Improve onboarding to the import threads feature (#52748)",
-  "timestamp": "2026-03-31T10:42:57.735159+00:00"
+  "version": "nightly: Fix workspace-absolute paths in markdown images (#52708)",
+  "timestamp": "2026-04-01T10:44:05.668712+00:00"
 }

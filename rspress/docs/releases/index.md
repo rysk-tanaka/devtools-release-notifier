@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-01
+
+- [nightly: Fix workspace-absolute paths in markdown images (#52708)](./zed-editor/2026-04-01.md)
+- [v2.1.89](./claude-code/2026-04-01.md)
+
 ### 2026-03-31
 
 - [nightly: agent_ui: Improve onboarding to the import threads feature (#52748)](./zed-editor/2026-03-31.md)
@@ -45,8 +50,3 @@
 
 - [nightly: agent: Reduce DB load in ThreadMetadataStore (#52313)](./zed-editor/2026-03-25.md)
 - [v2.1.83](./claude-code/2026-03-25.md)
-
-### 2026-03-24
-
-- [1.104.11](./raycast/2026-03-24.md)
-- [nightly: Support unbind in keymap (#52225)](./zed-editor/2026-03-24.md)
