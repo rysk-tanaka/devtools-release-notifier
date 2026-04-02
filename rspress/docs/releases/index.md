@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-02
+
+- [nightly](./zed-editor/2026-04-02.md)
+- [v2.1.90](./claude-code/2026-04-02.md)
+
 ### 2026-04-01
 
 - [nightly: Fix workspace-absolute paths in markdown images (#52708)](./zed-editor/2026-04-01.md)
@@ -45,8 +50,3 @@
 
 - [nightly: markdown_preview: Refactor to use shared markdown crate (#52008)](./zed-editor/2026-03-26.md)
 - [v2.1.84](./claude-code/2026-03-26.md)
-
-### 2026-03-25
-
-- [nightly: agent: Reduce DB load in ThreadMetadataStore (#52313)](./zed-editor/2026-03-25.md)
-- [v2.1.83](./claude-code/2026-03-25.md)
