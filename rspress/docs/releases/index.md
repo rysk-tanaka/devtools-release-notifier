@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-03
+
+- [nightly: Maintain root repo common dir path as a field on Worktree (#53023)](./zed-editor/2026-04-03.md)
+- [v2.1.91](./claude-code/2026-04-03.md)
+
 ### 2026-04-02
 
 - [nightly](./zed-editor/2026-04-02.md)
@@ -45,8 +50,3 @@
 
 - [nightly: terminal: Fix terminal not closing after non-zero shell exit (#52520)](./zed-editor/2026-03-27.md)
 - [v2.1.85](./claude-code/2026-03-27.md)
-
-### 2026-03-26
-
-- [nightly: markdown_preview: Refactor to use shared markdown crate (#52008)](./zed-editor/2026-03-26.md)
-- [v2.1.84](./claude-code/2026-03-26.md)
