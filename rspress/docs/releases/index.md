@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-04
+
+- [nightly](./zed-editor/2026-04-04.md)
+- [v2.1.92](./claude-code/2026-04-04.md)
+
 ### 2026-04-03
 
 - [nightly: Maintain root repo common dir path as a field on Worktree (#53023)](./zed-editor/2026-04-03.md)
@@ -45,8 +50,3 @@
 
 - [nightly: Add VecMap::entry_ref (#52601)](./zed-editor/2026-03-28.md)
 - [v2.1.86](./claude-code/2026-03-28.md)
-
-### 2026-03-27
-
-- [nightly: terminal: Fix terminal not closing after non-zero shell exit (#52520)](./zed-editor/2026-03-27.md)
-- [v2.1.85](./claude-code/2026-03-27.md)
