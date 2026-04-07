@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-04-07
+
+- [nightly: Add fuzzy_nucleo crate for order independent file finder search (#51164)](./zed-editor/2026-04-07.md)
+
 ### 2026-04-04
 
 - [nightly](./zed-editor/2026-04-04.md)
@@ -49,4 +53,3 @@
 ### 2026-03-28
 
 - [nightly: Add VecMap::entry_ref (#52601)](./zed-editor/2026-03-28.md)
-- [v2.1.86](./claude-code/2026-03-28.md)
