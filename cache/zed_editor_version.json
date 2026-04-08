@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Add fuzzy_nucleo crate for order independent file finder search (#51164)",
-  "timestamp": "2026-04-07T10:45:17.120523+00:00"
+  "version": "nightly: Fix workspace removal, and chase down all the ramifications (#53366)",
+  "timestamp": "2026-04-08T10:48:01.652811+00:00"
 }

@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-08
+
+- [nightly: Fix workspace removal, and chase down all the ramifications (#53366)](./zed-editor/2026-04-08.md)
+- [v2.1.96](./claude-code/2026-04-08.md)
+
 ### 2026-04-07
 
 - [nightly: Add fuzzy_nucleo crate for order independent file finder search (#51164)](./zed-editor/2026-04-07.md)
@@ -48,8 +53,3 @@
 ### 2026-03-29
 
 - [nightly: gpui: Implement pinch event support for X11 and Windows (#51354)](./zed-editor/2026-03-29.md)
-- [v2.1.87](./claude-code/2026-03-29.md)
-
-### 2026-03-28
-
-- [nightly: Add VecMap::entry_ref (#52601)](./zed-editor/2026-03-28.md)
