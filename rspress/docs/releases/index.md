@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-09
+
+- [nightly: git_ui: Strip ANSI escape codes from git command output (#53444)](./zed-editor/2026-04-09.md)
+- [v2.1.97](./claude-code/2026-04-09.md)
+
 ### 2026-04-08
 
 - [nightly: Fix workspace removal, and chase down all the ramifications (#53366)](./zed-editor/2026-04-08.md)
@@ -45,11 +50,3 @@
 
 - [nightly: agent_ui: Improve onboarding to the import threads feature (#52748)](./zed-editor/2026-03-31.md)
 - [v2.1.88](./claude-code/2026-03-31.md)
-
-### 2026-03-30
-
-- [nightly: collab_panel: Persist favorited channels in the global KV store (#52600)](./zed-editor/2026-03-30.md)
-
-### 2026-03-29
-
-- [nightly: gpui: Implement pinch event support for X11 and Windows (#51354)](./zed-editor/2026-03-29.md)
