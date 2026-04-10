@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-04-10
+
+- [1.104.12](./raycast/2026-04-10.md)
+- [v0.232.1-pre](./zed-editor/2026-04-10.md)
+- [v2.1.100](./claude-code/2026-04-10.md)
+
 ### 2026-04-09
 
 - [nightly: git_ui: Strip ANSI escape codes from git command output (#53444)](./zed-editor/2026-04-09.md)
@@ -43,10 +49,4 @@
 
 ### 2026-04-01
 
-- [nightly: Fix workspace-absolute paths in markdown images (#52708)](./zed-editor/2026-04-01.md)
 - [v2.1.89](./claude-code/2026-04-01.md)
-
-### 2026-03-31
-
-- [nightly: agent_ui: Improve onboarding to the import threads feature (#52748)](./zed-editor/2026-03-31.md)
-- [v2.1.88](./claude-code/2026-03-31.md)

@@ -1,4 +1,4 @@
 {
-  "version": "nightly: git_ui: Strip ANSI escape codes from git command output (#53444)",
-  "timestamp": "2026-04-09T10:51:23.773966+00:00"
+  "version": "v0.232.1-pre",
+  "timestamp": "2026-04-10T10:42:35.184609+00:00"
 }
