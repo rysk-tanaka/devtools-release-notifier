@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-11
+
+- [nightly: Always open agent panel when selecting a thread or draft (#53664)](./zed-editor/2026-04-11.md)
+- [v2.1.101](./claude-code/2026-04-11.md)
+
 ### 2026-04-10
 
 - [1.104.12](./raycast/2026-04-10.md)
@@ -44,9 +49,4 @@
 
 ### 2026-04-02
 
-- [nightly](./zed-editor/2026-04-02.md)
 - [v2.1.90](./claude-code/2026-04-02.md)
-
-### 2026-04-01
-
-- [v2.1.89](./claude-code/2026-04-01.md)
