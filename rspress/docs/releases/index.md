@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-13
+
+- [nightly: sidebar: Fix ordering issue (#53787)](./zed-editor/2026-04-13.md)
+- [v2.1.104](./claude-code/2026-04-13.md)
+
 ### 2026-04-12
 
 - [nightly: Skip flakey prop tests (#53677)](./zed-editor/2026-04-12.md)
@@ -45,8 +50,3 @@
 
 - [nightly](./zed-editor/2026-04-04.md)
 - [v2.1.92](./claude-code/2026-04-04.md)
-
-### 2026-04-03
-
-- [nightly: Maintain root repo common dir path as a field on Worktree (#53023)](./zed-editor/2026-04-03.md)
-- [v2.1.91](./claude-code/2026-04-03.md)
