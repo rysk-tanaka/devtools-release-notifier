@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-14
+
+- [nightly](./zed-editor/2026-04-14.md)
+- [v2.1.107](./claude-code/2026-04-14.md)
+
 ### 2026-04-13
 
 - [nightly: sidebar: Fix ordering issue (#53787)](./zed-editor/2026-04-13.md)
@@ -45,8 +50,3 @@
 ### 2026-04-07
 
 - [nightly: Add fuzzy_nucleo crate for order independent file finder search (#51164)](./zed-editor/2026-04-07.md)
-
-### 2026-04-04
-
-- [nightly](./zed-editor/2026-04-04.md)
-- [v2.1.92](./claude-code/2026-04-04.md)
