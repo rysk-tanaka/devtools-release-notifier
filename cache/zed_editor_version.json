@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-04-14T10:54:47.452177+00:00"
+  "version": "nightly: agent: Add telemetry for parallel agents (#52919)",
+  "timestamp": "2026-04-15T10:51:00.251532+00:00"
 }

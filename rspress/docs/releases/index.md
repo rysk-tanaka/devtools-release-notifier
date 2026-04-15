@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-15
+
+- [nightly: agent: Add telemetry for parallel agents (#52919)](./zed-editor/2026-04-15.md)
+- [v2.1.109](./claude-code/2026-04-15.md)
+
 ### 2026-04-14
 
 - [nightly](./zed-editor/2026-04-14.md)
@@ -44,9 +49,4 @@
 
 ### 2026-04-08
 
-- [nightly: Fix workspace removal, and chase down all the ramifications (#53366)](./zed-editor/2026-04-08.md)
 - [v2.1.96](./claude-code/2026-04-08.md)
-
-### 2026-04-07
-
-- [nightly: Add fuzzy_nucleo crate for order independent file finder search (#51164)](./zed-editor/2026-04-07.md)
