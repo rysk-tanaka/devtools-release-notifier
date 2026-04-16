@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-16
+
+- [nightly](./zed-editor/2026-04-16.md)
+- [v2.1.110](./claude-code/2026-04-16.md)
+
 ### 2026-04-15
 
 - [nightly: agent: Add telemetry for parallel agents (#52919)](./zed-editor/2026-04-15.md)
@@ -44,9 +49,4 @@
 
 ### 2026-04-09
 
-- [nightly: git_ui: Strip ANSI escape codes from git command output (#53444)](./zed-editor/2026-04-09.md)
 - [v2.1.97](./claude-code/2026-04-09.md)
-
-### 2026-04-08
-
-- [v2.1.96](./claude-code/2026-04-08.md)
