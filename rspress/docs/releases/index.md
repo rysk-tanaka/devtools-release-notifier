@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-21
+
+- [v0.233.4-pre](./zed-editor/2026-04-21.md)
+- [v2.1.116](./claude-code/2026-04-21.md)
+
 ### 2026-04-20
 
 - [nightly](./zed-editor/2026-04-20.md)
@@ -48,8 +53,3 @@
 ### 2026-04-12
 
 - [nightly: Skip flakey prop tests (#53677)](./zed-editor/2026-04-12.md)
-
-### 2026-04-11
-
-- [nightly: Always open agent panel when selecting a thread or draft (#53664)](./zed-editor/2026-04-11.md)
-- [v2.1.101](./claude-code/2026-04-11.md)
