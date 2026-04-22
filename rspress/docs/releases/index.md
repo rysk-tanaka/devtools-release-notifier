@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-04-22
+
+- [1.104.13](./raycast/2026-04-22.md)
+- [nightly](./zed-editor/2026-04-22.md)
+- [v2.1.117](./claude-code/2026-04-22.md)
+
 ### 2026-04-21
 
 - [v0.233.4-pre](./zed-editor/2026-04-21.md)
@@ -44,12 +50,3 @@
 
 - [nightly](./zed-editor/2026-04-14.md)
 - [v2.1.107](./claude-code/2026-04-14.md)
-
-### 2026-04-13
-
-- [nightly: sidebar: Fix ordering issue (#53787)](./zed-editor/2026-04-13.md)
-- [v2.1.104](./claude-code/2026-04-13.md)
-
-### 2026-04-12
-
-- [nightly: Skip flakey prop tests (#53677)](./zed-editor/2026-04-12.md)
