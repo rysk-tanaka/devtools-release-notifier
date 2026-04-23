@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-23
+
+- [v0.234.3-pre](./zed-editor/2026-04-23.md)
+- [v2.1.118](./claude-code/2026-04-23.md)
+
 ### 2026-04-22
 
 - [1.104.13](./raycast/2026-04-22.md)
@@ -45,8 +50,3 @@
 
 - [nightly: agent: Add telemetry for parallel agents (#52919)](./zed-editor/2026-04-15.md)
 - [v2.1.109](./claude-code/2026-04-15.md)
-
-### 2026-04-14
-
-- [nightly](./zed-editor/2026-04-14.md)
-- [v2.1.107](./claude-code/2026-04-14.md)
