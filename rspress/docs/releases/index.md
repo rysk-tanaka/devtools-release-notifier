@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-25
+
+- [2.1.119](./claude-code/2026-04-25.md)
+- [nightly: Fix offline lookup of clangd on Windows (#54781)](./zed-editor/2026-04-25.md)
+
 ### 2026-04-24
 
 - [v0.234.5-pre](./zed-editor/2026-04-24.md)
@@ -45,8 +50,3 @@
 ### 2026-04-17
 
 - [v2.1.112](./claude-code/2026-04-17.md)
-
-### 2026-04-16
-
-- [nightly](./zed-editor/2026-04-16.md)
-- [v2.1.110](./claude-code/2026-04-16.md)

@@ -1,4 +1,4 @@
 {
-  "version": "v0.234.5-pre",
-  "timestamp": "2026-04-24T10:57:21.415580+00:00"
+  "version": "nightly: Fix offline lookup of clangd on Windows (#54781)",
+  "timestamp": "2026-04-25T10:33:22.815833+00:00"
 }
