@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix offline lookup of clangd on Windows (#54781)",
-  "timestamp": "2026-04-25T10:33:22.815833+00:00"
+  "version": "nightly: Fix code lens id clash (#54851)",
+  "timestamp": "2026-04-26T10:35:19.985391+00:00"
 }

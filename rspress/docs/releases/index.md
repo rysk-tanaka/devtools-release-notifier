@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-26
+
+- [nightly: Fix code lens id clash (#54851)](./zed-editor/2026-04-26.md)
+- [v2.1.120](./claude-code/2026-04-26.md)
+
 ### 2026-04-25
 
 - [2.1.119](./claude-code/2026-04-25.md)
@@ -44,9 +49,4 @@
 
 ### 2026-04-18
 
-- [nightly: Feature flag overrides (#54206)](./zed-editor/2026-04-18.md)
 - [v2.1.114](./claude-code/2026-04-18.md)
-
-### 2026-04-17
-
-- [v2.1.112](./claude-code/2026-04-17.md)
