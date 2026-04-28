@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-04-28
+
+- [nightly: ep: Remove old experimental provider (#55011)](./zed-editor/2026-04-28.md)
+- [v2.1.121](./claude-code/2026-04-28.md)
+
 ### 2026-04-27
 
 - [nightly](./zed-editor/2026-04-27.md)
@@ -45,8 +50,3 @@
 ### 2026-04-21
 
 - [v0.233.4-pre](./zed-editor/2026-04-21.md)
-- [v2.1.116](./claude-code/2026-04-21.md)
-
-### 2026-04-20
-
-- [nightly](./zed-editor/2026-04-20.md)
