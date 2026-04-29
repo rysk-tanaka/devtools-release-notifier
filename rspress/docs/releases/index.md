@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-04-29
+
+- [1.104.14](./raycast/2026-04-29.md)
+- [v1.0.0](./zed-editor/2026-04-29.md)
+- [v2.1.123](./claude-code/2026-04-29.md)
+
 ### 2026-04-28
 
 - [nightly: ep: Remove old experimental provider (#55011)](./zed-editor/2026-04-28.md)
@@ -43,10 +49,4 @@
 
 ### 2026-04-22
 
-- [1.104.13](./raycast/2026-04-22.md)
-- [nightly](./zed-editor/2026-04-22.md)
 - [v2.1.117](./claude-code/2026-04-22.md)
-
-### 2026-04-21
-
-- [v0.233.4-pre](./zed-editor/2026-04-21.md)
