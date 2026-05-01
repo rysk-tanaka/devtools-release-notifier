@@ -1,4 +1,4 @@
 {
-  "version": "v1.1.2-pre",
-  "timestamp": "2026-04-30T11:21:46.480240+00:00"
+  "version": "nightly: Fix cursor style changes across windows (#55323)",
+  "timestamp": "2026-05-01T11:00:06.974141+00:00"
 }

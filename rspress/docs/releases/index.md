@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-01
+
+- [nightly: Fix cursor style changes across windows (#55323)](./zed-editor/2026-05-01.md)
+- [v2.1.126](./claude-code/2026-05-01.md)
+
 ### 2026-04-30
 
 - [1.104.15](./raycast/2026-04-30.md)
@@ -44,9 +49,4 @@
 
 ### 2026-04-24
 
-- [v0.234.5-pre](./zed-editor/2026-04-24.md)
 - [v2.1.119](./claude-code/2026-04-24.md)
-
-### 2026-04-23
-
-- [v2.1.118](./claude-code/2026-04-23.md)
