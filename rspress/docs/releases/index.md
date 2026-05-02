@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-05-02
+
+- [nightly: client: Remove unused `FakeServer::build_user_store` method (#55444)](./zed-editor/2026-05-02.md)
+
 ### 2026-05-01
 
 - [nightly: Fix cursor style changes across windows (#55323)](./zed-editor/2026-05-01.md)
@@ -46,7 +50,3 @@
 
 - [2.1.119](./claude-code/2026-04-25.md)
 - [nightly: Fix offline lookup of clangd on Windows (#54781)](./zed-editor/2026-04-25.md)
-
-### 2026-04-24
-
-- [v2.1.119](./claude-code/2026-04-24.md)

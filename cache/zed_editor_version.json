@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix cursor style changes across windows (#55323)",
-  "timestamp": "2026-05-01T11:00:06.974141+00:00"
+  "version": "nightly: client: Remove unused `FakeServer::build_user_store` method (#55444)",
+  "timestamp": "2026-05-02T10:40:10.934792+00:00"
 }
