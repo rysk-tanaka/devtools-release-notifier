@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-05-03
+
+- [v1.1.3-pre](./zed-editor/2026-05-03.md)
+
 ### 2026-05-02
 
 - [nightly: client: Remove unused `FakeServer::build_user_store` method (#55444)](./zed-editor/2026-05-02.md)
@@ -49,4 +53,3 @@
 ### 2026-04-25
 
 - [2.1.119](./claude-code/2026-04-25.md)
-- [nightly: Fix offline lookup of clangd on Windows (#54781)](./zed-editor/2026-04-25.md)
