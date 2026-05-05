@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-05
+
+- [nightly: Improve grouping of worktrees by repo in recent projects (#55715)](./zed-editor/2026-05-05.md)
+- [v2.1.128](./claude-code/2026-05-05.md)
+
 ### 2026-05-04
 
 - [v1.0.1](./zed-editor/2026-05-04.md)
@@ -48,8 +53,3 @@
 ### 2026-04-27
 
 - [nightly](./zed-editor/2026-04-27.md)
-
-### 2026-04-26
-
-- [nightly: Fix code lens id clash (#54851)](./zed-editor/2026-04-26.md)
-- [v2.1.120](./claude-code/2026-04-26.md)
