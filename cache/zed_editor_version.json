@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Improve grouping of worktrees by repo in recent projects (#55715)",
-  "timestamp": "2026-05-05T11:08:57.629823+00:00"
+  "version": "nightly: gpui(windows): Fix unwrap panic when monitor goes missing (#55630)",
+  "timestamp": "2026-05-06T11:42:15.315760+00:00"
 }

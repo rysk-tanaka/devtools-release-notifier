@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-06
+
+- [nightly: gpui(windows): Fix unwrap panic when monitor goes missing (#55630)](./zed-editor/2026-05-06.md)
+- [v2.1.131](./claude-code/2026-05-06.md)
+
 ### 2026-05-05
 
 - [nightly: Improve grouping of worktrees by repo in recent projects (#55715)](./zed-editor/2026-05-05.md)
@@ -47,9 +52,4 @@
 
 ### 2026-04-28
 
-- [nightly: ep: Remove old experimental provider (#55011)](./zed-editor/2026-04-28.md)
 - [v2.1.121](./claude-code/2026-04-28.md)
-
-### 2026-04-27
-
-- [nightly](./zed-editor/2026-04-27.md)
