@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-07
+
+- [nightly: docs: Update actions format (#54869)](./zed-editor/2026-05-07.md)
+- [v2.1.132](./claude-code/2026-05-07.md)
+
 ### 2026-05-06
 
 - [nightly: gpui(windows): Fix unwrap panic when monitor goes missing (#55630)](./zed-editor/2026-05-06.md)
@@ -46,10 +51,5 @@
 
 ### 2026-04-29
 
-- [1.104.14](./raycast/2026-04-29.md)
 - [v1.0.0](./zed-editor/2026-04-29.md)
 - [v2.1.123](./claude-code/2026-04-29.md)
-
-### 2026-04-28
-
-- [v2.1.121](./claude-code/2026-04-28.md)
