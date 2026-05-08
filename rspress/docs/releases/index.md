@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-08
+
+- [nightly: Improve auto watch (#56126)](./zed-editor/2026-05-08.md)
+- [v2.1.133](./claude-code/2026-05-08.md)
+
 ### 2026-05-07
 
 - [nightly: docs: Update actions format (#54869)](./zed-editor/2026-05-07.md)
@@ -48,8 +53,3 @@
 
 - [1.104.15](./raycast/2026-04-30.md)
 - [v1.1.2-pre](./zed-editor/2026-04-30.md)
-
-### 2026-04-29
-
-- [v1.0.0](./zed-editor/2026-04-29.md)
-- [v2.1.123](./claude-code/2026-04-29.md)
