@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-05-09
+
+- [1.104.16](./raycast/2026-05-09.md)
+- [nightly: vim: Change surrounds with Mini{Quotes,Brackets} and AnyQuotes (#51067)](./zed-editor/2026-05-09.md)
+- [v2.1.138](./claude-code/2026-05-09.md)
+
 ### 2026-05-08
 
 - [nightly: Improve auto watch (#56126)](./zed-editor/2026-05-08.md)
@@ -46,10 +52,4 @@
 
 ### 2026-05-01
 
-- [nightly: Fix cursor style changes across windows (#55323)](./zed-editor/2026-05-01.md)
 - [v2.1.126](./claude-code/2026-05-01.md)
-
-### 2026-04-30
-
-- [1.104.15](./raycast/2026-04-30.md)
-- [v1.1.2-pre](./zed-editor/2026-04-30.md)
