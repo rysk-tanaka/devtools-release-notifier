@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-05-10
+
+- [nightly](./zed-editor/2026-05-10.md)
+
 ### 2026-05-09
 
 - [1.104.16](./raycast/2026-05-09.md)
@@ -49,7 +53,3 @@
 ### 2026-05-02
 
 - [nightly: client: Remove unused `FakeServer::build_user_store` method (#55444)](./zed-editor/2026-05-02.md)
-
-### 2026-05-01
-
-- [v2.1.126](./claude-code/2026-05-01.md)
