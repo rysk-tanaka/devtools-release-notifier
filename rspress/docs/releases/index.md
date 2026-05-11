@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-05-11
+
+- [nightly: auto_update: Fix Windows installer task arguments syntax (#50464)](./zed-editor/2026-05-11.md)
+
 ### 2026-05-10
 
 - [nightly](./zed-editor/2026-05-10.md)
@@ -49,7 +53,3 @@
 ### 2026-05-03
 
 - [v1.1.3-pre](./zed-editor/2026-05-03.md)
-
-### 2026-05-02
-
-- [nightly: client: Remove unused `FakeServer::build_user_store` method (#55444)](./zed-editor/2026-05-02.md)
