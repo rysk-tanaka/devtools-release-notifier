@@ -1,4 +1,4 @@
 {
-  "version": "nightly: auto_update: Fix Windows installer task arguments syntax (#50464)",
-  "timestamp": "2026-05-11T12:33:18.243228+00:00"
+  "version": "nightly: Improve default button focus in macOS dialogs (#56513)",
+  "timestamp": "2026-05-12T11:45:44.060589+00:00"
 }

@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-12
+
+- [nightly: Improve default button focus in macOS dialogs (#56513)](./zed-editor/2026-05-12.md)
+- [v2.1.139](./claude-code/2026-05-12.md)
+
 ### 2026-05-11
 
 - [nightly: auto_update: Fix Windows installer task arguments syntax (#50464)](./zed-editor/2026-05-11.md)
@@ -45,11 +50,3 @@
 
 - [nightly: Improve grouping of worktrees by repo in recent projects (#55715)](./zed-editor/2026-05-05.md)
 - [v2.1.128](./claude-code/2026-05-05.md)
-
-### 2026-05-04
-
-- [v1.0.1](./zed-editor/2026-05-04.md)
-
-### 2026-05-03
-
-- [v1.1.3-pre](./zed-editor/2026-05-03.md)
