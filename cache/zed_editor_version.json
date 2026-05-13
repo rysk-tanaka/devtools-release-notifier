@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Improve default button focus in macOS dialogs (#56513)",
-  "timestamp": "2026-05-12T11:45:44.060589+00:00"
+  "version": "nightly: editor: Extend underlines into inlay hints (#56407)",
+  "timestamp": "2026-05-13T11:53:05.046834+00:00"
 }
