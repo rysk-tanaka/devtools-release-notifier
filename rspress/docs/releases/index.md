@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-14
+
+- [nightly: editor: Extract `navigation` out of `editor.rs` (#56634)](./zed-editor/2026-05-14.md)
+- [v2.1.141](./claude-code/2026-05-14.md)
+
 ### 2026-05-13
 
 - [nightly: editor: Extend underlines into inlay hints (#56407)](./zed-editor/2026-05-13.md)
@@ -45,8 +50,3 @@
 
 - [nightly: docs: Update actions format (#54869)](./zed-editor/2026-05-07.md)
 - [v2.1.132](./claude-code/2026-05-07.md)
-
-### 2026-05-06
-
-- [nightly: gpui(windows): Fix unwrap panic when monitor goes missing (#55630)](./zed-editor/2026-05-06.md)
-- [v2.1.131](./claude-code/2026-05-06.md)
