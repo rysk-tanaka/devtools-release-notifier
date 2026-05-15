@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-05-15
+
+- [1.104.17](./raycast/2026-05-15.md)
+- [v1.3.2-pre](./zed-editor/2026-05-15.md)
+- [v2.1.142](./claude-code/2026-05-15.md)
+
 ### 2026-05-14
 
 - [nightly: editor: Extract `navigation` out of `editor.rs` (#56634)](./zed-editor/2026-05-14.md)
@@ -43,10 +49,4 @@
 
 ### 2026-05-08
 
-- [nightly: Improve auto watch (#56126)](./zed-editor/2026-05-08.md)
 - [v2.1.133](./claude-code/2026-05-08.md)
-
-### 2026-05-07
-
-- [nightly: docs: Update actions format (#54869)](./zed-editor/2026-05-07.md)
-- [v2.1.132](./claude-code/2026-05-07.md)
