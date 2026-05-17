@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-05-17
+
+- [nightly](./zed-editor/2026-05-17.md)
+
 ### 2026-05-16
 
 - [v1.3.3-pre](./zed-editor/2026-05-16.md)
@@ -48,5 +52,4 @@
 
 ### 2026-05-09
 
-- [nightly: vim: Change surrounds with Mini{Quotes,Brackets} and AnyQuotes (#51067)](./zed-editor/2026-05-09.md)
 - [v2.1.138](./claude-code/2026-05-09.md)
