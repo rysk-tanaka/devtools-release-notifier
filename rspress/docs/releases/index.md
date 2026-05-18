@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-05-18
+
+- [nightly: sidebar: Persist terminal threads in sidebar metadata (#56966)](./zed-editor/2026-05-18.md)
+
 ### 2026-05-17
 
 - [nightly](./zed-editor/2026-05-17.md)
@@ -49,7 +53,3 @@
 ### 2026-05-10
 
 - [nightly](./zed-editor/2026-05-10.md)
-
-### 2026-05-09
-
-- [v2.1.138](./claude-code/2026-05-09.md)
