@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-19
+
+- [nightly: extension_ci: Bump extension CLI version to `2a00db0` (#57098)](./zed-editor/2026-05-19.md)
+- [v2.1.144](./claude-code/2026-05-19.md)
+
 ### 2026-05-18
 
 - [nightly: sidebar: Persist terminal threads in sidebar metadata (#56966)](./zed-editor/2026-05-18.md)
@@ -45,11 +50,3 @@
 
 - [nightly: Improve default button focus in macOS dialogs (#56513)](./zed-editor/2026-05-12.md)
 - [v2.1.139](./claude-code/2026-05-12.md)
-
-### 2026-05-11
-
-- [nightly: auto_update: Fix Windows installer task arguments syntax (#50464)](./zed-editor/2026-05-11.md)
-
-### 2026-05-10
-
-- [nightly](./zed-editor/2026-05-10.md)
