@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-20
+
+- [nightly: agent: Pull diagnostics (#56663)](./zed-editor/2026-05-20.md)
+- [v2.1.145](./claude-code/2026-05-20.md)
+
 ### 2026-05-19
 
 - [nightly: extension_ci: Bump extension CLI version to `2a00db0` (#57098)](./zed-editor/2026-05-19.md)
@@ -45,8 +50,3 @@
 
 - [nightly: editor: Extend underlines into inlay hints (#56407)](./zed-editor/2026-05-13.md)
 - [v2.1.140](./claude-code/2026-05-13.md)
-
-### 2026-05-12
-
-- [nightly: Improve default button focus in macOS dialogs (#56513)](./zed-editor/2026-05-12.md)
-- [v2.1.139](./claude-code/2026-05-12.md)
