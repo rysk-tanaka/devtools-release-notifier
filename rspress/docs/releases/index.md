@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-05-21
+
+- [1.104.18](./raycast/2026-05-21.md)
+- [nightly: Deprecate and migrate ACP extensions (#57133)](./zed-editor/2026-05-21.md)
+- [v2.1.146](./claude-code/2026-05-21.md)
+
 ### 2026-05-20
 
 - [nightly: agent: Pull diagnostics (#56663)](./zed-editor/2026-05-20.md)
@@ -43,10 +49,4 @@
 
 ### 2026-05-14
 
-- [nightly: editor: Extract `navigation` out of `editor.rs` (#56634)](./zed-editor/2026-05-14.md)
 - [v2.1.141](./claude-code/2026-05-14.md)
-
-### 2026-05-13
-
-- [nightly: editor: Extend underlines into inlay hints (#56407)](./zed-editor/2026-05-13.md)
-- [v2.1.140](./claude-code/2026-05-13.md)
