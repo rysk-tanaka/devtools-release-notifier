@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Deprecate and migrate ACP extensions (#57133)",
-  "timestamp": "2026-05-21T12:37:19.015618+00:00"
+  "version": "nightly: agent_ui: Remove count for user rules in context tooltip (#57456)",
+  "timestamp": "2026-05-22T12:11:11.504183+00:00"
 }

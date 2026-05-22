@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-22
+
+- [nightly: agent_ui: Remove count for user rules in context tooltip (#57456)](./zed-editor/2026-05-22.md)
+- [v2.1.148](./claude-code/2026-05-22.md)
+
 ### 2026-05-21
 
 - [1.104.18](./raycast/2026-05-21.md)
@@ -43,10 +48,5 @@
 
 ### 2026-05-15
 
-- [1.104.17](./raycast/2026-05-15.md)
 - [v1.3.2-pre](./zed-editor/2026-05-15.md)
 - [v2.1.142](./claude-code/2026-05-15.md)
-
-### 2026-05-14
-
-- [v2.1.141](./claude-code/2026-05-14.md)
