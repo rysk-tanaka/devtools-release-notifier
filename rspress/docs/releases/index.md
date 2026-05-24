@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-24
+
+- [nightly: gpui_wgpu: Bump cosmic-text to v0.19.0 (#56988)](./zed-editor/2026-05-24.md)
+- [v2.1.150](./claude-code/2026-05-24.md)
+
 ### 2026-05-22
 
 - [nightly: agent_ui: Remove count for user rules in context tooltip (#57456)](./zed-editor/2026-05-22.md)
@@ -45,8 +50,3 @@
 
 - [v1.3.3-pre](./zed-editor/2026-05-16.md)
 - [v2.1.143](./claude-code/2026-05-16.md)
-
-### 2026-05-15
-
-- [v1.3.2-pre](./zed-editor/2026-05-15.md)
-- [v2.1.142](./claude-code/2026-05-15.md)
