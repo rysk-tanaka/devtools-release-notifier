@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-05-25
+
+- [nightly: ep: Fix bugs in the `split-commit` command (#57604)](./zed-editor/2026-05-25.md)
+
 ### 2026-05-24
 
 - [nightly: gpui_wgpu: Bump cosmic-text to v0.19.0 (#56988)](./zed-editor/2026-05-24.md)
@@ -48,5 +52,4 @@
 
 ### 2026-05-16
 
-- [v1.3.3-pre](./zed-editor/2026-05-16.md)
 - [v2.1.143](./claude-code/2026-05-16.md)

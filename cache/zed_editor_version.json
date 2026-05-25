@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui_wgpu: Bump cosmic-text to v0.19.0 (#56988)",
-  "timestamp": "2026-05-24T11:05:36.057923+00:00"
+  "version": "nightly: ep: Fix bugs in the `split-commit` command (#57604)",
+  "timestamp": "2026-05-25T12:54:38.284547+00:00"
 }
