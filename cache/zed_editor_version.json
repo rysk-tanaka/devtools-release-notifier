@@ -1,4 +1,4 @@
 {
-  "version": "nightly: ep: Fix bugs in the `split-commit` command (#57604)",
-  "timestamp": "2026-05-25T12:54:38.284547+00:00"
+  "version": "nightly: agent_ui: Clarify multi-root agent warning text (#57874)",
+  "timestamp": "2026-05-28T12:59:35.218616+00:00"
 }

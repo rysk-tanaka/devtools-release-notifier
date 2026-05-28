@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-28
+
+- [nightly: agent_ui: Clarify multi-root agent warning text (#57874)](./zed-editor/2026-05-28.md)
+- [v2.1.153](./claude-code/2026-05-28.md)
+
 ### 2026-05-25
 
 - [nightly: ep: Fix bugs in the `split-commit` command (#57604)](./zed-editor/2026-05-25.md)
@@ -45,11 +50,3 @@
 ### 2026-05-18
 
 - [nightly: sidebar: Persist terminal threads in sidebar metadata (#56966)](./zed-editor/2026-05-18.md)
-
-### 2026-05-17
-
-- [nightly](./zed-editor/2026-05-17.md)
-
-### 2026-05-16
-
-- [v2.1.143](./claude-code/2026-05-16.md)
