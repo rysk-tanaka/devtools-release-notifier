@@ -1,4 +1,4 @@
 {
-  "version": "nightly: agent_ui: Clarify multi-root agent warning text (#57874)",
-  "timestamp": "2026-05-28T12:59:35.218616+00:00"
+  "version": "nightly: Revert \"Improve ChatGPT subscription response resilience\" (#58035)",
+  "timestamp": "2026-05-29T12:38:38.231809+00:00"
 }

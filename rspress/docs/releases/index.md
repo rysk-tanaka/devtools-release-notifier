@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-05-29
+
+- [1.104.19](./raycast/2026-05-29.md)
+- [nightly: Revert 'Improve ChatGPT subscription response resilience' (#58035)](./zed-editor/2026-05-29.md)
+- [v2.1.156](./claude-code/2026-05-29.md)
+
 ### 2026-05-28
 
 - [nightly: agent_ui: Clarify multi-root agent warning text (#57874)](./zed-editor/2026-05-28.md)
@@ -41,12 +47,3 @@
 
 - [nightly: agent: Pull diagnostics (#56663)](./zed-editor/2026-05-20.md)
 - [v2.1.145](./claude-code/2026-05-20.md)
-
-### 2026-05-19
-
-- [nightly: extension_ci: Bump extension CLI version to `2a00db0` (#57098)](./zed-editor/2026-05-19.md)
-- [v2.1.144](./claude-code/2026-05-19.md)
-
-### 2026-05-18
-
-- [nightly: sidebar: Persist terminal threads in sidebar metadata (#56966)](./zed-editor/2026-05-18.md)
