@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-05-30
+
+- [nightly: Update dependency requests to v2.33.0 [SECURITY] (#58093)](./zed-editor/2026-05-30.md)
+- [v2.1.158](./claude-code/2026-05-30.md)
+
 ### 2026-05-29
 
 - [1.104.19](./raycast/2026-05-29.md)
@@ -42,8 +47,3 @@
 - [1.104.18](./raycast/2026-05-21.md)
 - [nightly: Deprecate and migrate ACP extensions (#57133)](./zed-editor/2026-05-21.md)
 - [v2.1.146](./claude-code/2026-05-21.md)
-
-### 2026-05-20
-
-- [nightly: agent: Pull diagnostics (#56663)](./zed-editor/2026-05-20.md)
-- [v2.1.145](./claude-code/2026-05-20.md)
