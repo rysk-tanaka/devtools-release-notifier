@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Update dependency requests to v2.33.0 [SECURITY] (#58093)",
-  "timestamp": "2026-05-30T11:10:36.113653+00:00"
+  "version": "nightly: gpui: Support prompt_for_paths in TestPlatform (#58139)",
+  "timestamp": "2026-05-31T11:25:06.080323+00:00"
 }
