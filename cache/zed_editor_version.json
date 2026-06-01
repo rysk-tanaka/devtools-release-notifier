@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui: Support prompt_for_paths in TestPlatform (#58139)",
-  "timestamp": "2026-05-31T11:25:06.080323+00:00"
+  "version": "nightly: Load project skills through worktree buffers (#58094)",
+  "timestamp": "2026-06-01T15:45:33.811366+00:00"
 }

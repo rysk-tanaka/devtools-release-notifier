@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-01
+
+- [nightly: Load project skills through worktree buffers (#58094)](./zed-editor/2026-06-01.md)
+- [v2.1.159](./claude-code/2026-06-01.md)
+
 ### 2026-05-31
 
 - [nightly: gpui: Support prompt_for_paths in TestPlatform (#58139)](./zed-editor/2026-05-31.md)
@@ -45,8 +50,3 @@
 
 - [nightly: agent_ui: Remove count for user rules in context tooltip (#57456)](./zed-editor/2026-05-22.md)
 - [v2.1.148](./claude-code/2026-05-22.md)
-
-### 2026-05-21
-
-- [1.104.18](./raycast/2026-05-21.md)
-- [nightly: Deprecate and migrate ACP extensions (#57133)](./zed-editor/2026-05-21.md)
