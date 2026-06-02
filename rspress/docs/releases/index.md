@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-02
+
+- [nightly: git_ui: Trim surrounding whitespace from new branch names (#58151)](./zed-editor/2026-06-02.md)
+- [v2.1.160](./claude-code/2026-06-02.md)
+
 ### 2026-06-01
 
 - [nightly: Load project skills through worktree buffers (#58094)](./zed-editor/2026-06-01.md)
@@ -45,8 +50,3 @@
 
 - [nightly: gpui_wgpu: Bump cosmic-text to v0.19.0 (#56988)](./zed-editor/2026-05-24.md)
 - [v2.1.150](./claude-code/2026-05-24.md)
-
-### 2026-05-22
-
-- [nightly: agent_ui: Remove count for user rules in context tooltip (#57456)](./zed-editor/2026-05-22.md)
-- [v2.1.148](./claude-code/2026-05-22.md)

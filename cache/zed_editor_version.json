@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Load project skills through worktree buffers (#58094)",
-  "timestamp": "2026-06-01T15:45:33.811366+00:00"
+  "version": "nightly: git_ui: Trim surrounding whitespace from new branch names (#58151)",
+  "timestamp": "2026-06-02T13:45:28.887002+00:00"
 }
