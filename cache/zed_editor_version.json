@@ -1,4 +1,4 @@
 {
-  "version": "nightly: git_ui: Trim surrounding whitespace from new branch names (#58151)",
-  "timestamp": "2026-06-02T13:45:28.887002+00:00"
+  "version": "nightly: cloud_api_client: Add a few helpers for response handling (#58346)",
+  "timestamp": "2026-06-03T11:33:16.219692+00:00"
 }

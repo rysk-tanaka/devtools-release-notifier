@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-03
+
+- [nightly: cloud_api_client: Add a few helpers for response handling (#58346)](./zed-editor/2026-06-03.md)
+- [v2.1.161](./claude-code/2026-06-03.md)
+
 ### 2026-06-02
 
 - [nightly: git_ui: Trim surrounding whitespace from new branch names (#58151)](./zed-editor/2026-06-02.md)
@@ -45,8 +50,3 @@
 ### 2026-05-25
 
 - [nightly: ep: Fix bugs in the `split-commit` command (#57604)](./zed-editor/2026-05-25.md)
-
-### 2026-05-24
-
-- [nightly: gpui_wgpu: Bump cosmic-text to v0.19.0 (#56988)](./zed-editor/2026-05-24.md)
-- [v2.1.150](./claude-code/2026-05-24.md)
