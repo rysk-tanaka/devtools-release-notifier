@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-04
+
+- [nightly: ep: Skip commits containing submodules / gitlinks (#58519)](./zed-editor/2026-06-04.md)
+- [v2.1.162](./claude-code/2026-06-04.md)
+
 ### 2026-06-03
 
 - [nightly: cloud_api_client: Add a few helpers for response handling (#58346)](./zed-editor/2026-06-03.md)
@@ -45,8 +50,3 @@
 ### 2026-05-28
 
 - [nightly: agent_ui: Clarify multi-root agent warning text (#57874)](./zed-editor/2026-05-28.md)
-- [v2.1.153](./claude-code/2026-05-28.md)
-
-### 2026-05-25
-
-- [nightly: ep: Fix bugs in the `split-commit` command (#57604)](./zed-editor/2026-05-25.md)

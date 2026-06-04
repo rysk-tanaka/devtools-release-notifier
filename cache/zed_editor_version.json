@@ -1,4 +1,4 @@
 {
-  "version": "nightly: cloud_api_client: Add a few helpers for response handling (#58346)",
-  "timestamp": "2026-06-03T11:33:16.219692+00:00"
+  "version": "nightly: ep: Skip commits containing submodules / gitlinks (#58519)",
+  "timestamp": "2026-06-04T11:00:03.153213+00:00"
 }
