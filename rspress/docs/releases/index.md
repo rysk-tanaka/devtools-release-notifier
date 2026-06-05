@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-05
+
+- [nightly: project_panel: Do not ignore first focus clicks on items (#58562)](./zed-editor/2026-06-05.md)
+- [v2.1.165](./claude-code/2026-06-05.md)
+
 ### 2026-06-04
 
 - [nightly: ep: Skip commits containing submodules / gitlinks (#58519)](./zed-editor/2026-06-04.md)
@@ -45,8 +50,3 @@
 
 - [1.104.19](./raycast/2026-05-29.md)
 - [nightly: Revert 'Improve ChatGPT subscription response resilience' (#58035)](./zed-editor/2026-05-29.md)
-- [v2.1.156](./claude-code/2026-05-29.md)
-
-### 2026-05-28
-
-- [nightly: agent_ui: Clarify multi-root agent warning text (#57874)](./zed-editor/2026-05-28.md)
