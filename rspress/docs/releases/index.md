@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-06
+
+- [v1.6.1-pre](./zed-editor/2026-06-06.md)
+- [v2.1.167](./claude-code/2026-06-06.md)
+
 ### 2026-06-05
 
 - [nightly: project_panel: Do not ignore first focus clicks on items (#58562)](./zed-editor/2026-06-05.md)
@@ -45,8 +50,3 @@
 
 - [nightly: Update dependency requests to v2.33.0 [SECURITY] (#58093)](./zed-editor/2026-05-30.md)
 - [v2.1.158](./claude-code/2026-05-30.md)
-
-### 2026-05-29
-
-- [1.104.19](./raycast/2026-05-29.md)
-- [nightly: Revert 'Improve ChatGPT subscription response resilience' (#58035)](./zed-editor/2026-05-29.md)
