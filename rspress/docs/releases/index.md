@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-06-07
+
+- [v2.1.168](./claude-code/2026-06-07.md)
+
 ### 2026-06-06
 
 - [v1.6.1-pre](./zed-editor/2026-06-06.md)
@@ -49,4 +53,3 @@
 ### 2026-05-30
 
 - [nightly: Update dependency requests to v2.33.0 [SECURITY] (#58093)](./zed-editor/2026-05-30.md)
-- [v2.1.158](./claude-code/2026-05-30.md)
