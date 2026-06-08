@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-06-08
+
+- [nightly: Fix SSH askpass on Windows by invoking `cli.exe` directly (#52491)](./zed-editor/2026-06-08.md)
+
 ### 2026-06-07
 
 - [v2.1.168](./claude-code/2026-06-07.md)
@@ -49,7 +53,3 @@
 ### 2026-05-31
 
 - [nightly: gpui: Support prompt_for_paths in TestPlatform (#58139)](./zed-editor/2026-05-31.md)
-
-### 2026-05-30
-
-- [nightly: Update dependency requests to v2.33.0 [SECURITY] (#58093)](./zed-editor/2026-05-30.md)

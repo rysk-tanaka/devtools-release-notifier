@@ -1,4 +1,4 @@
 {
-  "version": "v1.6.1-pre",
-  "timestamp": "2026-06-06T10:35:14.835011+00:00"
+  "version": "nightly: Fix SSH askpass on Windows by invoking `cli.exe` directly (#52491)",
+  "timestamp": "2026-06-08T11:32:44.174577+00:00"
 }
