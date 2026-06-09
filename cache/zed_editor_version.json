@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix SSH askpass on Windows by invoking `cli.exe` directly (#52491)",
-  "timestamp": "2026-06-08T11:32:44.174577+00:00"
+  "version": "nightly: git_ui: Pass the clicked ref to git graph custom commands (#58781)",
+  "timestamp": "2026-06-09T10:59:54.093666+00:00"
 }

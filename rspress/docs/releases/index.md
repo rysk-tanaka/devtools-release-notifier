@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-09
+
+- [nightly: git_ui: Pass the clicked ref to git graph custom commands (#58781)](./zed-editor/2026-06-09.md)
+- [v2.1.169](./claude-code/2026-06-09.md)
+
 ### 2026-06-08
 
 - [nightly: Fix SSH askpass on Windows by invoking `cli.exe` directly (#52491)](./zed-editor/2026-06-08.md)
@@ -48,8 +53,3 @@
 ### 2026-06-01
 
 - [nightly: Load project skills through worktree buffers (#58094)](./zed-editor/2026-06-01.md)
-- [v2.1.159](./claude-code/2026-06-01.md)
-
-### 2026-05-31
-
-- [nightly: gpui: Support prompt_for_paths in TestPlatform (#58139)](./zed-editor/2026-05-31.md)
