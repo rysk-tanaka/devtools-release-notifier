@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-10
+
+- [v1.6.3-pre](./zed-editor/2026-06-10.md)
+- [v2.1.170](./claude-code/2026-06-10.md)
+
 ### 2026-06-09
 
 - [nightly: git_ui: Pass the clicked ref to git graph custom commands (#58781)](./zed-editor/2026-06-09.md)
@@ -48,8 +53,3 @@
 ### 2026-06-02
 
 - [nightly: git_ui: Trim surrounding whitespace from new branch names (#58151)](./zed-editor/2026-06-02.md)
-- [v2.1.160](./claude-code/2026-06-02.md)
-
-### 2026-06-01
-
-- [nightly: Load project skills through worktree buffers (#58094)](./zed-editor/2026-06-01.md)
