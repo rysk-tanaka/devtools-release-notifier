@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-11
+
+- [nightly](./zed-editor/2026-06-11.md)
+- [v2.1.173](./claude-code/2026-06-11.md)
+
 ### 2026-06-10
 
 - [v1.6.3-pre](./zed-editor/2026-06-10.md)
@@ -48,8 +53,3 @@
 ### 2026-06-03
 
 - [nightly: cloud_api_client: Add a few helpers for response handling (#58346)](./zed-editor/2026-06-03.md)
-- [v2.1.161](./claude-code/2026-06-03.md)
-
-### 2026-06-02
-
-- [nightly: git_ui: Trim surrounding whitespace from new branch names (#58151)](./zed-editor/2026-06-02.md)
