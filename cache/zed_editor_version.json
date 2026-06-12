@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-06-11T11:28:07.712847+00:00"
+  "version": "nightly: workspace: Fix overflow in error popup (#59185)",
+  "timestamp": "2026-06-12T11:13:56.999490+00:00"
 }

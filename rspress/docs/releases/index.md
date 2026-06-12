@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-12
+
+- [nightly: workspace: Fix overflow in error popup (#59185)](./zed-editor/2026-06-12.md)
+- [v2.1.175](./claude-code/2026-06-12.md)
+
 ### 2026-06-11
 
 - [nightly](./zed-editor/2026-06-11.md)
@@ -48,8 +53,3 @@
 ### 2026-06-04
 
 - [nightly: ep: Skip commits containing submodules / gitlinks (#58519)](./zed-editor/2026-06-04.md)
-- [v2.1.162](./claude-code/2026-06-04.md)
-
-### 2026-06-03
-
-- [nightly: cloud_api_client: Add a few helpers for response handling (#58346)](./zed-editor/2026-06-03.md)
