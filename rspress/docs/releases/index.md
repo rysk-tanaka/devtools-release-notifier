@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-13
+
+- [nightly](./zed-editor/2026-06-13.md)
+- [v2.1.177](./claude-code/2026-06-13.md)
+
 ### 2026-06-12
 
 - [nightly: workspace: Fix overflow in error popup (#59185)](./zed-editor/2026-06-12.md)
@@ -48,8 +53,3 @@
 ### 2026-06-05
 
 - [nightly: project_panel: Do not ignore first focus clicks on items (#58562)](./zed-editor/2026-06-05.md)
-- [v2.1.165](./claude-code/2026-06-05.md)
-
-### 2026-06-04
-
-- [nightly: ep: Skip commits containing submodules / gitlinks (#58519)](./zed-editor/2026-06-04.md)
