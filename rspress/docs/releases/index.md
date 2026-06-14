@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-06-14
+
+- [nightly: agent_ui: Match project name in archive-view search (#58214)](./zed-editor/2026-06-14.md)
+
 ### 2026-06-13
 
 - [nightly](./zed-editor/2026-06-13.md)
@@ -49,7 +53,3 @@
 
 - [v1.6.1-pre](./zed-editor/2026-06-06.md)
 - [v2.1.167](./claude-code/2026-06-06.md)
-
-### 2026-06-05
-
-- [nightly: project_panel: Do not ignore first focus clicks on items (#58562)](./zed-editor/2026-06-05.md)
