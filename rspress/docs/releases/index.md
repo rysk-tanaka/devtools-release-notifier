@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-06-15
+
+- [nightly: git: Optimize git HEAD state resolution (#59044)](./zed-editor/2026-06-15.md)
+
 ### 2026-06-14
 
 - [nightly: agent_ui: Match project name in archive-view search (#58214)](./zed-editor/2026-06-14.md)
@@ -52,4 +56,3 @@
 ### 2026-06-06
 
 - [v1.6.1-pre](./zed-editor/2026-06-06.md)
-- [v2.1.167](./claude-code/2026-06-06.md)
