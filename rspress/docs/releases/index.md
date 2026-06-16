@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-16
+
+- [nightly: project_panel: Select the whole folder name when renaming (#59390)](./zed-editor/2026-06-16.md)
+- [v2.1.178](./claude-code/2026-06-16.md)
+
 ### 2026-06-15
 
 - [nightly: git: Optimize git HEAD state resolution (#59044)](./zed-editor/2026-06-15.md)
@@ -48,11 +53,3 @@
 ### 2026-06-08
 
 - [nightly: Fix SSH askpass on Windows by invoking `cli.exe` directly (#52491)](./zed-editor/2026-06-08.md)
-
-### 2026-06-07
-
-- [v2.1.168](./claude-code/2026-06-07.md)
-
-### 2026-06-06
-
-- [v1.6.1-pre](./zed-editor/2026-06-06.md)
