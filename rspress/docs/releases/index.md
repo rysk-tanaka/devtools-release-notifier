@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-17
+
+- [nightly: editor: Reuse display-map cursors when converting word diffs (#58658)](./zed-editor/2026-06-17.md)
+- [v2.1.179](./claude-code/2026-06-17.md)
+
 ### 2026-06-16
 
 - [nightly: project_panel: Select the whole folder name when renaming (#59390)](./zed-editor/2026-06-16.md)
@@ -48,8 +53,3 @@
 ### 2026-06-09
 
 - [nightly: git_ui: Pass the clicked ref to git graph custom commands (#58781)](./zed-editor/2026-06-09.md)
-- [v2.1.169](./claude-code/2026-06-09.md)
-
-### 2026-06-08
-
-- [nightly: Fix SSH askpass on Windows by invoking `cli.exe` directly (#52491)](./zed-editor/2026-06-08.md)
