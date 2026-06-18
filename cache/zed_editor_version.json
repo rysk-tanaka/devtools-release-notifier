@@ -1,4 +1,4 @@
 {
-  "version": "nightly: editor: Reuse display-map cursors when converting word diffs (#58658)",
-  "timestamp": "2026-06-17T11:30:44.811309+00:00"
+  "version": "nightly: git: Use fast access check for repository in git panel (#59514)",
+  "timestamp": "2026-06-18T11:19:52.796333+00:00"
 }
