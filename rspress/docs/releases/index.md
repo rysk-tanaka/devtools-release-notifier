@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-19
+
+- [nightly: cloud_api_types: Add `ZedVip` variant to `Plan` (#59443)](./zed-editor/2026-06-19.md)
+- [v2.1.183](./claude-code/2026-06-19.md)
+
 ### 2026-06-18
 
 - [nightly: git: Use fast access check for repository in git panel (#59514)](./zed-editor/2026-06-18.md)
@@ -48,8 +53,3 @@
 ### 2026-06-11
 
 - [nightly](./zed-editor/2026-06-11.md)
-- [v2.1.173](./claude-code/2026-06-11.md)
-
-### 2026-06-10
-
-- [v1.6.3-pre](./zed-editor/2026-06-10.md)

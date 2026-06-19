@@ -1,4 +1,4 @@
 {
-  "version": "nightly: git: Use fast access check for repository in git panel (#59514)",
-  "timestamp": "2026-06-18T11:19:52.796333+00:00"
+  "version": "nightly: cloud_api_types: Add `ZedVip` variant to `Plan` (#59443)",
+  "timestamp": "2026-06-19T11:28:42.370135+00:00"
 }
