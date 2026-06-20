@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-06-20
+
+- [nightly: Fix CI error from linux case insensitive path (#59624)](./zed-editor/2026-06-20.md)
+
 ### 2026-06-19
 
 - [nightly: cloud_api_types: Add `ZedVip` variant to `Plan` (#59443)](./zed-editor/2026-06-19.md)
@@ -49,7 +53,3 @@
 
 - [nightly: workspace: Fix overflow in error popup (#59185)](./zed-editor/2026-06-12.md)
 - [v2.1.175](./claude-code/2026-06-12.md)
-
-### 2026-06-11
-
-- [nightly](./zed-editor/2026-06-11.md)
