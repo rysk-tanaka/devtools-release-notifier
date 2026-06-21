@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix CI error from linux case insensitive path (#59624)",
-  "timestamp": "2026-06-20T10:45:10.282243+00:00"
+  "version": "nightly: ep: Track settled telemetry for empty predictions (#59645)",
+  "timestamp": "2026-06-21T11:01:10.109706+00:00"
 }

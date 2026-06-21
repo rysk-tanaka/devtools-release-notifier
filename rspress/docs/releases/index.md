@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-21
+
+- [nightly: ep: Track settled telemetry for empty predictions (#59645)](./zed-editor/2026-06-21.md)
+- [v2.1.185](./claude-code/2026-06-21.md)
+
 ### 2026-06-20
 
 - [nightly: Fix CI error from linux case insensitive path (#59624)](./zed-editor/2026-06-20.md)
@@ -48,8 +53,3 @@
 
 - [nightly](./zed-editor/2026-06-13.md)
 - [v2.1.177](./claude-code/2026-06-13.md)
-
-### 2026-06-12
-
-- [nightly: workspace: Fix overflow in error popup (#59185)](./zed-editor/2026-06-12.md)
-- [v2.1.175](./claude-code/2026-06-12.md)
