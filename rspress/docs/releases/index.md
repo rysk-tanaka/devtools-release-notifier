@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-06-22
+
+- [nightly: acp: Update agent client protocol crate to 0.15.0 (#59593)](./zed-editor/2026-06-22.md)
+
 ### 2026-06-21
 
 - [nightly: ep: Track settled telemetry for empty predictions (#59645)](./zed-editor/2026-06-21.md)
@@ -52,4 +56,3 @@
 ### 2026-06-13
 
 - [nightly](./zed-editor/2026-06-13.md)
-- [v2.1.177](./claude-code/2026-06-13.md)

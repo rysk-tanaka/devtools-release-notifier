@@ -1,4 +1,4 @@
 {
-  "version": "nightly: ep: Track settled telemetry for empty predictions (#59645)",
-  "timestamp": "2026-06-21T11:01:10.109706+00:00"
+  "version": "nightly: acp: Update agent client protocol crate to 0.15.0 (#59593)",
+  "timestamp": "2026-06-22T11:59:42.609160+00:00"
 }
