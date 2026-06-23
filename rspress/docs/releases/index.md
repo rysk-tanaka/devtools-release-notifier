@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-06-23
+
+- [1.104.20](./raycast/2026-06-23.md)
+- [nightly](./zed-editor/2026-06-23.md)
+- [v2.1.186](./claude-code/2026-06-23.md)
+
 ### 2026-06-22
 
 - [nightly: acp: Update agent client protocol crate to 0.15.0 (#59593)](./zed-editor/2026-06-22.md)
@@ -44,15 +50,3 @@
 
 - [nightly: project_panel: Select the whole folder name when renaming (#59390)](./zed-editor/2026-06-16.md)
 - [v2.1.178](./claude-code/2026-06-16.md)
-
-### 2026-06-15
-
-- [nightly: git: Optimize git HEAD state resolution (#59044)](./zed-editor/2026-06-15.md)
-
-### 2026-06-14
-
-- [nightly: agent_ui: Match project name in archive-view search (#58214)](./zed-editor/2026-06-14.md)
-
-### 2026-06-13
-
-- [nightly](./zed-editor/2026-06-13.md)
