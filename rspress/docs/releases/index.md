@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-24
+
+- [nightly: ui: Fix `end_slot_on_hover` API (#59805)](./zed-editor/2026-06-24.md)
+- [v2.1.187](./claude-code/2026-06-24.md)
+
 ### 2026-06-23
 
 - [1.104.20](./raycast/2026-06-23.md)
@@ -45,8 +50,3 @@
 
 - [nightly: editor: Reuse display-map cursors when converting word diffs (#58658)](./zed-editor/2026-06-17.md)
 - [v2.1.179](./claude-code/2026-06-17.md)
-
-### 2026-06-16
-
-- [nightly: project_panel: Select the whole folder name when renaming (#59390)](./zed-editor/2026-06-16.md)
-- [v2.1.178](./claude-code/2026-06-16.md)

@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-06-23T10:59:57.714402+00:00"
+  "version": "nightly: ui: Fix `end_slot_on_hover` API (#59805)",
+  "timestamp": "2026-06-24T10:58:06.848337+00:00"
 }
