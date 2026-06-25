@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-25
+
+- [nightly: ep: Batch settled edit prediction telemetry (#59857)](./zed-editor/2026-06-25.md)
+- [v2.1.191](./claude-code/2026-06-25.md)
+
 ### 2026-06-24
 
 - [nightly: ui: Fix `end_slot_on_hover` API (#59805)](./zed-editor/2026-06-24.md)
@@ -45,8 +50,3 @@
 
 - [nightly: git: Use fast access check for repository in git panel (#59514)](./zed-editor/2026-06-18.md)
 - [v2.1.181](./claude-code/2026-06-18.md)
-
-### 2026-06-17
-
-- [nightly: editor: Reuse display-map cursors when converting word diffs (#58658)](./zed-editor/2026-06-17.md)
-- [v2.1.179](./claude-code/2026-06-17.md)
