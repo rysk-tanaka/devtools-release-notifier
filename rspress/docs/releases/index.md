@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-26
+
+- [nightly: markdown_preview: Add font size settings and actions (#55489)](./zed-editor/2026-06-26.md)
+- [v2.1.193](./claude-code/2026-06-26.md)
+
 ### 2026-06-25
 
 - [nightly: ep: Batch settled edit prediction telemetry (#59857)](./zed-editor/2026-06-25.md)
@@ -45,8 +50,3 @@
 
 - [nightly: cloud_api_types: Add `ZedVip` variant to `Plan` (#59443)](./zed-editor/2026-06-19.md)
 - [v2.1.183](./claude-code/2026-06-19.md)
-
-### 2026-06-18
-
-- [nightly: git: Use fast access check for repository in git panel (#59514)](./zed-editor/2026-06-18.md)
-- [v2.1.181](./claude-code/2026-06-18.md)
