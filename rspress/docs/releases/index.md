@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-27
+
+- [nightly: Use stable path keys for the project diff (#59984)](./zed-editor/2026-06-27.md)
+- [v2.1.195](./claude-code/2026-06-27.md)
+
 ### 2026-06-26
 
 - [nightly: markdown_preview: Add font size settings and actions (#55489)](./zed-editor/2026-06-26.md)
@@ -45,8 +50,3 @@
 ### 2026-06-20
 
 - [nightly: Fix CI error from linux case insensitive path (#59624)](./zed-editor/2026-06-20.md)
-
-### 2026-06-19
-
-- [nightly: cloud_api_types: Add `ZedVip` variant to `Plan` (#59443)](./zed-editor/2026-06-19.md)
-- [v2.1.183](./claude-code/2026-06-19.md)
