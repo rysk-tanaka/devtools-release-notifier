@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-06-29
+
+- [nightly: settings_ui: Move MCP server timeout setting to MCP subpage (#60069)](./zed-editor/2026-06-29.md)
+
 ### 2026-06-28
 
 - [nightly: Hide code lens' blocks in folds (#60011)](./zed-editor/2026-06-28.md)
@@ -49,4 +53,3 @@
 ### 2026-06-21
 
 - [nightly: ep: Track settled telemetry for empty predictions (#59645)](./zed-editor/2026-06-21.md)
-- [v2.1.185](./claude-code/2026-06-21.md)
