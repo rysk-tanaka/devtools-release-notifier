@@ -1,4 +1,4 @@
 {
-  "version": "nightly: settings_ui: Move MCP server timeout setting to MCP subpage (#60069)",
-  "timestamp": "2026-06-29T11:36:18.646965+00:00"
+  "version": "nightly: client: Add `username` to `User` and start using it (#60107)",
+  "timestamp": "2026-06-30T10:58:42.732828+00:00"
 }

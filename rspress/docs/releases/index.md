@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-06-30
+
+- [nightly: client: Add `username` to `User` and start using it (#60107)](./zed-editor/2026-06-30.md)
+- [v2.1.196](./claude-code/2026-06-30.md)
+
 ### 2026-06-29
 
 - [nightly: settings_ui: Move MCP server timeout setting to MCP subpage (#60069)](./zed-editor/2026-06-29.md)
@@ -45,11 +50,3 @@
 - [1.104.20](./raycast/2026-06-23.md)
 - [nightly](./zed-editor/2026-06-23.md)
 - [v2.1.186](./claude-code/2026-06-23.md)
-
-### 2026-06-22
-
-- [nightly: acp: Update agent client protocol crate to 0.15.0 (#59593)](./zed-editor/2026-06-22.md)
-
-### 2026-06-21
-
-- [nightly: ep: Track settled telemetry for empty predictions (#59645)](./zed-editor/2026-06-21.md)
