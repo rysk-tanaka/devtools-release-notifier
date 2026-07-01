@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-01
+
+- [nightly](./zed-editor/2026-07-01.md)
+- [v2.1.197](./claude-code/2026-07-01.md)
+
 ### 2026-06-30
 
 - [nightly: client: Add `username` to `User` and start using it (#60107)](./zed-editor/2026-06-30.md)
@@ -48,5 +53,3 @@
 ### 2026-06-23
 
 - [1.104.20](./raycast/2026-06-23.md)
-- [nightly](./zed-editor/2026-06-23.md)
-- [v2.1.186](./claude-code/2026-06-23.md)
