@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-02
+
+- [nightly: markdown: Make linked images clickable (#59525)](./zed-editor/2026-07-02.md)
+- [v2.1.198](./claude-code/2026-07-02.md)
+
 ### 2026-07-01
 
 - [nightly](./zed-editor/2026-07-01.md)
@@ -48,8 +53,3 @@
 ### 2026-06-24
 
 - [nightly: ui: Fix `end_slot_on_hover` API (#59805)](./zed-editor/2026-06-24.md)
-- [v2.1.187](./claude-code/2026-06-24.md)
-
-### 2026-06-23
-
-- [1.104.20](./raycast/2026-06-23.md)
