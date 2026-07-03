@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-07-03
+
+- [1.104.21](./raycast/2026-07-03.md)
+- [nightly: Remove more storybook leftovers (#60337)](./zed-editor/2026-07-03.md)
+- [v2.1.199](./claude-code/2026-07-03.md)
+
 ### 2026-07-02
 
 - [nightly: markdown: Make linked images clickable (#59525)](./zed-editor/2026-07-02.md)
@@ -44,12 +50,3 @@
 
 - [nightly: markdown_preview: Add font size settings and actions (#55489)](./zed-editor/2026-06-26.md)
 - [v2.1.193](./claude-code/2026-06-26.md)
-
-### 2026-06-25
-
-- [nightly: ep: Batch settled edit prediction telemetry (#59857)](./zed-editor/2026-06-25.md)
-- [v2.1.191](./claude-code/2026-06-25.md)
-
-### 2026-06-24
-
-- [nightly: ui: Fix `end_slot_on_hover` API (#59805)](./zed-editor/2026-06-24.md)
