@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-04
+
+- [nightly: Do not redownload same Nightly updates over and over (#59994)](./zed-editor/2026-07-04.md)
+- [v2.1.201](./claude-code/2026-07-04.md)
+
 ### 2026-07-03
 
 - [1.104.21](./raycast/2026-07-03.md)
@@ -45,8 +50,3 @@
 
 - [nightly: Use stable path keys for the project diff (#59984)](./zed-editor/2026-06-27.md)
 - [v2.1.195](./claude-code/2026-06-27.md)
-
-### 2026-06-26
-
-- [nightly: markdown_preview: Add font size settings and actions (#55489)](./zed-editor/2026-06-26.md)
-- [v2.1.193](./claude-code/2026-06-26.md)

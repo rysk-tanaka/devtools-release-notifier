@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Remove more storybook leftovers (#60337)",
-  "timestamp": "2026-07-03T10:51:14.669242+00:00"
+  "version": "nightly: Do not redownload same Nightly updates over and over (#59994)",
+  "timestamp": "2026-07-04T10:36:52.838281+00:00"
 }
