@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-05
+
+- [nightly: Fix agent hyperlinks do not open files (#56283)](./zed-editor/2026-07-05.md)
+
 ### 2026-07-04
 
 - [nightly: Do not redownload same Nightly updates over and over (#59994)](./zed-editor/2026-07-04.md)
@@ -49,4 +53,3 @@
 ### 2026-06-27
 
 - [nightly: Use stable path keys for the project diff (#59984)](./zed-editor/2026-06-27.md)
-- [v2.1.195](./claude-code/2026-06-27.md)

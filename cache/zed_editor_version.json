@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Do not redownload same Nightly updates over and over (#59994)",
-  "timestamp": "2026-07-04T10:36:52.838281+00:00"
+  "version": "nightly: Fix agent hyperlinks do not open files (#56283)",
+  "timestamp": "2026-07-05T10:41:19.540265+00:00"
 }
