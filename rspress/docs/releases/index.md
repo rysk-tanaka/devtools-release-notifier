@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-06
+
+- [nightly: acp: Support boolean ACP config options (#60446)](./zed-editor/2026-07-06.md)
+
 ### 2026-07-05
 
 - [nightly: Fix agent hyperlinks do not open files (#56283)](./zed-editor/2026-07-05.md)
@@ -49,7 +53,3 @@
 ### 2026-06-28
 
 - [nightly: Hide code lens' blocks in folds (#60011)](./zed-editor/2026-06-28.md)
-
-### 2026-06-27
-
-- [nightly: Use stable path keys for the project diff (#59984)](./zed-editor/2026-06-27.md)
