@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-08
+
+- [nightly: cloud_api_client: Make `send_authenticated_json_request` public (#60562)](./zed-editor/2026-07-08.md)
+- [v2.1.204](./claude-code/2026-07-08.md)
+
 ### 2026-07-06
 
 - [nightly: acp: Support boolean ACP config options (#60446)](./zed-editor/2026-07-06.md)
@@ -45,11 +50,3 @@
 
 - [nightly: client: Add `username` to `User` and start using it (#60107)](./zed-editor/2026-06-30.md)
 - [v2.1.196](./claude-code/2026-06-30.md)
-
-### 2026-06-29
-
-- [nightly: settings_ui: Move MCP server timeout setting to MCP subpage (#60069)](./zed-editor/2026-06-29.md)
-
-### 2026-06-28
-
-- [nightly: Hide code lens' blocks in folds (#60011)](./zed-editor/2026-06-28.md)
