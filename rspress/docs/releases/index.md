@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-09
+
+- [nightly](./zed-editor/2026-07-09.md)
+- [v2.1.205](./claude-code/2026-07-09.md)
+
 ### 2026-07-08
 
 - [nightly: cloud_api_client: Make `send_authenticated_json_request` public (#60562)](./zed-editor/2026-07-08.md)
@@ -45,8 +50,3 @@
 
 - [nightly](./zed-editor/2026-07-01.md)
 - [v2.1.197](./claude-code/2026-07-01.md)
-
-### 2026-06-30
-
-- [nightly: client: Add `username` to `User` and start using it (#60107)](./zed-editor/2026-06-30.md)
-- [v2.1.196](./claude-code/2026-06-30.md)
