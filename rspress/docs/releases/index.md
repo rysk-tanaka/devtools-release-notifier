@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-07-10
+
+- [1.104.22](./raycast/2026-07-10.md)
+- [v1.11.2-pre](./zed-editor/2026-07-10.md)
+- [v2.1.206](./claude-code/2026-07-10.md)
+
 ### 2026-07-09
 
 - [nightly](./zed-editor/2026-07-09.md)
@@ -44,9 +50,3 @@
 ### 2026-07-02
 
 - [nightly: markdown: Make linked images clickable (#59525)](./zed-editor/2026-07-02.md)
-- [v2.1.198](./claude-code/2026-07-02.md)
-
-### 2026-07-01
-
-- [nightly](./zed-editor/2026-07-01.md)
-- [v2.1.197](./claude-code/2026-07-01.md)
