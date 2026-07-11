@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-11
+
+- [v2.1.207](./claude-code/2026-07-11.md)
+
 ### 2026-07-10
 
 - [1.104.22](./raycast/2026-07-10.md)
@@ -46,7 +50,3 @@
 - [1.104.21](./raycast/2026-07-03.md)
 - [nightly: Remove more storybook leftovers (#60337)](./zed-editor/2026-07-03.md)
 - [v2.1.199](./claude-code/2026-07-03.md)
-
-### 2026-07-02
-
-- [nightly: markdown: Make linked images clickable (#59525)](./zed-editor/2026-07-02.md)
