@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-12
+
+- [nightly: gpui: Add container_query element (#60774)](./zed-editor/2026-07-12.md)
+
 ### 2026-07-11
 
 - [v2.1.207](./claude-code/2026-07-11.md)
@@ -49,4 +53,3 @@
 
 - [1.104.21](./raycast/2026-07-03.md)
 - [nightly: Remove more storybook leftovers (#60337)](./zed-editor/2026-07-03.md)
-- [v2.1.199](./claude-code/2026-07-03.md)
