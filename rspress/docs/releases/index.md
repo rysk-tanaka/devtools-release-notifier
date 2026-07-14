@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-14
+
+- [nightly: Recognize deno.lock as JSON (#60679)](./zed-editor/2026-07-14.md)
+- [v2.1.209](./claude-code/2026-07-14.md)
+
 ### 2026-07-13
 
 - [v1.11.3-pre](./zed-editor/2026-07-13.md)
@@ -51,8 +56,3 @@
 ### 2026-07-04
 
 - [nightly: Do not redownload same Nightly updates over and over (#59994)](./zed-editor/2026-07-04.md)
-- [v2.1.201](./claude-code/2026-07-04.md)
-
-### 2026-07-03
-
-- [1.104.21](./raycast/2026-07-03.md)
