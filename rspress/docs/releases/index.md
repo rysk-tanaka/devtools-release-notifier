@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-15
+
+- [nightly](./zed-editor/2026-07-15.md)
+- [v2.1.210](./claude-code/2026-07-15.md)
+
 ### 2026-07-14
 
 - [nightly: Recognize deno.lock as JSON (#60679)](./zed-editor/2026-07-14.md)
@@ -48,11 +53,3 @@
 ### 2026-07-06
 
 - [nightly: acp: Support boolean ACP config options (#60446)](./zed-editor/2026-07-06.md)
-
-### 2026-07-05
-
-- [nightly: Fix agent hyperlinks do not open files (#56283)](./zed-editor/2026-07-05.md)
-
-### 2026-07-04
-
-- [nightly: Do not redownload same Nightly updates over and over (#59994)](./zed-editor/2026-07-04.md)
