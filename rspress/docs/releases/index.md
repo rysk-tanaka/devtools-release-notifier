@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-07-16
+
+- [1.104.23](./raycast/2026-07-16.md)
+- [nightly: Remove the 3rd party section (#61087)](./zed-editor/2026-07-16.md)
+- [v2.1.211](./claude-code/2026-07-16.md)
+
 ### 2026-07-15
 
 - [nightly](./zed-editor/2026-07-15.md)
@@ -44,12 +50,3 @@
 
 - [nightly](./zed-editor/2026-07-09.md)
 - [v2.1.205](./claude-code/2026-07-09.md)
-
-### 2026-07-08
-
-- [nightly: cloud_api_client: Make `send_authenticated_json_request` public (#60562)](./zed-editor/2026-07-08.md)
-- [v2.1.204](./claude-code/2026-07-08.md)
-
-### 2026-07-06
-
-- [nightly: acp: Support boolean ACP config options (#60446)](./zed-editor/2026-07-06.md)
