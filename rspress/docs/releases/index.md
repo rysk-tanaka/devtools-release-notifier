@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-18
+
+- [nightly: lsp: Set workspace folder names (#60938)](./zed-editor/2026-07-18.md)
+- [v2.1.214](./claude-code/2026-07-18.md)
+
 ### 2026-07-17
 
 - [nightly](./zed-editor/2026-07-17.md)
@@ -47,6 +52,4 @@
 
 ### 2026-07-10
 
-- [1.104.22](./raycast/2026-07-10.md)
 - [v1.11.2-pre](./zed-editor/2026-07-10.md)
-- [v2.1.206](./claude-code/2026-07-10.md)
