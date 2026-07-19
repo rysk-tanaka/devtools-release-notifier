@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-19
+
+- [nightly: Reduce overdraw for border-only quads (#61274)](./zed-editor/2026-07-19.md)
+- [v2.1.215](./claude-code/2026-07-19.md)
+
 ### 2026-07-18
 
 - [nightly: lsp: Set workspace folder names (#60938)](./zed-editor/2026-07-18.md)
@@ -45,11 +50,3 @@
 ### 2026-07-12
 
 - [nightly: gpui: Add container_query element (#60774)](./zed-editor/2026-07-12.md)
-
-### 2026-07-11
-
-- [v2.1.207](./claude-code/2026-07-11.md)
-
-### 2026-07-10
-
-- [v1.11.2-pre](./zed-editor/2026-07-10.md)
