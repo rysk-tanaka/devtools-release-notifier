@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-20
+
+- [nightly](./zed-editor/2026-07-20.md)
+
 ### 2026-07-19
 
 - [nightly: Reduce overdraw for border-only quads (#61274)](./zed-editor/2026-07-19.md)
@@ -46,7 +50,3 @@
 ### 2026-07-13
 
 - [v1.11.3-pre](./zed-editor/2026-07-13.md)
-
-### 2026-07-12
-
-- [nightly: gpui: Add container_query element (#60774)](./zed-editor/2026-07-12.md)
