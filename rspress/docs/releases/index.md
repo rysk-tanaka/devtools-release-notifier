@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-21
+
+- [v2.1.216](./claude-code/2026-07-21.md)
+
 ### 2026-07-20
 
 - [nightly](./zed-editor/2026-07-20.md)
@@ -46,7 +50,3 @@
 
 - [nightly: Recognize deno.lock as JSON (#60679)](./zed-editor/2026-07-14.md)
 - [v2.1.209](./claude-code/2026-07-14.md)
-
-### 2026-07-13
-
-- [v1.11.3-pre](./zed-editor/2026-07-13.md)
