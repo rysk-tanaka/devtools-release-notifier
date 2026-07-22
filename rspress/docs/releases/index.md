@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-22
+
+- [nightly: Fix git file context menu focus issue (#61339)](./zed-editor/2026-07-22.md)
+- [v2.1.217](./claude-code/2026-07-22.md)
+
 ### 2026-07-21
 
 - [v2.1.216](./claude-code/2026-07-21.md)
@@ -45,8 +50,3 @@
 
 - [nightly](./zed-editor/2026-07-15.md)
 - [v2.1.210](./claude-code/2026-07-15.md)
-
-### 2026-07-14
-
-- [nightly: Recognize deno.lock as JSON (#60679)](./zed-editor/2026-07-14.md)
-- [v2.1.209](./claude-code/2026-07-14.md)

@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-07-20T10:58:14.309814+00:00"
+  "version": "nightly: Fix git file context menu focus issue (#61339)",
+  "timestamp": "2026-07-22T10:40:48.959268+00:00"
 }
