@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix git file context menu focus issue (#61339)",
-  "timestamp": "2026-07-22T10:40:48.959268+00:00"
+  "version": "nightly: language: Fix JSON rainbow bracket colors across chunks (#60741)",
+  "timestamp": "2026-07-23T10:41:44.218897+00:00"
 }

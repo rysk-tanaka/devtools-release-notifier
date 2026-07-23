@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-23
+
+- [nightly: language: Fix JSON rainbow bracket colors across chunks (#60741)](./zed-editor/2026-07-23.md)
+- [v2.1.218](./claude-code/2026-07-23.md)
+
 ### 2026-07-22
 
 - [nightly: Fix git file context menu focus issue (#61339)](./zed-editor/2026-07-22.md)
@@ -45,8 +50,3 @@
 - [1.104.23](./raycast/2026-07-16.md)
 - [nightly: Remove the 3rd party section (#61087)](./zed-editor/2026-07-16.md)
 - [v2.1.211](./claude-code/2026-07-16.md)
-
-### 2026-07-15
-
-- [nightly](./zed-editor/2026-07-15.md)
-- [v2.1.210](./claude-code/2026-07-15.md)
