@@ -1,4 +1,4 @@
 {
-  "version": "nightly: language: Fix JSON rainbow bracket colors across chunks (#60741)",
-  "timestamp": "2026-07-23T10:41:44.218897+00:00"
+  "version": "nightly: Properly replace hints per each chunk (#61562)",
+  "timestamp": "2026-07-24T10:37:52.446489+00:00"
 }

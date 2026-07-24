@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-24
+
+- [nightly: Properly replace hints per each chunk (#61562)](./zed-editor/2026-07-24.md)
+
 ### 2026-07-23
 
 - [nightly: language: Fix JSON rainbow bracket colors across chunks (#60741)](./zed-editor/2026-07-23.md)
@@ -49,4 +53,3 @@
 
 - [1.104.23](./raycast/2026-07-16.md)
 - [nightly: Remove the 3rd party section (#61087)](./zed-editor/2026-07-16.md)
-- [v2.1.211](./claude-code/2026-07-16.md)
