@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-07-25
+
+- [nightly: collab: Fix multiworkspace location out of sync bugs (#61598)](./zed-editor/2026-07-25.md)
+- [v2.1.220](./claude-code/2026-07-25.md)
+
 ### 2026-07-24
 
 - [nightly: Properly replace hints per each chunk (#61562)](./zed-editor/2026-07-24.md)
@@ -48,8 +53,3 @@
 
 - [nightly](./zed-editor/2026-07-17.md)
 - [v2.1.212](./claude-code/2026-07-17.md)
-
-### 2026-07-16
-
-- [1.104.23](./raycast/2026-07-16.md)
-- [nightly: Remove the 3rd party section (#61087)](./zed-editor/2026-07-16.md)
