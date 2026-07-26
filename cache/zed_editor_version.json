@@ -1,4 +1,4 @@
 {
-  "version": "nightly: collab: Fix multiworkspace location out of sync bugs (#61598)",
-  "timestamp": "2026-07-25T10:28:44.921475+00:00"
+  "version": "nightly: gpui: Fix dropped frames when scrolling an unfocused window (#61600)",
+  "timestamp": "2026-07-26T10:30:40.557432+00:00"
 }

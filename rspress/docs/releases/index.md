@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-26
+
+- [nightly: gpui: Fix dropped frames when scrolling an unfocused window (#61600)](./zed-editor/2026-07-26.md)
+
 ### 2026-07-25
 
 - [nightly: collab: Fix multiworkspace location out of sync bugs (#61598)](./zed-editor/2026-07-25.md)
@@ -52,4 +56,3 @@
 ### 2026-07-17
 
 - [nightly](./zed-editor/2026-07-17.md)
-- [v2.1.212](./claude-code/2026-07-17.md)
