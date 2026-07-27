@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui: Fix dropped frames when scrolling an unfocused window (#61600)",
-  "timestamp": "2026-07-26T10:30:40.557432+00:00"
+  "version": "nightly: Fix typo in .rules (#61693)",
+  "timestamp": "2026-07-27T11:00:55.041674+00:00"
 }

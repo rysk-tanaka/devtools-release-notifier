@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-27
+
+- [nightly: Fix typo in .rules (#61693)](./zed-editor/2026-07-27.md)
+
 ### 2026-07-26
 
 - [nightly: gpui: Fix dropped frames when scrolling an unfocused window (#61600)](./zed-editor/2026-07-26.md)
@@ -52,7 +56,3 @@
 
 - [nightly: lsp: Set workspace folder names (#60938)](./zed-editor/2026-07-18.md)
 - [v2.1.214](./claude-code/2026-07-18.md)
-
-### 2026-07-17
-
-- [nightly](./zed-editor/2026-07-17.md)
