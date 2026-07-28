@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-28
+
+- [nightly: Match the macOS app appearance to the selected theme (#58902)](./zed-editor/2026-07-28.md)
+
 ### 2026-07-27
 
 - [nightly: Fix typo in .rules (#61693)](./zed-editor/2026-07-27.md)
@@ -55,4 +59,3 @@
 ### 2026-07-18
 
 - [nightly: lsp: Set workspace folder names (#60938)](./zed-editor/2026-07-18.md)
-- [v2.1.214](./claude-code/2026-07-18.md)
