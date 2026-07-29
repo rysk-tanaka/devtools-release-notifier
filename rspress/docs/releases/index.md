@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-29
+
+- [nightly](./zed-editor/2026-07-29.md)
+
 ### 2026-07-28
 
 - [nightly: Match the macOS app appearance to the selected theme (#58902)](./zed-editor/2026-07-28.md)
@@ -55,7 +59,3 @@
 
 - [nightly: Reduce overdraw for border-only quads (#61274)](./zed-editor/2026-07-19.md)
 - [v2.1.215](./claude-code/2026-07-19.md)
-
-### 2026-07-18
-
-- [nightly: lsp: Set workspace folder names (#60938)](./zed-editor/2026-07-18.md)
