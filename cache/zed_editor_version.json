@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-07-29T10:50:15.828773+00:00"
+  "version": "nightly: Do not drop other servers' data on semantic token refresh (#61795)",
+  "timestamp": "2026-07-30T10:40:35.569711+00:00"
 }
