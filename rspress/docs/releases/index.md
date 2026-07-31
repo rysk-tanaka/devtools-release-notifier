@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-07-31
+
+- [nightly](./zed-editor/2026-07-31.md)
+
 ### 2026-07-30
 
 - [nightly: Do not drop other servers' data on semantic token refresh (#61795)](./zed-editor/2026-07-30.md)
@@ -58,7 +62,3 @@
 ### 2026-07-20
 
 - [nightly](./zed-editor/2026-07-20.md)
-
-### 2026-07-19
-
-- [nightly: Reduce overdraw for border-only quads (#61274)](./zed-editor/2026-07-19.md)
