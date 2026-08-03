@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-08-03
+
+- [nightly: editor: Add configurable git gutter width setting (#61304)](./zed-editor/2026-08-03.md)
+
 ### 2026-08-01
 
 - [1.104.24](./raycast/2026-08-01.md)
@@ -58,7 +62,3 @@
 
 - [nightly: Fix git file context menu focus issue (#61339)](./zed-editor/2026-07-22.md)
 - [v2.1.217](./claude-code/2026-07-22.md)
-
-### 2026-07-21
-
-- [v2.1.216](./claude-code/2026-07-21.md)
