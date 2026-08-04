@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-04
+
+- [nightly: Remote: Stream remote server into WSL on /mnt copy failure (#57624)](./zed-editor/2026-08-04.md)
+- [v2.1.221](./claude-code/2026-08-04.md)
+
 ### 2026-08-03
 
 - [nightly: editor: Add configurable git gutter width setting (#61304)](./zed-editor/2026-08-03.md)
@@ -57,8 +62,3 @@
 
 - [nightly: language: Fix JSON rainbow bracket colors across chunks (#60741)](./zed-editor/2026-07-23.md)
 - [v2.1.218](./claude-code/2026-07-23.md)
-
-### 2026-07-22
-
-- [nightly: Fix git file context menu focus issue (#61339)](./zed-editor/2026-07-22.md)
-- [v2.1.217](./claude-code/2026-07-22.md)
