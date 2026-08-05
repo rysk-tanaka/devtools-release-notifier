@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Remote: Stream remote server into WSL on /mnt copy failure (#57624)",
-  "timestamp": "2026-08-04T10:51:03.828743+00:00"
+  "version": "nightly: util: Fix stdin redirect for ShellBuilder (#62078)",
+  "timestamp": "2026-08-05T10:48:13.952426+00:00"
 }

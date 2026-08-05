@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-05
+
+- [nightly: util: Fix stdin redirect for ShellBuilder (#62078)](./zed-editor/2026-08-05.md)
+- [v2.1.222](./claude-code/2026-08-05.md)
+
 ### 2026-08-04
 
 - [nightly: Remote: Stream remote server into WSL on /mnt copy failure (#57624)](./zed-editor/2026-08-04.md)
@@ -57,8 +62,3 @@
 ### 2026-07-24
 
 - [nightly: Properly replace hints per each chunk (#61562)](./zed-editor/2026-07-24.md)
-
-### 2026-07-23
-
-- [nightly: language: Fix JSON rainbow bracket colors across chunks (#60741)](./zed-editor/2026-07-23.md)
-- [v2.1.218](./claude-code/2026-07-23.md)
