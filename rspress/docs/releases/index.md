@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-06
+
+- [nightly: git_panel: Fix focus navigation across Changes and History (#62215)](./zed-editor/2026-08-06.md)
+- [v2.1.223](./claude-code/2026-08-06.md)
+
 ### 2026-08-05
 
 - [nightly: util: Fix stdin redirect for ShellBuilder (#62078)](./zed-editor/2026-08-05.md)
@@ -57,8 +62,3 @@
 ### 2026-07-25
 
 - [nightly: collab: Fix multiworkspace location out of sync bugs (#61598)](./zed-editor/2026-07-25.md)
-- [v2.1.220](./claude-code/2026-07-25.md)
-
-### 2026-07-24
-
-- [nightly: Properly replace hints per each chunk (#61562)](./zed-editor/2026-07-24.md)

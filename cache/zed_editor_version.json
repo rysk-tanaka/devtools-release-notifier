@@ -1,4 +1,4 @@
 {
-  "version": "nightly: util: Fix stdin redirect for ShellBuilder (#62078)",
-  "timestamp": "2026-08-05T10:48:13.952426+00:00"
+  "version": "nightly: git_panel: Fix focus navigation across Changes and History (#62215)",
+  "timestamp": "2026-08-06T10:50:07.457917+00:00"
 }
