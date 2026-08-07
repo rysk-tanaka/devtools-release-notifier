@@ -1,4 +1,4 @@
 {
-  "version": "nightly: git_panel: Fix focus navigation across Changes and History (#62215)",
-  "timestamp": "2026-08-06T10:50:07.457917+00:00"
+  "version": "nightly: ui: Add configurable scrollbar reveal behavior (#62282)",
+  "timestamp": "2026-08-07T10:16:34.262304+00:00"
 }

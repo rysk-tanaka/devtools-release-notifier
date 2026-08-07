@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-07
+
+- [nightly: ui: Add configurable scrollbar reveal behavior (#62282)](./zed-editor/2026-08-07.md)
+- [v2.1.224](./claude-code/2026-08-07.md)
+
 ### 2026-08-06
 
 - [nightly: git_panel: Fix focus navigation across Changes and History (#62215)](./zed-editor/2026-08-06.md)
@@ -54,11 +59,3 @@
 ### 2026-07-27
 
 - [nightly: Fix typo in .rules (#61693)](./zed-editor/2026-07-27.md)
-
-### 2026-07-26
-
-- [nightly: gpui: Fix dropped frames when scrolling an unfocused window (#61600)](./zed-editor/2026-07-26.md)
-
-### 2026-07-25
-
-- [nightly: collab: Fix multiworkspace location out of sync bugs (#61598)](./zed-editor/2026-07-25.md)
