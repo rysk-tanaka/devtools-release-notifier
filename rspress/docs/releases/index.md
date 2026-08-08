@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-08
+
+- [nightly: gpui: Reconcile hover listeners after layout changes (#62335)](./zed-editor/2026-08-08.md)
+- [v2.1.226](./claude-code/2026-08-08.md)
+
 ### 2026-08-07
 
 - [nightly: ui: Add configurable scrollbar reveal behavior (#62282)](./zed-editor/2026-08-07.md)
@@ -51,11 +56,3 @@
 ### 2026-07-29
 
 - [nightly](./zed-editor/2026-07-29.md)
-
-### 2026-07-28
-
-- [nightly: Match the macOS app appearance to the selected theme (#58902)](./zed-editor/2026-07-28.md)
-
-### 2026-07-27
-
-- [nightly: Fix typo in .rules (#61693)](./zed-editor/2026-07-27.md)

@@ -1,4 +1,4 @@
 {
-  "version": "nightly: ui: Add configurable scrollbar reveal behavior (#62282)",
-  "timestamp": "2026-08-07T10:16:34.262304+00:00"
+  "version": "nightly: gpui: Reconcile hover listeners after layout changes (#62335)",
+  "timestamp": "2026-08-08T10:06:59.196235+00:00"
 }
