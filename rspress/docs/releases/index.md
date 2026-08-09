@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-08-09
+
+- [nightly: Add starts_open setting to terminal panel (#54373)](./zed-editor/2026-08-09.md)
+
 ### 2026-08-08
 
 - [nightly: gpui: Reconcile hover listeners after layout changes (#62335)](./zed-editor/2026-08-08.md)
@@ -52,7 +56,3 @@
 ### 2026-07-30
 
 - [nightly: Do not drop other servers' data on semantic token refresh (#61795)](./zed-editor/2026-07-30.md)
-
-### 2026-07-29
-
-- [nightly](./zed-editor/2026-07-29.md)
