@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-11
+
+- [nightly: Add optional message support to git stash (#62439)](./zed-editor/2026-08-11.md)
+- [v2.1.227](./claude-code/2026-08-11.md)
+
 ### 2026-08-10
 
 - [nightly](./zed-editor/2026-08-10.md)
@@ -48,11 +53,3 @@
 ### 2026-08-03
 
 - [nightly: editor: Add configurable git gutter width setting (#61304)](./zed-editor/2026-08-03.md)
-
-### 2026-08-01
-
-- [1.104.24](./raycast/2026-08-01.md)
-
-### 2026-07-31
-
-- [nightly](./zed-editor/2026-07-31.md)
