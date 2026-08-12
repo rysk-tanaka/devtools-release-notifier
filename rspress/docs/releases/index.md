@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-12
+
+- [proto-v0.3.3: proto: Bump to v0.3.3 (#62396)](./zed-editor/2026-08-12.md)
+- [v2.1.228](./claude-code/2026-08-12.md)
+
 ### 2026-08-11
 
 - [nightly: Add optional message support to git stash (#62439)](./zed-editor/2026-08-11.md)
@@ -48,8 +53,3 @@
 ### 2026-08-04
 
 - [nightly: Remote: Stream remote server into WSL on /mnt copy failure (#57624)](./zed-editor/2026-08-04.md)
-- [v2.1.221](./claude-code/2026-08-04.md)
-
-### 2026-08-03
-
-- [nightly: editor: Add configurable git gutter width setting (#61304)](./zed-editor/2026-08-03.md)
