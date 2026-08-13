@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-13
+
+- [nightly: Pass routing headers to ChatGPT subscription API (#62556)](./zed-editor/2026-08-13.md)
+- [v2.1.231](./claude-code/2026-08-13.md)
+
 ### 2026-08-12
 
 - [proto-v0.3.3: proto: Bump to v0.3.3 (#62396)](./zed-editor/2026-08-12.md)
@@ -47,9 +52,4 @@
 
 ### 2026-08-05
 
-- [nightly: util: Fix stdin redirect for ShellBuilder (#62078)](./zed-editor/2026-08-05.md)
 - [v2.1.222](./claude-code/2026-08-05.md)
-
-### 2026-08-04
-
-- [nightly: Remote: Stream remote server into WSL on /mnt copy failure (#57624)](./zed-editor/2026-08-04.md)
