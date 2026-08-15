@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-15
+
+- [nightly: acp: Poll the client connection future on a dedicated thread (#62259)](./zed-editor/2026-08-15.md)
+- [v2.1.233](./claude-code/2026-08-15.md)
+
 ### 2026-08-13
 
 - [nightly: Pass routing headers to ChatGPT subscription API (#62556)](./zed-editor/2026-08-13.md)
@@ -47,9 +52,4 @@
 
 ### 2026-08-06
 
-- [nightly: git_panel: Fix focus navigation across Changes and History (#62215)](./zed-editor/2026-08-06.md)
 - [v2.1.223](./claude-code/2026-08-06.md)
-
-### 2026-08-05
-
-- [v2.1.222](./claude-code/2026-08-05.md)
