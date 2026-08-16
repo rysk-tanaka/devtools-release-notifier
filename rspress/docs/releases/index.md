@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-08-16
+
+- [nightly](./zed-editor/2026-08-16.md)
+
 ### 2026-08-15
 
 - [nightly: acp: Poll the client connection future on a dedicated thread (#62259)](./zed-editor/2026-08-15.md)
@@ -49,7 +53,3 @@
 
 - [nightly: ui: Add configurable scrollbar reveal behavior (#62282)](./zed-editor/2026-08-07.md)
 - [v2.1.224](./claude-code/2026-08-07.md)
-
-### 2026-08-06
-
-- [v2.1.223](./claude-code/2026-08-06.md)

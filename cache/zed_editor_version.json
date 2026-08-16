@@ -1,4 +1,4 @@
 {
-  "version": "nightly: acp: Poll the client connection future on a dedicated thread (#62259)",
-  "timestamp": "2026-08-15T10:02:46.332013+00:00"
+  "version": "nightly",
+  "timestamp": "2026-08-16T10:02:57.550208+00:00"
 }
