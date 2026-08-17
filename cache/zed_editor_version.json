@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-08-16T10:02:57.550208+00:00"
+  "version": "nightly: anthropic: Preserve request context during explicit compaction (#62745)",
+  "timestamp": "2026-08-17T10:08:32.893492+00:00"
 }

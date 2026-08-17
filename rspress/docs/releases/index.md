@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-08-17
+
+- [nightly: anthropic: Preserve request context during explicit compaction (#62745)](./zed-editor/2026-08-17.md)
+
 ### 2026-08-16
 
 - [nightly](./zed-editor/2026-08-16.md)
@@ -51,5 +55,4 @@
 
 ### 2026-08-07
 
-- [nightly: ui: Add configurable scrollbar reveal behavior (#62282)](./zed-editor/2026-08-07.md)
 - [v2.1.224](./claude-code/2026-08-07.md)
