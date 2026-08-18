@@ -1,4 +1,4 @@
 {
-  "version": "nightly: anthropic: Preserve request context during explicit compaction (#62745)",
-  "timestamp": "2026-08-17T10:08:32.893492+00:00"
+  "version": "nightly: task: Support `path` property on VS Code npm tasks (#62044)",
+  "timestamp": "2026-08-18T10:05:01.338420+00:00"
 }

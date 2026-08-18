@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-18
+
+- [nightly: task: Support `path` property on VS Code npm tasks (#62044)](./zed-editor/2026-08-18.md)
+- [v2.1.234](./claude-code/2026-08-18.md)
+
 ### 2026-08-17
 
 - [nightly: anthropic: Preserve request context during explicit compaction (#62745)](./zed-editor/2026-08-17.md)
@@ -50,9 +55,4 @@
 
 ### 2026-08-08
 
-- [nightly: gpui: Reconcile hover listeners after layout changes (#62335)](./zed-editor/2026-08-08.md)
 - [v2.1.226](./claude-code/2026-08-08.md)
-
-### 2026-08-07
-
-- [v2.1.224](./claude-code/2026-08-07.md)
