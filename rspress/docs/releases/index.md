@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-08-19
+
+- [1.104.25](./raycast/2026-08-19.md)
+- [nightly: Restart interrupted update downloads after system wake (#60366)](./zed-editor/2026-08-19.md)
+- [v2.1.235](./claude-code/2026-08-19.md)
+
 ### 2026-08-18
 
 - [nightly: task: Support `path` property on VS Code npm tasks (#62044)](./zed-editor/2026-08-18.md)
@@ -44,15 +50,3 @@
 
 - [nightly: Add optional message support to git stash (#62439)](./zed-editor/2026-08-11.md)
 - [v2.1.227](./claude-code/2026-08-11.md)
-
-### 2026-08-10
-
-- [nightly](./zed-editor/2026-08-10.md)
-
-### 2026-08-09
-
-- [nightly: Add starts_open setting to terminal panel (#54373)](./zed-editor/2026-08-09.md)
-
-### 2026-08-08
-
-- [v2.1.226](./claude-code/2026-08-08.md)

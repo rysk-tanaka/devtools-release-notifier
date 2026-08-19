@@ -1,4 +1,4 @@
 {
-  "version": "nightly: task: Support `path` property on VS Code npm tasks (#62044)",
-  "timestamp": "2026-08-18T10:05:01.338420+00:00"
+  "version": "nightly: Restart interrupted update downloads after system wake (#60366)",
+  "timestamp": "2026-08-19T10:05:12.376028+00:00"
 }
