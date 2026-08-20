@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Restart interrupted update downloads after system wake (#60366)",
-  "timestamp": "2026-08-19T10:05:12.376028+00:00"
+  "version": "nightly: worktree: Yield during large file decoding (#62831)",
+  "timestamp": "2026-08-20T10:06:07.471905+00:00"
 }

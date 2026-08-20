@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-20
+
+- [nightly: worktree: Yield during large file decoding (#62831)](./zed-editor/2026-08-20.md)
+- [v2.1.237](./claude-code/2026-08-20.md)
+
 ### 2026-08-19
 
 - [1.104.25](./raycast/2026-08-19.md)
@@ -45,8 +50,3 @@
 
 - [proto-v0.3.3: proto: Bump to v0.3.3 (#62396)](./zed-editor/2026-08-12.md)
 - [v2.1.228](./claude-code/2026-08-12.md)
-
-### 2026-08-11
-
-- [nightly: Add optional message support to git stash (#62439)](./zed-editor/2026-08-11.md)
-- [v2.1.227](./claude-code/2026-08-11.md)
