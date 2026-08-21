@@ -1,4 +1,4 @@
 {
-  "version": "nightly: worktree: Yield during large file decoding (#62831)",
-  "timestamp": "2026-08-20T10:06:07.471905+00:00"
+  "version": "nightly: Automate cleanup of unsigned and stale draft pull requests (#62936)",
+  "timestamp": "2026-08-21T10:06:18.845469+00:00"
 }

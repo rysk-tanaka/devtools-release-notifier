@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-21
+
+- [nightly: Automate cleanup of unsigned and stale draft pull requests (#62936)](./zed-editor/2026-08-21.md)
+- [v2.1.238](./claude-code/2026-08-21.md)
+
 ### 2026-08-20
 
 - [nightly: worktree: Yield during large file decoding (#62831)](./zed-editor/2026-08-20.md)
@@ -45,8 +50,3 @@
 
 - [nightly: Pass routing headers to ChatGPT subscription API (#62556)](./zed-editor/2026-08-13.md)
 - [v2.1.231](./claude-code/2026-08-13.md)
-
-### 2026-08-12
-
-- [proto-v0.3.3: proto: Bump to v0.3.3 (#62396)](./zed-editor/2026-08-12.md)
-- [v2.1.228](./claude-code/2026-08-12.md)
