@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-08-22
+
+- [2.0.5.0](./raycast/2026-08-22.md)
+- [nightly: git_hosting_providers: Add Tangled support (#63051)](./zed-editor/2026-08-22.md)
+- [v2.1.239](./claude-code/2026-08-22.md)
+
 ### 2026-08-21
 
 - [nightly: Automate cleanup of unsigned and stale draft pull requests (#62936)](./zed-editor/2026-08-21.md)
@@ -43,10 +49,4 @@
 
 ### 2026-08-15
 
-- [nightly: acp: Poll the client connection future on a dedicated thread (#62259)](./zed-editor/2026-08-15.md)
 - [v2.1.233](./claude-code/2026-08-15.md)
-
-### 2026-08-13
-
-- [nightly: Pass routing headers to ChatGPT subscription API (#62556)](./zed-editor/2026-08-13.md)
-- [v2.1.231](./claude-code/2026-08-13.md)
