@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-23
+
+- [nightly: gpui_linux: Release X11 client state before close callback (#63089)](./zed-editor/2026-08-23.md)
+- [v2.1.241](./claude-code/2026-08-23.md)
+
 ### 2026-08-22
 
 - [2.0.5.0](./raycast/2026-08-22.md)
@@ -42,11 +47,3 @@
 ### 2026-08-17
 
 - [nightly: anthropic: Preserve request context during explicit compaction (#62745)](./zed-editor/2026-08-17.md)
-
-### 2026-08-16
-
-- [nightly](./zed-editor/2026-08-16.md)
-
-### 2026-08-15
-
-- [v2.1.233](./claude-code/2026-08-15.md)

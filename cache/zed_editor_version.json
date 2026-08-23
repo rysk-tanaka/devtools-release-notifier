@@ -1,4 +1,4 @@
 {
-  "version": "nightly: git_hosting_providers: Add Tangled support (#63051)",
-  "timestamp": "2026-08-22T10:02:57.502043+00:00"
+  "version": "nightly: gpui_linux: Release X11 client state before close callback (#63089)",
+  "timestamp": "2026-08-23T10:03:07.808593+00:00"
 }
