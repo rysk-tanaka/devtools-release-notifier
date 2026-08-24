@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui_linux: Release X11 client state before close callback (#63089)",
-  "timestamp": "2026-08-23T10:03:07.808593+00:00"
+  "version": "nightly: Make slang-server the default lsp for verilog (#60999)",
+  "timestamp": "2026-08-24T10:12:24.337333+00:00"
 }

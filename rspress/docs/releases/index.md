@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-08-24
+
+- [nightly: Make slang-server the default lsp for verilog (#60999)](./zed-editor/2026-08-24.md)
+
 ### 2026-08-23
 
 - [nightly: gpui_linux: Release X11 client state before close callback (#63089)](./zed-editor/2026-08-23.md)
@@ -43,7 +47,3 @@
 
 - [nightly: task: Support `path` property on VS Code npm tasks (#62044)](./zed-editor/2026-08-18.md)
 - [v2.1.234](./claude-code/2026-08-18.md)
-
-### 2026-08-17
-
-- [nightly: anthropic: Preserve request context during explicit compaction (#62745)](./zed-editor/2026-08-17.md)
