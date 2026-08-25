@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-25
+
+- [v1.17.2-pre](./zed-editor/2026-08-25.md)
+- [v2.1.245](./claude-code/2026-08-25.md)
+
 ### 2026-08-24
 
 - [nightly: Make slang-server the default lsp for verilog (#60999)](./zed-editor/2026-08-24.md)
@@ -42,8 +47,3 @@
 - [1.104.25](./raycast/2026-08-19.md)
 - [nightly: Restart interrupted update downloads after system wake (#60366)](./zed-editor/2026-08-19.md)
 - [v2.1.235](./claude-code/2026-08-19.md)
-
-### 2026-08-18
-
-- [nightly: task: Support `path` property on VS Code npm tasks (#62044)](./zed-editor/2026-08-18.md)
-- [v2.1.234](./claude-code/2026-08-18.md)
