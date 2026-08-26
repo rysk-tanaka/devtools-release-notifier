@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-08-26
+
+- [2.0.6.0](./raycast/2026-08-26.md)
+- [nightly: x_ai: Add Grok 4.5 and Grok 4.6 models (#63234)](./zed-editor/2026-08-26.md)
+- [v2.1.246](./claude-code/2026-08-26.md)
+
 ### 2026-08-25
 
 - [v1.17.2-pre](./zed-editor/2026-08-25.md)
@@ -41,9 +47,3 @@
 
 - [nightly: worktree: Yield during large file decoding (#62831)](./zed-editor/2026-08-20.md)
 - [v2.1.237](./claude-code/2026-08-20.md)
-
-### 2026-08-19
-
-- [1.104.25](./raycast/2026-08-19.md)
-- [nightly: Restart interrupted update downloads after system wake (#60366)](./zed-editor/2026-08-19.md)
-- [v2.1.235](./claude-code/2026-08-19.md)
