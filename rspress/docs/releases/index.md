@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-08-27
+
+- [2.1.0.0](./raycast/2026-08-27.md)
+- [nightly: gpui: Add text_edit_editable_range API (#63294)](./zed-editor/2026-08-27.md)
+- [v2.1.247](./claude-code/2026-08-27.md)
+
 ### 2026-08-26
 
 - [2.0.6.0](./raycast/2026-08-26.md)
@@ -40,10 +46,4 @@
 
 ### 2026-08-21
 
-- [nightly: Automate cleanup of unsigned and stale draft pull requests (#62936)](./zed-editor/2026-08-21.md)
 - [v2.1.238](./claude-code/2026-08-21.md)
-
-### 2026-08-20
-
-- [nightly: worktree: Yield during large file decoding (#62831)](./zed-editor/2026-08-20.md)
-- [v2.1.237](./claude-code/2026-08-20.md)
