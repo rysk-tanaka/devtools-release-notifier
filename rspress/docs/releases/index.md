@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-08-28
+
+- [nightly: git_ui_core: Fix worktree creation for bare repositories (#63351)](./zed-editor/2026-08-28.md)
+- [v2.1.250](./claude-code/2026-08-28.md)
+
 ### 2026-08-27
 
 - [2.1.0.0](./raycast/2026-08-27.md)
@@ -40,10 +45,5 @@
 
 ### 2026-08-22
 
-- [2.0.5.0](./raycast/2026-08-22.md)
 - [nightly: git_hosting_providers: Add Tangled support (#63051)](./zed-editor/2026-08-22.md)
 - [v2.1.239](./claude-code/2026-08-22.md)
-
-### 2026-08-21
-
-- [v2.1.238](./claude-code/2026-08-21.md)
