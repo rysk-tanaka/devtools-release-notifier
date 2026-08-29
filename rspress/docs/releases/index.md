@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-08-29
+
+- [2.1.2.0](./raycast/2026-08-29.md)
+- [nightly: Show last recently used commands on top of the picker's list (#63388)](./zed-editor/2026-08-29.md)
+- [v2.1.251](./claude-code/2026-08-29.md)
+
 ### 2026-08-28
 
 - [nightly: git_ui_core: Fix worktree creation for bare repositories (#63351)](./zed-editor/2026-08-28.md)
@@ -40,10 +46,4 @@
 
 ### 2026-08-23
 
-- [nightly: gpui_linux: Release X11 client state before close callback (#63089)](./zed-editor/2026-08-23.md)
 - [v2.1.241](./claude-code/2026-08-23.md)
-
-### 2026-08-22
-
-- [nightly: git_hosting_providers: Add Tangled support (#63051)](./zed-editor/2026-08-22.md)
-- [v2.1.239](./claude-code/2026-08-22.md)
