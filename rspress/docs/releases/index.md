@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-08-30
+
+- [nightly: Reduce LLVM IR bloat in closure funnels (#63426)](./zed-editor/2026-08-30.md)
+
 ### 2026-08-29
 
 - [2.1.2.0](./raycast/2026-08-29.md)
@@ -43,7 +47,3 @@
 ### 2026-08-24
 
 - [nightly: Make slang-server the default lsp for verilog (#60999)](./zed-editor/2026-08-24.md)
-
-### 2026-08-23
-
-- [v2.1.241](./claude-code/2026-08-23.md)

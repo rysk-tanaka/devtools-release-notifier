@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Show last recently used commands on top of the picker's list (#63388)",
-  "timestamp": "2026-08-29T10:01:54.995524+00:00"
+  "version": "nightly: Reduce LLVM IR bloat in closure funnels (#63426)",
+  "timestamp": "2026-08-30T10:02:08.849143+00:00"
 }
