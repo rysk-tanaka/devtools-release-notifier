@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-08-31
+
+- [nightly: project: Underline diagnostics reported past the end of a line (#63125)](./zed-editor/2026-08-31.md)
+
 ### 2026-08-30
 
 - [nightly: Reduce LLVM IR bloat in closure funnels (#63426)](./zed-editor/2026-08-30.md)
@@ -43,7 +47,3 @@
 
 - [v1.17.2-pre](./zed-editor/2026-08-25.md)
 - [v2.1.245](./claude-code/2026-08-25.md)
-
-### 2026-08-24
-
-- [nightly: Make slang-server the default lsp for verilog (#60999)](./zed-editor/2026-08-24.md)
