@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-09-01
+
+- [nightly: util: Prevent panic when parsing a malformed shell variable (#63446)](./zed-editor/2026-09-01.md)
+- [v2.1.252](./claude-code/2026-09-01.md)
+
 ### 2026-08-31
 
 - [nightly: project: Underline diagnostics reported past the end of a line (#63125)](./zed-editor/2026-08-31.md)
@@ -42,8 +47,3 @@
 - [2.0.6.0](./raycast/2026-08-26.md)
 - [nightly: x_ai: Add Grok 4.5 and Grok 4.6 models (#63234)](./zed-editor/2026-08-26.md)
 - [v2.1.246](./claude-code/2026-08-26.md)
-
-### 2026-08-25
-
-- [v1.17.2-pre](./zed-editor/2026-08-25.md)
-- [v2.1.245](./claude-code/2026-08-25.md)
