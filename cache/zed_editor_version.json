@@ -1,4 +1,4 @@
 {
-  "version": "nightly: util: Prevent panic when parsing a malformed shell variable (#63446)",
-  "timestamp": "2026-09-01T10:02:29.396084+00:00"
+  "version": "nightly",
+  "timestamp": "2026-09-02T10:02:39.532040+00:00"
 }

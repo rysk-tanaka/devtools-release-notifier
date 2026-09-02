@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-09-02
+
+- [2.1.3.0](./raycast/2026-09-02.md)
+- [nightly](./zed-editor/2026-09-02.md)
+- [v2.1.258](./claude-code/2026-09-02.md)
+
 ### 2026-09-01
 
 - [nightly: util: Prevent panic when parsing a malformed shell variable (#63446)](./zed-editor/2026-09-01.md)
@@ -41,9 +47,3 @@
 - [2.1.0.0](./raycast/2026-08-27.md)
 - [nightly: gpui: Add text_edit_editable_range API (#63294)](./zed-editor/2026-08-27.md)
 - [v2.1.247](./claude-code/2026-08-27.md)
-
-### 2026-08-26
-
-- [2.0.6.0](./raycast/2026-08-26.md)
-- [nightly: x_ai: Add Grok 4.5 and Grok 4.6 models (#63234)](./zed-editor/2026-08-26.md)
-- [v2.1.246](./claude-code/2026-08-26.md)
