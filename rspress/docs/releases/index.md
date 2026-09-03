@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-09-03
+
+- [v1.19.0-pre](./zed-editor/2026-09-03.md)
+- [v2.1.259](./claude-code/2026-09-03.md)
+
 ### 2026-09-02
 
 - [2.1.3.0](./raycast/2026-09-02.md)
@@ -44,6 +49,4 @@
 
 ### 2026-08-27
 
-- [2.1.0.0](./raycast/2026-08-27.md)
-- [nightly: gpui: Add text_edit_editable_range API (#63294)](./zed-editor/2026-08-27.md)
 - [v2.1.247](./claude-code/2026-08-27.md)
