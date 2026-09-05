@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-09-05
+
+- [2.2.0.0](./raycast/2026-09-05.md)
+- [v1.19.1-pre](./zed-editor/2026-09-05.md)
+- [v2.1.261](./claude-code/2026-09-05.md)
+
 ### 2026-09-03
 
 - [v1.19.0-pre](./zed-editor/2026-09-03.md)
@@ -41,12 +47,3 @@
 - [2.1.2.0](./raycast/2026-08-29.md)
 - [nightly: Show last recently used commands on top of the picker's list (#63388)](./zed-editor/2026-08-29.md)
 - [v2.1.251](./claude-code/2026-08-29.md)
-
-### 2026-08-28
-
-- [nightly: git_ui_core: Fix worktree creation for bare repositories (#63351)](./zed-editor/2026-08-28.md)
-- [v2.1.250](./claude-code/2026-08-28.md)
-
-### 2026-08-27
-
-- [v2.1.247](./claude-code/2026-08-27.md)
