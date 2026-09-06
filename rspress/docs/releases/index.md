@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-09-06
+
+- [v2.1.263](./claude-code/2026-09-06.md)
+
 ### 2026-09-05
 
 - [2.2.0.0](./raycast/2026-09-05.md)
@@ -46,4 +50,3 @@
 
 - [2.1.2.0](./raycast/2026-08-29.md)
 - [nightly: Show last recently used commands on top of the picker's list (#63388)](./zed-editor/2026-08-29.md)
-- [v2.1.251](./claude-code/2026-08-29.md)
