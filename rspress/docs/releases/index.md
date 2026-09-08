@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-09-08
+
+- [nightly: debugger: Copy full variable value instead of trimmed preview (#63902)](./zed-editor/2026-09-08.md)
+
 ### 2026-09-07
 
 - [nightly: Add `platform:web` to `community-pr-track-mapping.json` (#63753)](./zed-editor/2026-09-07.md)
@@ -49,7 +53,3 @@
 ### 2026-08-30
 
 - [nightly: Reduce LLVM IR bloat in closure funnels (#63426)](./zed-editor/2026-08-30.md)
-
-### 2026-08-29
-
-- [2.1.2.0](./raycast/2026-08-29.md)
