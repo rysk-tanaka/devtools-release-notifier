@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-09-10
+
+- [nightly: gpui_macos: Migrate `prompt_for_path` to `objc2` (#63994)](./zed-editor/2026-09-10.md)
+- [v2.1.267](./claude-code/2026-09-10.md)
+
 ### 2026-09-09
 
 - [2.2.1.0](./raycast/2026-09-09.md)
@@ -45,8 +50,3 @@
 
 - [2.1.3.0](./raycast/2026-09-02.md)
 - [nightly](./zed-editor/2026-09-02.md)
-- [v2.1.258](./claude-code/2026-09-02.md)
-
-### 2026-09-01
-
-- [nightly: util: Prevent panic when parsing a malformed shell variable (#63446)](./zed-editor/2026-09-01.md)
