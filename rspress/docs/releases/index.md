@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-09-11
+
+- [2.3.0.0](./raycast/2026-09-11.md)
+- [nightly: gpui: Long-press to activate tooltips (#63948)](./zed-editor/2026-09-11.md)
+- [v2.1.268](./claude-code/2026-09-11.md)
+
 ### 2026-09-10
 
 - [nightly: gpui_macos: Migrate `prompt_for_path` to `objc2` (#63994)](./zed-editor/2026-09-10.md)
@@ -44,9 +50,3 @@
 ### 2026-09-03
 
 - [v1.19.0-pre](./zed-editor/2026-09-03.md)
-- [v2.1.259](./claude-code/2026-09-03.md)
-
-### 2026-09-02
-
-- [2.1.3.0](./raycast/2026-09-02.md)
-- [nightly](./zed-editor/2026-09-02.md)
