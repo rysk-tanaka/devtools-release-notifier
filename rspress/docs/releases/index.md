@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-09-12
+
+- [2.3.1.0](./raycast/2026-09-12.md)
+- [nightly: gpui_linux: Avoid local XKB files for server keymaps (#64113)](./zed-editor/2026-09-12.md)
+- [v2.1.269](./claude-code/2026-09-12.md)
+
 ### 2026-09-11
 
 - [2.3.0.0](./raycast/2026-09-11.md)
@@ -44,9 +50,3 @@
 ### 2026-09-05
 
 - [2.2.0.0](./raycast/2026-09-05.md)
-- [v1.19.1-pre](./zed-editor/2026-09-05.md)
-- [v2.1.261](./claude-code/2026-09-05.md)
-
-### 2026-09-03
-
-- [v1.19.0-pre](./zed-editor/2026-09-03.md)
