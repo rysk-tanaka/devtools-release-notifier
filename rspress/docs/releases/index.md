@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-09-13
+
+- [nightly: gpui: Add Canvas font fallback for web text (#64110)](./zed-editor/2026-09-13.md)
+- [v2.1.270](./claude-code/2026-09-13.md)
+
 ### 2026-09-12
 
 - [2.3.1.0](./raycast/2026-09-12.md)
@@ -42,11 +47,3 @@
 ### 2026-09-07
 
 - [nightly: Add `platform:web` to `community-pr-track-mapping.json` (#63753)](./zed-editor/2026-09-07.md)
-
-### 2026-09-06
-
-- [v2.1.263](./claude-code/2026-09-06.md)
-
-### 2026-09-05
-
-- [2.2.0.0](./raycast/2026-09-05.md)

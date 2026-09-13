@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui_linux: Avoid local XKB files for server keymaps (#64113)",
-  "timestamp": "2026-09-12T10:01:51.913489+00:00"
+  "version": "nightly: gpui: Add Canvas font fallback for web text (#64110)",
+  "timestamp": "2026-09-13T10:10:14.416008+00:00"
 }
