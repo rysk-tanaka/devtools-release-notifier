@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui: Add Canvas font fallback for web text (#64110)",
-  "timestamp": "2026-09-13T10:10:14.416008+00:00"
+  "version": "nightly: Drop settings that no longer exist from the reference (#64210)",
+  "timestamp": "2026-09-15T10:02:57.404899+00:00"
 }

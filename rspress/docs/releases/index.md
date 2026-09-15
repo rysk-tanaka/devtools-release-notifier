@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-09-15
+
+- [2.4.1.0](./raycast/2026-09-15.md)
+- [nightly: Drop settings that no longer exist from the reference (#64210)](./zed-editor/2026-09-15.md)
+- [v2.1.272](./claude-code/2026-09-15.md)
+
 ### 2026-09-13
 
 - [nightly: gpui: Add Canvas font fallback for web text (#64110)](./zed-editor/2026-09-13.md)
@@ -38,12 +44,3 @@
 
 - [2.2.1.0](./raycast/2026-09-09.md)
 - [nightly](./zed-editor/2026-09-09.md)
-- [v2.1.266](./claude-code/2026-09-09.md)
-
-### 2026-09-08
-
-- [nightly: debugger: Copy full variable value instead of trimmed preview (#63902)](./zed-editor/2026-09-08.md)
-
-### 2026-09-07
-
-- [nightly: Add `platform:web` to `community-pr-track-mapping.json` (#63753)](./zed-editor/2026-09-07.md)
