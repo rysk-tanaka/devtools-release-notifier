@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-09-16
+
+- [nightly: Document new `git_panel` settings in all-settings reference (#64282)](./zed-editor/2026-09-16.md)
+- [v2.1.273](./claude-code/2026-09-16.md)
+
 ### 2026-09-15
 
 - [2.4.1.0](./raycast/2026-09-15.md)
@@ -39,8 +44,3 @@
 
 - [nightly: gpui_macos: Migrate `prompt_for_path` to `objc2` (#63994)](./zed-editor/2026-09-10.md)
 - [v2.1.267](./claude-code/2026-09-10.md)
-
-### 2026-09-09
-
-- [2.2.1.0](./raycast/2026-09-09.md)
-- [nightly](./zed-editor/2026-09-09.md)

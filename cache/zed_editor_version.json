@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Drop settings that no longer exist from the reference (#64210)",
-  "timestamp": "2026-09-15T10:02:57.404899+00:00"
+  "version": "nightly: Document new `git_panel` settings in all-settings reference (#64282)",
+  "timestamp": "2026-09-16T10:02:37.998734+00:00"
 }
