@@ -1,4 +1,4 @@
 {
-  "version": "v1.20.2",
-  "timestamp": "2026-09-17T10:02:35.405807+00:00"
+  "version": "nightly: gpui: Fix debug selectors with cached views (#64433)",
+  "timestamp": "2026-09-18T10:02:21.011085+00:00"
 }

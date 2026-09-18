@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-09-18
+
+- [nightly: gpui: Fix debug selectors with cached views (#64433)](./zed-editor/2026-09-18.md)
+- [v2.1.276](./claude-code/2026-09-18.md)
+
 ### 2026-09-17
 
 - [v1.20.2](./zed-editor/2026-09-17.md)
@@ -42,5 +47,3 @@
 ### 2026-09-11
 
 - [2.3.0.0](./raycast/2026-09-11.md)
-- [nightly: gpui: Long-press to activate tooltips (#63948)](./zed-editor/2026-09-11.md)
-- [v2.1.268](./claude-code/2026-09-11.md)
