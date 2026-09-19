@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-09-19
+
+- [nightly](./zed-editor/2026-09-19.md)
+- [v2.1.278](./claude-code/2026-09-19.md)
+
 ### 2026-09-18
 
 - [nightly: gpui: Fix debug selectors with cached views (#64433)](./zed-editor/2026-09-18.md)
@@ -42,8 +47,3 @@
 
 - [2.3.1.0](./raycast/2026-09-12.md)
 - [nightly: gpui_linux: Avoid local XKB files for server keymaps (#64113)](./zed-editor/2026-09-12.md)
-- [v2.1.269](./claude-code/2026-09-12.md)
-
-### 2026-09-11
-
-- [2.3.0.0](./raycast/2026-09-11.md)
