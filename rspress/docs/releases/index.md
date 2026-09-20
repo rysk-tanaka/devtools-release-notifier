@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-09-20
+
+- [nightly: Improve internal links across documentation (#64481)](./zed-editor/2026-09-20.md)
+
 ### 2026-09-19
 
 - [nightly](./zed-editor/2026-09-19.md)
@@ -46,4 +50,3 @@
 ### 2026-09-12
 
 - [2.3.1.0](./raycast/2026-09-12.md)
-- [nightly: gpui_linux: Avoid local XKB files for server keymaps (#64113)](./zed-editor/2026-09-12.md)
