@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Improve internal links across documentation (#64481)",
-  "timestamp": "2026-09-20T10:02:43.760080+00:00"
+  "version": "nightly: gpui_util: Respect custom Scoop installation paths (#62473)",
+  "timestamp": "2026-09-21T10:02:41.102039+00:00"
 }
