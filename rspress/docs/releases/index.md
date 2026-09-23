@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-09-23
+
+- [v2.1.280](./claude-code/2026-09-23.md)
+
 ### 2026-09-22
 
 - [nightly](./zed-editor/2026-09-22.md)
@@ -49,7 +53,3 @@
 - [2.4.1.0](./raycast/2026-09-15.md)
 - [nightly: Drop settings that no longer exist from the reference (#64210)](./zed-editor/2026-09-15.md)
 - [v2.1.272](./claude-code/2026-09-15.md)
-
-### 2026-09-13
-
-- [nightly: gpui: Add Canvas font fallback for web text (#64110)](./zed-editor/2026-09-13.md)
