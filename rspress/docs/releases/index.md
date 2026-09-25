@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-09-25
+
+- [2.5.1.0](./raycast/2026-09-25.md)
+- [nightly: cloud_api_client: Update yawc to 0.4.2 (#64728)](./zed-editor/2026-09-25.md)
+- [v2.1.282](./claude-code/2026-09-25.md)
+
 ### 2026-09-24
 
 - [v1.22.0-pre](./zed-editor/2026-09-24.md)
@@ -47,12 +53,3 @@
 
 - [v1.20.2](./zed-editor/2026-09-17.md)
 - [v2.1.274](./claude-code/2026-09-17.md)
-
-### 2026-09-16
-
-- [nightly: Document new `git_panel` settings in all-settings reference (#64282)](./zed-editor/2026-09-16.md)
-- [v2.1.273](./claude-code/2026-09-16.md)
-
-### 2026-09-15
-
-- [v2.1.272](./claude-code/2026-09-15.md)
