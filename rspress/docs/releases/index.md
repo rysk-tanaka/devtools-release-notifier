@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-09-26
+
+- [2.5.2.0](./raycast/2026-09-26.md)
+- [nightly: language_model: Split request methods into LanguageModelClient (#64794)](./zed-editor/2026-09-26.md)
+- [v2.1.283](./claude-code/2026-09-26.md)
+
 ### 2026-09-25
 
 - [2.5.1.0](./raycast/2026-09-25.md)
@@ -46,10 +52,4 @@
 
 ### 2026-09-18
 
-- [nightly: gpui: Fix debug selectors with cached views (#64433)](./zed-editor/2026-09-18.md)
 - [v2.1.276](./claude-code/2026-09-18.md)
-
-### 2026-09-17
-
-- [v1.20.2](./zed-editor/2026-09-17.md)
-- [v2.1.274](./claude-code/2026-09-17.md)
