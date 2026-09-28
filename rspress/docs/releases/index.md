@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-09-28
+
+- [2.5.3.0](./raycast/2026-09-28.md)
+- [nightly: git: Stop remote operations blocking commit views (#64720)](./zed-editor/2026-09-28.md)
+
 ### 2026-09-27
 
 - [nightly](./zed-editor/2026-09-27.md)
@@ -48,8 +53,3 @@
 ### 2026-09-20
 
 - [nightly: Improve internal links across documentation (#64481)](./zed-editor/2026-09-20.md)
-
-### 2026-09-19
-
-- [nightly](./zed-editor/2026-09-19.md)
-- [v2.1.278](./claude-code/2026-09-19.md)
