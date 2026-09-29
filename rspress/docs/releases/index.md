@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-09-29
+
+- [nightly](./zed-editor/2026-09-29.md)
+- [v2.1.284](./claude-code/2026-09-29.md)
+
 ### 2026-09-28
 
 - [2.5.3.0](./raycast/2026-09-28.md)
@@ -45,11 +50,3 @@
 ### 2026-09-22
 
 - [nightly](./zed-editor/2026-09-22.md)
-
-### 2026-09-21
-
-- [nightly: gpui_util: Respect custom Scoop installation paths (#62473)](./zed-editor/2026-09-21.md)
-
-### 2026-09-20
-
-- [nightly: Improve internal links across documentation (#64481)](./zed-editor/2026-09-20.md)
