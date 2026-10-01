@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-10-01
+
+- [2.6.0.0](./raycast/2026-10-01.md)
+- [nightly: Fix selection loss while an agent thread is loading (#64252)](./zed-editor/2026-10-01.md)
+- [v2.1.286](./claude-code/2026-10-01.md)
+
 ### 2026-09-30
 
 - [v2.1.285](./claude-code/2026-09-30.md)
@@ -41,12 +47,3 @@
 - [2.5.1.0](./raycast/2026-09-25.md)
 - [nightly: cloud_api_client: Update yawc to 0.4.2 (#64728)](./zed-editor/2026-09-25.md)
 - [v2.1.282](./claude-code/2026-09-25.md)
-
-### 2026-09-24
-
-- [v1.22.0-pre](./zed-editor/2026-09-24.md)
-- [v2.1.281](./claude-code/2026-09-24.md)
-
-### 2026-09-23
-
-- [v2.1.280](./claude-code/2026-09-23.md)

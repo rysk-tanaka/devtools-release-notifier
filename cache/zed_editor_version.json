@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-09-29T10:02:47.085956+00:00"
+  "version": "nightly: Fix selection loss while an agent thread is loading (#64252)",
+  "timestamp": "2026-10-01T10:02:56.535554+00:00"
 }
