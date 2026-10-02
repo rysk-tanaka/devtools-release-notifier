@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Fix selection loss while an agent thread is loading (#64252)",
-  "timestamp": "2026-10-01T10:02:56.535554+00:00"
+  "version": "nightly: git_ui: Enable splitting MultiDiffView (directory `zed --diff`) (#64967)",
+  "timestamp": "2026-10-02T10:02:35.196889+00:00"
 }

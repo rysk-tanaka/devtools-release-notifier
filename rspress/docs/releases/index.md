@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-10-02
+
+- [nightly: git_ui: Enable splitting MultiDiffView (directory `zed --diff`) (#64967)](./zed-editor/2026-10-02.md)
+- [v2.1.287](./claude-code/2026-10-02.md)
+
 ### 2026-10-01
 
 - [2.6.0.0](./raycast/2026-10-01.md)
@@ -44,6 +49,4 @@
 
 ### 2026-09-25
 
-- [2.5.1.0](./raycast/2026-09-25.md)
-- [nightly: cloud_api_client: Update yawc to 0.4.2 (#64728)](./zed-editor/2026-09-25.md)
 - [v2.1.282](./claude-code/2026-09-25.md)
