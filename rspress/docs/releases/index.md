@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-10-03
+
+- [2.6.2.0](./raycast/2026-10-03.md)
+- [nightly: docs: Fix tab-switcher keybindings (#65105)](./zed-editor/2026-10-03.md)
+- [v2.1.288](./claude-code/2026-10-03.md)
+
 ### 2026-10-02
 
 - [nightly: git_ui: Enable splitting MultiDiffView (directory `zed --diff`) (#64967)](./zed-editor/2026-10-02.md)
@@ -43,10 +49,4 @@
 
 ### 2026-09-26
 
-- [2.5.2.0](./raycast/2026-09-26.md)
-- [nightly: language_model: Split request methods into LanguageModelClient (#64794)](./zed-editor/2026-09-26.md)
 - [v2.1.283](./claude-code/2026-09-26.md)
-
-### 2026-09-25
-
-- [v2.1.282](./claude-code/2026-09-25.md)

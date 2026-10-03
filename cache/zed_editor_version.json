@@ -1,4 +1,4 @@
 {
-  "version": "nightly: git_ui: Enable splitting MultiDiffView (directory `zed --diff`) (#64967)",
-  "timestamp": "2026-10-02T10:02:35.196889+00:00"
+  "version": "nightly: docs: Fix tab-switcher keybindings (#65105)",
+  "timestamp": "2026-10-03T10:02:26.264935+00:00"
 }
