@@ -1,4 +1,4 @@
 {
-  "version": "nightly",
-  "timestamp": "2026-10-04T11:18:15.125934+00:00"
+  "version": "nightly: languages: Fix JSON completion order for settings keys (#65139)",
+  "timestamp": "2026-10-05T10:05:33.754460+00:00"
 }

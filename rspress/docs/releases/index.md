@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-10-05
+
+- [nightly: languages: Fix JSON completion order for settings keys (#65139)](./zed-editor/2026-10-05.md)
+
 ### 2026-10-04
 
 - [nightly](./zed-editor/2026-10-04.md)
@@ -45,5 +49,4 @@
 
 ### 2026-09-28
 
-- [2.5.3.0](./raycast/2026-09-28.md)
 - [nightly: git: Stop remote operations blocking commit views (#64720)](./zed-editor/2026-09-28.md)
