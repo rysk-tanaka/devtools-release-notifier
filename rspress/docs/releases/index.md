@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-10-06
+
+- [2.6.3.0](./raycast/2026-10-06.md)
+- [nightly: Update Rust crate rustls to v0.23.45 [SECURITY] (#65221)](./zed-editor/2026-10-06.md)
+- [v2.1.291](./claude-code/2026-10-06.md)
+
 ### 2026-10-05
 
 - [nightly: languages: Fix JSON completion order for settings keys (#65139)](./zed-editor/2026-10-05.md)
@@ -41,12 +47,3 @@
 ### 2026-09-30
 
 - [v2.1.285](./claude-code/2026-09-30.md)
-
-### 2026-09-29
-
-- [nightly](./zed-editor/2026-09-29.md)
-- [v2.1.284](./claude-code/2026-09-29.md)
-
-### 2026-09-28
-
-- [nightly: git: Stop remote operations blocking commit views (#64720)](./zed-editor/2026-09-28.md)

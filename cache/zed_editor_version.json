@@ -1,4 +1,4 @@
 {
-  "version": "nightly: languages: Fix JSON completion order for settings keys (#65139)",
-  "timestamp": "2026-10-05T10:05:33.754460+00:00"
+  "version": "nightly: Update Rust crate rustls to v0.23.45 [SECURITY] (#65221)",
+  "timestamp": "2026-10-06T10:02:38.606869+00:00"
 }
