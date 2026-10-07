@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-10-07
+
+- [nightly: Fix agent file link navigation (#64748)](./zed-editor/2026-10-07.md)
+- [v2.1.292](./claude-code/2026-10-07.md)
+
 ### 2026-10-06
 
 - [2.6.3.0](./raycast/2026-10-06.md)
@@ -40,10 +45,5 @@
 
 ### 2026-10-01
 
-- [2.6.0.0](./raycast/2026-10-01.md)
 - [nightly: Fix selection loss while an agent thread is loading (#64252)](./zed-editor/2026-10-01.md)
 - [v2.1.286](./claude-code/2026-10-01.md)
-
-### 2026-09-30
-
-- [v2.1.285](./claude-code/2026-09-30.md)

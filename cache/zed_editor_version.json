@@ -1,4 +1,4 @@
 {
-  "version": "nightly: Update Rust crate rustls to v0.23.45 [SECURITY] (#65221)",
-  "timestamp": "2026-10-06T10:02:38.606869+00:00"
+  "version": "nightly: Fix agent file link navigation (#64748)",
+  "timestamp": "2026-10-07T10:02:50.656183+00:00"
 }
