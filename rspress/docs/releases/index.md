@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-10-08
+
+- [2.7.1.0](./raycast/2026-10-08.md)
+- [v1.24.1-pre](./zed-editor/2026-10-08.md)
+- [v2.1.294](./claude-code/2026-10-08.md)
+
 ### 2026-10-07
 
 - [nightly: Fix agent file link navigation (#64748)](./zed-editor/2026-10-07.md)
@@ -40,10 +46,4 @@
 
 ### 2026-10-02
 
-- [nightly: git_ui: Enable splitting MultiDiffView (directory `zed --diff`) (#64967)](./zed-editor/2026-10-02.md)
 - [v2.1.287](./claude-code/2026-10-02.md)
-
-### 2026-10-01
-
-- [nightly: Fix selection loss while an agent thread is loading (#64252)](./zed-editor/2026-10-01.md)
-- [v2.1.286](./claude-code/2026-10-01.md)
