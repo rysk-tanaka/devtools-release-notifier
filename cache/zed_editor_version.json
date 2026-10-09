@@ -1,4 +1,4 @@
 {
-  "version": "v1.24.1-pre",
-  "timestamp": "2026-10-08T10:03:05.822630+00:00"
+  "version": "nightly: agent_servers: Preserve initial ACP session updates (#65339)",
+  "timestamp": "2026-10-09T10:02:39.162307+00:00"
 }

@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-10-09
+
+- [2.7.2.0](./raycast/2026-10-09.md)
+- [nightly: agent_servers: Preserve initial ACP session updates (#65339)](./zed-editor/2026-10-09.md)
+- [v2.1.295](./claude-code/2026-10-09.md)
+
 ### 2026-10-08
 
 - [2.7.1.0](./raycast/2026-10-08.md)
@@ -40,10 +46,4 @@
 
 ### 2026-10-03
 
-- [2.6.2.0](./raycast/2026-10-03.md)
-- [nightly: docs: Fix tab-switcher keybindings (#65105)](./zed-editor/2026-10-03.md)
 - [v2.1.288](./claude-code/2026-10-03.md)
-
-### 2026-10-02
-
-- [v2.1.287](./claude-code/2026-10-02.md)
