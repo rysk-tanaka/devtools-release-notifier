@@ -1,4 +1,4 @@
 {
-  "version": "nightly: agent_servers: Preserve initial ACP session updates (#65339)",
-  "timestamp": "2026-10-09T10:02:39.162307+00:00"
+  "version": "nightly: agent: Use ACP v2 content for native prompts (#65417)",
+  "timestamp": "2026-10-10T10:02:18.752984+00:00"
 }

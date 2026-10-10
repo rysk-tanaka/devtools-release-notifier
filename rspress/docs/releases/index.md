@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-10-10
+
+- [2.7.3.0](./raycast/2026-10-10.md)
+- [nightly: agent: Use ACP v2 content for native prompts (#65417)](./zed-editor/2026-10-10.md)
+- [v2.1.296](./claude-code/2026-10-10.md)
+
 ### 2026-10-09
 
 - [2.7.2.0](./raycast/2026-10-09.md)
@@ -38,12 +44,3 @@
 ### 2026-10-05
 
 - [nightly: languages: Fix JSON completion order for settings keys (#65139)](./zed-editor/2026-10-05.md)
-
-### 2026-10-04
-
-- [nightly](./zed-editor/2026-10-04.md)
-- [v2.1.289](./claude-code/2026-10-04.md)
-
-### 2026-10-03
-
-- [v2.1.288](./claude-code/2026-10-03.md)
