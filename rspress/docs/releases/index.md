@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-10-11
+
+- [nightly: git_ui: Fix commit editor button hover colors (#65448)](./zed-editor/2026-10-11.md)
+
 ### 2026-10-10
 
 - [2.7.3.0](./raycast/2026-10-10.md)
@@ -40,7 +44,3 @@
 - [2.6.3.0](./raycast/2026-10-06.md)
 - [nightly: Update Rust crate rustls to v0.23.45 [SECURITY] (#65221)](./zed-editor/2026-10-06.md)
 - [v2.1.291](./claude-code/2026-10-06.md)
-
-### 2026-10-05
-
-- [nightly: languages: Fix JSON completion order for settings keys (#65139)](./zed-editor/2026-10-05.md)
