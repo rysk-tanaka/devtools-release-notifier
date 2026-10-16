@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-10-16
+
+- [nightly: agent_servers: Integrate inactive v2 receipt submissions (#65653)](./zed-editor/2026-10-16.md)
+- [v2.1.301](./claude-code/2026-10-16.md)
+
 ### 2026-10-15
 
 - [2.8.0.0](./raycast/2026-10-15.md)
@@ -42,8 +47,3 @@
 - [2.7.2.0](./raycast/2026-10-09.md)
 - [nightly: agent_servers: Preserve initial ACP session updates (#65339)](./zed-editor/2026-10-09.md)
 - [v2.1.295](./claude-code/2026-10-09.md)
-
-### 2026-10-08
-
-- [v1.24.1-pre](./zed-editor/2026-10-08.md)
-- [v2.1.294](./claude-code/2026-10-08.md)
