@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-10-19
+
+- [v2.1.303](./claude-code/2026-10-19.md)
+
 ### 2026-10-18
 
 - [nightly: acp_thread: Apply v2 metadata patches by key (#65709)](./zed-editor/2026-10-18.md)
@@ -48,5 +52,4 @@
 
 ### 2026-10-10
 
-- [nightly: agent: Use ACP v2 content for native prompts (#65417)](./zed-editor/2026-10-10.md)
 - [v2.1.296](./claude-code/2026-10-10.md)
