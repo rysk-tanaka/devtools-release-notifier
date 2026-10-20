@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-10-20
+
+- [v1.25.1-pre](./zed-editor/2026-10-20.md)
+- [v2.1.304](./claude-code/2026-10-20.md)
+
 ### 2026-10-19
 
 - [v2.1.303](./claude-code/2026-10-19.md)
@@ -45,11 +50,3 @@
 ### 2026-10-13
 
 - [v1.24.2-pre](./zed-editor/2026-10-13.md)
-
-### 2026-10-11
-
-- [nightly: git_ui: Fix commit editor button hover colors (#65448)](./zed-editor/2026-10-11.md)
-
-### 2026-10-10
-
-- [v2.1.296](./claude-code/2026-10-10.md)
