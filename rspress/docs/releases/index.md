@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-10-21
+
+- [v2.1.306](./claude-code/2026-10-21.md)
+
 ### 2026-10-20
 
 - [v1.25.1-pre](./zed-editor/2026-10-20.md)
@@ -46,7 +50,3 @@
 
 - [nightly: Add llvm to Arch dependencies in script/linux (#65462)](./zed-editor/2026-10-14.md)
 - [v2.1.299](./claude-code/2026-10-14.md)
-
-### 2026-10-13
-
-- [v1.24.2-pre](./zed-editor/2026-10-13.md)
