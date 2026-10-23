@@ -1,4 +1,4 @@
 {
-  "version": "v1.26.1-pre",
-  "timestamp": "2026-10-22T10:02:06.439078+00:00"
+  "version": "nightly: fs: Preserve child watches when removing parent subscriptions (#65998)",
+  "timestamp": "2026-10-23T10:02:10.099008+00:00"
 }

@@ -12,6 +12,12 @@
 
 ## リリース一覧
 
+### 2026-10-23
+
+- [2.9.0.0](./raycast/2026-10-23.md)
+- [nightly: fs: Preserve child watches when removing parent subscriptions (#65998)](./zed-editor/2026-10-23.md)
+- [v2.1.309](./claude-code/2026-10-23.md)
+
 ### 2026-10-22
 
 - [v1.26.1-pre](./zed-editor/2026-10-22.md)
@@ -44,9 +50,3 @@
 
 - [nightly: agent_servers: Integrate inactive v2 receipt submissions (#65653)](./zed-editor/2026-10-16.md)
 - [v2.1.301](./claude-code/2026-10-16.md)
-
-### 2026-10-15
-
-- [2.8.0.0](./raycast/2026-10-15.md)
-- [v1.25.0-pre](./zed-editor/2026-10-15.md)
-- [v2.1.300](./claude-code/2026-10-15.md)
