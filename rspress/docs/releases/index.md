@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-10-25
+
+- [nightly: util: Preserve path separators when parsing file positions (#66089)](./zed-editor/2026-10-25.md)
+
 ### 2026-10-24
 
 - [v1.26.2-pre](./zed-editor/2026-10-24.md)
@@ -47,6 +51,5 @@
 
 ### 2026-10-17
 
-- [2.8.2.0](./raycast/2026-10-17.md)
 - [v1.24.3](./zed-editor/2026-10-17.md)
 - [v2.1.302](./claude-code/2026-10-17.md)
