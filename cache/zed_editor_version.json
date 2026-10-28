@@ -1,4 +1,4 @@
 {
-  "version": "nightly: git: Reflect external stash renames (#55294)",
-  "timestamp": "2026-10-27T10:02:30.130019+00:00"
+  "version": "nightly: Protect against solargraph LSP violations (#66157)",
+  "timestamp": "2026-10-28T10:01:35.548090+00:00"
 }
