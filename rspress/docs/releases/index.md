@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-10-29
+
+- [2.10.1.0](./raycast/2026-10-29.md)
+- [v1.27.0-pre](./zed-editor/2026-10-29.md)
+
 ### 2026-10-28
 
 - [nightly: Protect against solargraph LSP violations (#66157)](./zed-editor/2026-10-28.md)
@@ -45,11 +50,3 @@
 
 - [v1.26.1-pre](./zed-editor/2026-10-22.md)
 - [v2.1.308](./claude-code/2026-10-22.md)
-
-### 2026-10-21
-
-- [v2.1.306](./claude-code/2026-10-21.md)
-
-### 2026-10-20
-
-- [v2.1.304](./claude-code/2026-10-20.md)
