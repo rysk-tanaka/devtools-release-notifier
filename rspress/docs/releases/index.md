@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-10-30
+
+- [nightly: collab: Remove extension endpoints served by Cloud (#66308)](./zed-editor/2026-10-30.md)
+- [v2.1.314](./claude-code/2026-10-30.md)
+
 ### 2026-10-29
 
 - [2.10.1.0](./raycast/2026-10-29.md)
@@ -45,8 +50,3 @@
 - [2.9.0.0](./raycast/2026-10-23.md)
 - [nightly: fs: Preserve child watches when removing parent subscriptions (#65998)](./zed-editor/2026-10-23.md)
 - [v2.1.309](./claude-code/2026-10-23.md)
-
-### 2026-10-22
-
-- [v1.26.1-pre](./zed-editor/2026-10-22.md)
-- [v2.1.308](./claude-code/2026-10-22.md)
