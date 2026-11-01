@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-11-01
+
+- [nightly: markdown_preview: Stop rounding image corners (#65474)](./zed-editor/2026-11-01.md)
+
 ### 2026-10-31
 
 - [nightly](./zed-editor/2026-10-31.md)
@@ -49,7 +53,3 @@
 
 - [v1.26.2-pre](./zed-editor/2026-10-24.md)
 - [v2.1.310](./claude-code/2026-10-24.md)
-
-### 2026-10-23
-
-- [nightly: fs: Preserve child watches when removing parent subscriptions (#65998)](./zed-editor/2026-10-23.md)
