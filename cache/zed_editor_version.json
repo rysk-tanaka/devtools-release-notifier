@@ -1,4 +1,4 @@
 {
-  "version": "nightly: markdown_preview: Stop rounding image corners (#65474)",
-  "timestamp": "2026-11-01T10:01:06.696639+00:00"
+  "version": "nightly: gpui: Render macOS window screenshots offscreen (#66344)",
+  "timestamp": "2026-11-02T10:01:14.553780+00:00"
 }

@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-11-02
+
+- [nightly: gpui: Render macOS window screenshots offscreen (#66344)](./zed-editor/2026-11-02.md)
+
 ### 2026-11-01
 
 - [nightly: markdown_preview: Stop rounding image corners (#65474)](./zed-editor/2026-11-01.md)
@@ -52,4 +56,3 @@
 ### 2026-10-24
 
 - [v1.26.2-pre](./zed-editor/2026-10-24.md)
-- [v2.1.310](./claude-code/2026-10-24.md)
