@@ -1,4 +1,4 @@
 {
-  "version": "nightly: gpui: Render macOS window screenshots offscreen (#66344)",
-  "timestamp": "2026-11-02T10:01:14.553780+00:00"
+  "version": "nightly: Allow mouse wheel zoom in terminals and diff views (#66296)",
+  "timestamp": "2026-11-03T10:01:10.115400+00:00"
 }

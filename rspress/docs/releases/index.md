@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-11-03
+
+- [nightly: Allow mouse wheel zoom in terminals and diff views (#66296)](./zed-editor/2026-11-03.md)
+- [v2.1.317](./claude-code/2026-11-03.md)
+
 ### 2026-11-02
 
 - [nightly: gpui: Render macOS window screenshots offscreen (#66344)](./zed-editor/2026-11-02.md)
@@ -48,11 +53,3 @@
 ### 2026-10-26
 
 - [nightly](./zed-editor/2026-10-26.md)
-
-### 2026-10-25
-
-- [nightly: util: Preserve path separators when parsing file positions (#66089)](./zed-editor/2026-10-25.md)
-
-### 2026-10-24
-
-- [v1.26.2-pre](./zed-editor/2026-10-24.md)
