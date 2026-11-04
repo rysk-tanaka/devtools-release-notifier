@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-11-04
+
+- [nightly](./zed-editor/2026-11-04.md)
+- [v2.1.318](./claude-code/2026-11-04.md)
+
 ### 2026-11-03
 
 - [nightly: Allow mouse wheel zoom in terminals and diff views (#66296)](./zed-editor/2026-11-03.md)
@@ -48,8 +53,3 @@
 ### 2026-10-27
 
 - [nightly: git: Reflect external stash renames (#55294)](./zed-editor/2026-10-27.md)
-- [v2.1.311](./claude-code/2026-10-27.md)
-
-### 2026-10-26
-
-- [nightly](./zed-editor/2026-10-26.md)
