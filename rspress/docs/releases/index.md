@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-11-05
+
+- [2.11.1.0](./raycast/2026-11-05.md)
+- [v1.28.0-pre](./zed-editor/2026-11-05.md)
+
 ### 2026-11-04
 
 - [nightly](./zed-editor/2026-11-04.md)
@@ -48,8 +53,3 @@
 ### 2026-10-28
 
 - [nightly: Protect against solargraph LSP violations (#66157)](./zed-editor/2026-10-28.md)
-- [v2.1.312](./claude-code/2026-10-28.md)
-
-### 2026-10-27
-
-- [nightly: git: Reflect external stash renames (#55294)](./zed-editor/2026-10-27.md)
