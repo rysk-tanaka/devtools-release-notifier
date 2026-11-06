@@ -12,6 +12,10 @@
 
 ## リリース一覧
 
+### 2026-11-06
+
+- [nightly: gpui_windows: Composite COLR layers on the CPU (#66588)](./zed-editor/2026-11-06.md)
+
 ### 2026-11-05
 
 - [2.11.1.0](./raycast/2026-11-05.md)
@@ -49,7 +53,3 @@
 
 - [2.10.1.0](./raycast/2026-10-29.md)
 - [v1.27.0-pre](./zed-editor/2026-10-29.md)
-
-### 2026-10-28
-
-- [nightly: Protect against solargraph LSP violations (#66157)](./zed-editor/2026-10-28.md)
