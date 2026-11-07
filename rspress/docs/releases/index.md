@@ -12,6 +12,11 @@
 
 ## リリース一覧
 
+### 2026-11-07
+
+- [nightly: agent: Allow auto title generation to be disabled (#63998)](./zed-editor/2026-11-07.md)
+- [v2.1.319](./claude-code/2026-11-07.md)
+
 ### 2026-11-06
 
 - [nightly: gpui_windows: Composite COLR layers on the CPU (#66588)](./zed-editor/2026-11-06.md)
@@ -48,8 +53,3 @@
 
 - [nightly: collab: Remove extension endpoints served by Cloud (#66308)](./zed-editor/2026-10-30.md)
 - [v2.1.314](./claude-code/2026-10-30.md)
-
-### 2026-10-29
-
-- [2.10.1.0](./raycast/2026-10-29.md)
-- [v1.27.0-pre](./zed-editor/2026-10-29.md)
